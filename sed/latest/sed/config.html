@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API &#8212; SED 0.1.10a5 documentation</title>
+    <title>Config &#8212; SED 0.1.10a6 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=49fe1def"></script>
+    <script src="../_static/documentation_options.js?v=7e069785"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,8 +43,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/config';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/sed/pydata-docs-theme/docs/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -123,7 +123,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a5 documentation</p>
+    <p class="title logo__title">SED 0.1.10a6 documentation</p>
   
 </a></div>
     
@@ -399,7 +399,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="diagnostic.html">Diagnostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">IO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">API</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Config</a></li>
 </ul>
 </div>
 </nav></div>
@@ -453,7 +453,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="api.html" class="nav-link">API</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">API</li>
+    <li class="breadcrumb-item active" aria-current="page">Config</li>
   </ul>
 </nav>
 </div>
@@ -471,7 +471,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="module-sed.core.config">
-<span id="api"></span><h1>API<a class="headerlink" href="#module-sed.core.config" title="Link to this heading">#</a></h1>
+<span id="config"></span><h1>Config<a class="headerlink" href="#module-sed.core.config" title="Link to this heading">#</a></h1>
 <p>This module contains a config library for loading yaml/json files into dicts</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.config.parse_config">
@@ -484,21 +484,21 @@ can be also passed as optional arguments (file path strings or dictionaries).</p
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – config dictionary or file path.
+<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – config dictionary or file path.
 Files can be <em>json</em> or <em>yaml</em>. Defaults to None.</p></li>
-<li><p><strong>folder_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – working-folder-based config dictionary
+<li><p><strong>folder_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – working-folder-based config dictionary
 or file path. The loaded dictionary is completed with the folder-based values,
 taking preference over user, system and default values. Defaults to the file
 “sed_config.yaml” in the current working directory.</p></li>
-<li><p><strong>user_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – user-based config dictionary
+<li><p><strong>user_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – user-based config dictionary
 or file path. The loaded dictionary is completed with the user-based values,
 taking preference over system and default values.
 Defaults to the file “.sed/config.yaml” in the current user’s home directory.</p></li>
-<li><p><strong>system_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – system-wide config dictionary
+<li><p><strong>system_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – system-wide config dictionary
 or file path. The loaded dictionary is completed with the system-wide values,
 taking preference over default values. Defaults to the file “/etc/sed/config.yaml”
 on linux, and “%ALLUSERSPROFILE%/sed/config.yaml” on windows.</p></li>
-<li><p><strong>default_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – default config dictionary
+<li><p><strong>default_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – default config dictionary
 or file path. The loaded dictionary is completed with the default values.
 Defaults to <em>package_dir</em>/config/default.yaml”.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to report loaded config files. Defaults to True.</p></li>
@@ -547,11 +547,11 @@ Defaults to <em>package_dir</em>/config/default.yaml”.</p></li>
 <span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#save_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.save_config" title="Link to this definition">#</a></dt>
 <dd><p>Function to save a given config dictionary to a json or yaml file. Normally, it loads any
 existing file of the given name, and keeps any existing dictionary keys not present in the
-provided dictionary. The overwrite option creates a fully empty dictionry first.</p>
+provided dictionary. The overwrite option creates a fully empty dictionary first.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config_dict</strong> (<em>dict</em>) – The dictionry to save.</p></li>
+<li><p><strong>config_dict</strong> (<em>dict</em>) – The dictionary to save.</p></li>
 <li><p><strong>config_path</strong> (<em>str</em>) – A string containing the path to the file where to save the dictionary
 to.</p></li>
 <li><p><strong>overwrite</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to overwrite an existing file with the given dictionary.

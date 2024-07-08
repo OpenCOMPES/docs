@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Diagnostics &#8212; SED 0.1.10a5 documentation</title>
+    <title>Diagnostics &#8212; SED 0.1.10a6 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=49fe1def"></script>
+    <script src="../_static/documentation_options.js?v=7e069785"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,8 +43,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/diagnostic';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/sed/pydata-docs-theme/docs/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -124,7 +124,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a5 documentation</p>
+    <p class="title logo__title">SED 0.1.10a6 documentation</p>
   
 </a></div>
     
@@ -400,7 +400,7 @@ document.write(`
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Diagnostics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">IO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config</a></li>
 </ul>
 </div>
 </nav></div>
@@ -507,7 +507,7 @@ document.write(`
 <li><p><strong>ncol</strong> (<em>int</em>) – Number of columns in the plot grid.</p></li>
 <li><p><strong>rvs</strong> (<em>Sequence</em>) – List of names for the random variables (rvs).</p></li>
 <li><p><strong>rvbins</strong> (<em>Sequence</em>) – Bin values for all random variables.</p></li>
-<li><p><strong>rvranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em>) – Value ranges of all random variables.</p></li>
+<li><p><strong>rvranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em>) – Value ranges of all random variables.</p></li>
 <li><p><strong>backend</strong> (<em>str</em><em>, </em><em>optional</em>) – Backend for making the plot (‘matplotlib’ or ‘bokeh’).
 Defaults to “bokeh”.</p></li>
 <li><p><strong>legend</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to include a legend in each histogram plot.

@@ -1,4 +1,4 @@
-API
+Config
 ***************************************************
 .. automodule:: sed.core.config
    :members:

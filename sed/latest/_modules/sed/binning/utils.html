@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.binning.utils &#8212; SED 0.1.10a5 documentation</title>
+    <title>sed.binning.utils &#8212; SED 0.1.10a6 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
+    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -42,8 +42,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/binning/utils';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/sed/pydata-docs-theme/docs/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a5 documentation</p>
+    <p class="title logo__title">SED 0.1.10a6 documentation</p>
   
 </a></div>
     
@@ -447,11 +447,13 @@ document.write(`
                   
   <h1>Source code for sed.binning.utils</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This file contains helper functions for the sed.binning module</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -464,10 +466,16 @@ document.write(`
 <div class="viewcode-block" id="simplify_binning_arguments">
 <a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.simplify_binning_arguments">[docs]</a>
 <span class="k">def</span> <span class="nf">simplify_binning_arguments</span><span class="p">(</span>
-    <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="nb">int</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">,</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="p">],</span>
     <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the flexible input for defining bins into a</span>
 <span class="sd">    simple &quot;axes&quot; &quot;bins&quot; &quot;ranges&quot; tuple.</span>
 
@@ -475,13 +483,13 @@ document.write(`
 <span class="sd">    binning functions defined here.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        bins (int | dict | Sequence[int] | Sequence[np.ndarray] | Sequence[tuple]):</span>
+<span class="sd">        bins (int, dict, Sequence[int], Sequence[np.ndarray], Sequence[tuple]):</span>
 <span class="sd">            Definition of the bins. Can  be any of the following cases:</span>
 
 <span class="sd">                - an integer describing the number of bins for all dimensions. This</span>
 <span class="sd">                  requires &quot;ranges&quot; to be defined as well.</span>
 <span class="sd">                - A sequence containing one entry of the following types for each</span>
-<span class="sd">                  dimenstion:</span>
+<span class="sd">                  dimension:</span>
 
 <span class="sd">                    - an integer describing the number of bins. This requires &quot;ranges&quot;</span>
 <span class="sd">                      to be defined as well.</span>
@@ -498,7 +506,7 @@ document.write(`
 <span class="sd">            the order of the dimensions in the resulting array. Only not required if</span>
 <span class="sd">            bins are provided as dictionary containing the axis names.</span>
 <span class="sd">            Defaults to None.</span>
-<span class="sd">        ranges (Sequence[tuple[float, float]], optional): Sequence of tuples containing</span>
+<span class="sd">        ranges (Sequence[Tuple[float, float]], optional): Sequence of tuples containing</span>
 <span class="sd">            the start and end point of the binning range. Required if bins given as</span>
 <span class="sd">            int or Sequence[int]. Defaults to None.</span>
 
@@ -509,7 +517,7 @@ document.write(`
 <span class="sd">        AttributeError: Shape mismatch</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple[list[int] | list[np.ndarray], list[str], list[tuple[float, float]]]: Tuple</span>
+<span class="sd">        Tuple[Union[List[int], List[np.ndarray]], List[Tuple[float, float]]]: Tuple</span>
 <span class="sd">        containing lists of bin centers, axes, and ranges.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># if bins is a dictionary: unravel to axes and bins</span>
@@ -555,7 +563,7 @@ document.write(`
 
     <span class="c1"># if bins are provided as int, check that ranges are present</span>
     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">ranges</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
                 <span class="s2">&quot;Must provide a range if bins is an integer or list of integers&quot;</span><span class="p">,</span>
@@ -565,9 +573,9 @@ document.write(`
                 <span class="sa">f</span><span class="s2">&quot;Ranges must be a sequence, not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
             <span class="p">)</span>
 
-    <span class="c1"># otherwise, all bins should by np.ndarrays here</span>
+    <span class="c1"># otherwise, all bins should be of type np.ndarray here</span>
     <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not interpret bins of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 

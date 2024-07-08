@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.io.nexus &#8212; SED 0.1.10a5 documentation</title>
+    <title>sed.io.nexus &#8212; SED 0.1.10a6 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
+    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -42,8 +42,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/io/nexus';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/sed/pydata-docs-theme/docs/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a5 documentation</p>
+    <p class="title logo__title">SED 0.1.10a6 documentation</p>
   
 </a></div>
     
@@ -447,13 +447,12 @@ document.write(`
                   
   <h1>Source code for sed.io.nexus</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This module contains NuXus file input/output functions for the sed.io module.</span>
-<span class="sd">The conversion is based on the nexusutils from the FAIRmat NFDI consortium.</span>
+<span class="sd">The conversion is based on the pynxtools from the FAIRmat NFDI consortium.</span>
 <span class="sd">For details, see https://github.com/nomad-coe/nomad-parser-nexus</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
-
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">from</span> <span class="nn">pynxtools.dataconverter.convert</span> <span class="kn">import</span> <span class="n">convert</span>
@@ -466,7 +465,7 @@ document.write(`
     <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">reader</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">definition</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">input_files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">input_files</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
     <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Saves the x-array provided to a NeXus file at faddr, using the provided reader,</span>
@@ -477,9 +476,10 @@ document.write(`
 <span class="sd">            data._attrs[&quot;metadata&quot;].</span>
 <span class="sd">        faddr (str): The file path to save to.</span>
 <span class="sd">        reader (str): The name of the NeXus reader to use.</span>
-<span class="sd">        definition (str): The NeXus definiton to use.</span>
-<span class="sd">        input_files (str | Sequence[str]): The file path or paths to the additional files to use.</span>
-<span class="sd">        **kwds: Keyword arguments for ``nexusutils.dataconverter.convert``.</span>
+<span class="sd">        definition (str): The NeXus definition to use.</span>
+<span class="sd">        input_files (Union[str, Sequence[str]]): The file path or paths to the additional files to</span>
+<span class="sd">            use.</span>
+<span class="sd">        **kwds: Keyword arguments for ``pynxtools.dataconverter.convert.convert()``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
