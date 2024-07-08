@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.calibrator.delay &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.calibrator.delay &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -448,14 +448,12 @@ document.write(`
   <h1>Source code for sed.calibrator.delay</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;sed.calibrator.delay module. Code for delay calibration.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span>
 <span class="kn">import</span> <span class="nn">h5py</span>
@@ -496,32 +494,32 @@ document.write(`
             <span class="s2">&quot;corrected_delay_column&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">delay_column</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">calibration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;delay&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calibration&quot;</span><span class="p">,</span> <span class="p">{})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;delay&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;offsets&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;delay&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calibration&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;delay&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;offsets&quot;</span><span class="p">,</span> <span class="p">{})</span>
 
 <div class="viewcode-block" id="DelayCalibrator.append_delay_axis">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.delay.DelayCalibrator.append_delay_axis">[docs]</a>
     <span class="k">def</span> <span class="nf">append_delay_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">adc_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">delay_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">calibration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">adc_range</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">delay_range</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">adc_range</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">delay_range</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">time0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">delay_range_mm</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">delay_range_mm</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">datafile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">p1_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">p2_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">t0_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate and append the delay axis to the events dataframe, by converting</span>
 <span class="sd">        values from an analog-digital-converter (ADC).</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            df (Union[pd.DataFrame, dask.dataframe.DataFrame]): The dataframe where</span>
+<span class="sd">            df (pd.DataFrame | dask.dataframe.DataFrame): The dataframe where</span>
 <span class="sd">                to apply the delay calibration to.</span>
 <span class="sd">            adc_column (str, optional): Source column for delay calibration.</span>
 <span class="sd">                Defaults to config[&quot;dataframe&quot;][&quot;adc_column&quot;].</span>
@@ -529,14 +527,14 @@ document.write(`
 <span class="sd">                Defaults to config[&quot;dataframe&quot;][&quot;delay_column&quot;].</span>
 <span class="sd">            calibration (dict, optional): Calibration dictionary with parameters for</span>
 <span class="sd">                delay calibration.</span>
-<span class="sd">            adc_range (Union[Tuple, List, np.ndarray], optional): The range of used</span>
+<span class="sd">            adc_range (tuple | list | np.ndarray, optional): The range of used</span>
 <span class="sd">                ADC values. Defaults to config[&quot;delay&quot;][&quot;adc_range&quot;].</span>
-<span class="sd">            delay_range (Union[Tuple, List, np.ndarray], optional): Range of scanned</span>
+<span class="sd">            delay_range (tuple | list | np.ndarray, optional): Range of scanned</span>
 <span class="sd">                delay values in ps. If omitted, the range is calculated from the</span>
 <span class="sd">                delay_range_mm and t0 values.</span>
 <span class="sd">            time0 (float, optional): Pump-Probe overlap value of the delay coordinate.</span>
 <span class="sd">                If omitted, it is searched for in the data files.</span>
-<span class="sd">            delay_range_mm (Union[Tuple, List, np.ndarray], optional): Range of scanned</span>
+<span class="sd">            delay_range_mm (tuple | list | np.ndarray, optional): Range of scanned</span>
 <span class="sd">                delay stage in mm. If omitted, it is searched for in the data files.</span>
 <span class="sd">            datafile (str, optional): Datafile in which delay parameters are searched</span>
 <span class="sd">                for. Defaults to None.</span>
@@ -554,8 +552,8 @@ document.write(`
 <span class="sd">            NotImplementedError: Raised if no sufficient information passed.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Union[pd.DataFrame, dask.dataframe.DataFrame]: dataframe with added column</span>
-<span class="sd">            and delay calibration metadata dictionary.</span>
+<span class="sd">            tuple[pd.DataFrame | dask.dataframe.DataFrame, dict]: dataframe with added column</span>
+<span class="sd">            and delay calibration metdata dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># pylint: disable=duplicate-code</span>
         <span class="k">if</span> <span class="n">calibration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -662,39 +660,40 @@ document.write(`
     <span class="k">def</span> <span class="nf">add_offsets</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
-        <span class="n">offsets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">offsets</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">constant</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">flip_delay_axis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-        <span class="n">preserve_mean</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">reductions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">weights</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">preserve_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">reductions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">delay_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply an offset to the delay column based on a constant or other columns.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to use.</span>
-<span class="sd">            offsets (Dict, optional): Dictionary of delay offset parameters.</span>
+<span class="sd">            offsets (dict, optional): Dictionary of delay offset parameters.</span>
 <span class="sd">            constant (float, optional): The constant to shift the delay axis by.</span>
 <span class="sd">            flip_delay_axis (bool, optional): Whether to flip the time axis. Defaults to False.</span>
-<span class="sd">            columns (Union[str, Sequence[str]]): Name of the column(s) to apply the shift from.</span>
-<span class="sd">            weights (Union[int, Sequence[int]]): weights to apply to the columns.</span>
+<span class="sd">            columns (str | Sequence[str]): Name of the column(s) to apply the shift from.</span>
+<span class="sd">            weights (float | Sequence[float]): weights to apply to the columns.</span>
 <span class="sd">                Can also be used to flip the sign (e.g. -1). Defaults to 1.</span>
-<span class="sd">            preserve_mean (bool): Whether to subtract the mean of the column before applying the</span>
-<span class="sd">                shift. Defaults to False.</span>
-<span class="sd">            reductions (str): The reduction to apply to the column. Should be an available method</span>
-<span class="sd">                of dask.dataframe.Series. For example &quot;mean&quot;. In this case the function is applied</span>
-<span class="sd">                to the column to generate a single value for the whole dataset. If None, the shift</span>
-<span class="sd">                is applied per-dataframe-row. Defaults to None. Currently only &quot;mean&quot; is supported.</span>
+<span class="sd">            preserve_mean (bool | Sequence[bool]): Whether to subtract the mean of the column</span>
+<span class="sd">                before applying the shift. Defaults to False.</span>
+<span class="sd">            reductions (str | Sequence[str]): The reduction to apply to the column. Should be an</span>
+<span class="sd">                available method of dask.dataframe.Series. For example &quot;mean&quot;. In this case the</span>
+<span class="sd">                function is applied to the column to generate a single value for the whole dataset.</span>
+<span class="sd">                If None, the shift is applied per-dataframe-row. Defaults to None. Currently only</span>
+<span class="sd">                &quot;mean&quot; is supported.</span>
 <span class="sd">            delay_column (str, optional): Name of the column containing the delay values.</span>
 <span class="sd">            verbose (bool, optional): Option to print out diagnostic information.</span>
 <span class="sd">                Defaults to True.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            dask.dataframe.DataFrame: Dataframe with the shifted delay axis.</span>
-<span class="sd">            dict: Metadata dictionary.</span>
+<span class="sd">            tuple[dask.dataframe.DataFrame, dict]: Dataframe with the shifted delay axis and</span>
+<span class="sd">            Metadata dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">offsets</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">offsets</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">)</span>
@@ -702,7 +701,7 @@ document.write(`
         <span class="k">if</span> <span class="n">delay_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">delay_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delay_column</span>
 
-        <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;applied&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
         <span class="p">}</span>
 
@@ -838,7 +837,7 @@ document.write(`
     <span class="n">p1_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">p2_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">t0_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read delay stage ranges from hdf5 file</span>
 
@@ -866,18 +865,18 @@ document.write(`
 <div class="viewcode-block" id="mm_to_ps">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.delay.mm_to_ps">[docs]</a>
 <span class="k">def</span> <span class="nf">mm_to_ps</span><span class="p">(</span>
-    <span class="n">delay_mm</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">delay_mm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">time0_mm</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a delay stage position in mm into a relative delay in picoseconds</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a delaystage position in mm into a relative delay in picoseconds</span>
 <span class="sd">    (double pass).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        delay_mm (Union[float, Sequence[float]]): Delay stage position in mm</span>
+<span class="sd">        delay_mm (float | np.ndarray): Delay stage position in mm</span>
 <span class="sd">        time0_mm (float): Delay stage position of pump-probe overlap in mm</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Union[float, Sequence[float]]: Relative delay in picoseconds</span>
+<span class="sd">        float | np.ndarray: Relative delay in picoseconds</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">delay_ps</span> <span class="o">=</span> <span class="p">(</span><span class="n">delay_mm</span> <span class="o">-</span> <span class="n">time0_mm</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.15</span>
     <span class="k">return</span> <span class="n">delay_ps</span></div>

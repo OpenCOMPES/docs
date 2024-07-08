@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Core &#8212; SED 0.1.10a6 documentation</title>
+    <title>Core &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +44,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -124,7 +124,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -484,11 +484,11 @@ correction, calibration and binning.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dict of external Metadata. Defaults to None.</p></li>
-<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Config dictionary or config file name.
+<li><p><strong>config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – Config dictionary or config file name.
 Defaults to None.</p></li>
-<li><p><strong>dataframe</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>ddf.DataFrame</em><em>]</em><em>, </em><em>optional</em>) – dataframe to load
+<li><p><strong>dataframe</strong> (<em>pd.DataFrame</em><em> | </em><em>ddf.DataFrame</em><em>, </em><em>optional</em>) – dataframe to load
 into the class. Defaults to None.</p></li>
-<li><p><strong>files</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of files to pass to the loader defined in
+<li><p><strong>files</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of files to pass to the loader defined in
 the config. Defaults to None.</p></li>
 <li><p><strong>folder</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder containing files to pass to the loader
 defined in the config. Defaults to None.</p></li>
@@ -504,28 +504,28 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.dataframe">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.dataframe" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ddf.DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.dataframe" title="Link to this definition">#</a></dt>
 <dd><p>Accessor to the underlying dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Dataframe object.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Union[pd.DataFrame, ddf.DataFrame]</p>
+<dd class="field-even"><p>pd.DataFrame | ddf.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.timed_dataframe">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timed_dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.timed_dataframe" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timed_dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ddf.DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.timed_dataframe" title="Link to this definition">#</a></dt>
 <dd><p>Accessor to the underlying timed_dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Timed Dataframe object.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Union[pd.DataFrame, ddf.DataFrame]</p>
+<dd class="field-even"><p>pd.DataFrame | ddf.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -560,28 +560,28 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.config">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.config" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.config" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the config dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The config dictionary.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dict</p>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.files">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.files" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.files" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the list of files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The list of loaded files</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>List[str]</p>
+<dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -620,7 +620,7 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 <dd><p>Getter attribute for the normalization histogram</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The normalization histogram</p>
+<dd class="field-odd"><p>The normalizazion histogram</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>xr.DataArray</p>
@@ -637,13 +637,13 @@ path. The option to use this functionality is set by
 config[“core”][“use_copy_tool”].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Source path or path list.</p>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>]</em>) – Source path or path list.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Source or destination path or path list.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[str, List[str]]</p>
+<dd class="field-odd"><p>str | list[str]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -655,11 +655,11 @@ config[“core”][“use_copy_tool”].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dataframe</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>ddf.DataFrame</em><em>]</em><em>, </em><em>optional</em>) – data in tabular
+<li><p><strong>dataframe</strong> (<em>pd.DataFrame</em><em> | </em><em>ddf.DataFrame</em><em>, </em><em>optional</em>) – data in tabular
 format. Accepts anything which can be interpreted by pd.DataFrame as
 an input. Defaults to None.</p></li>
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dict of external Metadata. Defaults to None.</p></li>
-<li><p><strong>files</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of file paths to pass to the loader.
+<li><p><strong>files</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of file paths to pass to the loader.
 Defaults to None.</p></li>
 <li><p><strong>runs</strong> (<em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of run identifiers to pass to the
 loader. Defaults to None.</p></li>
@@ -702,13 +702,13 @@ interactive view, and load it into the momentum corrector class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df_partitions</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions
+<li><p><strong>df_partitions</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions
 to use for the initial binning. Defaults to 100.</p></li>
-<li><p><strong>axes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
+<li><p><strong>axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
 Defaults to config[“momentum”][“axes”].</p></li>
-<li><p><strong>bins</strong> (<em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
+<li><p><strong>bins</strong> (<em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
 Defaults to config[“momentum”][“bins”].</p></li>
-<li><p><strong>ranges</strong> (<em>List</em><em>[</em><em>Tuple</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
 Defaults to config[“momentum”][“ranges”].</p></li>
 <li><p><strong>plane</strong> (<em>int</em><em>, </em><em>optional</em>) – Initial value for the plane slider. Defaults to 0.</p></li>
 <li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Initial value for the width slider. Defaults to 5.</p></li>
@@ -725,7 +725,7 @@ slice. Defaults to False.</p></li>
 <span class="sig-name descname"><span class="pre">define_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_detect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.define_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.define_features" title="Link to this definition">#</a></dt>
 <dd><p>2. Step of the distortion correction workflow: Define feature points in
 momentum space. They can be either manually selected using a GUI tool, be
-provided as list of feature points, or auto-generated using a
+ptovided as list of feature points, or auto-generated using a
 feature-detection algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -750,7 +750,7 @@ slice. Defaults to False.</p></li>
 <dt class="sig sig-object py" id="sed.core.SedProcessor.generate_splinewarp">
 <span class="sig-name descname"><span class="pre">generate_splinewarp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.generate_splinewarp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.generate_splinewarp" title="Link to this definition">#</a></dt>
 <dd><p>3. Step of the distortion correction workflow: Generate the correction
-function restoring the symmetry in the image using a splinewarp algorithm.</p>
+function restoring the symmetry in the image using a splinewarp algortihm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -790,8 +790,8 @@ the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>transformations</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dictionary with transformations.
-Defaults to self.transformations or config[“momentum”][“transformations”].</p></li>
+<li><p><strong>transformations</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – Dictionary with transformations.
+Defaults to self.transformations or config[“momentum”][“transformtions”].</p></li>
 <li><p><strong>apply</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to directly apply the provided
 transformations. Defaults to False.</p></li>
 <li><p><strong>use_correction</strong> (<em>bool</em><em>, </em><em>option</em>) – Whether to use the spline warp correction
@@ -864,18 +864,18 @@ the points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>point_a</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Pixel coordinates of the first
+<li><p><strong>point_a</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Pixel coordinates of the first
 point used for momentum calibration.</p></li>
-<li><p><strong>point_b</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Pixel coordinates of the
+<li><p><strong>point_b</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Pixel coordinates of the
 second point used for momentum calibration.
 Defaults to config[“momentum”][“center_pixel”].</p></li>
 <li><p><strong>k_distance</strong> (<em>float</em><em>, </em><em>optional</em>) – Momentum distance between point a and b.
-Needs to be provided if no specific k-coordinates for the two points
+Needs to be provided if no specific k-koordinates for the two points
 are given. Defaults to None.</p></li>
-<li><p><strong>k_coord_a</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
+<li><p><strong>k_coord_a</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
 of the first point used for calibration. Used if equiscale is False.
 Defaults to None.</p></li>
-<li><p><strong>k_coord_b</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
+<li><p><strong>k_coord_b</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
 of the second point used for calibration. Defaults to [0.0, 0.0].</p></li>
 <li><p><strong>equiscale</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to apply different scales to kx and ky.
 If True, the distance between points a and b, and the absolute
@@ -929,7 +929,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.adjust_energy_correction">
 <span class="sig-name descname"><span class="pre">adjust_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correction_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.adjust_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.adjust_energy_correction" title="Link to this definition">#</a></dt>
-<dd><p>1. step of the energy correction workflow: Opens an interactive plot to
+<dd><p>1. step of the energy crrection workflow: Opens an interactive plot to
 adjust the parameters for the TOF/energy correction. Also pre-bins the data if
 they are not present yet.</p>
 <dl class="field-list simple">
@@ -947,7 +947,7 @@ axis. Valid values are:</p>
 </p></li>
 <li><p><strong>amplitude</strong> (<em>float</em><em>, </em><em>optional</em>) – Amplitude of the correction.
 Defaults to config[“energy”][“correction”][“amplitude”].</p></li>
-<li><p><strong>center</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Center X/Y coordinates for the
+<li><p><strong>center</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Center X/Y coordinates for the
 correction. Defaults to config[“energy”][“correction”][“center”].</p></li>
 <li><p><strong>apply</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to directly apply the provided or default
 correction parameters. Defaults to False.</p></li>
@@ -976,7 +976,7 @@ Defaults to False.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.apply_energy_correction">
 <span class="sig-name descname"><span class="pre">apply_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_energy_correction" title="Link to this definition">#</a></dt>
-<dd><p>2. step of the energy correction workflow: Apply the energy correction
+<dd><p>2. step of the energy correction workflow: Apply the enery correction
 parameters stored in the class to the dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1001,15 +1001,15 @@ single-event files, or load binned bias/TOF traces.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>binned_data</strong> (<em>Union</em><em>[</em><em>xr.DataArray</em><em>, </em><em>Tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Binned data If provided as DataArray, Needs to contain dimensions
+<li><p><strong>binned_data</strong> (<em>xr.DataArray</em><em> | </em><em>tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>, </em><em>optional</em>) – Binned data If provided as DataArray, Needs to contain dimensions
 config[“dataframe”][“tof_column”] and config[“dataframe”][“bias_column”]. If
 provided as tuple, needs to contain elements tof, biases, traces.</p></li>
-<li><p><strong>data_files</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list of file paths to bin</p></li>
-<li><p><strong>axes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – bin axes.
+<li><p><strong>data_files</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list of file paths to bin</p></li>
+<li><p><strong>axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – bin axes.
 Defaults to config[“dataframe”][“tof_column”].</p></li>
-<li><p><strong>bins</strong> (<em>List</em><em>, </em><em>optional</em>) – number of bins.
+<li><p><strong>bins</strong> (<em>list</em><em>, </em><em>optional</em>) – number of bins.
 Defaults to config[“energy”][“bins”].</p></li>
-<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – bin ranges.
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – bin ranges.
 Defaults to config[“energy”][“ranges”].</p></li>
 <li><p><strong>biases</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – Bias voltages used. If missing, bias
 voltages are extracted from the data files.</p></li>
@@ -1040,7 +1040,7 @@ Alternatively, a list of ranges for all traces can be provided.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ranges</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><em>Tuple</em><em>]</em><em>, </em><em>Tuple</em><em>]</em>) – Tuple of TOF values indicating a range.
+<li><p><strong>ranges</strong> (<em>list</em><em>[</em><em>tuple</em><em>] </em><em>| </em><em>tuple</em>) – Tuple of TOF values indicating a range.
 Alternatively, a list of ranges for all traces can be given.</p></li>
 <li><p><strong>ref_id</strong> (<em>int</em><em>, </em><em>optional</em>) – The id of the trace the range refers to.
 Defaults to 0.</p></li>
@@ -1051,7 +1051,7 @@ Defaults to “replace”.</p></li>
 <li><p><strong>radius</strong> (<em>int</em><em>, </em><em>optional</em>) – Radius parameter for fast_dtw.
 Defaults to config[“energy”][“fastdtw_radius”].</p></li>
 <li><p><strong>peak_window</strong> (<em>int</em><em>, </em><em>optional</em>) – Peak_window parameter for the peak detection
-algorithm. amount of points that have to have to behave monotonously
+algorthm. amount of points that have to have to behave monotoneously
 around a peak. Defaults to config[“energy”][“peak_window”].</p></li>
 <li><p><strong>apply</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to directly apply the provided parameters.
 Defaults to False.</p></li>
@@ -1142,15 +1142,16 @@ Defaults to config[“core”][“verbose”].</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constant</strong> (<em>float</em><em>, </em><em>optional</em>) – The constant to shift the energy axis by.</p></li>
-<li><p><strong>columns</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Name of the column(s) to apply the shift from.</p></li>
-<li><p><strong>weights</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – weights to apply to the columns.
+<li><p><strong>columns</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Name of the column(s) to apply the shift from.</p></li>
+<li><p><strong>weights</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – weights to apply to the columns.
 Can also be used to flip the sign (e.g. -1). Defaults to 1.</p></li>
-<li><p><strong>preserve_mean</strong> (<em>bool</em>) – Whether to subtract the mean of the column before applying the
-shift. Defaults to False.</p></li>
-<li><p><strong>reductions</strong> (<em>str</em>) – The reduction to apply to the column. Should be an available method
-of dask.dataframe.Series. For example “mean”. In this case the function is applied
-to the column to generate a single value for the whole dataset. If None, the shift
-is applied per-dataframe-row. Defaults to None. Currently only “mean” is supported.</p></li>
+<li><p><strong>reductions</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The reduction to apply to the column.
+Should be an available method of dask.dataframe.Series. For example “mean”. In this
+case the function is applied to the column to generate a single value for the whole
+dataset. If None, the shift is applied per-dataframe-row. Defaults to None.
+Currently only “mean” is supported.</p></li>
+<li><p><strong>preserve_mean</strong> (<em>bool</em><em> | </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the
+column before applying the shift. Defaults to False.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
@@ -1161,7 +1162,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 <dd class="field-even"><p><strong>ValueError</strong> – If the energy column is not in the dataframe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type">None</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1229,7 +1230,7 @@ them from a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delay_range</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The scanned delay range in
+<li><p><strong>delay_range</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The scanned delay range in
 picoseconds. Defaults to None.</p></li>
 <li><p><strong>datafile</strong> (<em>str</em><em>, </em><em>optional</em>) – The file from which to read the delay ranges.
 Defaults to None.</p></li>
@@ -1271,15 +1272,16 @@ Defaults to False.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constant</strong> (<em>float</em><em>, </em><em>optional</em>) – The constant to shift the delay axis by.</p></li>
 <li><p><strong>flip_delay_axis</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to reverse the direction of the delay axis.</p></li>
-<li><p><strong>columns</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Name of the column(s) to apply the shift from.</p></li>
-<li><p><strong>weights</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – weights to apply to the columns.
+<li><p><strong>columns</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Name of the column(s) to apply the shift from.</p></li>
+<li><p><strong>weights</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – weights to apply to the columns.
 Can also be used to flip the sign (e.g. -1). Defaults to 1.</p></li>
-<li><p><strong>preserve_mean</strong> (<em>bool</em>) – Whether to subtract the mean of the column before applying the
-shift. Defaults to False.</p></li>
-<li><p><strong>reductions</strong> (<em>str</em>) – The reduction to apply to the column. Should be an available method
-of dask.dataframe.Series. For example “mean”. In this case the function is applied
-to the column to generate a single value for the whole dataset. If None, the shift
-is applied per-dataframe-row. Defaults to None. Currently only “mean” is supported.</p></li>
+<li><p><strong>reductions</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The reduction to apply to the column.
+Should be an available method of dask.dataframe.Series. For example “mean”. In this
+case the function is applied to the column to generate a single value for the whole
+dataset. If None, the shift is applied per-dataframe-row. Defaults to None.
+Currently only “mean” is supported.</p></li>
+<li><p><strong>preserve_mean</strong> (<em>bool</em><em> | </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the
+column before applying the shift. Defaults to False.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
@@ -1290,7 +1292,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 <dd class="field-even"><p><strong>ValueError</strong> – If the delay column is not in the dataframe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type">None</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1340,9 +1342,9 @@ Defaults to False.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cols</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The columns onto which to apply jitter.
+<li><p><strong>cols</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The colums onto which to apply jitter.
 Defaults to config[“dataframe”][“jitter_cols”].</p></li>
-<li><p><strong>amps</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
+<li><p><strong>amps</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
 jittering noise. If one number is given, the same is used for all axes.
 For uniform noise (default) it will cover the interval [-amp, +amp].
 Defaults to config[“dataframe”][“jitter_amps”].</p></li>
@@ -1381,13 +1383,13 @@ Either this or data and time_stamps have to be present.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df_partitions</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions to
+<li><p><strong>df_partitions</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions to
 use for the initial binning. Defaults to 100.</p></li>
-<li><p><strong>axes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
+<li><p><strong>axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
 Defaults to config[“momentum”][“axes”].</p></li>
-<li><p><strong>bins</strong> (<em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
+<li><p><strong>bins</strong> (<em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
 Defaults to config[“momentum”][“bins”].</p></li>
-<li><p><strong>ranges</strong> (<em>List</em><em>[</em><em>Tuple</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
 Defaults to config[“momentum”][“ranges”].</p></li>
 <li><p><strong>**kwds</strong> – Keyword argument passed to <code class="docutils literal notranslate"><span class="pre">compute</span></code>.</p></li>
 </ul>
@@ -1408,7 +1410,7 @@ Defaults to config[“momentum”][“ranges”].</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bins</strong> (<em>int</em><em>, </em><em>dict</em><em>, </em><em>tuple</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>List</em><em>[</em><em>np.ndarray</em><em>]</em><em>, </em><em>List</em><em>[</em><em>tuple</em><em>]</em><em>, </em><em>optional</em>) – <p>Definition of the bins. Can be any of the following cases:</p>
+<li><p><strong>bins</strong> (<em>int</em><em> | </em><em>dict</em><em> | </em><em>tuple</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>list</em><em>[</em><em>np.ndarray</em><em>] </em><em>| </em><em>list</em><em>[</em><em>tuple</em><em>]</em><em>, </em><em>optional</em>) – <p>Definition of the bins. Can be any of the following cases:</p>
 <ul>
 <li><p>an integer describing the number of bins in on all dimensions</p></li>
 <li><p>a tuple of 3 numbers describing start, end and step of the binning
@@ -1419,13 +1421,13 @@ range</p></li>
 </ul>
 <p>This takes priority over the axes and range arguments. Defaults to 100.</p>
 </p></li>
-<li><p><strong>axes</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – The names of the axes (columns)
+<li><p><strong>axes</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The names of the axes (columns)
 on which to calculate the histogram. The order will be the order of the
 dimensions in the resulting array. Defaults to None.</p></li>
-<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – list of tuples containing
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – list of tuples containing
 the start and end point of the binning range. Defaults to None.</p></li>
-<li><p><strong>normalize_to_acquisition_time</strong> (<em>Union</em><em>[</em><em>bool</em><em>, </em><em>str</em><em>]</em>) – Option to normalize the
-result to the acquisition time. If a “slow” axis was scanned, providing
+<li><p><strong>normalize_to_acquisition_time</strong> (<em>bool</em><em> | </em><em>str</em>) – Option to normalize the
+result to the acquistion time. If a “slow” axis was scanned, providing
 the name of the scanned axis will compute and apply the corresponding
 normalization histogram. Defaults to False.</p></li>
 <li><p><strong>**kwds</strong> – <p>Keyword arguments:</p>
@@ -1517,12 +1519,12 @@ dataframe partition.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dfpid</strong> (<em>int</em>) – Number of the data frame partition to look at.</p></li>
 <li><p><strong>ncol</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of columns in the plot grid. Defaults to 2.</p></li>
-<li><p><strong>bins</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Number of bins to use for the specified
+<li><p><strong>bins</strong> (<em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Number of bins to use for the speicified
 axes. Defaults to config[“histogram”][“bins”].</p></li>
 <li><p><strong>axes</strong> (<em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Names of the axes to display.
 Defaults to config[“histogram”][“axes”].</p></li>
-<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Value ranges of all
-specified axes. Defaults to config[“histogram”][“ranges”].</p></li>
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Value ranges of all
+specified axes. Defaults toconfig[“histogram”][“ranges”].</p></li>
 <li><p><strong>backend</strong> (<em>str</em><em>, </em><em>optional</em>) – Backend of the plotting library
 (‘matplotlib’ or ‘bokeh’). Defaults to “bokeh”.</p></li>
 <li><p><strong>legend</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to include a legend in the histogram plots.
@@ -1556,7 +1558,7 @@ the file type to write. Valid file types are:</p>
 <li><p>”<em>.nxs”, “</em>.nexus”: Saves a NeXus file.</p></li>
 </ul>
 </p></li>
-<li><p><strong>**kwds</strong> – <p>Keyword arguments, which are passed to the writer functions:
+<li><p><strong>**kwds</strong> – <p>Keyword argumens, which are passed to the writer functions:
 For TIFF writing:</p>
 <ul>
 <li><p><strong>alias_dict</strong>: Dictionary of dimension aliases to use.</p></li>
@@ -1567,9 +1569,9 @@ For TIFF writing:</p>
 </ul>
 <p>For NeXus:</p>
 <ul>
-<li><p><strong>reader</strong>: Name of the pynxtools reader to use.
+<li><p><strong>reader</strong>: Name of the nexustools reader to use.
 Defaults to config[“nexus”][“reader”]</p></li>
-<li><p><strong>definition</strong>: NeXus application definition to use for saving.
+<li><p><strong>definiton</strong>: NeXus application definition to use for saving.
 Must be supported by the used <code class="docutils literal notranslate"><span class="pre">reader</span></code>. Defaults to
 config[“nexus”][“definition”]</p></li>
 <li><p><strong>input_files</strong>: A list of input files to pass to the reader.

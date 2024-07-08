@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.binning.numba_bin &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.binning.numba_bin &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -448,14 +448,12 @@ document.write(`
   <h1>Source code for sed.binning.numba_bin</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This file contains code for binning using numba precompiled code for the</span>
 <span class="sd">sed.binning module</span>
-
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">numba</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -472,7 +470,7 @@ document.write(`
 <span class="sd">    bit integers.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        sample (np.ndarray): The data to be histogram&#39;d with shape N,D.</span>
+<span class="sd">        sample (np.ndarray): The data to be histogrammed with shape N,D.</span>
 <span class="sd">        bins (Sequence[int]): The number of bins for each dimension D.</span>
 <span class="sd">        ranges (np.ndarray): A sequence of length D, each an optional (lower,</span>
 <span class="sd">            upper) tuple giving the outer bin edges to be used if the edges are</span>
@@ -497,7 +495,7 @@ document.write(`
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndims</span><span class="p">):</span>
         <span class="n">delta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">((</span><span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">strides</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">//</span> <span class="n">hist</span><span class="o">.</span><span class="n">itemsize</span>
+        <span class="n">strides</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">//</span> <span class="n">hist</span><span class="o">.</span><span class="n">itemsize</span>  <span class="c1"># pylint: disable=E1136</span>
 
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="n">is_inside</span> <span class="o">=</span> <span class="kc">True</span>
@@ -559,7 +557,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">_hist_from_bins</span><span class="p">(</span>
     <span class="n">sample</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">bins</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-    <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Numba powered binning method, similar to np.histogramdd.</span>
 
@@ -569,7 +567,7 @@ document.write(`
 <span class="sd">        sample (np.ndarray) : the array of shape (N,D) on which to compute the histogram</span>
 <span class="sd">        bins (Sequence[np.ndarray]): array of shape (N,D) defining the D bins on which</span>
 <span class="sd">            to compute the histogram, i.e. the desired output axes.</span>
-<span class="sd">        shape (Tuple): shape of the resulting array. Workaround for the fact numba</span>
+<span class="sd">        shape (tuple): shape of the resulting array. Workaround for the fact numba</span>
 <span class="sd">            does not allow to create tuples.</span>
 <span class="sd">    Returns:</span>
 <span class="sd">        hist: the computed n-dimensional histogram</span>
@@ -607,10 +605,10 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/binning.html#sed.binning.numba_bin.numba_histogramdd">[docs]</a>
 <span class="k">def</span> <span class="nf">numba_histogramdd</span><span class="p">(</span>
     <span class="n">sample</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Multidimensional histogram function, powered by Numba.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Multidimensional histogramming function, powered by Numba.</span>
 
 <span class="sd">    Behaves in total much like numpy.histogramdd. Returns uint32 arrays.</span>
 <span class="sd">    This was chosen because it has a significant performance improvement over</span>
@@ -620,8 +618,8 @@ document.write(`
 <span class="sd">    sizes.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        sample (np.ndarray): The data to be histogram&#39;d with shape N,D</span>
-<span class="sd">        bins (Union[int, Sequence[int], Sequence[np.ndarray], np.ndarray]): The number</span>
+<span class="sd">        sample (np.ndarray): The data to be histogrammed with shape N,D</span>
+<span class="sd">        bins (int | Sequence[int] | Sequence[np.ndarray] | np.ndarray): The number</span>
 <span class="sd">            of bins for each dimension D, or a sequence of bin edges on which to calculate</span>
 <span class="sd">            the histogram.</span>
 <span class="sd">        ranges (Sequence, optional): The range(s) to use for binning when bins is a sequence</span>
@@ -634,7 +632,7 @@ document.write(`
 <span class="sd">        RuntimeError: Internal shape error after binning</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[np.ndarray, List[np.ndarray]]: 2-element tuple of The computed histogram</span>
+<span class="sd">        tuple[np.ndarray, list[np.ndarray]]: 2-element tuple of The computed histogram</span>
 <span class="sd">        and s list of D arrays describing the bin edges for each dimension.</span>
 
 <span class="sd">        - **hist**: The computed histogram</span>
@@ -666,7 +664,7 @@ document.write(`
 
     <span class="c1"># method == &quot;array&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
         <span class="n">hist</span> <span class="o">=</span> <span class="n">_hist_from_bins</span><span class="p">(</span>
             <span class="n">sample</span><span class="p">,</span>
             <span class="nb">tuple</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span>
@@ -692,7 +690,7 @@ document.write(`
     <span class="n">bins</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
 
     <span class="c1"># Create edge arrays</span>
-    <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">edges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">nbin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_cols</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_cols</span><span class="p">):</span>

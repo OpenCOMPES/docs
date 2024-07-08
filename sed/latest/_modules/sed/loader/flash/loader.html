@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.flash.loader &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.loader.flash.loader &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -453,15 +453,14 @@ document.write(`
 <span class="sd">The dataframe is a amalgamation of all h5 files for a combination of runs, where the NaNs are</span>
 <span class="sd">automatically forward filled across different files.</span>
 <span class="sd">This can then be saved as a parquet for out-of-sed processing and reread back to access other</span>
-<span class="sd">sed functionality.</span>
+<span class="sd">sed funtionality.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
 <span class="kn">import</span> <span class="nn">h5py</span>
@@ -499,16 +498,16 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">multi_index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;trainId&quot;</span><span class="p">,</span> <span class="s2">&quot;pulseId&quot;</span><span class="p">,</span> <span class="s2">&quot;electronId&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index_per_electron</span><span class="p">:</span> <span class="n">MultiIndex</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index_per_pulse</span><span class="p">:</span> <span class="n">MultiIndex</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">failed_files_error</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed_files_error</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="FlashLoader.initialize_paths">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.flash.loader.FlashLoader.initialize_paths">[docs]</a>
-    <span class="k">def</span> <span class="nf">initialize_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="n">Path</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">initialize_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="n">Path</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the paths based on the configuration.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[Path], Path]: A tuple containing a list of raw data directories</span>
+<span class="sd">            tuple[list[Path], Path]: A tuple containing a list of raw data directories</span>
 <span class="sd">            paths and the parquet data directory path.</span>
 
 <span class="sd">        Raises:</span>
@@ -569,23 +568,23 @@ document.write(`
     <span class="k">def</span> <span class="nf">get_files_from_run_id</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">folders</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a list of filenames for a given run located in the specified directory</span>
 <span class="sd">        for the specified data acquisition (daq).</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            run_id (str): The run identifier to locate.</span>
-<span class="sd">            folders (Union[str, Sequence[str]], optional): The directory(ies) where the raw</span>
+<span class="sd">            folders (str | Sequence[str], optional): The directory(ies) where the raw</span>
 <span class="sd">                data is located. Defaults to config[&quot;core&quot;][&quot;base_folder&quot;].</span>
 <span class="sd">            extension (str, optional): The file extension. Defaults to &quot;h5&quot;.</span>
 <span class="sd">            kwds: Keyword arguments:</span>
 <span class="sd">                - daq (str): The data acquisition identifier.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            List[str]: A list of path strings representing the collected file names.</span>
+<span class="sd">            list[str]: A list of path strings representing the collected file names.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            FileNotFoundError: If no files are found for the given run in the directory.</span>
@@ -604,7 +603,7 @@ document.write(`
         <span class="c1"># Generate the file patterns to search for in the directory</span>
         <span class="n">file_pattern</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stream_name_prefixes</span><span class="p">[</span><span class="n">daq</span><span class="p">]</span><span class="si">}</span><span class="s2">_run</span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2">_*.&quot;</span> <span class="o">+</span> <span class="n">extension</span>
 
-        <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># Use pathlib to search for matching files in each directory</span>
         <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
             <span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
@@ -625,7 +624,7 @@ document.write(`
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">available_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">available_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the channel names that are available for use,</span>
 <span class="sd">        excluding pulseId, defined by the json file&quot;&quot;&quot;</span>
         <span class="n">available_channels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -634,17 +633,17 @@ document.write(`
 
 <div class="viewcode-block" id="FlashLoader.get_channels">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.flash.loader.FlashLoader.get_channels">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formats</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formats</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list of channels associated with the specified format(s).</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            formats (Union[str, List[str]]): The desired format(s)</span>
-<span class="sd">                                (&#39;per_pulse&#39;, &#39;per_electron&#39;, &#39;per_train&#39;, &#39;all&#39;).</span>
+<span class="sd">            formats (str | list[str]): The desired format(s)</span>
+<span class="sd">                (&#39;per_pulse&#39;, &#39;per_electron&#39;, &#39;per_train&#39;, &#39;all&#39;).</span>
 <span class="sd">            index (bool): If True, includes channels from the multi_index.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            List[str]: A list of channels with the specified format(s).</span>
+<span class="sd">            list[str]: A list of channels with the specified format(s).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># If &#39;formats&#39; is a single string, convert it to a list for uniform processing.</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -781,7 +780,7 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
         <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a numpy array for a given channel name for a given file.</span>
 
@@ -790,7 +789,7 @@ document.write(`
 <span class="sd">            channel (str): The name of the channel.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[Series, np.ndarray]: A tuple containing the train ID Series and the numpy array</span>
+<span class="sd">            tuple[Series, np.ndarray]: A tuple containing the train ID Series and the numpy array</span>
 <span class="sd">            for the channel&#39;s data.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -878,15 +877,15 @@ document.write(`
 <span class="sd">            DataFrame: The pandas DataFrame for the channel&#39;s data.</span>
 
 <span class="sd">        Notes:</span>
-<span class="sd">            - For auxiliary channels, the macrobunch resolved data is repeated 499 times to be</span>
-<span class="sd">              compared to electron resolved data for each auxiliary channel. The data is then</span>
+<span class="sd">            - For auxillary channels, the macrobunch resolved data is repeated 499 times to be</span>
+<span class="sd">              compared to electron resolved data for each auxillary channel. The data is then</span>
 <span class="sd">              converted to a multicolumn DataFrame.</span>
 <span class="sd">            - For all other pulse resolved channels, the macrobunch resolved data is exploded</span>
 <span class="sd">              to a DataFrame and the MultiIndex is set.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1"># Special case for auxiliary channels</span>
+        <span class="c1"># Special case for auxillary channels</span>
         <span class="k">if</span> <span class="n">channel</span> <span class="o">==</span> <span class="s2">&quot;dldAux&quot;</span><span class="p">:</span>
             <span class="c1"># Checks the channel dictionary for correct slices and creates a multicolumn DataFrame</span>
             <span class="n">data_frames</span> <span class="o">=</span> <span class="p">(</span>
@@ -949,7 +948,7 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
         <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a pandas DataFrame for a given channel name from a given file.</span>
 
@@ -962,7 +961,7 @@ document.write(`
 <span class="sd">            channel (str): The name of the channel.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Union[Series, DataFrame]: A pandas Series or DataFrame representing the channel&#39;s data.</span>
+<span class="sd">            Series | DataFrame: A pandas Series or DataFrame representing the channel&#39;s data.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If the channel has an undefined format.</span>
@@ -1105,7 +1104,7 @@ document.write(`
 
 <div class="viewcode-block" id="FlashLoader.create_buffer_file">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.flash.loader.FlashLoader.create_buffer_file">[docs]</a>
-    <span class="k">def</span> <span class="nf">create_buffer_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">parquet_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">create_buffer_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">parquet_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="ne">Exception</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts an HDF5 file to Parquet format to create a buffer file.</span>
 
@@ -1115,6 +1114,9 @@ document.write(`
 <span class="sd">        Args:</span>
 <span class="sd">            h5_path (Path): Path to the input HDF5 file.</span>
 <span class="sd">            parquet_path (Path): Path to the output Parquet file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool | Exception: Collected exceptions, if any.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If an error occurs during the conversion process.</span>
@@ -1139,7 +1141,7 @@ document.write(`
         <span class="n">data_parquet_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">detector</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">force_recreate</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="n">List</span><span class="p">,</span> <span class="n">List</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Handles the conversion of buffer files (h5 to parquet) and returns the filenames.</span>
 
@@ -1149,7 +1151,7 @@ document.write(`
 <span class="sd">            force_recreate (bool): Forces recreation of buffer files</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[Path], List, List]: Three lists, one for</span>
+<span class="sd">            tuple[list[Path], list, list]: Three lists, one for</span>
 <span class="sd">            parquet file paths, one for metadata and one for schema.</span>
 
 <span class="sd">        Raises:</span>
@@ -1247,7 +1249,7 @@ document.write(`
         <span class="n">load_parquet</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">save_parquet</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">force_recreate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Handles loading and saving of parquet files based on the provided parameters.</span>
 
@@ -1262,7 +1264,7 @@ document.write(`
 <span class="sd">            save_parquet (bool, optional): Saves the entire dataframe into a parquet.</span>
 <span class="sd">            force_recreate (bool, optional): Forces recreation of buffer file.</span>
 <span class="sd">        Returns:</span>
-<span class="sd">            tuple: A tuple containing two dataframes:</span>
+<span class="sd">            tuple[dd.DataFrame, dd.DataFrame]: A tuple containing two dataframes:</span>
 <span class="sd">            - dataframe_electron: Dataframe containing the loaded/augmented electron data.</span>
 <span class="sd">            - dataframe_pulse: Dataframe containing the loaded/augmented timed data.</span>
 
@@ -1304,7 +1306,7 @@ document.write(`
             <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">calculate_divisions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             <span class="c1"># Channels to fill NaN values</span>
-            <span class="n">channels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">([</span><span class="s2">&quot;per_pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;per_train&quot;</span><span class="p">])</span>
+            <span class="n">channels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">([</span><span class="s2">&quot;per_pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;per_train&quot;</span><span class="p">])</span>
 
             <span class="n">overlap</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">num_rows</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">)</span>
 
@@ -1373,31 +1375,32 @@ document.write(`
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.flash.loader.FlashLoader.read_dataframe">[docs]</a>
     <span class="k">def</span> <span class="nf">read_dataframe</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">files</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">folders</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">runs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">runs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">ftype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read express data from the DAQ, generating a parquet in between.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            files (Union[str, Sequence[str]], optional): File path(s) to process. Defaults to None.</span>
-<span class="sd">            folders (Union[str, Sequence[str]], optional): Path to folder(s) where files are stored</span>
+<span class="sd">            files (str | Sequence[str], optional): File path(s) to process. Defaults to None.</span>
+<span class="sd">            folders (str | Sequence[str], optional): Path to folder(s) where files are stored</span>
 <span class="sd">                Path has priority such that if it&#39;s specified, the specified files will be ignored.</span>
 <span class="sd">                Defaults to None.</span>
-<span class="sd">            runs (Union[str, Sequence[str]], optional): Run identifier(s). Corresponding files will</span>
-<span class="sd">                be located in the location provided by ``folders``. Takes precedence over</span>
+<span class="sd">            runs (str | Sequence[str], optional): Run identifier(s). Corresponding files will</span>
+<span class="sd">                be located in the location provided by ``folders``. Takes precendence over</span>
 <span class="sd">                ``files`` and ``folders``. Defaults to None.</span>
 <span class="sd">            ftype (str, optional): The file extension type. Defaults to &quot;h5&quot;.</span>
 <span class="sd">            metadata (dict, optional): Additional metadata. Defaults to None.</span>
 <span class="sd">            collect_metadata (bool, optional): Whether to collect metadata. Defaults to False.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[dd.DataFrame, dict]: A tuple containing the concatenated DataFrame and metadata.</span>
+<span class="sd">            tuple[dd.DataFrame, dd.DataFrame, dict]: A tuple containing the concatenated DataFrame</span>
+<span class="sd">            and metadata.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If neither &#39;runs&#39; nor &#39;files&#39;/&#39;data_raw_dir&#39; is provided.</span>

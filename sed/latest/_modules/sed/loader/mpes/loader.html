@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.mpes.loader &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.loader.mpes.loader &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -451,15 +451,13 @@ document.write(`
 <span class="sd">Mostly ported from https://github.com/mpes-kit/mpes.</span>
 <span class="sd">@author: L. Rettig</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">HTTPError</span>
 <span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">URLError</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
@@ -480,7 +478,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">hdf5_to_dataframe</span><span class="p">(</span>
     <span class="n">files</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">group_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">alias_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">time_stamp_alias</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;timeStamps&quot;</span><span class="p">,</span>
     <span class="n">ms_markers_group</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
@@ -494,7 +492,7 @@ document.write(`
 <span class="sd">        files (List[str]): A list of the file paths to load.</span>
 <span class="sd">        group_names (List[str], optional): hdf5 group names to load. Defaults to load</span>
 <span class="sd">            all groups containing &quot;Stream&quot;</span>
-<span class="sd">        alias_dict (Dict[str, str], optional): Dictionary of aliases for the dataframe</span>
+<span class="sd">        alias_dict (dict[str, str], optional): Dictionary of aliases for the dataframe</span>
 <span class="sd">            columns. Keys are the hdf5 groupnames, and values the aliases. If an alias</span>
 <span class="sd">            is not found, its group name is used. Defaults to read the attribute</span>
 <span class="sd">            &quot;Name&quot; from each group.</span>
@@ -521,7 +519,7 @@ document.write(`
     <span class="k">if</span> <span class="n">group_names</span> <span class="o">==</span> <span class="p">[]:</span>
         <span class="n">group_names</span><span class="p">,</span> <span class="n">alias_dict</span> <span class="o">=</span> <span class="n">get_groups_and_aliases</span><span class="p">(</span>
             <span class="n">h5file</span><span class="o">=</span><span class="n">test_proc</span><span class="p">,</span>
-            <span class="n">search_pattern</span><span class="o">=</span><span class="s2">&quot;Stream&quot;</span><span class="p">,</span>
+            <span class="n">seach_pattern</span><span class="o">=</span><span class="s2">&quot;Stream&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">group_names</span><span class="p">]</span>
@@ -563,7 +561,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">hdf5_to_timed_dataframe</span><span class="p">(</span>
     <span class="n">files</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">group_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">alias_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">time_stamp_alias</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;timeStamps&quot;</span><span class="p">,</span>
     <span class="n">ms_markers_group</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
@@ -578,7 +576,7 @@ document.write(`
 <span class="sd">        files (List[str]): A list of the file paths to load.</span>
 <span class="sd">        group_names (List[str], optional): hdf5 group names to load. Defaults to load</span>
 <span class="sd">            all groups containing &quot;Stream&quot;</span>
-<span class="sd">        alias_dict (Dict[str, str], optional): Dictionary of aliases for the dataframe</span>
+<span class="sd">        alias_dict (dict[str, str], optional): Dictionary of aliases for the dataframe</span>
 <span class="sd">            columns. Keys are the hdf5 groupnames, and values the aliases. If an alias</span>
 <span class="sd">            is not found, its group name is used. Defaults to read the attribute</span>
 <span class="sd">            &quot;Name&quot; from each group.</span>
@@ -605,7 +603,7 @@ document.write(`
     <span class="k">if</span> <span class="n">group_names</span> <span class="o">==</span> <span class="p">[]:</span>
         <span class="n">group_names</span><span class="p">,</span> <span class="n">alias_dict</span> <span class="o">=</span> <span class="n">get_groups_and_aliases</span><span class="p">(</span>
             <span class="n">h5file</span><span class="o">=</span><span class="n">test_proc</span><span class="p">,</span>
-            <span class="n">search_pattern</span><span class="o">=</span><span class="s2">&quot;Stream&quot;</span><span class="p">,</span>
+            <span class="n">seach_pattern</span><span class="o">=</span><span class="s2">&quot;Stream&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">alias_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">group_names</span><span class="p">]</span>
@@ -646,31 +644,31 @@ document.write(`
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_groups_and_aliases">[docs]</a>
 <span class="k">def</span> <span class="nf">get_groups_and_aliases</span><span class="p">(</span>
     <span class="n">h5file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
-    <span class="n">search_pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">seach_pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">alias_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read groups and aliases from a provided hdf5 file handle</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        h5file (h5py.File):</span>
 <span class="sd">            The hdf5 file handle</span>
-<span class="sd">        search_pattern (str, optional):</span>
+<span class="sd">        seach_pattern (str, optional):</span>
 <span class="sd">            Search pattern to select groups. Defaults to include all groups.</span>
 <span class="sd">        alias_key (str, optional):</span>
 <span class="sd">            Attribute key where aliases are stored. Defaults to &quot;Name&quot;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[List[str], Dict[str, str]]:</span>
+<span class="sd">        tuple[list[str], dict[str, str]]:</span>
 <span class="sd">            The list of groupnames and the alias dictionary parsed from the file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># get group names:</span>
     <span class="n">group_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">h5file</span><span class="p">)</span>
 
     <span class="c1"># Filter the group names</span>
-    <span class="k">if</span> <span class="n">search_pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">seach_pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">filtered_group_names</span> <span class="o">=</span> <span class="n">group_names</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">filtered_group_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">group_names</span> <span class="k">if</span> <span class="n">search_pattern</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+        <span class="n">filtered_group_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">group_names</span> <span class="k">if</span> <span class="n">seach_pattern</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
 
     <span class="n">alias_dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">filtered_group_names</span><span class="p">:</span>
@@ -794,7 +792,7 @@ document.write(`
 <span class="sd">            timestamp of a file. Defaults to &quot;FirstEventTimeStamp&quot;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        np.ndarray: the array of the values at evenly spaced timing obtained from</span>
+<span class="sd">        np.ndarray: the array of the values at evently spaced timing obtained from</span>
 <span class="sd">        the ms_markers.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -842,7 +840,7 @@ document.write(`
 <div class="viewcode-block" id="get_attribute">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_attribute">[docs]</a>
 <span class="k">def</span> <span class="nf">get_attribute</span><span class="p">(</span><span class="n">h5group</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads, decodes and returns an attribute from an hdf5 group</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads, decodes and returns an attrubute from an hdf5 group</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        h5group (h5py.Group):</span>
@@ -869,7 +867,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">get_count_rate</span><span class="p">(</span>
     <span class="n">h5file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
     <span class="n">ms_markers_group</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create count rate in the file from the msMarker column.</span>
 
 <span class="sd">    Args:</span>
@@ -878,7 +876,7 @@ document.write(`
 <span class="sd">            are stored. Defaults to &quot;msMarkers&quot;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[np.ndarray, np.ndarray]: The count rate in Hz and the seconds into the</span>
+<span class="sd">        tuple[np.ndarray, np.ndarray]: The count rate in Hz and the seconds into the</span>
 <span class="sd">        scan.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">ms_markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_group</span><span class="p">])</span>
@@ -905,7 +903,7 @@ document.write(`
 <span class="sd">            are stored. Defaults to &quot;msMarkers&quot;.</span>
 
 <span class="sd">    Return:</span>
-<span class="sd">        float: The acquisition time of the file in seconds.</span>
+<span class="sd">        float: The acquision time of the file in seconds.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">secs</span> <span class="o">=</span> <span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_group</span><span class="p">]</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span>
 
@@ -920,7 +918,7 @@ document.write(`
     <span class="n">archiver_channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">ts_from</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">ts_to</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract time stamps and corresponding data from and EPICS archiver instance</span>
 
 <span class="sd">    Args:</span>
@@ -930,7 +928,7 @@ document.write(`
 <span class="sd">        ts_to (float): ending time stamp of the range of interest</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[List, List]: The extracted time stamps and corresponding data</span>
+<span class="sd">        tuple[np.ndarray, np.ndarray]: The extracted time stamps and corresponding data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">iso_from</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_from</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
     <span class="n">iso_to</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_to</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
@@ -974,27 +972,27 @@ document.write(`
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.read_dataframe">[docs]</a>
     <span class="k">def</span> <span class="nf">read_dataframe</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">files</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">folders</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">runs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">runs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">ftype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read stored hdf5 files from a list or from folder and returns a dask</span>
 <span class="sd">        dataframe and corresponding metadata.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            files (Union[str, Sequence[str]], optional): File path(s) to process.</span>
+<span class="sd">            files (str | Sequence[str], optional): File path(s) to process.</span>
 <span class="sd">                Defaults to None.</span>
-<span class="sd">            folders (Union[str, Sequence[str]], optional): Path to folder(s) where files</span>
+<span class="sd">            folders (str | Sequence[str], optional): Path to folder(s) where files</span>
 <span class="sd">                are stored. Path has priority such that if it&#39;s specified, the specified</span>
 <span class="sd">                files will be ignored. Defaults to None.</span>
-<span class="sd">            runs (Union[str, Sequence[str]], optional): Run identifier(s). Corresponding</span>
+<span class="sd">            runs (str | Sequence[str], optional): Run identifier(s). Corresponding</span>
 <span class="sd">                files will be located in the location provided by ``folders``. Takes</span>
-<span class="sd">                precedence over ``files`` and ``folders``. Defaults to None.</span>
+<span class="sd">                precendence over ``files`` and ``folders``. Defaults to None.</span>
 <span class="sd">            ftype (str, optional): File extension to use. If a folder path is given,</span>
 <span class="sd">                all files with the specified extension are read into the dataframe</span>
 <span class="sd">                in the reading order. Defaults to &quot;h5&quot;.</span>
@@ -1020,7 +1018,7 @@ document.write(`
 <span class="sd">            FileNotFoundError: Raised if a file or folder is not found.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[ddf.DataFrame, ddf.DataFrame, dict]: Dask dataframe, timed Dask</span>
+<span class="sd">            tuple[ddf.DataFrame, ddf.DataFrame, dict]: Dask dataframe, timed Dask</span>
 <span class="sd">            dataframe and metadata read from specified files.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># if runs is provided, try to locate the respective files relative to the provided folder.</span>
@@ -1114,21 +1112,21 @@ document.write(`
     <span class="k">def</span> <span class="nf">get_files_from_run_id</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">folders</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Locate the files for a given run identifier.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            run_id (str): The run identifier to locate.</span>
-<span class="sd">            folders (Union[str, Sequence[str]], optional): The directory(ies) where the raw</span>
+<span class="sd">            folders (str | Sequence[str], optional): The directory(ies) where the raw</span>
 <span class="sd">                data is located. Defaults to config[&quot;core&quot;][&quot;base_folder&quot;]</span>
 <span class="sd">            extension (str, optional): The file extension. Defaults to &quot;h5&quot;.</span>
 <span class="sd">            kwds: Keyword arguments</span>
 
 <span class="sd">        Return:</span>
-<span class="sd">            List[str]: List of file path strings to the location of run data.</span>
+<span class="sd">            list[str]: List of file path strings to the location of run data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">folders</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">folders</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">][</span><span class="s2">&quot;data_raw_dir&quot;</span><span class="p">]</span>
@@ -1136,7 +1134,7 @@ document.write(`
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folders</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">folders</span> <span class="o">=</span> <span class="p">[</span><span class="n">folders</span><span class="p">]</span>
 
-        <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
             <span class="n">run_files</span> <span class="o">=</span> <span class="n">natsorted</span><span class="p">(</span>
                 <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
@@ -1158,11 +1156,11 @@ document.write(`
 
 <div class="viewcode-block" id="MpesLoader.get_start_and_end_time">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.get_start_and_end_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_start_and_end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">get_start_and_end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract the start and end time stamps from the loaded files</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[float, float]: A tuple containing the start and end time stamps</span>
+<span class="sd">            tuple[float, float]: A tuple containing the start and end time stamps</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">h5file</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">timestamps</span> <span class="o">=</span> <span class="n">hdf5_to_array</span><span class="p">(</span>
@@ -1322,13 +1320,13 @@ document.write(`
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contrast aperture size not found.&quot;</span><span class="p">)</span>
 
         <span class="c1"># Storing the lens modes corresponding to lens voltages.</span>
-        <span class="c1"># Use lens voltages present in first lens_mode entry.</span>
+        <span class="c1"># Use lens volages present in first lens_mode entry.</span>
         <span class="n">lens_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode_config&quot;</span><span class="p">][</span>
             <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode_config&quot;</span><span class="p">]))</span>
         <span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 
         <span class="n">lens_volts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KTOF:Lens:</span><span class="si">{</span><span class="n">lens</span><span class="si">}</span><span class="s2">:V&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">)</span> <span class="k">for</span> <span class="n">lens</span> <span class="ow">in</span> <span class="n">lens_list</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KTOF:Lens:</span><span class="si">{</span><span class="n">lens</span><span class="si">}</span><span class="s2">:V&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">lens</span> <span class="ow">in</span> <span class="n">lens_list</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode_config&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">lens_volts_config</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">lens_list</span><span class="p">])</span>
@@ -1375,7 +1373,7 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">fids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Create count rate from the msMarker column for the files specified in</span>
 <span class="sd">        ``fids``.</span>
 
@@ -1387,7 +1385,7 @@ document.write(`
 <span class="sd">                - **ms_markers_group**: Name of the hdf5 group containing the ms-markers</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[np.ndarray, np.ndarray]: Arrays containing countrate and seconds</span>
+<span class="sd">            tuple[np.ndarray, np.ndarray]: Arrays containing countrate and seconds</span>
 <span class="sd">            into the scan.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">fids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

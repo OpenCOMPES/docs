@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.io.tiff &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.io.tiff &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -449,9 +449,10 @@ document.write(`
 <span></span><span class="sd">&quot;&quot;&quot;This module contains tiff file input/output functions for the sed.io module</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tifffile</span>
@@ -487,20 +488,20 @@ document.write(`
 <div class="viewcode-block" id="to_tiff">
 <a class="viewcode-back" href="../../../sed/io.html#sed.io.to_tiff">[docs]</a>
 <span class="k">def</span> <span class="nf">to_tiff</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-    <span class="n">faddr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Save an array as a .tiff stack compatible with ImageJ</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (Union[xr.DataArray, np.ndarray]): data to be saved. If a np.ndarray,</span>
+<span class="sd">        data (xr.DataArray | np.ndarray): data to be saved. If a np.ndarray,</span>
 <span class="sd">            the order is retained. If it is an xarray.DataArray, the order is inferred</span>
 <span class="sd">            from axis_dict instead. ImageJ likes tiff files with axis order as</span>
 <span class="sd">            TZCYXS. Therefore, best axis order in input should be: Time, Energy,</span>
 <span class="sd">            posY, posX. The channels &#39;C&#39; and &#39;S&#39; are automatically added and can</span>
 <span class="sd">            be ignored.</span>
-<span class="sd">        faddr (Union[Path, str]): full path and name of file to save.</span>
+<span class="sd">        faddr Path | str): full path and name of file to save.</span>
 <span class="sd">        alias_dict (dict, optional): name pairs for correct axis ordering. Keys should</span>
 <span class="sd">            be any of T,Z,C,Y,X,S. The Corresponding value should be a dimension of the</span>
 <span class="sd">            xarray or the dimension number if a numpy array. This is used to sort the</span>
@@ -513,7 +514,7 @@ document.write(`
 <span class="sd">        NotImplementedError: if data is not 2,3 or 4 dimensional</span>
 <span class="sd">        TypeError: if data is not a np.ndarray or an xarray.DataArray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">out</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">out</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
         <span class="c1"># TODO: add sorting by dictionary keys</span>
         <span class="n">dim_expansions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>
@@ -625,7 +626,7 @@ document.write(`
 <div class="viewcode-block" id="load_tiff">
 <a class="viewcode-back" href="../../../sed/io.html#sed.io.load_tiff">[docs]</a>
 <span class="k">def</span> <span class="nf">load_tiff</span><span class="p">(</span>
-    <span class="n">faddr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">coords</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">attrs</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -637,7 +638,7 @@ document.write(`
 <span class="sd">    only as np.ndarray.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        faddr (Union[str, Path]): Path to file to load.</span>
+<span class="sd">        faddr (str | Path): Path to file to load.</span>
 <span class="sd">        coords (dict, optional): The axes describing the data, following the tiff</span>
 <span class="sd">            stack order. Defaults to None.</span>
 <span class="sd">        dims (Sequence, optional): the order of the coordinates provided, considering</span>

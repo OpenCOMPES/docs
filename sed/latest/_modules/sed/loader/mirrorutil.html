@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.mirrorutil &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.loader.mirrorutil &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -449,15 +449,16 @@ document.write(`
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">module sed.loader.mirrorutil, code for transparently mirroring file system trees to a</span>
 <span class="sd">second (local) location. This is speeds up binning of data stored on network drives</span>
-<span class="sd">tremendously.</span>
+<span class="sd">tremendiously.</span>
 <span class="sd">Mostly ported from https://github.com/mpes-kit/mpes.</span>
 <span class="sd">@author: L. Rettig</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">errno</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">import</span> <span class="nn">dask</span> <span class="k">as</span> <span class="nn">d</span>
 <span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
@@ -469,7 +470,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;File collecting and sorting class.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        source (str): Source path for the copy tool.</span>
+<span class="sd">        source (str): Dource path for the copy tool.</span>
 <span class="sd">        dest (str): Destination path for the copy tool.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -720,7 +721,7 @@ document.write(`
             <span class="n">proceed</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">proceed</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
             <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">oldest_scan</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Removed successfully!&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Removed sucessfully!&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aborted.&quot;</span><span class="p">)</span></div>
 </div>
@@ -753,7 +754,7 @@ document.write(`
 <span class="sd">        ValueError: Raised if sdir not inside of source</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        str: The mapped target directory inside dest</span>
+<span class="sd">        str: The mapped targed directory inside dest</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">sdir</span><span class="p">):</span>
@@ -782,7 +783,7 @@ document.write(`
 <span class="c1"># replacement for os.makedirs, which is independent of umask</span>
 <div class="viewcode-block" id="mymakedirs">
 <a class="viewcode-back" href="../../../sed/loader.html#sed.loader.mirrorutil.mymakedirs">[docs]</a>
-<span class="k">def</span> <span class="nf">mymakedirs</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">gid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">mymakedirs</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">gid</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a directory path iteratively from its root</span>
 
 <span class="sd">    Args:</span>
@@ -791,7 +792,7 @@ document.write(`
 <span class="sd">        gid (int): Group id of created directories</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        str: Path of created directories</span>
+<span class="sd">        list[str]: Path of created directories</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>

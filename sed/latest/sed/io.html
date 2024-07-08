@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>IO &#8212; SED 0.1.10a6 documentation</title>
+    <title>IO &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +44,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -124,7 +124,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -489,7 +489,7 @@ document.write(`
 <dd class="field-even"><p><strong>ValueError</strong> – Raised if data or axes are not found in the file.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output xarray data</p>
+<dd class="field-odd"><p>output xarra data</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>xr.DataArray</p>
@@ -526,7 +526,7 @@ only as np.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>faddr</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – Path to file to load.</p></li>
+<li><p><strong>faddr</strong> (<em>str</em><em> | </em><em>Path</em>) – Path to file to load.</p></li>
 <li><p><strong>coords</strong> (<em>dict</em><em>, </em><em>optional</em>) – The axes describing the data, following the tiff
 stack order. Defaults to None.</p></li>
 <li><p><strong>dims</strong> (<em>Sequence</em><em>, </em><em>optional</em>) – the order of the coordinates provided, considering
@@ -552,19 +552,20 @@ xarray.DataArray. Defaults to None.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>Union</em><em>[</em><em>xr.DataArray</em><em>, </em><em>np.ndarray</em><em>]</em>) – data to be saved. If a np.ndarray,
+<li><p><strong>data</strong> (<em>xr.DataArray</em><em> | </em><em>np.ndarray</em>) – data to be saved. If a np.ndarray,
 the order is retained. If it is an xarray.DataArray, the order is inferred
 from axis_dict instead. ImageJ likes tiff files with axis order as
 TZCYXS. Therefore, best axis order in input should be: Time, Energy,
 posY, posX. The channels ‘C’ and ‘S’ are automatically added and can
 be ignored.</p></li>
-<li><p><strong>faddr</strong> (<em>Union</em><em>[</em><em>Path</em><em>, </em><em>str</em><em>]</em>) – full path and name of file to save.</p></li>
+<li><p><strong>str</strong><strong>)</strong> (<em>faddr Path</em><em> |</em>) – full path and name of file to save.</p></li>
 <li><p><strong>alias_dict</strong> (<em>dict</em><em>, </em><em>optional</em>) – name pairs for correct axis ordering. Keys should
 be any of T,Z,C,Y,X,S. The Corresponding value should be a dimension of the
 xarray or the dimension number if a numpy array. This is used to sort the
 data in the correct order for imagej standards. If None it tries to guess
 the order from the name of the axes or assumes T,Z,C,Y,X,S order for numpy
 arrays. Defaults to None.</p></li>
+<li><p><strong>faddr</strong> (<span class="sphinx_autodoc_typehints-type">Path | str</span>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -589,10 +590,9 @@ NeXus definition and configuration file.</p>
 data._attrs[“metadata”].</p></li>
 <li><p><strong>faddr</strong> (<em>str</em>) – The file path to save to.</p></li>
 <li><p><strong>reader</strong> (<em>str</em>) – The name of the NeXus reader to use.</p></li>
-<li><p><strong>definition</strong> (<em>str</em>) – The NeXus definition to use.</p></li>
-<li><p><strong>input_files</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – The file path or paths to the additional files to
-use.</p></li>
-<li><p><strong>**kwds</strong> – Keyword arguments for <code class="docutils literal notranslate"><span class="pre">pynxtools.dataconverter.convert.convert()</span></code>.</p></li>
+<li><p><strong>definition</strong> (<em>str</em>) – The NeXus definiton to use.</p></li>
+<li><p><strong>input_files</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – The file path or paths to the additional files to use.</p></li>
+<li><p><strong>**kwds</strong> – Keyword arguments for <code class="docutils literal notranslate"><span class="pre">nexusutils.dataconverter.convert</span></code>.</p></li>
 </ul>
 </dd>
 </dl>

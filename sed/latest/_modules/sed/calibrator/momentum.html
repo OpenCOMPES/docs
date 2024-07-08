@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.calibrator.momentum &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.calibrator.momentum &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -449,14 +449,12 @@ document.write(`
 <span></span><span class="sd">&quot;&quot;&quot;sed.calibrator.momentum module. Code for momentum calibration and distortion</span>
 <span class="sd">correction. Mostly ported from https://github.com/mpes-kit/mpes.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">bokeh.palettes</span> <span class="k">as</span> <span class="nn">bp</span>
 <span class="kn">import</span> <span class="nn">bokeh.plotting</span> <span class="k">as</span> <span class="nn">pbk</span>
@@ -490,9 +488,9 @@ document.write(`
 <span class="sd">    Momentum distortion correction and momentum calibration workflow functions.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (Union[xr.DataArray, np.ndarray], optional): Multidimensional hypervolume</span>
+<span class="sd">        data (xr.DataArray | np.ndarray, optional): Multidimensional hypervolume</span>
 <span class="sd">            containing the data. Defaults to None.</span>
-<span class="sd">        bin_ranges (List[Tuple], optional): Binning ranges of the data volume, if</span>
+<span class="sd">        bin_ranges (list[tuple], optional): Binning ranges of the data volume, if</span>
 <span class="sd">            provided as np.ndarray. Defaults to None.</span>
 <span class="sd">        rotsym (int, optional): Rotational symmetry of the data. Defaults to 6.</span>
 <span class="sd">        config (dict, optional): Config dictionary. Defaults to None.</span>
@@ -500,17 +498,17 @@ document.write(`
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">bin_ranges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">rotsym</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
         <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor of the MomentumCorrector class.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (Union[xr.DataArray, np.ndarray], optional): Multidimensional</span>
+<span class="sd">            data (xr.DataArray | np.ndarray, optional): Multidimensional</span>
 <span class="sd">                hypervolume containing the data. Defaults to None.</span>
-<span class="sd">            bin_ranges (List[Tuple], optional): Binning ranges of the data volume,</span>
+<span class="sd">            bin_ranges (list[tuple], optional): Binning ranges of the data volume,</span>
 <span class="sd">                if provided as np.ndarray. Defaults to None.</span>
 <span class="sd">            rotsym (int, optional): Rotational symmetry of the data. Defaults to 6.</span>
 <span class="sd">            config (dict, optional): Config dictionary. Defaults to None.</span>
@@ -525,7 +523,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">slice</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">slice_corrected</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">slice_transformed</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bin_ranges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bin_ranges&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bin_ranges&quot;</span><span class="p">,</span> <span class="p">[])</span>
 
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">bin_ranges</span><span class="o">=</span><span class="n">bin_ranges</span><span class="p">)</span>
@@ -540,7 +538,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">include_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pouter</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pcent</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pcent</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pouter_ord</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prefs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ptargs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
@@ -556,10 +554,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">cdeform_field_bkp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inverse_dfield</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dfield_updated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">transformations</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;transformations&quot;</span><span class="p">,</span> <span class="p">{})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">correction</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;correction&quot;</span><span class="p">,</span> <span class="p">{})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">adjust_params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">calibration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calibration&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;transformations&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">correction</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;correction&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjust_params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;calibration&quot;</span><span class="p">,</span> <span class="p">{})</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">x_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;x_column&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;y_column&quot;</span><span class="p">]</span>
@@ -605,15 +603,15 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.load_data">[docs]</a>
     <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-        <span class="n">bin_ranges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Load binned data into the momentum calibrator class</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (Union[xr.DataArray, np.ndarray]):</span>
+<span class="sd">            data (xr.DataArray | np.ndarray):</span>
 <span class="sd">                2D or 3D data array, either as np.ndarray or xr.DataArray.</span>
-<span class="sd">            bin_ranges (List[Tuple], optional):</span>
+<span class="sd">            bin_ranges (list[tuple], optional):</span>
 <span class="sd">                Binning ranges. Needs to be provided in case the data are given</span>
 <span class="sd">                as np.ndarray. Otherwise, they are determined from the coords of</span>
 <span class="sd">                the xr.DataArray. Defaults to None.</span>
@@ -722,9 +720,7 @@ document.write(`
             <span class="n">axmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slice</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
             <span class="k">if</span> <span class="n">axmin</span> <span class="o">&lt;</span> <span class="n">axmax</span><span class="p">:</span>
                 <span class="n">img</span><span class="o">.</span><span class="n">set_clim</span><span class="p">(</span><span class="n">axmin</span><span class="p">,</span> <span class="n">axmax</span><span class="p">)</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Plane[</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">stop</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plane[</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">stop</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
             <span class="n">plane_slider</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -745,13 +741,13 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.select_slice">[docs]</a>
     <span class="k">def</span> <span class="nf">select_slice</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">selector</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">slice</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">],</span>
+        <span class="n">selector</span><span class="p">:</span> <span class="nb">slice</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Select (hyper)slice from a (hyper)volume.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            selector (Union[slice, List[int], int]):</span>
+<span class="sd">            selector (slice | list[int] | int):</span>
 <span class="sd">                Selector along the specified axis to extract the slice (image). Use</span>
 <span class="sd">                the construct slice(start, stop, step) to select a range of images</span>
 <span class="sd">                and sum them. Use an integer to specify only a particular slice.</span>
@@ -798,7 +794,7 @@ document.write(`
 <span class="sd">                Option to calculate symmetry scores. Defaults to False.</span>
 <span class="sd">            **kwds: Keyword arguments.</span>
 
-<span class="sd">                - **symtype** (str): Type of symmetry scores to calculate</span>
+<span class="sd">                - **symtype** (str): Type of symmetry scores to calculte</span>
 <span class="sd">                  if symscores is True. Defaults to &quot;rotation&quot;.</span>
 
 <span class="sd">        Raises:</span>
@@ -1070,7 +1066,7 @@ document.write(`
         <span class="n">use_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">fixed_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">interp_order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">ascale</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ascale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -1088,13 +1084,13 @@ document.write(`
 <span class="sd">            interp_order (int, optional):</span>
 <span class="sd">                Order of interpolation (see ``scipy.ndimage.map_coordinates()``).</span>
 <span class="sd">                Defaults to 1.</span>
-<span class="sd">            ascale: (Union[float, np.ndarray], optional): Scale parameter determining a relative</span>
-<span class="sd">                scale for each symmetry feature. If provided as single float, rotsym has to be 4.</span>
-<span class="sd">                This parameter describes the relative scaling between the two orthogonal symmetry</span>
-<span class="sd">                directions (for an orthorhombic system). This requires the correction points to be</span>
-<span class="sd">                located along the principal axes (X/Y points of the Brillouin zone). Otherwise, an</span>
-<span class="sd">                array with ``rotsym`` elements is expected, containing relative scales for each</span>
-<span class="sd">                feature. Defaults to an array of equal scales.</span>
+<span class="sd">            ascale: (float | list | tuple | np.ndarray, optional): Scale parameter determining a</span>
+<span class="sd">                relative scale for each symmetry feature. If provided as single float, rotsym has</span>
+<span class="sd">                to be 4. This parameter describes the relative scaling between the two orthogonal</span>
+<span class="sd">                symmetry directions (for an orthorhombic system). This requires the correction</span>
+<span class="sd">                points to be located along the principal axes (X/Y points of the Brillouin zone).</span>
+<span class="sd">                Otherwise, an array with ``rotsym`` elements is expected, containing relative</span>
+<span class="sd">                scales for each feature. Defaults to an array of equal scales.</span>
 <span class="sd">            verbose (bool, optional): Option to report the used landmarks for correction.</span>
 <span class="sd">                Defaults to True.</span>
 <span class="sd">            **kwds: keyword arguments:</span>
@@ -1261,7 +1257,7 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">slice_corrected</span> <span class="o">=</span> <span class="n">corrected_image</span>
 
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calculated thin spline correction based on the following landmarks:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calulated thin spline correction based on the following landmarks:&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pouter: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pouter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">use_center</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pcent: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pcent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1375,7 +1371,7 @@ document.write(`
 <span class="sd">                - rotation_auto.</span>
 <span class="sd">                - scaling.</span>
 <span class="sd">                - scaling_auto.</span>
-<span class="sd">                - homography.</span>
+<span class="sd">                - homomorphy.</span>
 
 <span class="sd">            keep (bool, optional): Option to keep the specified coordinate transform in</span>
 <span class="sd">                the class. Defaults to False.</span>
@@ -1495,7 +1491,7 @@ document.write(`
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">slice_transformed</span> <span class="o">=</span> <span class="n">slice_transformed</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># if external image is provided, apply only the new additional transformation</span>
+            <span class="c1"># if external image is provided, apply only the new addional tranformation</span>
             <span class="n">slice_transformed</span> <span class="o">=</span> <span class="n">ndi</span><span class="o">.</span><span class="n">map_coordinates</span><span class="p">(</span>
                 <span class="n">image</span><span class="p">,</span>
                 <span class="p">[</span><span class="n">rdeform</span><span class="p">,</span> <span class="n">cdeform</span><span class="p">],</span>
@@ -1519,7 +1515,7 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.pose_adjustment">[docs]</a>
     <span class="k">def</span> <span class="nf">pose_adjustment</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">transformations</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">reset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1531,7 +1527,7 @@ document.write(`
 
 <span class="sd">        Args:</span>
 <span class="sd">            transformations (dict, optional): Dictionary with transformations.</span>
-<span class="sd">                Defaults to self.transformations or config[&quot;momentum&quot;][&quot;transformations&quot;].</span>
+<span class="sd">                Defaults to self.transformations or config[&quot;momentum&quot;][&quot;transformtions&quot;].</span>
 <span class="sd">            apply (bool, optional):</span>
 <span class="sd">                Option to directly apply the provided transformations.</span>
 <span class="sd">                Defaults to False.</span>
@@ -1759,7 +1755,7 @@ document.write(`
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span>
         <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;terrain_r&quot;</span><span class="p">,</span>
-        <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="n">figsize</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
         <span class="n">points</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">annotated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
@@ -1767,7 +1763,7 @@ document.write(`
         <span class="n">scatterkwds</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">cross</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">crosshair</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">crosshair_radii</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
+        <span class="n">crosshair_radii</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
         <span class="n">crosshair_thickness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">):</span>
@@ -1778,7 +1774,7 @@ document.write(`
 <span class="sd">            origin (str, optional): Figure origin specification (&#39;lower&#39; or &#39;upper&#39;).</span>
 <span class="sd">                Defaults to &quot;lower&quot;.</span>
 <span class="sd">            cmap (str, optional):  Colormap specification. Defaults to &quot;terrain_r&quot;.</span>
-<span class="sd">            figsize (Tuple[int, int], optional): Figure size. Defaults to (4, 4).</span>
+<span class="sd">            figsize (tuple[int, int], optional): Figure size. Defaults to (4, 4).</span>
 <span class="sd">            points (dict, optional): Points for annotation. Defaults to None.</span>
 <span class="sd">            annotated (bool, optional): Option to add annotation. Defaults to False.</span>
 <span class="sd">            backend (str, optional): Visualization backend specification. Defaults to</span>
@@ -1795,7 +1791,7 @@ document.write(`
 <span class="sd">                self.pcent. Defaults to False.</span>
 <span class="sd">            crosshair (bool, optional): Display option to plot circles around center</span>
 <span class="sd">                self.pcent. Works only in bokeh backend. Defaults to False.</span>
-<span class="sd">            crosshair_radii (List[int], optional): Pixel radii of circles to plot when</span>
+<span class="sd">            crosshair_radii (list[int], optional): Pixel radii of circles to plot when</span>
 <span class="sd">                crosshair option is activated. Defaults to [50, 100, 150].</span>
 <span class="sd">            crosshair_thickness (int, optional): Thickness of crosshair circles.</span>
 <span class="sd">                Defaults to 1.</span>
@@ -1814,7 +1810,7 @@ document.write(`
             <span class="n">txtsize</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;textsize&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span>
-            <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+            <span class="n">fig_plt</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="o">**</span><span class="n">imkwds</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">cross</span><span class="p">:</span>
@@ -1909,30 +1905,31 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.select_k_range">[docs]</a>
     <span class="k">def</span> <span class="nf">select_k_range</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">point_a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">point_b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">point_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">point_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">k_distance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">k_coord_a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">k_coord_b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+        <span class="n">k_coord_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">k_coord_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
         <span class="n">equiscale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Interactive selection function for features for the Momentum axes calibration. It allows</span>
-<span class="sd">        the user to select the pixel positions of two symmetry points (a and b) and the k-space</span>
-<span class="sd">        distance of the two. Alternatively, the coordinates of both points can be provided. See the</span>
-<span class="sd">        equiscale option for details on the specifications of point coordinates.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Interactive selection function for features for the Momentum axes calibra-</span>
+<span class="sd">        tion. It allows the user to select the pixel positions of two symmetry points</span>
+<span class="sd">        (a and b) and the k-space distance of the two. Alternatively, the corrdinates</span>
+<span class="sd">        of both points can be provided. See the equiscale option for details on the</span>
+<span class="sd">        specifications of point coordinates.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            point_a (Union[np.ndarray, List[int]], optional): Pixel coordinates of the</span>
+<span class="sd">            point_a (np.ndarray | list[int], optional): Pixel coordinates of the</span>
 <span class="sd">                symmetry point a.</span>
-<span class="sd">            point_b (Union[np.ndarray, List[int]], optional): Pixel coordinates of the</span>
+<span class="sd">            point_b (np.ndarray | list[int], optional): Pixel coordinates of the</span>
 <span class="sd">                symmetry point b. Defaults to the center pixel of the image, defined by</span>
 <span class="sd">                config[&quot;momentum&quot;][&quot;center_pixel&quot;].</span>
 <span class="sd">            k_distance (float, optional): The known momentum space distance between the</span>
 <span class="sd">                two symmetry points.</span>
-<span class="sd">            k_coord_a (Union[np.ndarray, List[float]], optional): Momentum coordinate</span>
+<span class="sd">            k_coord_a (np.ndarray | list[float], optional): Momentum coordinate</span>
 <span class="sd">                of the symmetry points a. Only valid if equiscale=False.</span>
-<span class="sd">            k_coord_b (Union[np.ndarray, List[float]], optional): Momentum coordinate</span>
+<span class="sd">            k_coord_b (np.ndarray | list[float], optional): Momentum coordinate</span>
 <span class="sd">                of the symmetry points b. Only valid if equiscale=False. Defaults to</span>
 <span class="sd">                the k-space center np.array([0.0, 0.0]).</span>
 <span class="sd">            equiscale (bool, optional): Option to adopt equal scale along both the x</span>
@@ -2062,11 +2059,11 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.calibrate">[docs]</a>
     <span class="k">def</span> <span class="nf">calibrate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">point_a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
-        <span class="n">point_b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+        <span class="n">point_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">point_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
         <span class="n">k_distance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">k_coord_a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">k_coord_b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+        <span class="n">k_coord_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">k_coord_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
         <span class="n">equiscale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
@@ -2077,16 +2074,16 @@ document.write(`
 <span class="sd">        of point coordinates.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            point_a (Union[np.ndarray, List[int]], optional): Pixel coordinates of the</span>
+<span class="sd">            point_a (np.ndarray | list[int], optional): Pixel coordinates of the</span>
 <span class="sd">                symmetry point a.</span>
-<span class="sd">            point_b (Union[np.ndarray, List[int]], optional): Pixel coordinates of the</span>
+<span class="sd">            point_b (np.ndarray | list[int], optional): Pixel coordinates of the</span>
 <span class="sd">                symmetry point b. Defaults to the center pixel of the image, defined by</span>
 <span class="sd">                config[&quot;momentum&quot;][&quot;center_pixel&quot;].</span>
 <span class="sd">            k_distance (float, optional): The known momentum space distance between the</span>
 <span class="sd">                two symmetry points.</span>
-<span class="sd">            k_coord_a (Union[np.ndarray, List[float]], optional): Momentum coordinate</span>
+<span class="sd">            k_coord_a (np.ndarray | list[float], optional): Momentum coordinate</span>
 <span class="sd">                of the symmetry points a. Only valid if equiscale=False.</span>
-<span class="sd">            k_coord_b (Union[np.ndarray, List[float]], optional): Momentum coordinate</span>
+<span class="sd">            k_coord_b (np.ndarray | list[float], optional): Momentum coordinate</span>
 <span class="sd">                of the symmetry points b. Only valid if equiscale=False. Defaults to</span>
 <span class="sd">                the k-space center np.array([0.0, 0.0]).</span>
 <span class="sd">            equiscale (bool, optional): Option to adopt equal scale along both the x</span>
@@ -2182,20 +2179,20 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.apply_corrections">[docs]</a>
     <span class="k">def</span> <span class="nf">apply_corrections</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">y_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">new_x_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">new_y_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate and replace the X and Y values with their distortion-corrected</span>
 <span class="sd">        version.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to apply</span>
-<span class="sd">                the distortion correction to.</span>
+<span class="sd">            df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to apply</span>
+<span class="sd">                the distotion correction to.</span>
 <span class="sd">            x_column (str, optional): Label of the &#39;X&#39; column before momentum</span>
 <span class="sd">                distortion correction. Defaults to config[&quot;momentum&quot;][&quot;x_column&quot;].</span>
 <span class="sd">            y_column (str, optional): Label of the &#39;Y&#39; column before momentum</span>
@@ -2217,7 +2214,7 @@ document.write(`
 <span class="sd">                Additional keyword arguments are passed to ``apply_dfield``.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[Union[pd.DataFrame, dask.dataframe.DataFrame], dict]: Dataframe with</span>
+<span class="sd">            tuple[pd.DataFrame | dask.dataframe.DataFrame, dict]: Dataframe with</span>
 <span class="sd">            added columns and momentum correction metadata dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">x_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2274,7 +2271,7 @@ document.write(`
 <span class="sd">        Returns:</span>
 <span class="sd">            dict: generated correction metadata dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">correction</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;correction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">correction</span>
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;correction&quot;</span><span class="p">][</span><span class="s2">&quot;applied&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -2289,11 +2286,11 @@ document.write(`
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;creation_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;applied&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;depends_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="s2">&quot;/entry/process/registration/transformations/rot_z&quot;</span>
+                <span class="s2">&quot;/entry/process/registration/tranformations/rot_z&quot;</span>
                 <span class="k">if</span> <span class="s2">&quot;angle&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;angle&quot;</span><span class="p">]</span>
-                <span class="k">else</span> <span class="s2">&quot;/entry/process/registration/transformations/trans_y&quot;</span>
+                <span class="k">else</span> <span class="s2">&quot;/entry/process/registration/tranformations/trans_y&quot;</span>
                 <span class="k">if</span> <span class="s2">&quot;xtrans&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;xtrans&quot;</span><span class="p">]</span>
-                <span class="k">else</span> <span class="s2">&quot;/entry/process/registration/transformations/trans_x&quot;</span>
+                <span class="k">else</span> <span class="s2">&quot;/entry/process/registration/tranformations/trans_x&quot;</span>
                 <span class="k">if</span> <span class="s2">&quot;ytrans&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;ytrans&quot;</span><span class="p">]</span>
                 <span class="k">else</span> <span class="s2">&quot;.&quot;</span>
             <span class="p">)</span>
@@ -2317,7 +2314,7 @@ document.write(`
                     <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
                 <span class="p">)</span>
                 <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;trans_y&quot;</span><span class="p">][</span><span class="s2">&quot;depends_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="s2">&quot;/entry/process/registration/transformations/trans_x&quot;</span>
+                    <span class="s2">&quot;/entry/process/registration/tranformations/trans_x&quot;</span>
                     <span class="k">if</span> <span class="s2">&quot;ytrans&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;ytrans&quot;</span><span class="p">]</span>
                     <span class="k">else</span> <span class="s2">&quot;.&quot;</span>
                 <span class="p">)</span>
@@ -2333,9 +2330,9 @@ document.write(`
                     <span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;center&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]),</span>
                 <span class="p">)</span>
                 <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;rot_z&quot;</span><span class="p">][</span><span class="s2">&quot;depends_on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="s2">&quot;/entry/process/registration/transformations/trans_y&quot;</span>
+                    <span class="s2">&quot;/entry/process/registration/tranformations/trans_y&quot;</span>
                     <span class="k">if</span> <span class="s2">&quot;xtrans&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;xtrans&quot;</span><span class="p">]</span>
-                    <span class="k">else</span> <span class="s2">&quot;/entry/process/registration/transformations/trans_x&quot;</span>
+                    <span class="k">else</span> <span class="s2">&quot;/entry/process/registration/tranformations/trans_x&quot;</span>
                     <span class="k">if</span> <span class="s2">&quot;ytrans&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;registration&quot;</span><span class="p">][</span><span class="s2">&quot;ytrans&quot;</span><span class="p">]</span>
                     <span class="k">else</span> <span class="s2">&quot;.&quot;</span>
                 <span class="p">)</span>
@@ -2347,19 +2344,19 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.append_k_axis">[docs]</a>
     <span class="k">def</span> <span class="nf">append_k_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">y_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">new_x_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">new_y_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate and append the k axis coordinates (kx, ky) to the events dataframe.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to apply the</span>
-<span class="sd">                distortion correction to.</span>
+<span class="sd">            df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to apply the</span>
+<span class="sd">                distotion correction to.</span>
 <span class="sd">            x_column (str, optional): Label of the source &#39;X&#39; column.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;corrected_x_column&quot;] or</span>
 <span class="sd">                config[&quot;momentum&quot;][&quot;x_column&quot;] (whichever is present).</span>
@@ -2376,7 +2373,7 @@ document.write(`
 <span class="sd">                to the calibration dictionary.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[Union[pd.DataFrame, dask.dataframe.DataFrame], dict]: Dataframe with</span>
+<span class="sd">            tuple[pd.DataFrame | dask.dataframe.DataFrame, dict]: Dataframe with</span>
 <span class="sd">            added columns and momentum calibration metadata dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">x_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2406,7 +2403,7 @@ document.write(`
             <span class="n">calibration</span><span class="p">[</span><span class="s2">&quot;creation_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">new_x_column</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">new_y_column</span><span class="p">])</span> <span class="o">=</span> <span class="n">detector_coordinates_2_k_coordinates</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">new_x_column</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">new_y_column</span><span class="p">])</span> <span class="o">=</span> <span class="n">detector_coordiantes_2_k_koordinates</span><span class="p">(</span>
                 <span class="n">r_det</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">x_column</span><span class="p">],</span>
                 <span class="n">c_det</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">y_column</span><span class="p">],</span>
                 <span class="n">r_start</span><span class="o">=</span><span class="n">calibration</span><span class="p">[</span><span class="s2">&quot;rstart&quot;</span><span class="p">],</span>
@@ -2442,7 +2439,7 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">calibration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">calibration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calibration</span>
-        <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;creation_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calibration</span><span class="p">[</span><span class="s2">&quot;creation_date&quot;</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -2469,7 +2466,7 @@ document.write(`
 <span class="sd">        cmap_name (str): Name of the colormap/palette.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        list: List of colors in hex representation (a bokeh palette).</span>
+<span class="sd">        list: List of colors in hex representation (a bokoeh palette).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">cmap_name</span> <span class="ow">in</span> <span class="n">bp</span><span class="o">.</span><span class="n">all_palettes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">palette_func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span> <span class="n">cmap_name</span><span class="p">)</span>
@@ -2488,38 +2485,33 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.dictmerge">[docs]</a>
 <span class="k">def</span> <span class="nf">dictmerge</span><span class="p">(</span>
     <span class="n">main_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
-    <span class="n">other_entries</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">],</span>
+    <span class="n">other_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Merge a dictionary with other dictionaries.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        main_dict (dict): Main dictionary.</span>
-<span class="sd">        other_entries (Union[List[dict], Tuple[dict], dict]):</span>
+<span class="sd">        other_entries (list[dict] | tuple[dict] | dict):</span>
 <span class="sd">            Other dictionary or composite dictionarized elements.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: Merged dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
-        <span class="n">other_entries</span><span class="p">,</span>
-        <span class="p">(</span>
-            <span class="nb">list</span><span class="p">,</span>
-            <span class="nb">tuple</span><span class="p">,</span>
-        <span class="p">),</span>
-    <span class="p">):</span>  <span class="c1"># Merge main_dict with a list or tuple of dictionaries</span>
+    <span class="c1"># Merge main_dict with a list or tuple of dictionaries</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other_entries</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="k">for</span> <span class="n">oth</span> <span class="ow">in</span> <span class="n">other_entries</span><span class="p">:</span>
             <span class="n">main_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">main_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">oth</span><span class="p">}</span>
-
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other_entries</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>  <span class="c1"># Merge D with a single dictionary</span>
+    <span class="c1"># Merge D with a single dictionary</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other_entries</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="n">main_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">main_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">other_entries</span><span class="p">}</span>
 
     <span class="k">return</span> <span class="n">main_dict</span></div>
 
 
 
-<div class="viewcode-block" id="detector_coordinates_2_k_coordinates">
-<a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.detector_coordinates_2_k_coordinates">[docs]</a>
-<span class="k">def</span> <span class="nf">detector_coordinates_2_k_coordinates</span><span class="p">(</span>
+<div class="viewcode-block" id="detector_coordiantes_2_k_koordinates">
+<a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.detector_coordiantes_2_k_koordinates">[docs]</a>
+<span class="k">def</span> <span class="nf">detector_coordiantes_2_k_koordinates</span><span class="p">(</span>
     <span class="n">r_det</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">c_det</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">r_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -2530,8 +2522,8 @@ document.write(`
     <span class="n">c_conversion</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">r_step</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">c_step</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conversion from detector coordinates (r_det, c_det) to momentum coordinates</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conversion from detector coordinates (rdet, cdet) to momentum coordinates</span>
 <span class="sd">    (kr, kc).</span>
 
 <span class="sd">    Args:</span>
@@ -2547,7 +2539,7 @@ document.write(`
 <span class="sd">        c_step (float): Column stepping factor.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[float, float]: Converted momentum space row/column coordinates.</span>
+<span class="sd">        tuple[float, float]: Converted momentum space row/column coordinates.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">r_det0</span> <span class="o">=</span> <span class="n">r_start</span> <span class="o">+</span> <span class="n">r_step</span> <span class="o">*</span> <span class="n">r_center</span>
     <span class="n">c_det0</span> <span class="o">=</span> <span class="n">c_start</span> <span class="o">+</span> <span class="n">c_step</span> <span class="o">*</span> <span class="n">c_center</span>
@@ -2561,30 +2553,30 @@ document.write(`
 <div class="viewcode-block" id="apply_dfield">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.apply_dfield">[docs]</a>
 <span class="k">def</span> <span class="nf">apply_dfield</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">dfield</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">y_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">new_x_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">new_y_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">detector_ranges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">],</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="n">detector_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Application of the inverse displacement-field to the dataframe coordinates.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to apply the</span>
-<span class="sd">            distortion correction to.</span>
+<span class="sd">        df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to apply the</span>
+<span class="sd">            distotion correction to.</span>
 <span class="sd">        dfield (np.ndarray): The distortion correction field. 3D matrix,</span>
 <span class="sd">            with column and row distortion fields stacked along the first dimension.</span>
 <span class="sd">        x_column (str): Label of the &#39;X&#39; source column.</span>
 <span class="sd">        y_column (str): Label of the &#39;Y&#39; source column.</span>
 <span class="sd">        new_x_column (str): Label of the &#39;X&#39; destination column.</span>
 <span class="sd">        new_y_column (str): Label of the &#39;Y&#39; destination column.</span>
-<span class="sd">        detector_ranges (List[Tuple]): tuple of pixel ranges of the detector x/y</span>
+<span class="sd">        detector_ranges (list[tuple]): tuple of pixel ranges of the detector x/y</span>
 <span class="sd">            coordinates</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: dataframe with added columns</span>
+<span class="sd">        pd.DataFrame | dask.dataframe.DataFrame: dataframe with added columns</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">x_column</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">y_column</span><span class="p">]</span>
@@ -2605,18 +2597,18 @@ document.write(`
 <span class="k">def</span> <span class="nf">generate_inverse_dfield</span><span class="p">(</span>
     <span class="n">rdeform_field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">cdeform_field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">bin_ranges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">],</span>
-    <span class="n">detector_ranges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">],</span>
+    <span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="n">detector_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate inverse deformation field using interpolation with griddata.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate inverse deformation field using inperpolation with griddata.</span>
 <span class="sd">    Assuming the binning range of the input ``rdeform_field`` and ``cdeform_field``</span>
 <span class="sd">    covers the whole detector.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        rdeform_field (np.ndarray): Row-wise deformation field.</span>
 <span class="sd">        cdeform_field (np.ndarray): Column-wise deformation field.</span>
-<span class="sd">        bin_ranges (List[Tuple]): Detector ranges of the binned coordinates.</span>
-<span class="sd">        detector_ranges (List[Tuple]): Ranges of detector coordinates to interpolate to.</span>
+<span class="sd">        bin_ranges (list[tuple]): Detector ranges of the binned coordinates.</span>
+<span class="sd">        detector_ranges (list[tuple]): Ranges of detector coordinates to interpolate to.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        np.ndarray: The calculated inverse deformation field (row/column)</span>
@@ -2680,14 +2672,14 @@ document.write(`
 
 <div class="viewcode-block" id="load_dfield">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.load_dfield">[docs]</a>
-<span class="k">def</span> <span class="nf">load_dfield</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">load_dfield</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load inverse dfield from file</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        file (str): Path to file containing the inverse dfield</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        np.ndarray: the loaded inverse deformation field</span>
+<span class="sd">        tuple[np.ndarray, np.ndarray]: the loaded inverse row and column deformation fields</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rdeform_field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">cdeform_field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>

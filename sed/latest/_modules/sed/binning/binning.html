@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.binning.binning &#8212; SED 0.1.10a6 documentation</title>
+    <title>sed.binning.binning &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../../../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +43,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -447,14 +447,13 @@ document.write(`
                   
   <h1>Source code for sed.binning.binning</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This module contains the binning functions of the sed.binning module</span>
-
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span>
@@ -476,33 +475,27 @@ document.write(`
 <div class="viewcode-block" id="bin_partition">
 <a class="viewcode-back" href="../../../sed/binning.html#sed.binning.bin_partition">[docs]</a>
 <span class="k">def</span> <span class="nf">bin_partition</span><span class="p">(</span>
-    <span class="n">part</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
-        <span class="nb">int</span><span class="p">,</span>
-        <span class="nb">dict</span><span class="p">,</span>
-        <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
-        <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-        <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
-    <span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">part</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
     <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">hist_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;numba&quot;</span><span class="p">,</span>
-    <span class="n">jitter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">jitter</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">return_edges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">skip_test</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the n-dimensional histogram of a single dataframe partition.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        part (Union[dask.dataframe.DataFrame, pd.DataFrame]): dataframe on which</span>
+<span class="sd">        part (dask.dataframe.DataFrame | pd.DataFrame): dataframe on which</span>
 <span class="sd">            to perform the histogram. Usually a partition of a dask DataFrame.</span>
-<span class="sd">        bins (int, dict, Sequence[int], Sequence[np.ndarray], Sequence[tuple], optional):</span>
+<span class="sd">        bins (int | dict | Sequence[int] | Sequence[np.ndarray] | Sequence[tuple], optional):</span>
 <span class="sd">            Definition of the bins. Can  be any of the following cases:</span>
 
 <span class="sd">                - an integer describing the number of bins for all dimensions. This</span>
 <span class="sd">                  requires &quot;ranges&quot; to be defined as well.</span>
 <span class="sd">                - A sequence containing one entry of the following types for each</span>
-<span class="sd">                  dimension:</span>
+<span class="sd">                  dimenstion:</span>
 
 <span class="sd">                    - an integer describing the number of bins. This requires &quot;ranges&quot;</span>
 <span class="sd">                      to be defined as well.</span>
@@ -520,7 +513,7 @@ document.write(`
 <span class="sd">            the order of the dimensions in the resulting array. Only not required if</span>
 <span class="sd">            bins are provided as dictionary containing the axis names.</span>
 <span class="sd">            Defaults to None.</span>
-<span class="sd">        ranges (Sequence[Tuple[float, float]], optional): Sequence of tuples containing</span>
+<span class="sd">        ranges (Sequence[tuple[float, float]], optional): Sequence of tuples containing</span>
 <span class="sd">            the start and end point of the binning range. Required if bins given as</span>
 <span class="sd">            int or Sequence[int]. Defaults to None.</span>
 <span class="sd">        hist_mode (str, optional): Histogram calculation method.</span>
@@ -529,18 +522,18 @@ document.write(`
 <span class="sd">                - &quot;numba&quot; use a numba powered similar method.</span>
 
 <span class="sd">            Defaults to &quot;numba&quot;.</span>
-<span class="sd">        jitter (Union[list, dict], optional): a list of the axes on which to apply</span>
+<span class="sd">        jitter (list | dict, optional): a list of the axes on which to apply</span>
 <span class="sd">            jittering. To specify the jitter amplitude or method (normal or uniform</span>
 <span class="sd">            noise) a dictionary can be passed. This should look like</span>
 <span class="sd">            jitter={&#39;axis&#39;:{&#39;amplitude&#39;:0.5,&#39;mode&#39;:&#39;uniform&#39;}}.</span>
-<span class="sd">            This example also shows the default behavior, in case None is</span>
+<span class="sd">            This example also shows the default behaviour, in case None is</span>
 <span class="sd">            passed in the dictionary, or jitter is a list of strings.</span>
 <span class="sd">            Warning: this is not the most performing approach. Applying jitter</span>
 <span class="sd">            on the dataframe before calling the binning is much faster.</span>
 <span class="sd">            Defaults to None.</span>
 <span class="sd">        return_edges (bool, optional): If True, returns a list of D arrays</span>
 <span class="sd">            describing the bin edges for each dimension, similar to the</span>
-<span class="sd">            behavior of ``np.histogramdd``. Defaults to False.</span>
+<span class="sd">            behaviour of ``np.histogramdd``. Defaults to False.</span>
 <span class="sd">        skip_test (bool, optional): Turns off input check and data transformation.</span>
 <span class="sd">            Defaults to False as it is intended for internal use only.</span>
 <span class="sd">            Warning: setting this True might make error tracking difficult.</span>
@@ -552,8 +545,8 @@ document.write(`
 <span class="sd">            present in the dataframe</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Union[np.ndarray, Tuple[np.ndarray, list]]: 2-element tuple returned only when</span>
-<span class="sd">        returnEdges is True. Otherwise only hist is returned.</span>
+<span class="sd">        np.ndarray | tuple[np.ndarray: 2-element tuple returned only when</span>
+<span class="sd">        return_edges is True. Otherwise only hist is returned.</span>
 
 <span class="sd">        - **hist**: The result of the n-dimensional binning</span>
 <span class="sd">        - **edges**: A list of D arrays describing the bin edges for each dimension.</span>
@@ -572,19 +565,19 @@ document.write(`
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
                 <span class="s2">&quot;axes needs to be of type &#39;List[str]&#39; if tests are skipped!&quot;</span><span class="p">,</span>
             <span class="p">)</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span> <span class="n">bins</span><span class="p">)</span>
-        <span class="n">axes</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">axes</span><span class="p">)</span>
-        <span class="n">ranges</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span> <span class="n">ranges</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">axes</span><span class="p">)</span>
+        <span class="n">ranges</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span> <span class="n">ranges</span><span class="p">)</span>
 
     <span class="c1"># convert bin centers to bin edges:</span>
     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bin_centers</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">):</span>
             <span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_centers_to_bin_edges</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
         <span class="c1"># shift ranges by half a bin size to align the bin centers to the given ranges,</span>
-        <span class="c1"># as the histogram functions interpret the ranges as limits for the edges.</span>
+        <span class="c1"># as the histogram functions interprete the ranges as limits for the edges.</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nbins</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">):</span>
             <span class="n">halfbinsize</span> <span class="o">=</span> <span class="p">(</span><span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">nbins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
             <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
@@ -656,18 +649,12 @@ document.write(`
 <a class="viewcode-back" href="../../../sed/binning.html#sed.binning.bin_dataframe">[docs]</a>
 <span class="k">def</span> <span class="nf">bin_dataframe</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
-    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
-        <span class="nb">int</span><span class="p">,</span>
-        <span class="nb">dict</span><span class="p">,</span>
-        <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
-        <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-        <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
-    <span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
     <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">hist_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;numba&quot;</span><span class="p">,</span>
     <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;fast&quot;</span><span class="p">,</span>
-    <span class="n">jitter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">jitter</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">pbar</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">n_cores</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">N_CPU</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">threads_per_worker</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
@@ -681,13 +668,13 @@ document.write(`
 <span class="sd">    Args:</span>
 <span class="sd">        df (dask.dataframe.DataFrame): a dask.DataFrame on which to perform the</span>
 <span class="sd">            histogram.</span>
-<span class="sd">            bins (int, dict, Sequence[int], Sequence[np.ndarray], Sequence[tuple], optional):</span>
+<span class="sd">        bins (int | dict | Sequence[int] | Sequence[np.ndarray] | Sequence[tuple], optional):</span>
 <span class="sd">            Definition of the bins. Can be any of the following cases:</span>
 
 <span class="sd">                - an integer describing the number of bins for all dimensions. This</span>
 <span class="sd">                  requires &quot;ranges&quot; to be defined as well.</span>
 <span class="sd">                - A sequence containing one entry of the following types for each</span>
-<span class="sd">                  dimension:</span>
+<span class="sd">                  dimenstion:</span>
 
 <span class="sd">                    - an integer describing the number of bins. This requires &quot;ranges&quot;</span>
 <span class="sd">                      to be defined as well.</span>
@@ -705,7 +692,7 @@ document.write(`
 <span class="sd">            the order of the dimensions in the resulting array. Only not required if</span>
 <span class="sd">            bins are provided as dictionary containing the axis names.</span>
 <span class="sd">            Defaults to None.</span>
-<span class="sd">        ranges (Sequence[Tuple[float, float]], optional): Sequence of tuples containing</span>
+<span class="sd">        ranges (Sequence[tuple[float, float]], optional): Sequence of tuples containing</span>
 <span class="sd">            the start and end point of the binning range. Required if bins given as</span>
 <span class="sd">            int or Sequence[int]. Defaults to None.</span>
 <span class="sd">        hist_mode (str, optional): Histogram calculation method.</span>
@@ -722,11 +709,11 @@ document.write(`
 <span class="sd">                - &#39;legacy&#39;: Single-core recombination of partition results.</span>
 
 <span class="sd">            Defaults to &quot;fast&quot;.</span>
-<span class="sd">        jitter (Union[list, dict], optional): a list of the axes on which to apply</span>
+<span class="sd">        jitter (list | dict, optional): a list of the axes on which to apply</span>
 <span class="sd">            jittering. To specify the jitter amplitude or method (normal or uniform</span>
 <span class="sd">            noise) a dictionary can be passed. This should look like</span>
 <span class="sd">            jitter={&#39;axis&#39;:{&#39;amplitude&#39;:0.5,&#39;mode&#39;:&#39;uniform&#39;}}.</span>
-<span class="sd">            This example also shows the default behavior, in case None is</span>
+<span class="sd">            This example also shows the default behaviour, in case None is</span>
 <span class="sd">            passed in the dictionary, or jitter is a list of strings.</span>
 <span class="sd">            Warning: this is not the most performing approach. applying jitter</span>
 <span class="sd">            on the dataframe before calling the binning is much faster.</span>
@@ -757,14 +744,14 @@ document.write(`
     <span class="c1"># create the coordinate axes for the xarray output</span>
     <span class="c1"># if provided as array, they are interpreted as bin centers</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">bins</span><span class="p">))</span>
     <span class="k">elif</span> <span class="n">ranges</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
             <span class="s2">&quot;bins is not an array and range is none. this shouldn&#39;t happen.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span>
             <span class="n">ax</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
         <span class="p">}</span>
@@ -933,7 +920,7 @@ document.write(`
     <span class="n">bin_centers</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">time_unit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a normalization histogram from a timed dataframe.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a normalization histogram from a timed datafram.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        df (dask.dataframe.DataFrame): a dask.DataFrame on which to perform the</span>
@@ -963,7 +950,7 @@ document.write(`
 
 
 <span class="k">def</span> <span class="nf">apply_jitter_on_column</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">amp</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>

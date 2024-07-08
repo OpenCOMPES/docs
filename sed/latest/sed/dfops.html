@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Dataframe Operations &#8212; SED 0.1.10a6 documentation</title>
+    <title>Dataframe Operations &#8212; SED 0.1.10a5 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="../_static/documentation_options.js?v=7e069785"></script>
+    <script src="../_static/documentation_options.js?v=49fe1def"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +44,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a6';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -124,7 +124,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a6 documentation</p>
+    <p class="title logo__title">SED 0.1.10a5 documentation</p>
   
 </a></div>
     
@@ -481,14 +481,14 @@ document.write(`
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to add
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to add
 noise/jittering to.</p></li>
-<li><p><strong>cols</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Names of the columns to add jittering to.</p></li>
-<li><p><strong>cols_jittered</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Names of the columns
+<li><p><strong>cols</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – Names of the columns to add jittering to.</p></li>
+<li><p><strong>cols_jittered</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Names of the columns
 with added jitter. Defaults to None.</p></li>
-<li><p><strong>amps</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
+<li><p><strong>amps</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
 jittering noise. If one number is given, the same is used for all axes.
-For normal noise, the added noise will have stdev [-amp, +amp], for
+For normal noise, the added noise will have sdev [-amp, +amp], for
 uniform noise it will cover the interval [-amp, +amp].
 Defaults to 0.5.</p></li>
 <li><p><strong>jitter_type</strong> (<em>str</em><em>, </em><em>optional</em>) – the type of jitter to add. ‘uniform’ or ‘normal’
@@ -499,7 +499,7 @@ distributed noise. Defaults to “uniform”.</p></li>
 <dd class="field-even"><p>dataframe with added columns.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -511,15 +511,15 @@ distributed noise. Defaults to “uniform”.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
-<li><p><strong>column_name</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>)</em>) – List of column names to be dropped.</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – List of column names to be dropped.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Dataframe with dropped columns.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -531,7 +531,7 @@ distributed noise. Defaults to “uniform”.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
 <li><p><strong>col</strong> (<em>str</em>) – Name of the column to filter. Passing “index” for col will
 filter on the index in each dataframe partition.</p></li>
 <li><p><strong>lower_bound</strong> (<em>float</em><em>, </em><em>optional</em>) – The lower bound used in the filtering.
@@ -544,7 +544,7 @@ Defaults to np.inf.</p></li>
 <dd class="field-even"><p>The filtered dataframe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -557,7 +557,7 @@ timestamps in the dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
+<li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
 <li><p><strong>time_stamps</strong> (<em>np.ndarray</em>) – Time stamps of the values to add</p></li>
 <li><p><strong>data</strong> (<em>np.ndarray</em>) – Values corresponding at the time stamps in time_stamps</p></li>
 <li><p><strong>dest_column</strong> (<em>str</em>) – destination column name</p></li>
@@ -568,7 +568,7 @@ timestamps in the dataframe.</p>
 <dd class="field-even"><p>Dataframe with added column</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -580,7 +580,7 @@ timestamps in the dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
 <li><p><strong>map_2d</strong> (<em>Callable</em>) – 2D mapping function.</p></li>
 <li><p><strong>x_column</strong> (<em>str</em>) – The X column of the dataframe to apply mapping to.</p></li>
 <li><p><strong>y_column</strong> (<em>str</em>) – The Y column of the dataframe to apply mapping to.</p></li>
@@ -591,7 +591,7 @@ timestamps in the dataframe.</p>
 <dd class="field-even"><p>Dataframe with mapped columns.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
@@ -602,15 +602,15 @@ timestamps in the dataframe.</p>
 <dd><p>Forward fill the specified columns multiple times in a dask dataframe.</p>
 <p>Allows forward filling between partitions. This is useful for dataframes
 that have sparse data, such as those with many NaNs.
-Running the forward filling multiple times can fix the issue of having
+Runnin the forward filling multiple times can fix the issue of having
 entire partitions consisting of NaNs. By default we run this twice, which
 is enough to fix the issue for dataframes with no consecutive partitions of NaNs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – The dataframe to forward fill.</p></li>
-<li><p><strong>columns</strong> (<em>list</em>) – The columns to forward fill. If None, fills all columns</p></li>
-<li><p><strong>before</strong> (<em>int</em><em>, </em><em>str</em><em>, </em><em>optional</em>) – The number of rows to include before the current partition.
+<li><p><strong>columns</strong> (<em>list</em><em>, </em><em>optional</em>) – The columns to forward fill. If None, fills all columns</p></li>
+<li><p><strong>before</strong> (<em>str</em><em> | </em><em>int</em><em>, </em><em>optional</em>) – The number of rows to include before the current partition.
 if ‘max’ it takes as much as possible from the previous partition, which is
 the size of the smallest partition in the dataframe. Defaults to ‘max’.</p></li>
 <li><p><strong>compute_lengths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to compute the length of each partition</p></li>
@@ -637,8 +637,8 @@ Use with care as the assumption of the values being the same in the past is ofte
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – The dataframe to forward fill.</p></li>
-<li><p><strong>columns</strong> (<em>list</em>) – The columns to forward fill. If None, fills all columns</p></li>
-<li><p><strong>after</strong> (<em>int</em><em>, </em><em>str</em><em>, </em><em>optional</em>) – The number of rows to include after the current partition.
+<li><p><strong>columns</strong> (<em>list</em><em>, </em><em>optional</em>) – The columns to forward fill. If None, fills all columns</p></li>
+<li><p><strong>after</strong> (<em>str</em><em> | </em><em>int</em><em>, </em><em>optional</em>) – The number of rows to include after the current partition.
 if ‘max’ it takes as much as possible from the previous partition, which is
 the size of the smallest partition in the dataframe. Defaults to ‘max’.</p></li>
 <li><p><strong>compute_lengths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to compute the length of each partition</p></li>
@@ -663,13 +663,13 @@ the size of the smallest partition in the dataframe. Defaults to ‘max’.</p><
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – Dataframe to use. Currently supports only dask dataframes.</p></li>
 <li><p><strong>target_column</strong> (<em>str</em>) – Name of the column to apply the offset to.</p></li>
-<li><p><strong>offset_columns</strong> (<em>str</em>) – Name of the column(s) to use for the offset.</p></li>
-<li><p><strong>weights</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – weights to apply on each column before adding.
-Used also for changing sign.</p></li>
-<li><p><strong>reductions</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Reduction function to use for the offset.
+<li><p><strong>offset_columns</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – Name of the column(s) to use for the offset.</p></li>
+<li><p><strong>weights</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em>) – weights to apply on each column before adding. Used also
+for changing sign.</p></li>
+<li><p><strong>reductions</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Reduction function to use for the offset.
 Defaults to “mean”. Currently, only mean is supported.</p></li>
-<li><p><strong>preserve_mean</strong> (<em>Union</em><em>[</em><em>bool</em><em>, </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the
-offset column. Defaults to False. If a list is given, it must have the same length as
+<li><p><strong>preserve_mean</strong> (<em>bool</em><em> | </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the offset
+column. Defaults to False. If a list is given, it must have the same length as
 offset_columns. Otherwise the value passed is used for all columns.</p></li>
 <li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to apply the offset inplace.
 If false, the new column will have the name provided by rename, or has the same name as
