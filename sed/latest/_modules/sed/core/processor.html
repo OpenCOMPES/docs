@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.core.processor &#8212; SED 0.1.10a5 documentation</title>
+    <title>sed.core.processor &#8212; SED 0.1.10a7 documentation</title>
   
   
   
@@ -17,12 +17,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -30,20 +30,20 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=49fe1def"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=c345357d"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/core/processor';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.15.3';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a5';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.10a7';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -103,7 +103,7 @@
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -113,6 +113,8 @@
       <div class="navbar-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../index.html">
   
@@ -121,7 +123,7 @@
   
   
   
-    <p class="title logo__title">SED 0.1.10a5 documentation</p>
+    <p class="title logo__title">SED 0.1.10a7 documentation</p>
   
 </a></div>
     
@@ -137,7 +139,7 @@ document.write(`
   <div class="version-switcher__container dropdown">
     <button id="pst-version-switcher-button-2"
       type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
       data-bs-toggle="dropdown"
       aria-haspopup="listbox"
       aria-controls="pst-version-switcher-list-2"
@@ -156,33 +158,33 @@ document.write(`
 </script></div>
       
         <div class="navbar-item">
-<nav class="navbar-nav">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item pst-header-nav-item">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../user_guide/index.html">
     User Guide
   </a>
 </li>
 
 
-<li class="nav-item pst-header-nav-item">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../workflows/index.html">
     Workflows
   </a>
 </li>
 
 
-<li class="nav-item pst-header-nav-item">
-  <a class="nav-link nav-internal" href="../../../misc/contribution.html">
-    Development
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../sed/api.html">
+    API
   </a>
 </li>
 
 
-<li class="nav-item pst-header-nav-item">
-  <a class="nav-link nav-internal" href="../../../sed/api.html">
-    API
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../misc/contribution.html">
+    Development
   </a>
 </li>
 
@@ -199,7 +201,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -213,15 +215,15 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -232,7 +234,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -246,7 +248,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -286,7 +288,7 @@ document.write(`
   <div class="version-switcher__container dropdown">
     <button id="pst-version-switcher-button-3"
       type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
       data-bs-toggle="dropdown"
       aria-haspopup="listbox"
       aria-controls="pst-version-switcher-list-3"
@@ -308,33 +310,33 @@ document.write(`
           
           
             <div class="navbar-item">
-<nav class="navbar-nav">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item pst-header-nav-item">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../user_guide/index.html">
     User Guide
   </a>
 </li>
 
 
-<li class="nav-item pst-header-nav-item">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../workflows/index.html">
     Workflows
   </a>
 </li>
 
 
-<li class="nav-item pst-header-nav-item">
-  <a class="nav-link nav-internal" href="../../../misc/contribution.html">
-    Development
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../sed/api.html">
+    API
   </a>
 </li>
 
 
-<li class="nav-item pst-header-nav-item">
-  <a class="nav-link nav-internal" href="../../../sed/api.html">
-    API
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../misc/contribution.html">
+    Development
   </a>
 </li>
 
@@ -352,15 +354,15 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -371,7 +373,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -449,13 +451,15 @@ document.write(`
 <span></span><span class="sd">&quot;&quot;&quot;This module contains the core class for the sed package</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
-
 <span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">ddf</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -488,19 +492,17 @@ document.write(`
 <span class="n">N_CPU</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="SedProcessor">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor">[docs]</a>
-<span class="k">class</span> <span class="nc">SedProcessor</span><span class="p">:</span>
+<div class="viewcode-block" id="SedProcessor"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor">[docs]</a><span class="k">class</span> <span class="nc">SedProcessor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Processor class of sed. Contains wrapper functions defining a work flow for data</span>
 <span class="sd">    correction, calibration and binning.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        metadata (dict, optional): Dict of external Metadata. Defaults to None.</span>
-<span class="sd">        config (dict | str, optional): Config dictionary or config file name.</span>
+<span class="sd">        config (Union[dict, str], optional): Config dictionary or config file name.</span>
 <span class="sd">            Defaults to None.</span>
-<span class="sd">        dataframe (pd.DataFrame | ddf.DataFrame, optional): dataframe to load</span>
+<span class="sd">        dataframe (Union[pd.DataFrame, ddf.DataFrame], optional): dataframe to load</span>
 <span class="sd">            into the class. Defaults to None.</span>
-<span class="sd">        files (list[str], optional): List of files to pass to the loader defined in</span>
+<span class="sd">        files (List[str], optional): List of files to pass to the loader defined in</span>
 <span class="sd">            the config. Defaults to None.</span>
 <span class="sd">        folder (str, optional): Folder containing files to pass to the loader</span>
 <span class="sd">            defined in the config. Defaults to None.</span>
@@ -516,9 +518,9 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dataframe</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">runs</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -530,11 +532,11 @@ document.write(`
 
 <span class="sd">        Args:</span>
 <span class="sd">            metadata (dict, optional): Dict of external Metadata. Defaults to None.</span>
-<span class="sd">            config (dict | str, optional): Config dictionary or config file name.</span>
+<span class="sd">            config (Union[dict, str], optional): Config dictionary or config file name.</span>
 <span class="sd">                Defaults to None.</span>
-<span class="sd">            dataframe (pd.DataFrame | ddf.DataFrame, optional): dataframe to load</span>
+<span class="sd">            dataframe (Union[pd.DataFrame, ddf.DataFrame], optional): dataframe to load</span>
 <span class="sd">                into the class. Defaults to None.</span>
-<span class="sd">            files (list[str], optional): List of files to pass to the loader defined in</span>
+<span class="sd">            files (List[str], optional): List of files to pass to the loader defined in</span>
 <span class="sd">                the config. Defaults to None.</span>
 <span class="sd">            folder (str, optional): Folder containing files to pass to the loader</span>
 <span class="sd">                defined in the config. Defaults to None.</span>
@@ -562,9 +564,9 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_timed_dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timed_dataframe</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_binned</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pre_binned</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span>
@@ -656,20 +658,20 @@ document.write(`
     <span class="c1">#     self.view_event_histogram(dfpid=2, backend=&quot;matplotlib&quot;)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the underlying dataframe.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            pd.DataFrame | ddf.DataFrame: Dataframe object.</span>
+<span class="sd">            Union[pd.DataFrame, ddf.DataFrame]: Dataframe object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span>
 
     <span class="nd">@dataframe</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the underlying dataframe.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            dataframe (pd.DataFrame | ddf.DataFrame): The dataframe object to set.</span>
+<span class="sd">            dataframe (Union[pd.DataFrame, ddf.DataFrame]): The dataframe object to set.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
             <span class="n">dataframe</span><span class="p">,</span>
@@ -683,20 +685,20 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="o">=</span> <span class="n">dataframe</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the underlying timed_dataframe.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            pd.DataFrame | ddf.DataFrame: Timed Dataframe object.</span>
+<span class="sd">            Union[pd.DataFrame, ddf.DataFrame]: Timed Dataframe object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timed_dataframe</span>
 
     <span class="nd">@timed_dataframe</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timed_dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timed_dataframe</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the underlying timed dataframe.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            timed_dataframe (pd.DataFrame | ddf.DataFrame): The timed dataframe object to set</span>
+<span class="sd">            timed_dataframe (Union[pd.DataFrame, ddf.DataFrame]): The timed dataframe object to set</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">timed_dataframe</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
             <span class="n">timed_dataframe</span><span class="p">,</span>
@@ -719,9 +721,7 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span>
 
-<div class="viewcode-block" id="SedProcessor.add_attribute">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_attribute">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<div class="viewcode-block" id="SedProcessor.add_attribute"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">add_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Function to add element to the attributes dict.</span>
 
 <span class="sd">        Args:</span>
@@ -734,22 +734,21 @@ document.write(`
             <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the config dictionary</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            dict: The config dictionary.</span>
+<span class="sd">            Dict: The config dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">files</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">files</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the list of files</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            list[str]: The list of loaded files</span>
+<span class="sd">            List[str]: The list of loaded files</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_files</span>
 
@@ -782,25 +781,23 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the normalization histogram</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            xr.DataArray: The normalizazion histogram</span>
+<span class="sd">            xr.DataArray: The normalization histogram</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalization_histogram</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No normalization histogram available, generate histogram first!&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalization_histogram</span>
 
-<div class="viewcode-block" id="SedProcessor.cpy">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.cpy">[docs]</a>
-    <span class="k">def</span> <span class="nf">cpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="viewcode-block" id="SedProcessor.cpy"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.cpy">[docs]</a>    <span class="k">def</span> <span class="nf">cpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Function to mirror a list of files or a folder from a network drive to a</span>
 <span class="sd">        local storage. Returns either the original or the copied path to the given</span>
 <span class="sd">        path. The option to use this functionality is set by</span>
 <span class="sd">        config[&quot;core&quot;][&quot;use_copy_tool&quot;].</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            path (str | list[str]): Source path or path list.</span>
+<span class="sd">            path (Union[str, List[str]]): Source path or path list.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            str | list[str]: Source or destination path or path list.</span>
+<span class="sd">            Union[str, List[str]]: Source or destination path or path list.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_copy_tool</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
@@ -816,14 +813,11 @@ document.write(`
 
         <span class="k">return</span> <span class="n">path</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.load">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.load">[docs]</a>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.load"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dataframe</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">runs</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -832,11 +826,11 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Load tabular data of single events into the dataframe object in the class.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            dataframe (pd.DataFrame | ddf.DataFrame, optional): data in tabular</span>
+<span class="sd">            dataframe (Union[pd.DataFrame, ddf.DataFrame], optional): data in tabular</span>
 <span class="sd">                format. Accepts anything which can be interpreted by pd.DataFrame as</span>
 <span class="sd">                an input. Defaults to None.</span>
 <span class="sd">            metadata (dict, optional): Dict of external Metadata. Defaults to None.</span>
-<span class="sd">            files (list[str], optional): List of file paths to pass to the loader.</span>
+<span class="sd">            files (List[str], optional): List of file paths to pass to the loader.</span>
 <span class="sd">                Defaults to None.</span>
 <span class="sd">            runs (Sequence[str], optional): List of run identifiers to pass to the</span>
 <span class="sd">                loader. Defaults to None.</span>
@@ -881,7 +875,7 @@ document.write(`
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">dataframe</span><span class="p">,</span> <span class="n">timed_dataframe</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span>
-                <span class="n">files</span><span class="o">=</span><span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpy</span><span class="p">(</span><span class="n">files</span><span class="p">)),</span>
+                <span class="n">files</span><span class="o">=</span><span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpy</span><span class="p">(</span><span class="n">files</span><span class="p">)),</span>
                 <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
                 <span class="n">collect_metadata</span><span class="o">=</span><span class="n">collect_metadata</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
@@ -902,10 +896,7 @@ document.write(`
                 <span class="n">duplicate_policy</span><span class="o">=</span><span class="s2">&quot;merge&quot;</span><span class="p">,</span>
             <span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.filter_column">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.filter_column">[docs]</a>
-    <span class="k">def</span> <span class="nf">filter_column</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.filter_column"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.filter_column">[docs]</a>    <span class="k">def</span> <span class="nf">filter_column</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">min_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
@@ -945,17 +936,14 @@ document.write(`
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="n">duplicate_policy</span><span class="o">=</span><span class="s2">&quot;merge&quot;</span><span class="p">)</span></div>
 
-
     <span class="c1"># Momentum calibration workflow</span>
     <span class="c1"># 1. Bin raw detector data for distortion correction</span>
-<div class="viewcode-block" id="SedProcessor.bin_and_load_momentum_calibration">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.bin_and_load_momentum_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">bin_and_load_momentum_calibration</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.bin_and_load_momentum_calibration"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.bin_and_load_momentum_calibration">[docs]</a>    <span class="k">def</span> <span class="nf">bin_and_load_momentum_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">df_partitions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="n">axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">bins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">df_partitions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">axes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bins</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">plane</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -966,13 +954,13 @@ document.write(`
 <span class="sd">        interactive view, and load it into the momentum corrector class.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            df_partitions (int | Sequence[int], optional): Number of dataframe partitions</span>
+<span class="sd">            df_partitions (Union[int, Sequence[int]], optional): Number of dataframe partitions</span>
 <span class="sd">                to use for the initial binning. Defaults to 100.</span>
-<span class="sd">            axes (list[str], optional): Axes to bin.</span>
+<span class="sd">            axes (List[str], optional): Axes to bin.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;axes&quot;].</span>
-<span class="sd">            bins (list[int], optional): Bin numbers to use for binning.</span>
+<span class="sd">            bins (List[int], optional): Bin numbers to use for binning.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;bins&quot;].</span>
-<span class="sd">            ranges (Sequence[tuple[float, float]], optional): Ranges to use for binning.</span>
+<span class="sd">            ranges (List[Tuple], optional): Ranges to use for binning.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;ranges&quot;].</span>
 <span class="sd">            plane (int, optional): Initial value for the plane slider. Defaults to 0.</span>
 <span class="sd">            width (int, optional): Initial value for the width slider. Defaults to 5.</span>
@@ -991,12 +979,9 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pre_binned</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">select_slicer</span><span class="p">(</span><span class="n">plane</span><span class="o">=</span><span class="n">plane</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="n">apply</span><span class="p">)</span></div>
 
-
     <span class="c1"># 2. Generate the spline warp correction from momentum features.</span>
     <span class="c1"># Either autoselect features, or input features from view above.</span>
-<div class="viewcode-block" id="SedProcessor.define_features">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.define_features">[docs]</a>
-    <span class="k">def</span> <span class="nf">define_features</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.define_features"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.define_features">[docs]</a>    <span class="k">def</span> <span class="nf">define_features</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">rotation_symmetry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
@@ -1007,7 +992,7 @@ document.write(`
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;2. Step of the distortion correction workflow: Define feature points in</span>
 <span class="sd">        momentum space. They can be either manually selected using a GUI tool, be</span>
-<span class="sd">        ptovided as list of feature points, or auto-generated using a</span>
+<span class="sd">        provided as list of feature points, or auto-generated using a</span>
 <span class="sd">        feature-detection algorithm.</span>
 
 <span class="sd">        Args:</span>
@@ -1047,19 +1032,16 @@ document.write(`
             <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
     <span class="c1"># 3. Generate the spline warp correction from momentum features.</span>
     <span class="c1"># If no features have been selected before, use class defaults.</span>
-<div class="viewcode-block" id="SedProcessor.generate_splinewarp">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.generate_splinewarp">[docs]</a>
-    <span class="k">def</span> <span class="nf">generate_splinewarp</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.generate_splinewarp"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.generate_splinewarp">[docs]</a>    <span class="k">def</span> <span class="nf">generate_splinewarp</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">use_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;3. Step of the distortion correction workflow: Generate the correction</span>
-<span class="sd">        function restoring the symmetry in the image using a splinewarp algortihm.</span>
+<span class="sd">        function restoring the symmetry in the image using a splinewarp algorithm.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            use_center (bool, optional): Option to use the position of the</span>
@@ -1094,11 +1076,8 @@ document.write(`
                 <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
             <span class="p">)</span></div>
 
-
     <span class="c1"># 3a. Save spline-warp parameters to config file.</span>
-<div class="viewcode-block" id="SedProcessor.save_splinewarp">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_splinewarp">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_splinewarp</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_splinewarp"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_splinewarp">[docs]</a>    <span class="k">def</span> <span class="nf">save_splinewarp</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1141,14 +1120,11 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saved momentum correction parameters to &quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&quot;.&#39;</span><span class="p">)</span></div>
 
-
     <span class="c1"># 4. Pose corrections. Provide interactive interface for correcting</span>
     <span class="c1"># scaling, shift and rotation</span>
-<div class="viewcode-block" id="SedProcessor.pose_adjustment">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.pose_adjustment">[docs]</a>
-    <span class="k">def</span> <span class="nf">pose_adjustment</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.pose_adjustment"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.pose_adjustment">[docs]</a>    <span class="k">def</span> <span class="nf">pose_adjustment</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">transformations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">transformations</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">use_correction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">reset</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1161,8 +1137,8 @@ document.write(`
 <span class="sd">        the image.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            transformations (dict[str, Any], optional): Dictionary with transformations.</span>
-<span class="sd">                Defaults to self.transformations or config[&quot;momentum&quot;][&quot;transformtions&quot;].</span>
+<span class="sd">            transformations (dict, optional): Dictionary with transformations.</span>
+<span class="sd">                Defaults to self.transformations or config[&quot;momentum&quot;][&quot;transformations&quot;].</span>
 <span class="sd">            apply (bool, optional): Option to directly apply the provided</span>
 <span class="sd">                transformations. Defaults to False.</span>
 <span class="sd">            use_correction (bool, option): Whether to use the spline warp correction</span>
@@ -1181,7 +1157,7 @@ document.write(`
         <span class="k">if</span> <span class="n">verbose</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">verbose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
 
-        <span class="c1"># Generate homomorphy as default if no distortion correction has been applied</span>
+        <span class="c1"># Generate homography as default if no distortion correction has been applied</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">slice_corrected</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">slice</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">slice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;momentum&quot;</span><span class="p">][</span><span class="s2">&quot;bins&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
@@ -1202,11 +1178,8 @@ document.write(`
             <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
     <span class="c1"># 4a. Save pose adjustment parameters to config file.</span>
-<div class="viewcode-block" id="SedProcessor.save_transformations">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_transformations">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_transformations</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_transformations"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_transformations">[docs]</a>    <span class="k">def</span> <span class="nf">save_transformations</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1238,11 +1211,8 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saved momentum transformation parameters to &quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&quot;.&#39;</span><span class="p">)</span></div>
 
-
     <span class="c1"># 5. Apply the momentum correction to the dataframe</span>
-<div class="viewcode-block" id="SedProcessor.apply_momentum_correction">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_momentum_correction">[docs]</a>
-    <span class="k">def</span> <span class="nf">apply_momentum_correction</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.apply_momentum_correction"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_momentum_correction">[docs]</a>    <span class="k">def</span> <span class="nf">apply_momentum_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1309,18 +1279,15 @@ document.write(`
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
     <span class="c1"># Momentum calibration work flow</span>
     <span class="c1"># 1. Calculate momentum calibration</span>
-<div class="viewcode-block" id="SedProcessor.calibrate_momentum_axes">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_momentum_axes">[docs]</a>
-    <span class="k">def</span> <span class="nf">calibrate_momentum_axes</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.calibrate_momentum_axes"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_momentum_axes">[docs]</a>    <span class="k">def</span> <span class="nf">calibrate_momentum_axes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">point_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">point_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">point_a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">point_b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">k_distance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">k_coord_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">k_coord_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+        <span class="n">k_coord_a</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">k_coord_b</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
         <span class="n">equiscale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
@@ -1331,18 +1298,18 @@ document.write(`
 <span class="sd">        the points.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            point_a (np.ndarray | list[int], optional): Pixel coordinates of the first</span>
+<span class="sd">            point_a (Union[np.ndarray, List[int]]): Pixel coordinates of the first</span>
 <span class="sd">                point used for momentum calibration.</span>
-<span class="sd">            point_b (np.ndarray | list[int], optional): Pixel coordinates of the</span>
+<span class="sd">            point_b (Union[np.ndarray, List[int]], optional): Pixel coordinates of the</span>
 <span class="sd">                second point used for momentum calibration.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;center_pixel&quot;].</span>
 <span class="sd">            k_distance (float, optional): Momentum distance between point a and b.</span>
-<span class="sd">                Needs to be provided if no specific k-koordinates for the two points</span>
+<span class="sd">                Needs to be provided if no specific k-coordinates for the two points</span>
 <span class="sd">                are given. Defaults to None.</span>
-<span class="sd">            k_coord_a (np.ndarray | list[float], optional): Momentum coordinate</span>
+<span class="sd">            k_coord_a (Union[np.ndarray, List[float]], optional): Momentum coordinate</span>
 <span class="sd">                of the first point used for calibration. Used if equiscale is False.</span>
 <span class="sd">                Defaults to None.</span>
-<span class="sd">            k_coord_b (np.ndarray | list[float], optional): Momentum coordinate</span>
+<span class="sd">            k_coord_b (Union[np.ndarray, List[float]], optional): Momentum coordinate</span>
 <span class="sd">                of the second point used for calibration. Defaults to [0.0, 0.0].</span>
 <span class="sd">            equiscale (bool, optional): Option to apply different scales to kx and ky.</span>
 <span class="sd">                If True, the distance between points a and b, and the absolute</span>
@@ -1365,11 +1332,8 @@ document.write(`
             <span class="n">apply</span><span class="o">=</span><span class="n">apply</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
     <span class="c1"># 1a. Save momentum calibration parameters to config file.</span>
-<div class="viewcode-block" id="SedProcessor.save_momentum_calibration">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_momentum_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_momentum_calibration</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_momentum_calibration"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_momentum_calibration">[docs]</a>    <span class="k">def</span> <span class="nf">save_momentum_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1400,11 +1364,8 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved momentum calibration parameters to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-
     <span class="c1"># 2. Apply correction and calibration to the dataframe</span>
-<div class="viewcode-block" id="SedProcessor.apply_momentum_calibration">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_momentum_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">apply_momentum_calibration</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.apply_momentum_calibration"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_momentum_calibration">[docs]</a>    <span class="k">def</span> <span class="nf">apply_momentum_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1470,20 +1431,17 @@ document.write(`
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
     <span class="c1"># Energy correction workflow</span>
     <span class="c1"># 1. Adjust the energy correction parameters</span>
-<div class="viewcode-block" id="SedProcessor.adjust_energy_correction">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.adjust_energy_correction">[docs]</a>
-    <span class="k">def</span> <span class="nf">adjust_energy_correction</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.adjust_energy_correction"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.adjust_energy_correction">[docs]</a>    <span class="k">def</span> <span class="nf">adjust_energy_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">correction_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">center</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">center</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;1. step of the energy crrection workflow: Opens an interactive plot to</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;1. step of the energy correction workflow: Opens an interactive plot to</span>
 <span class="sd">        adjust the parameters for the TOF/energy correction. Also pre-bins the data if</span>
 <span class="sd">        they are not present yet.</span>
 
@@ -1499,7 +1457,7 @@ document.write(`
 <span class="sd">                Defaults to config[&quot;energy&quot;][&quot;correction_type&quot;].</span>
 <span class="sd">            amplitude (float, optional): Amplitude of the correction.</span>
 <span class="sd">                Defaults to config[&quot;energy&quot;][&quot;correction&quot;][&quot;amplitude&quot;].</span>
-<span class="sd">            center (tuple[float, float], optional): Center X/Y coordinates for the</span>
+<span class="sd">            center (Tuple[float, float], optional): Center X/Y coordinates for the</span>
 <span class="sd">                correction. Defaults to config[&quot;energy&quot;][&quot;correction&quot;][&quot;center&quot;].</span>
 <span class="sd">            apply (bool, optional): Option to directly apply the provided or default</span>
 <span class="sd">                correction parameters. Defaults to False.</span>
@@ -1520,11 +1478,8 @@ document.write(`
             <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
     <span class="c1"># 1a. Save energy correction parameters to config file.</span>
-<div class="viewcode-block" id="SedProcessor.save_energy_correction">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_correction">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_energy_correction</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_energy_correction"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_correction">[docs]</a>    <span class="k">def</span> <span class="nf">save_energy_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1557,18 +1512,15 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved energy correction parameters to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-
     <span class="c1"># 2. Apply energy correction to dataframe</span>
-<div class="viewcode-block" id="SedProcessor.apply_energy_correction">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_energy_correction">[docs]</a>
-    <span class="k">def</span> <span class="nf">apply_energy_correction</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.apply_energy_correction"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_energy_correction">[docs]</a>    <span class="k">def</span> <span class="nf">apply_energy_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">correction</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;2. step of the energy correction workflow: Apply the enery correction</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;2. step of the energy correction workflow: Apply the energy correction</span>
 <span class="sd">        parameters stored in the class to the dataframe.</span>
 
 <span class="sd">        Args:</span>
@@ -1619,18 +1571,15 @@ document.write(`
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
     <span class="c1"># Energy calibrator workflow</span>
     <span class="c1"># 1. Load and normalize data</span>
-<div class="viewcode-block" id="SedProcessor.load_bias_series">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.load_bias_series">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_bias_series</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.load_bias_series"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.load_bias_series">[docs]</a>    <span class="k">def</span> <span class="nf">load_bias_series</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">binned_data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">data_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">bins</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">binned_data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">data_files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">axes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bins</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">biases</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">bias_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1641,16 +1590,16 @@ document.write(`
 <span class="sd">        single-event files, or load binned bias/TOF traces.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            binned_data (xr.DataArray | tuple[np.ndarray, np.ndarray, np.ndarray], optional):</span>
+<span class="sd">            binned_data (Union[xr.DataArray, Tuple[np.ndarray, np.ndarray, np.ndarray]], optional):</span>
 <span class="sd">                Binned data If provided as DataArray, Needs to contain dimensions</span>
 <span class="sd">                config[&quot;dataframe&quot;][&quot;tof_column&quot;] and config[&quot;dataframe&quot;][&quot;bias_column&quot;]. If</span>
 <span class="sd">                provided as tuple, needs to contain elements tof, biases, traces.</span>
-<span class="sd">            data_files (list[str], optional): list of file paths to bin</span>
-<span class="sd">            axes (list[str], optional): bin axes.</span>
+<span class="sd">            data_files (List[str], optional): list of file paths to bin</span>
+<span class="sd">            axes (List[str], optional): bin axes.</span>
 <span class="sd">                Defaults to config[&quot;dataframe&quot;][&quot;tof_column&quot;].</span>
-<span class="sd">            bins (list, optional): number of bins.</span>
+<span class="sd">            bins (List, optional): number of bins.</span>
 <span class="sd">                Defaults to config[&quot;energy&quot;][&quot;bins&quot;].</span>
-<span class="sd">            ranges (Sequence[tuple[float, float]], optional): bin ranges.</span>
+<span class="sd">            ranges (Sequence[Tuple[float, float]], optional): bin ranges.</span>
 <span class="sd">                Defaults to config[&quot;energy&quot;][&quot;ranges&quot;].</span>
 <span class="sd">            biases (np.ndarray, optional): Bias voltages used. If missing, bias</span>
 <span class="sd">                voltages are extracted from the data files.</span>
@@ -1691,7 +1640,7 @@ document.write(`
 
         <span class="k">elif</span> <span class="n">data_files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">bin_data</span><span class="p">(</span>
-                <span class="n">data_files</span><span class="o">=</span><span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpy</span><span class="p">(</span><span class="n">data_files</span><span class="p">)),</span>
+                <span class="n">data_files</span><span class="o">=</span><span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpy</span><span class="p">(</span><span class="n">data_files</span><span class="p">)),</span>
                 <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span>
                 <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
                 <span class="n">ranges</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
@@ -1716,13 +1665,10 @@ document.write(`
             <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
     <span class="c1"># 2. extract ranges and get peak positions</span>
-<div class="viewcode-block" id="SedProcessor.find_bias_peaks">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.find_bias_peaks">[docs]</a>
-    <span class="k">def</span> <span class="nf">find_bias_peaks</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.find_bias_peaks"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.find_bias_peaks">[docs]</a>    <span class="k">def</span> <span class="nf">find_bias_peaks</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span>
+        <span class="n">ranges</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">],</span>
         <span class="n">ref_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">infer_others</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
@@ -1738,7 +1684,7 @@ document.write(`
 <span class="sd">        Alternatively, a list of ranges for all traces can be provided.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            ranges (list[tuple] | tuple): Tuple of TOF values indicating a range.</span>
+<span class="sd">            ranges (Union[List[Tuple], Tuple]): Tuple of TOF values indicating a range.</span>
 <span class="sd">                Alternatively, a list of ranges for all traces can be given.</span>
 <span class="sd">            ref_id (int, optional): The id of the trace the range refers to.</span>
 <span class="sd">                Defaults to 0.</span>
@@ -1749,7 +1695,7 @@ document.write(`
 <span class="sd">            radius (int, optional): Radius parameter for fast_dtw.</span>
 <span class="sd">                Defaults to config[&quot;energy&quot;][&quot;fastdtw_radius&quot;].</span>
 <span class="sd">            peak_window (int, optional): Peak_window parameter for the peak detection</span>
-<span class="sd">                algorthm. amount of points that have to have to behave monotoneously</span>
+<span class="sd">                algorithm. amount of points that have to have to behave monotonously</span>
 <span class="sd">                around a peak. Defaults to config[&quot;energy&quot;][&quot;peak_window&quot;].</span>
 <span class="sd">            apply (bool, optional): Option to directly apply the provided parameters.</span>
 <span class="sd">                Defaults to False.</span>
@@ -1792,11 +1738,8 @@ document.write(`
                 <span class="n">apply</span><span class="o">=</span><span class="n">apply</span><span class="p">,</span>
             <span class="p">)</span></div>
 
-
     <span class="c1"># 3. Fit the energy calibration relation</span>
-<div class="viewcode-block" id="SedProcessor.calibrate_energy_axis">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_energy_axis">[docs]</a>
-    <span class="k">def</span> <span class="nf">calibrate_energy_axis</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.calibrate_energy_axis"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_energy_axis">[docs]</a>    <span class="k">def</span> <span class="nf">calibrate_energy_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ref_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">ref_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -1887,11 +1830,8 @@ document.write(`
             <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (eV)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
 
-
     <span class="c1"># 3a. Save energy calibration parameters to config file.</span>
-<div class="viewcode-block" id="SedProcessor.save_energy_calibration">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_energy_calibration</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_energy_calibration"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_calibration">[docs]</a>    <span class="k">def</span> <span class="nf">save_energy_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1926,11 +1866,8 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saved energy calibration parameters to &quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&quot;.&#39;</span><span class="p">)</span></div>
 
-
     <span class="c1"># 4. Apply energy calibration to the dataframe</span>
-<div class="viewcode-block" id="SedProcessor.append_energy_axis">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.append_energy_axis">[docs]</a>
-    <span class="k">def</span> <span class="nf">append_energy_axis</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.append_energy_axis"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.append_energy_axis">[docs]</a>    <span class="k">def</span> <span class="nf">append_energy_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1992,16 +1929,13 @@ document.write(`
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.add_energy_offset">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_energy_offset">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_energy_offset</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.add_energy_offset"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_energy_offset">[docs]</a>    <span class="k">def</span> <span class="nf">add_energy_offset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">constant</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">weights</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">reductions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">preserve_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">reductions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">preserve_mean</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -2009,16 +1943,15 @@ document.write(`
 
 <span class="sd">        Args:</span>
 <span class="sd">            constant (float, optional): The constant to shift the energy axis by.</span>
-<span class="sd">            columns (str | Sequence[str], optional): Name of the column(s) to apply the shift from.</span>
-<span class="sd">            weights (float | Sequence[float], optional): weights to apply to the columns.</span>
+<span class="sd">            columns (Union[str, Sequence[str]]): Name of the column(s) to apply the shift from.</span>
+<span class="sd">            weights (Union[float, Sequence[float]]): weights to apply to the columns.</span>
 <span class="sd">                Can also be used to flip the sign (e.g. -1). Defaults to 1.</span>
-<span class="sd">            reductions (str | Sequence[str], optional): The reduction to apply to the column.</span>
-<span class="sd">                Should be an available method of dask.dataframe.Series. For example &quot;mean&quot;. In this</span>
-<span class="sd">                case the function is applied to the column to generate a single value for the whole</span>
-<span class="sd">                dataset. If None, the shift is applied per-dataframe-row. Defaults to None.</span>
-<span class="sd">                Currently only &quot;mean&quot; is supported.</span>
-<span class="sd">            preserve_mean (bool | Sequence[bool], optional): Whether to subtract the mean of the</span>
-<span class="sd">                column before applying the shift. Defaults to False.</span>
+<span class="sd">            preserve_mean (bool): Whether to subtract the mean of the column before applying the</span>
+<span class="sd">                shift. Defaults to False.</span>
+<span class="sd">            reductions (str): The reduction to apply to the column. Should be an available method</span>
+<span class="sd">                of dask.dataframe.Series. For example &quot;mean&quot;. In this case the function is applied</span>
+<span class="sd">                to the column to generate a single value for the whole dataset. If None, the shift</span>
+<span class="sd">                is applied per-dataframe-row. Defaults to None. Currently only &quot;mean&quot; is supported.</span>
 <span class="sd">            preview (bool, optional): Option to preview the first elements of the data frame.</span>
 <span class="sd">                Defaults to False.</span>
 <span class="sd">            verbose (bool, optional): Option to print out diagnostic information.</span>
@@ -2077,10 +2010,7 @@ document.write(`
         <span class="k">elif</span> <span class="n">verbose</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.save_energy_offset">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_offset">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_energy_offset</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_energy_offset"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_offset">[docs]</a>    <span class="k">def</span> <span class="nf">save_energy_offset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2105,10 +2035,7 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saved energy offset parameters to &quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&quot;.&#39;</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.append_tof_ns_axis">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.append_tof_ns_axis">[docs]</a>
-    <span class="k">def</span> <span class="nf">append_tof_ns_axis</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.append_tof_ns_axis"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.append_tof_ns_axis">[docs]</a>    <span class="k">def</span> <span class="nf">append_tof_ns_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2163,10 +2090,7 @@ document.write(`
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.align_dld_sectors">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.align_dld_sectors">[docs]</a>
-    <span class="k">def</span> <span class="nf">align_dld_sectors</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.align_dld_sectors"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.align_dld_sectors">[docs]</a>    <span class="k">def</span> <span class="nf">align_dld_sectors</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">sector_delays</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2222,13 +2146,10 @@ document.write(`
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
     <span class="c1"># Delay calibration function</span>
-<div class="viewcode-block" id="SedProcessor.calibrate_delay_axis">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_delay_axis">[docs]</a>
-    <span class="k">def</span> <span class="nf">calibrate_delay_axis</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.calibrate_delay_axis"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_delay_axis">[docs]</a>    <span class="k">def</span> <span class="nf">calibrate_delay_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">delay_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">delay_range</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">datafile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2238,7 +2159,7 @@ document.write(`
 <span class="sd">        them from a file.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            delay_range (tuple[float, float], optional): The scanned delay range in</span>
+<span class="sd">            delay_range (Tuple[float, float], optional): The scanned delay range in</span>
 <span class="sd">                picoseconds. Defaults to None.</span>
 <span class="sd">            datafile (str, optional): The file from which to read the delay ranges.</span>
 <span class="sd">                Defaults to None.</span>
@@ -2303,10 +2224,7 @@ document.write(`
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.save_delay_calibration">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_delay_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_delay_calibration</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_delay_calibration"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_delay_calibration">[docs]</a>    <span class="k">def</span> <span class="nf">save_delay_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2343,17 +2261,14 @@ document.write(`
         <span class="p">}</span>
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.add_delay_offset">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_delay_offset">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_delay_offset</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.add_delay_offset"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_delay_offset">[docs]</a>    <span class="k">def</span> <span class="nf">add_delay_offset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">constant</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">flip_delay_axis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">weights</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-        <span class="n">reductions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">preserve_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">reductions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">preserve_mean</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -2362,16 +2277,15 @@ document.write(`
 <span class="sd">        Args:</span>
 <span class="sd">            constant (float, optional): The constant to shift the delay axis by.</span>
 <span class="sd">            flip_delay_axis (bool, optional): Option to reverse the direction of the delay axis.</span>
-<span class="sd">            columns (str | Sequence[str], optional): Name of the column(s) to apply the shift from.</span>
-<span class="sd">            weights (float | Sequence[float], optional): weights to apply to the columns.</span>
+<span class="sd">            columns (Union[str, Sequence[str]]): Name of the column(s) to apply the shift from.</span>
+<span class="sd">            weights (Union[float, Sequence[float]]): weights to apply to the columns.</span>
 <span class="sd">                Can also be used to flip the sign (e.g. -1). Defaults to 1.</span>
-<span class="sd">            reductions (str | Sequence[str], optional): The reduction to apply to the column.</span>
-<span class="sd">                Should be an available method of dask.dataframe.Series. For example &quot;mean&quot;. In this</span>
-<span class="sd">                case the function is applied to the column to generate a single value for the whole</span>
-<span class="sd">                dataset. If None, the shift is applied per-dataframe-row. Defaults to None.</span>
-<span class="sd">                Currently only &quot;mean&quot; is supported.</span>
-<span class="sd">            preserve_mean (bool | Sequence[bool], optional): Whether to subtract the mean of the</span>
-<span class="sd">                column before applying the shift. Defaults to False.</span>
+<span class="sd">            preserve_mean (bool): Whether to subtract the mean of the column before applying the</span>
+<span class="sd">                shift. Defaults to False.</span>
+<span class="sd">            reductions (str): The reduction to apply to the column. Should be an available method</span>
+<span class="sd">                of dask.dataframe.Series. For example &quot;mean&quot;. In this case the function is applied</span>
+<span class="sd">                to the column to generate a single value for the whole dataset. If None, the shift</span>
+<span class="sd">                is applied per-dataframe-row. Defaults to None. Currently only &quot;mean&quot; is supported.</span>
 <span class="sd">            preview (bool, optional): Option to preview the first elements of the data frame.</span>
 <span class="sd">                Defaults to False.</span>
 <span class="sd">            verbose (bool, optional): Option to print out diagnostic information.</span>
@@ -2430,10 +2344,7 @@ document.write(`
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.save_delay_offsets">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_delay_offsets">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_delay_offsets</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_delay_offsets"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_delay_offsets">[docs]</a>    <span class="k">def</span> <span class="nf">save_delay_offsets</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2462,10 +2373,7 @@ document.write(`
         <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saved delay offset parameters to &quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&quot;.&#39;</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.save_workflow_params">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_workflow_params">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_workflow_params</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save_workflow_params"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_workflow_params">[docs]</a>    <span class="k">def</span> <span class="nf">save_workflow_params</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2493,21 +2401,18 @@ document.write(`
             <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
                 <span class="k">pass</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.add_jitter">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_jitter">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_jitter</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.add_jitter"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_jitter">[docs]</a>    <span class="k">def</span> <span class="nf">add_jitter</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">cols</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">amps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">cols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">amps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add jitter to the selected dataframe columns.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            cols (list[str], optional): The colums onto which to apply jitter.</span>
+<span class="sd">            cols (List[str], optional): The columns onto which to apply jitter.</span>
 <span class="sd">                Defaults to config[&quot;dataframe&quot;][&quot;jitter_cols&quot;].</span>
-<span class="sd">            amps (float | Sequence[float], optional): Amplitude scalings for the</span>
+<span class="sd">            amps (Union[float, Sequence[float]], optional): Amplitude scalings for the</span>
 <span class="sd">                jittering noise. If one number is given, the same is used for all axes.</span>
 <span class="sd">                For uniform noise (default) it will cover the interval [-amp, +amp].</span>
 <span class="sd">                Defaults to config[&quot;dataframe&quot;][&quot;jitter_amps&quot;].</span>
@@ -2547,10 +2452,7 @@ document.write(`
         <span class="c1"># TODO: allow only appending if columns are not jittered yet</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;jittering&quot;</span><span class="p">,</span> <span class="n">duplicate_policy</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.add_time_stamped_data">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_time_stamped_data">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_time_stamped_data</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.add_time_stamped_data"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_time_stamped_data">[docs]</a>    <span class="k">def</span> <span class="nf">add_time_stamped_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dest_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">time_stamps</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2613,33 +2515,30 @@ document.write(`
                     <span class="n">time_stamp_column</span><span class="o">=</span><span class="n">time_stamp_column</span><span class="p">,</span>
                     <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
                 <span class="p">)</span>
-        <span class="n">metadata</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dest_column</span><span class="p">)</span>
         <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_stamps</span><span class="p">)</span>
         <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s2">&quot;time_stamped_data&quot;</span><span class="p">,</span> <span class="n">duplicate_policy</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.pre_binning">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.pre_binning">[docs]</a>
-    <span class="k">def</span> <span class="nf">pre_binning</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.pre_binning"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.pre_binning">[docs]</a>    <span class="k">def</span> <span class="nf">pre_binning</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">df_partitions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="n">axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">bins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">df_partitions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">axes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">bins</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Function to do an initial binning of the dataframe loaded to the class.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            df_partitions (int | Sequence[int], optional): Number of dataframe partitions to</span>
+<span class="sd">            df_partitions (Union[int, Sequence[int]], optional): Number of dataframe partitions to</span>
 <span class="sd">                use for the initial binning. Defaults to 100.</span>
-<span class="sd">            axes (list[str], optional): Axes to bin.</span>
+<span class="sd">            axes (List[str], optional): Axes to bin.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;axes&quot;].</span>
-<span class="sd">            bins (list[int], optional): Bin numbers to use for binning.</span>
+<span class="sd">            bins (List[int], optional): Bin numbers to use for binning.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;bins&quot;].</span>
-<span class="sd">            ranges (Sequence[tuple[float, float]], optional): Ranges to use for binning.</span>
+<span class="sd">            ranges (List[Tuple], optional): Ranges to use for binning.</span>
 <span class="sd">                Defaults to config[&quot;momentum&quot;][&quot;ranges&quot;].</span>
 <span class="sd">            **kwds: Keyword argument passed to ``compute``.</span>
 
@@ -2659,7 +2558,7 @@ document.write(`
             <span class="n">ranges_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ranges_</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;tof_binning&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="p">)</span>
-            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[</span><span class="n">cast</span><span class="p">(</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ranges_</span><span class="p">]</span>
+            <span class="n">ranges</span> <span class="o">=</span> <span class="p">[</span><span class="n">cast</span><span class="p">(</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ranges_</span><span class="p">]</span>
 
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;dataframe needs to be loaded first!&quot;</span>
 
@@ -2671,21 +2570,25 @@ document.write(`
             <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.compute">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.compute">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.compute"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="n">axes</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">normalize_to_acquisition_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="nb">int</span><span class="p">,</span>
+            <span class="nb">dict</span><span class="p">,</span>
+            <span class="nb">tuple</span><span class="p">,</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+            <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">axes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">normalize_to_acquisition_time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the histogram along the given dimensions.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            bins (int | dict | tuple | list[int] | list[np.ndarray] | list[tuple], optional):</span>
+<span class="sd">            bins (int, dict, tuple, List[int], List[np.ndarray], List[tuple], optional):</span>
 <span class="sd">                Definition of the bins. Can be any of the following cases:</span>
 
 <span class="sd">                - an integer describing the number of bins in on all dimensions</span>
@@ -2696,13 +2599,13 @@ document.write(`
 <span class="sd">                - a dictionary made of the axes as keys and any of the above as values.</span>
 
 <span class="sd">                This takes priority over the axes and range arguments. Defaults to 100.</span>
-<span class="sd">            axes (str | Sequence[str], optional): The names of the axes (columns)</span>
+<span class="sd">            axes (Union[str, Sequence[str]], optional): The names of the axes (columns)</span>
 <span class="sd">                on which to calculate the histogram. The order will be the order of the</span>
 <span class="sd">                dimensions in the resulting array. Defaults to None.</span>
-<span class="sd">            ranges (Sequence[tuple[float, float]], optional): list of tuples containing</span>
+<span class="sd">            ranges (Sequence[Tuple[float, float]], optional): list of tuples containing</span>
 <span class="sd">                the start and end point of the binning range. Defaults to None.</span>
-<span class="sd">            normalize_to_acquisition_time (bool | str): Option to normalize the</span>
-<span class="sd">                result to the acquistion time. If a &quot;slow&quot; axis was scanned, providing</span>
+<span class="sd">            normalize_to_acquisition_time (Union[bool, str]): Option to normalize the</span>
+<span class="sd">                result to the acquisition time. If a &quot;slow&quot; axis was scanned, providing</span>
 <span class="sd">                the name of the scanned axis will compute and apply the corresponding</span>
 <span class="sd">                normalization histogram. Defaults to False.</span>
 <span class="sd">            **kwds: Keyword arguments:</span>
@@ -2752,7 +2655,7 @@ document.write(`
             <span class="s2">&quot;threadpool_API&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;binning&quot;</span><span class="p">][</span><span class="s2">&quot;threadpool_API&quot;</span><span class="p">],</span>
         <span class="p">)</span>
-        <span class="n">df_partitions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;df_partitions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">df_partitions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;df_partitions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df_partitions</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
             <span class="n">df_partitions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">df_partitions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="o">.</span><span class="n">npartitions</span><span class="p">)))</span>
         <span class="k">if</span> <span class="n">df_partitions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -2839,10 +2742,7 @@ document.write(`
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binned</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.get_normalization_histogram">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.get_normalization_histogram">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_normalization_histogram</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.get_normalization_histogram"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.get_normalization_histogram">[docs]</a>    <span class="k">def</span> <span class="nf">get_normalization_histogram</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;delay&quot;</span><span class="p">,</span>
         <span class="n">use_time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2877,7 +2777,7 @@ document.write(`
         <span class="k">if</span> <span class="n">axis</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binned</span><span class="o">.</span><span class="n">coords</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Axis &#39;</span><span class="si">{</span><span class="n">axis</span><span class="si">}</span><span class="s2">&#39; not found in binned data!&quot;</span><span class="p">)</span>
 
-        <span class="n">df_partitions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;df_partitions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">df_partitions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;df_partitions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df_partitions</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
             <span class="n">df_partitions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">df_partitions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="o">.</span><span class="n">npartitions</span><span class="p">)))</span>
         <span class="k">if</span> <span class="n">use_time_stamps</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timed_dataframe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2913,16 +2813,13 @@ document.write(`
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalization_histogram</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.view_event_histogram">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.view_event_histogram">[docs]</a>
-    <span class="k">def</span> <span class="nf">view_event_histogram</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.view_event_histogram"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.view_event_histogram">[docs]</a>    <span class="k">def</span> <span class="nf">view_event_histogram</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dfpid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">ncol</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
         <span class="n">bins</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
         <span class="n">legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">histkwds</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2935,12 +2832,12 @@ document.write(`
 <span class="sd">        Args:</span>
 <span class="sd">            dfpid (int): Number of the data frame partition to look at.</span>
 <span class="sd">            ncol (int, optional): Number of columns in the plot grid. Defaults to 2.</span>
-<span class="sd">            bins (Sequence[int], optional): Number of bins to use for the speicified</span>
+<span class="sd">            bins (Sequence[int], optional): Number of bins to use for the specified</span>
 <span class="sd">                axes. Defaults to config[&quot;histogram&quot;][&quot;bins&quot;].</span>
 <span class="sd">            axes (Sequence[str], optional): Names of the axes to display.</span>
 <span class="sd">                Defaults to config[&quot;histogram&quot;][&quot;axes&quot;].</span>
-<span class="sd">            ranges (Sequence[tuple[float, float]], optional): Value ranges of all</span>
-<span class="sd">                specified axes. Defaults toconfig[&quot;histogram&quot;][&quot;ranges&quot;].</span>
+<span class="sd">            ranges (Sequence[Tuple[float, float]], optional): Value ranges of all</span>
+<span class="sd">                specified axes. Defaults to config[&quot;histogram&quot;][&quot;ranges&quot;].</span>
 <span class="sd">            backend (str, optional): Backend of the plotting library</span>
 <span class="sd">                (&#39;matplotlib&#39; or &#39;bokeh&#39;). Defaults to &quot;bokeh&quot;.</span>
 <span class="sd">            legend (bool, optional): Option to include a legend in the histogram plots.</span>
@@ -3007,10 +2904,7 @@ document.write(`
             <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="SedProcessor.save">
-<a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save">[docs]</a>
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+<div class="viewcode-block" id="SedProcessor.save"><a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
@@ -3025,7 +2919,7 @@ document.write(`
 <span class="sd">                - &quot;*.h5&quot;, &quot;*.hdf5&quot;: Saves an HDF5 file.</span>
 <span class="sd">                - &quot;*.nxs&quot;, &quot;*.nexus&quot;: Saves a NeXus file.</span>
 
-<span class="sd">            **kwds: Keyword argumens, which are passed to the writer functions:</span>
+<span class="sd">            **kwds: Keyword arguments, which are passed to the writer functions:</span>
 <span class="sd">                For TIFF writing:</span>
 
 <span class="sd">                - **alias_dict**: Dictionary of dimension aliases to use.</span>
@@ -3036,9 +2930,9 @@ document.write(`
 
 <span class="sd">                For NeXus:</span>
 
-<span class="sd">                - **reader**: Name of the nexustools reader to use.</span>
+<span class="sd">                - **reader**: Name of the pynxtools reader to use.</span>
 <span class="sd">                  Defaults to config[&quot;nexus&quot;][&quot;reader&quot;]</span>
-<span class="sd">                - **definiton**: NeXus application definition to use for saving.</span>
+<span class="sd">                - **definition**: NeXus application definition to use for saving.</span>
 <span class="sd">                  Must be supported by the used ``reader``. Defaults to</span>
 <span class="sd">                  config[&quot;nexus&quot;][&quot;definition&quot;]</span>
 <span class="sd">                - **input_files**: A list of input files to pass to the reader.</span>
@@ -3102,9 +2996,7 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Unrecognized file format: </span><span class="si">{</span><span class="n">extension</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-            <span class="p">)</span></div>
-</div>
-
+            <span class="p">)</span></div></div>
 </pre></div>
 
                 </article>
@@ -3134,8 +3026,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3155,7 +3047,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>
@@ -3168,7 +3060,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>

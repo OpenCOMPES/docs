@@ -35,8 +35,9 @@ workflows/index
 ```{toctree}
 :maxdepth: 2
 
-misc/contribution
+sed/api
 ```
+
 
 ## Community and contribution guide
 
@@ -45,5 +46,5 @@ Information about the community behind this theme and how you can contribute.
 ```{toctree}
 :maxdepth: 2
 
-sed/api
+misc/contribution
 ```
