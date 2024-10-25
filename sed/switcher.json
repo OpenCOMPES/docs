@@ -1,7 +1,7 @@
 [
   {
     "name": "latest",
-    "version": "latest",
+    "version": "0.1.9",
     "url": "https://opencompes.github.io/docs/sed/latest"
   },
   {
@@ -17,7 +17,7 @@
   },
   {
     "name": "develop",
-    "version": "pydata-docs-theme-main",
+    "version": "v0.1.9",
     "url": "https://opencompes.github.io/docs/sed/develop"
   }
 ]
