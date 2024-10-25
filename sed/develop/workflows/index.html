@@ -43,6 +43,7 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'workflows/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
@@ -52,8 +53,8 @@
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API" href="../sed/api.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../user_guide/advanced_topics.html" />
+    <link rel="next" title="Tutorial for binning data from the HEXTOF instrument at FLASH" href="../tutorial/4_hextof_workflow.html" />
+    <link rel="prev" title="Correct use of Jittering" href="../tutorial/8_jittering_tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.2.1" />
@@ -361,7 +362,10 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/4_hextof_workflow.html">Tutorial for binning data from the HEXTOF instrument at FLASH</a></li>
+</ul>
+</div>
 </nav></div>
     </div>
   
@@ -428,6 +432,50 @@
   <section id="workflows">
 <h1>Workflows<a class="headerlink" href="#workflows" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/4_hextof_workflow.html">Tutorial for binning data from the HEXTOF instrument at FLASH</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Preparation">Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Import-necessary-libraries">Import necessary libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Get-data-paths">Get data paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Config-setup">Config setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#cleanup-previous-config-files">cleanup previous config files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Load-a-chessy-sample-run">Load a chessy sample run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Generate-the-Processor-instance">Generate the Processor instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Add-Jitter">Add Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#inspect-the-dataframe">inspect the dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Visualizing-event-histograms">Visualizing event histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Binning">Binning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#visualize-the-result">visualize the result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Optical-Spot-Profile">Optical Spot Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Energy-Calibration">Energy Calibration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#sector-alignment">sector alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#time-of-flight-spectrum">time-of-flight spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#find-calibration-parameters">find calibration parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#generate-the-energy-axis">generate the energy axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Bin-in-energy">Bin in energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#correct-offsets">correct offsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#save-the-calibration-parameters">save the calibration parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Correct-delay-axis">Correct delay axis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Run-the-workflow-from-the-config-file">Run the workflow from the config file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#plot-the-delayStage-values">plot the delayStage values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#bin-in-the-corrected-delay-axis">bin in the corrected delay axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#save-parameters">save parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Run-workflow-entirely-from-config.">Run workflow entirely from config.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Compute-the-results">Compute the results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/4_hextof_workflow.html#Save-results">Save results</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 
@@ -442,20 +490,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../user_guide/advanced_topics.html"
+       href="../tutorial/8_jittering_tutorial.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Correct use of Jittering</p>
       </div>
     </a>
     <a class="right-next"
-       href="../sed/api.html"
+       href="../tutorial/4_hextof_workflow.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API</p>
+        <p class="prev-next-title">Tutorial for binning data from the HEXTOF instrument at FLASH</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
