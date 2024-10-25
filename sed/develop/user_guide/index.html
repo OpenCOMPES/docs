@@ -43,7 +43,6 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
@@ -362,23 +361,12 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing SED</span></p>
-<ul class="nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic concepts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/1_binning_fake_data.html">Binning demonstration on locally generated fake data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html">Demonstration of the conversion pipeline using time-resolved ARPES data stored on Zenodo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html">Binning with metadata generation, and storing into a NeXus file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/6_binning_with_time-stamped_data.html">Binning of temperature-dependent ARPES data using time-stamped external temperature data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/7_correcting_orthorhombic_symmetry.html">Distortion correction with orthorhombic symmetry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/8_jittering_tutorial.html">Correct use of Jittering</a></li>
 </ul>
 </div>
 </nav></div>
@@ -446,30 +434,28 @@
                   
   <section id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading">#</a></h1>
+<section id="installing-sed">
+<h2>Installing SED<a class="headerlink" href="#installing-sed" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing SED</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html#development-version">Development version</a></li>
 </ul>
 </div>
+</section>
+<section id="basic-concepts">
+<h2>Basic concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic concepts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/1_binning_fake_data.html">Binning demonstration on locally generated fake data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html">Demonstration of the conversion pipeline using time-resolved ARPES data stored on Zenodo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html">Binning with metadata generation, and storing into a NeXus file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
 </ul>
 </div>
+</section>
+<section id="advanced-topics">
+<h2>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/6_binning_with_time-stamped_data.html">Binning of temperature-dependent ARPES data using time-stamped external temperature data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/7_correcting_orthorhombic_symmetry.html">Distortion correction with orthorhombic symmetry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/8_jittering_tutorial.html">Correct use of Jittering</a></li>
-</ul>
 </div>
+</section>
 </section>
 
 
@@ -510,6 +496,20 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-sed">Installing SED</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts">Basic concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics">Advanced Topics</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 
