@@ -166,13 +166,6 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../advanced_topics/index.html">
-    Workflows
-  </a>
-</li>
-
-
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="api.html">
     API
@@ -307,13 +300,6 @@
 
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../workflows/index.html">
-    Workflows
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../advanced_topics/index.html">
     Workflows
   </a>
 </li>
@@ -466,11 +452,9 @@ but easy to extend this list.</p>
 </pre></div>
 </div>
 <section id="get">
-<h3>Get<a class="headerlink" href="#get" title="Permalink to this heading">#</a></h3>
-<section id="the-get-just-needs-the-data-name-but-another-root-dir-can-be-provided">
-<h4>The “get” just needs the data name, but another root_dir can be provided.<a class="headerlink" href="#the-get-just-needs-the-data-name-but-another-root-dir-can-be-provided" title="Permalink to this heading">#</a></h4>
-<section id="try-to-interrupt-the-download-process-and-restart-to-see-that-it-continues-the-download-from-where-it-stopped">
-<h5>Try to interrupt the download process and restart to see that it continues the download from where it stopped<a class="headerlink" href="#try-to-interrupt-the-download-process-and-restart-to-see-that-it-continues-the-download-from-where-it-stopped" title="Permalink to this heading">#</a></h5>
+<h3>get()<a class="headerlink" href="#get" title="Permalink to this heading">#</a></h3>
+<p>The “get” just needs the data name, but another root_dir can be provided.</p>
+<p>Try to interrupt the download process and restart to see that it continues the download from where it stopped</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">,</span> <span class="n">remove_zip</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -485,15 +469,11 @@ Using default data path for &quot;WSe2&quot;: &quot;&lt;user_path&gt;/datasets/W
 Download complete.
 </pre></div>
 </div>
-</section>
-<section id="not-providing-remove-zip-at-all-will-by-default-delete-the-zip-file-after-extraction">
-<h5>Not providing “remove_zip” at all will by default delete the zip file after extraction<a class="headerlink" href="#not-providing-remove-zip-at-all-will-by-default-delete-the-zip-file-after-extraction" title="Permalink to this heading">#</a></h5>
+<p>Not providing “remove_zip” at all will by default delete the zip file after extraction</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="setting-the-use-existing-keyword-to-false-allows-to-download-the-data-in-another-location-default-is-to-use-existing-data">
-<h5>Setting the “use_existing” keyword to False allows to download the data in another location. Default is to use existing data<a class="headerlink" href="#setting-the-use-existing-keyword-to-false-allows-to-download-the-data-in-another-location-default-is-to-use-existing-data" title="Permalink to this heading">#</a></h5>
+<p>Setting the “use_existing” keyword to False allows to download the data in another location. Default is to use existing data</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">,</span> <span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;new_datasets&quot;</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -504,12 +484,8 @@ Created new directory at &lt;user_path&gt;/new_datasets/datasets/WSe2
   3%|▎         | 152M/5.73G [00:02&lt;01:24, 71.3MB/s]
 </pre></div>
 </div>
-</section>
-<section id="interrupting-extraction-has-similar-behavior-to-download-and-just-continues-from-where-it-stopped">
-<h5>Interrupting extraction has similar behavior to download and just continues from where it stopped.<a class="headerlink" href="#interrupting-extraction-has-similar-behavior-to-download-and-just-continues-from-where-it-stopped" title="Permalink to this heading">#</a></h5>
-</section>
-<section id="or-if-user-deletes-the-extracted-documents-it-re-extracts-from-zip-file">
-<h5>Or if user deletes the extracted documents, it re-extracts from zip file<a class="headerlink" href="#or-if-user-deletes-the-extracted-documents-it-re-extracts-from-zip-file" title="Permalink to this heading">#</a></h5>
+<p>Interrupting extraction has similar behavior to download and just continues from where it stopped.</p>
+<p>Or if user deletes the extracted documents, it re-extracts from zip file</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">,</span> <span class="n">remove_zip</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 
 <span class="c1">## Try to remove some files and rerun this command.</span>
@@ -532,20 +508,17 @@ WSe2 data extracted successfully.
 </pre></div>
 </div>
 </section>
-</section>
-<section id="remove-allows-removal-of-some-or-all-instances-of-existing-data">
-<h4>“remove” allows removal of some or all instances of existing data<a class="headerlink" href="#remove-allows-removal-of-some-or-all-instances-of-existing-data" title="Permalink to this heading">#</a></h4>
-<section id="this-would-remove-only-one-of-the-two-existing-paths">
-<h5>This would remove only one of the two existing paths<a class="headerlink" href="#this-would-remove-only-one-of-the-two-existing-paths" title="Permalink to this heading">#</a></h5>
+<section id="remove">
+<h3>remove()<a class="headerlink" href="#remove" title="Permalink to this heading">#</a></h3>
+<p>“remove” allows removal of some or all instances of existing data</p>
+<p>This would remove only one of the two existing paths</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">,</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">existing_data_paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Removed</span> <span class="o">&lt;</span><span class="n">user_path</span><span class="o">&gt;/</span><span class="n">datasets</span><span class="o">/</span><span class="n">WSe2</span>
 </pre></div>
 </div>
-</section>
-<section id="this-removes-all-instances-if-any-present">
-<h5>This removes all instances, if any present<a class="headerlink" href="#this-removes-all-instances-if-any-present" title="Permalink to this heading">#</a></h5>
+<p>This removes all instances, if any present</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -553,16 +526,16 @@ WSe2 data extracted successfully.
 </pre></div>
 </div>
 </section>
-</section>
-</section>
 <section id="attributes-useful-for-user">
 <h3>Attributes useful for user<a class="headerlink" href="#attributes-useful-for-user" title="Permalink to this heading">#</a></h3>
+<p>All available datasets after looking at module, user and folder levels</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">available</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;WSe2&#39;</span><span class="p">,</span> <span class="s1">&#39;TaS2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gd_W110&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+<p>The dir and subdirs where data is located</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">dir</span>
 </pre></div>
 </div>
@@ -576,6 +549,7 @@ WSe2 data extracted successfully.
  <span class="s1">&#39;&lt;user_path&gt;/datasets/WSe2/energycal_2019_01_08&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+<p>Existing locations where data is present</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">existing_data_paths</span>
 </pre></div>
 </div>
@@ -587,10 +561,16 @@ WSe2 data extracted successfully.
 </section>
 <section id="example-of-adding-custom-datasets">
 <h2>Example of adding custom datasets<a class="headerlink" href="#example-of-adding-custom-datasets" title="Permalink to this heading">#</a></h2>
+<section id="datasetsmanager">
+<h3>DatasetsManager<a class="headerlink" href="#datasetsmanager" title="Permalink to this heading">#</a></h3>
+<p>Allows to add or remove datasets in json file at any level (module, user, folder).</p>
+<p>Looks at all levels to give the available datasets</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">sed.dataset</span> <span class="kn">import</span> <span class="n">DatasetsManager</span>
 </pre></div>
 </div>
+<p>We add a new dataset to both folder and user levels</p>
+<p>This dataset also has “rearrange_files” set to True, which takes all files in subfolders and puts them in the main dataset specific directory</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">example_dset_name</span> <span class="o">=</span> <span class="s2">&quot;Example&quot;</span>
 <span class="n">example_dset_info</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -605,6 +585,7 @@ WSe2 data extracted successfully.
 <span class="n">Added</span> <span class="n">Example</span> <span class="n">dataset</span> <span class="n">to</span> <span class="n">user</span> <span class="n">datasets</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 </div>
+<p>datasets.json should be available in execution folder after this</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./datasets.json&quot;</span><span class="p">)</span>
 <span class="n">dataset</span><span class="o">.</span><span class="n">available</span>
 </pre></div>
@@ -612,12 +593,14 @@ WSe2 data extracted successfully.
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;Example&#39;</span><span class="p">,</span> <span class="s1">&#39;WSe2&#39;</span><span class="p">,</span> <span class="s1">&#39;TaS2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gd_W110&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+<p>This will remove the Example dataset from the user json file</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DatasetsManager</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">data_name</span><span class="o">=</span><span class="n">example_dset_name</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Removed</span> <span class="n">Example</span> <span class="n">dataset</span> <span class="kn">from</span> <span class="nn">user</span> <span class="n">datasets</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 </div>
+<p>Adding dataset that already exists will give an error. Likewise, removing one that doesn’t exist</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This should give an error</span>
 <span class="n">DatasetsManager</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">data_name</span><span class="o">=</span><span class="n">example_dset_name</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">example_dset_info</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">])</span>
 </pre></div>
@@ -625,6 +608,7 @@ WSe2 data extracted successfully.
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Dataset</span> <span class="n">Example</span> <span class="n">already</span> <span class="n">exists</span> <span class="ow">in</span> <span class="n">folder</span> <span class="n">datasets</span><span class="o">.</span><span class="n">json</span><span class="o">.</span>
 </pre></div>
 </div>
+<p>Now that dataset.json with Example exists in current dir, lets try to fetch it</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -656,9 +640,11 @@ Rearranging complete.
 <span class="p">[]</span>
 </pre></div>
 </div>
+<p>lets download to another location</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;new_datasets&quot;</span><span class="p">,</span> <span class="n">use_existing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>we can remove one instance</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">existing_data_paths</span><span class="p">)</span>
 <span class="n">path_to_remove</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">existing_data_paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
@@ -681,6 +667,7 @@ Rearranging complete.
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;&lt;user_path&gt;/datasets/Example&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="default-datasets-json">
 <h2>Default datasets.json<a class="headerlink" href="#default-datasets-json" title="Permalink to this heading">#</a></h2>
@@ -906,26 +893,15 @@ directory to the user’s datasets directory.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-datasets">Getting datasets</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get">Get</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-get-just-needs-the-data-name-but-another-root-dir-can-be-provided">The “get” just needs the data name, but another root_dir can be provided.</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#try-to-interrupt-the-download-process-and-restart-to-see-that-it-continues-the-download-from-where-it-stopped">Try to interrupt the download process and restart to see that it continues the download from where it stopped</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#not-providing-remove-zip-at-all-will-by-default-delete-the-zip-file-after-extraction">Not providing “remove_zip” at all will by default delete the zip file after extraction</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-use-existing-keyword-to-false-allows-to-download-the-data-in-another-location-default-is-to-use-existing-data">Setting the “use_existing” keyword to False allows to download the data in another location. Default is to use existing data</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#interrupting-extraction-has-similar-behavior-to-download-and-just-continues-from-where-it-stopped">Interrupting extraction has similar behavior to download and just continues from where it stopped.</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#or-if-user-deletes-the-extracted-documents-it-re-extracts-from-zip-file">Or if user deletes the extracted documents, it re-extracts from zip file</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-allows-removal-of-some-or-all-instances-of-existing-data">“remove” allows removal of some or all instances of existing data</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#this-would-remove-only-one-of-the-two-existing-paths">This would remove only one of the two existing paths</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#this-removes-all-instances-if-any-present">This removes all instances, if any present</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get">get()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">remove()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-useful-for-user">Attributes useful for user</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-adding-custom-datasets">Example of adding custom datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-adding-custom-datasets">Example of adding custom datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datasetsmanager">DatasetsManager</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-datasets-json">Default datasets.json</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sed.dataset.dataset">API</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.dataset.dataset.DatasetsManager"><code class="docutils literal notranslate"><span class="pre">DatasetsManager</span></code></a><ul class="nav section-nav flex-column">

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="Documentation for beginner users. " lang="en" name="description" xml:lang="en" />
+<meta content="Documentation for users. " lang="en" name="description" xml:lang="en" />
 
     <title>User Guide &#8212; SED 0.2.1 documentation</title>
   
@@ -168,13 +168,6 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../advanced_topics/index.html">
-    Workflows
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../sed/api.html">
     API
   </a>
@@ -314,13 +307,6 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../advanced_topics/index.html">
-    Workflows
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../sed/api.html">
     API
   </a>
@@ -376,20 +362,20 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing SED</span></p>
-<ul class="nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic concepts</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/1_binning_fake_data.html">Binning demonstration on locally generated fake data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html">Demonstration of the conversion pipeline using time-resolved ARPES data stored on Zenodo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html">Binning with metadata generation, and storing into a NeXus file</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advance</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/6_binning_with_time-stamped_data.html">Binning of temperature-dependent ARPES data using time-stamped external temperature data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/7_correcting_orthorhombic_symmetry.html">Distortion correction with orthorhombic symmetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/8_jittering_tutorial.html">Correct use of Jittering</a></li>
 </ul>
 </div>
 </nav></div>
@@ -457,70 +443,36 @@
                   
   <section id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading">#</a></h1>
+<section id="installing-sed">
+<h2>Installing SED<a class="headerlink" href="#installing-sed" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Installing SED</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html#development-version">Development version</a></li>
 </ul>
 </div>
+</section>
+<section id="basic-concepts">
+<h2>Basic concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic concepts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/1_binning_fake_data.html">Binning demonstration on locally generated fake data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/1_binning_fake_data.html#Generate-Fake-Data">Generate Fake Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/1_binning_fake_data.html#Define-the-binning-range">Define the binning range</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/1_binning_fake_data.html#Compute-the-binning-along-the-pandas-dataframe">Compute the binning along the pandas dataframe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/1_binning_fake_data.html#Transform-to-dask-dataframe">Transform to dask dataframe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/1_binning_fake_data.html#Compute-distributed-binning-on-the-partitioned-dask-dataframe">Compute distributed binning on the partitioned dask dataframe</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html">Demonstration of the conversion pipeline using time-resolved ARPES data stored on Zenodo</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Load-Data">Load Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Distortion-correction-and-Momentum-Calibration-workflow">Distortion correction and Momentum Calibration workflow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Distortion-correction">Distortion correction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#1.-step:">1. step:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#2.-Step:">2. Step:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#3.-Step:">3. Step:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Optional-(Step-3a):">Optional (Step 3a):</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#4.-Step:">4. Step:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#5.-Step:">5. Step:</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Momentum-calibration-workflow">Momentum calibration workflow</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#1.-Step:">1. Step:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Optional-(Step-1a):">Optional (Step 1a):</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#id6">2. Step:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Energy-Correction-(optional)">Energy Correction (optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#3.-Energy-calibration">3. Energy calibration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#4.-Delay-calibration:">4. Delay calibration:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#5.-Visualization-of-calibrated-histograms">5. Visualization of calibrated histograms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Define-the-binning-ranges-and-compute-calibrated-data-volume">Define the binning ranges and compute calibrated data volume</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html#Some-visualization:">Some visualization:</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html">Binning with metadata generation, and storing into a NeXus file</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html#Load-Data">Load Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html#Compute-final-data-volume">Compute final data volume</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/1_binning_fake_data.html">Binning demonstration on locally generated fake data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/2_conversion_pipeline_for_example_time-resolved_ARPES_data.html">Demonstration of the conversion pipeline using time-resolved ARPES data stored on Zenodo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html">Binning with metadata generation, and storing into a NeXus file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
 </ul>
 </div>
+</section>
+<section id="advanced-topics">
+<h2>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advance</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="config.html#default-configuration-settings">Default configuration settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="config.html#example-configuration-file-for-mpes-metis-momentum-microscope-at-fhi-berlin">Example configuration file for mpes (METIS momentum microscope at FHI-Berlin)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="config.html#example-configuration-file-for-flash-hextof-momentum-microscope-at-flash-desy">Example configuration file for flash (HEXTOF momentum microscope at FLASH, Desy)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/6_binning_with_time-stamped_data.html">Binning of temperature-dependent ARPES data using time-stamped external temperature data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/7_correcting_orthorhombic_symmetry.html">Distortion correction with orthorhombic symmetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/8_jittering_tutorial.html">Correct use of Jittering</a></li>
 </ul>
 </div>
+</section>
 </section>
 
 
@@ -561,6 +513,20 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-sed">Installing SED</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts">Basic concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics">Advanced Topics</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
 
