@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Configuration &#8212; SED 0.2.1 documentation</title>
+    <title>Configuration &#8212; SED 0.2.2a0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=158ece9d"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=8596200e"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.2.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.2.2a0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -56,7 +56,7 @@
     <link rel="prev" title="Binning with metadata generation, and storing into a NeXus file" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.2.1" />
+  <meta name="docsearch:version" content="0.2.2a0" />
   </head>
   
   
@@ -118,7 +118,7 @@
   
   
   
-    <p class="title logo__title">SED 0.2.1 documentation</p>
+    <p class="title logo__title">SED 0.2.2a0 documentation</p>
   
 </a></div>
     
@@ -982,6 +982,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">    </span><span class="nt">sampleTemperature</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;K&#39;</span>
 <span class="w">    </span><span class="nt">dldTime</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ns&#39;</span>
 <span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ps&#39;</span>
+<span class="w">    </span><span class="nt">delayStage</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ps&#39;</span>
 <span class="w">    </span><span class="nt">timeStamp</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;s&#39;</span>
 <span class="w">    </span><span class="nt">energy</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;eV&#39;</span>
 <span class="w">    </span><span class="nt">E</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;eV&#39;</span>
@@ -1091,10 +1092,10 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="c1">#   scicat_token: &lt;TOKEN&gt;</span>
 
 <span class="c1"># The nexus collection routine shall be finalized soon for both instruments</span>
-<span class="c1"># nexus:</span>
-<span class="c1">#   reader: &quot;flash&quot;</span>
-<span class="c1">#   definition: &quot;NXmpes&quot;</span>
-<span class="c1">#   input_files: [&quot;NXmpes_config_HEXTOF_light.json&quot;]</span>
+<span class="nt">nexus</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">reader</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mpes&quot;</span>
+<span class="w">  </span><span class="nt">definition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NXmpes&quot;</span>
+<span class="w">  </span><span class="nt">input_files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;../sed/config/NXmpes_config-HEXTOF.json&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </section>
