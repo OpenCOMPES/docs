@@ -2053,7 +2053,7 @@ to a DataFrame and the MultiIndex is set.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel">
-<span class="sig-name descname"><span class="pre">create_dataframe_per_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/sxp/loader.html#SXPLoader.create_dataframe_per_channel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">create_dataframe_per_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/sxp/loader.html#SXPLoader.create_dataframe_per_channel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns a pandas DataFrame for a given channel name from a given file.</p>
 <p>This method takes an h5py.File object <cite>h5_file</cite> and a channel name <cite>channel</cite>, and returns
 a pandas DataFrame containing the data for that channel from the file. The format of the
@@ -2061,7 +2061,7 @@ DataFrame depends on the channel’s format specified in the configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>h5_file</strong> (<em>h5py.File</em>) – The h5py.File object representing the HDF5 file.</p></li>
+<li><p><strong>file_path</strong> (<em>Path</em>) – The path to the main HDF5 file.</p></li>
 <li><p><strong>channel</strong> (<em>str</em>) – The name of the channel.</p></li>
 </ul>
 </dd>
@@ -2079,14 +2079,14 @@ DataFrame depends on the channel’s format specified in the configuration.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.loader.sxp.loader.SXPLoader.concatenate_channels">
-<span class="sig-name descname"><span class="pre">concatenate_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/sxp/loader.html#SXPLoader.concatenate_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.sxp.loader.SXPLoader.concatenate_channels" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">concatenate_channels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/sxp/loader.html#SXPLoader.concatenate_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.sxp.loader.SXPLoader.concatenate_channels" title="Permalink to this definition">#</a></dt>
 <dd><p>Concatenates the channels from the provided h5py.File into a pandas DataFrame.</p>
 <p>This method takes an h5py.File object <cite>h5_file</cite> and concatenates the channels present in
 the file into a single pandas DataFrame. The concatenation is performed based on the
 available channels specified in the configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>h5_file</strong> (<em>h5py.File</em>) – The h5py.File object representing the HDF5 file.</p>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>Path</em>) – The path to the main HDF5 file.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A concatenated pandas DataFrame containing the channels.</p>
