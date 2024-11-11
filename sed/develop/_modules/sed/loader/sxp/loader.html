@@ -673,6 +673,7 @@
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">train_id</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
             <span class="c1"># removing broken trailing hit copies</span>
             <span class="n">num_trains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_trains&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">num_pulses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_pulses&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">num_trains</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">num_valid_hits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">mib_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span>
@@ -687,7 +688,10 @@
             <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">train_end</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_ends</span><span class="p">):</span>
                 <span class="n">macrobunch_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">(</span><span class="n">train</span><span class="p">))</span>
-                <span class="n">microbunch_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mib_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="n">train_end</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">num_pulses</span><span class="p">:</span>
+                    <span class="n">microbunch_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mib_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="n">train_end</span><span class="p">]</span> <span class="o">%</span> <span class="n">num_pulses</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">microbunch_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mib_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span><span class="n">train_end</span><span class="p">])</span>
                 <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">train_end</span><span class="p">))</span>
                 <span class="n">index</span> <span class="o">=</span> <span class="n">train_end</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">macrobunch_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
@@ -926,7 +930,7 @@
 
 <div class="viewcode-block" id="SXPLoader.create_dataframe_per_channel"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel">[docs]</a>    <span class="k">def</span> <span class="nf">create_dataframe_per_channel</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
+        <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -937,7 +941,7 @@
 <span class="sd">        DataFrame depends on the channel&#39;s format specified in the configuration.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            h5_file (h5py.File): The h5py.File object representing the HDF5 file.</span>
+<span class="sd">            file_path (Path): The path to the main HDF5 file.</span>
 <span class="sd">            channel (str): The name of the channel.</span>
 
 <span class="sd">        Returns:</span>
@@ -947,11 +951,16 @@
 <span class="sd">            ValueError: If the channel has an undefined format.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">channel_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">][</span><span class="n">channel</span><span class="p">]</span>  <span class="c1"># channel parameters</span>
+        <span class="n">main_daq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;daq&quot;</span><span class="p">]</span>
+        <span class="n">channel_daq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">][</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;daq&quot;</span><span class="p">,</span> <span class="n">main_daq</span><span class="p">)</span>
+        <span class="c1"># load file corresponding to daq</span>
+        <span class="n">h5_file</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">main_daq</span><span class="p">,</span> <span class="n">channel_daq</span><span class="p">)))</span>
+
         <span class="p">[</span><span class="n">train_id</span><span class="p">,</span> <span class="n">np_array</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_numpy_array_per_channel</span><span class="p">(</span>
             <span class="n">h5_file</span><span class="p">,</span>
             <span class="n">channel</span><span class="p">,</span>
         <span class="p">)</span>  <span class="c1"># numpy Array created</span>
-        <span class="n">channel_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">][</span><span class="n">channel</span><span class="p">]</span>  <span class="c1"># channel parameters</span>
 
         <span class="c1"># If np_array is size zero, fill with NaNs</span>
         <span class="k">if</span> <span class="n">np_array</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1002,7 +1011,7 @@
 
 <div class="viewcode-block" id="SXPLoader.concatenate_channels"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.concatenate_channels">[docs]</a>    <span class="k">def</span> <span class="nf">concatenate_channels</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
+        <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Concatenates the channels from the provided h5py.File into a pandas DataFrame.</span>
@@ -1012,7 +1021,7 @@
 <span class="sd">        available channels specified in the configuration.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            h5_file (h5py.File): The h5py.File object representing the HDF5 file.</span>
+<span class="sd">            file_path (Path): The path to the main HDF5 file.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            DataFrame: A concatenated pandas DataFrame containing the channels.</span>
@@ -1021,11 +1030,13 @@
 <span class="sd">            ValueError: If the group_name for any channel does not exist in the file.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">all_keys</span> <span class="o">=</span> <span class="n">parse_h5_keys</span><span class="p">(</span><span class="n">h5_file</span><span class="p">)</span>  <span class="c1"># Parses all channels present</span>
-
         <span class="c1"># Check for if the provided dataset_keys and index_keys actually exists in the file</span>
         <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">]:</span>
             <span class="n">dataset_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">][</span><span class="n">channel</span><span class="p">][</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]</span>
+            <span class="n">daq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">][</span><span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;daq&quot;</span><span class="p">,</span> <span class="s2">&quot;DA03&quot;</span><span class="p">)</span>
+            <span class="c1"># load file corresponding to daq</span>
+            <span class="n">h5_file</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;DA03&quot;</span><span class="p">,</span> <span class="n">daq</span><span class="p">)))</span>
+            <span class="n">all_keys</span> <span class="o">=</span> <span class="n">parse_h5_keys</span><span class="p">(</span><span class="n">h5_file</span><span class="p">)</span>  <span class="c1"># Parses all channels present</span>
             <span class="k">if</span> <span class="n">dataset_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_keys</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;The dataset_key for channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">,</span>
@@ -1038,7 +1049,7 @@
 
         <span class="c1"># Create a generator expression to generate data frames for each channel</span>
         <span class="n">data_frames</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">create_dataframe_per_channel</span><span class="p">(</span><span class="n">h5_file</span><span class="p">,</span> <span class="n">each</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_channels</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_dataframe_per_channel</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">each</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_channels</span>
         <span class="p">)</span>
 
         <span class="c1"># Use the reduce function to join the data frames into a single DataFrame</span>
@@ -1066,14 +1077,13 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Loads h5 file and creates a dataframe</span>
-        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h5_file</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reset_multi_index</span><span class="p">()</span>  <span class="c1"># Reset MultiIndexes for next file</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenate_channels</span><span class="p">(</span><span class="n">h5_file</span><span class="p">)</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tof_column&quot;</span><span class="p">,</span> <span class="s2">&quot;dldTimeSteps&quot;</span><span class="p">))</span>
-            <span class="c1"># correct the 3 bit shift which encodes the detector ID in the 8s time</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;split_sector_id_from_dld_time&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-                <span class="n">df</span> <span class="o">=</span> <span class="n">split_dld_time_from_sector_id</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">df</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_multi_index</span><span class="p">()</span>  <span class="c1"># Reset MultiIndexes for next file</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenate_channels</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tof_column&quot;</span><span class="p">,</span> <span class="s2">&quot;dldTimeSteps&quot;</span><span class="p">))</span>
+        <span class="c1"># correct the 3 bit shift which encodes the detector ID in the 8s time</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;split_sector_id_from_dld_time&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">split_dld_time_from_sector_id</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div>
 
 <div class="viewcode-block" id="SXPLoader.create_buffer_file"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_buffer_file">[docs]</a>    <span class="k">def</span> <span class="nf">create_buffer_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">parquet_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
