@@ -504,7 +504,7 @@ document.write(`
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.diagnostics.grid_histogram">
-<span class="sig-prename descclassname"><span class="pre">sed.diagnostics.</span></span><span class="sig-name descname"><span class="pre">grid_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bokeh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/diagnostics.html#grid_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.diagnostics.grid_histogram" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.diagnostics.</span></span><span class="sig-name descname"><span class="pre">grid_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rvranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matplotlib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/diagnostics.html#grid_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.diagnostics.grid_histogram" title="Link to this definition">#</a></dt>
 <dd><p>Grid plot of multiple 1D histograms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -514,15 +514,15 @@ document.write(`
 <li><p><strong>rvs</strong> (<em>Sequence</em>) – List of names for the random variables (rvs).</p></li>
 <li><p><strong>rvbins</strong> (<em>Sequence</em>) – Bin values for all random variables.</p></li>
 <li><p><strong>rvranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em>) – Value ranges of all random variables.</p></li>
-<li><p><strong>backend</strong> (<em>str</em><em>, </em><em>optional</em>) – Backend for making the plot (‘matplotlib’ or ‘bokeh’).
-Defaults to “bokeh”.</p></li>
+<li><p><strong>backend</strong> (<em>str</em><em>, </em><em>optional</em>) – Backend for making the plot (“matplotlib” or “bokeh”).
+Defaults to “matplotlib”.</p></li>
 <li><p><strong>legend</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to include a legend in each histogram plot.
 Defaults to True.</p></li>
 <li><p><strong>histkwds</strong> (<em>dict</em><em>, </em><em>optional</em>) – Keyword arguments for histogram plots.
 Defaults to None.</p></li>
 <li><p><strong>legkwds</strong> (<em>dict</em><em>, </em><em>optional</em>) – Keyword arguments for legends. Defaults to None.</p></li>
 <li><p><strong>**kwds</strong> – <ul>
-<li><p><em>figsize</em>: Figure size. Defaults to (14, 8)</p></li>
+<li><p><em>figsize</em>: Figure size. Defaults to (6, 4)</p></li>
 </ul>
 </p></li>
 </ul>

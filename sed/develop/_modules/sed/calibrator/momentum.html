@@ -554,7 +554,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">include_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pouter</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pcent</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pcent</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pouter_ord</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prefs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ptargs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1847,7 +1847,9 @@ document.write(`
 
         <span class="k">if</span> <span class="n">annotated</span><span class="p">:</span>
             <span class="n">tsr</span><span class="p">,</span> <span class="n">tsc</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;textshift&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-            <span class="n">txtsize</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;textsize&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+            <span class="n">txtsize</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;textsize&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">title</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
         <span class="c1"># Handle unexpected kwds:</span>
         <span class="n">handled_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;figsize&quot;</span><span class="p">}</span>
@@ -1857,7 +1859,7 @@ document.write(`
             <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span>
-            <span class="n">fig_plt</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="o">**</span><span class="n">imkwds</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">cross</span><span class="p">:</span>
@@ -1867,15 +1869,12 @@ document.write(`
 
             <span class="c1"># Add annotation to the figure</span>
             <span class="k">if</span> <span class="n">annotated</span><span class="p">:</span>
-                <span class="k">for</span> <span class="p">(</span>
-                    <span class="n">p_keys</span><span class="p">,</span>  <span class="c1"># pylint: disable=unused-variable</span>
-                    <span class="n">p_vals</span><span class="p">,</span>
-                <span class="p">)</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">p_keys</span><span class="p">,</span> <span class="n">p_vals</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                     <span class="k">try</span><span class="p">:</span>
-                        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">p_vals</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">p_vals</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">scatterkwds</span><span class="p">)</span>
+                        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">p_vals</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">p_vals</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="o">**</span><span class="n">scatterkwds</span><span class="p">)</span>
                     <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
                         <span class="k">try</span><span class="p">:</span>
-                            <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">p_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">scatterkwds</span><span class="p">)</span>
+                            <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">p_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="o">**</span><span class="n">scatterkwds</span><span class="p">)</span>
                         <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
                             <span class="k">pass</span>
 
@@ -1888,15 +1887,21 @@ document.write(`
                                 <span class="n">fontsize</span><span class="o">=</span><span class="n">txtsize</span><span class="p">,</span>
                             <span class="p">)</span>
 
+            <span class="k">if</span> <span class="n">crosshair</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pcent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">radius</span> <span class="ow">in</span> <span class="n">crosshair_radii</span><span class="p">:</span>
+                    <span class="n">circle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pcent</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
         <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;bokeh&quot;</span><span class="p">:</span>
             <span class="n">output_notebook</span><span class="p">(</span><span class="n">hide_banner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">colors</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="n">ColorCycle</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
             <span class="n">ttp</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;(x, y)&quot;</span><span class="p">,</span> <span class="s2">&quot;($x, $y)&quot;</span><span class="p">)]</span>
-            <span class="n">figsize</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;figsize&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
             <span class="n">palette</span> <span class="o">=</span> <span class="n">cm2palette</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>  <span class="c1"># Retrieve palette colors</span>
             <span class="n">fig</span> <span class="o">=</span> <span class="n">pbk</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
-                <span class="n">width</span><span class="o">=</span><span class="n">figsize</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                <span class="n">height</span><span class="o">=</span><span class="n">figsize</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">width</span><span class="o">=</span><span class="n">figsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="n">height</span><span class="o">=</span><span class="n">figsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
                 <span class="n">tooltips</span><span class="o">=</span><span class="n">ttp</span><span class="p">,</span>
                 <span class="n">x_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_rows</span><span class="p">),</span>
                 <span class="n">y_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">),</span>

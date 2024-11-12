@@ -1121,24 +1121,28 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">spline_warp_estimate</span><span class="p">(</span><span class="n">use_center</span><span class="o">=</span><span class="n">use_center</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">slice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original slice with reference features&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">annotated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span> <span class="n">crosshair</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span>
+                <span class="n">annotated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+                <span class="n">crosshair</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Original slice with reference features&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corrected slice with target features&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span>
                 <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">slice_corrected</span><span class="p">,</span>
                 <span class="n">annotated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">points</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;feats&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">ptargs</span><span class="p">},</span>
-                <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
+                <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
                 <span class="n">crosshair</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Corrected slice with target features&quot;</span><span class="p">,</span>
             <span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original slice with target features&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span>
                 <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">slice</span><span class="p">,</span>
                 <span class="n">points</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;feats&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">ptargs</span><span class="p">},</span>
                 <span class="n">annotated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
+                <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Original slice with target features&quot;</span><span class="p">,</span>
             <span class="p">)</span></div>
 
 
@@ -1748,8 +1752,11 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">view</span><span class="p">(</span>
             <span class="n">traces</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">traces_normed</span><span class="p">,</span>
             <span class="n">xaxis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">tof</span><span class="p">,</span>
-            <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
-        <span class="p">)</span></div>
+            <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time-of-flight&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Intensity&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span></div>
 
 
     <span class="c1"># 2. extract ranges and get peak positions</span>
@@ -1811,7 +1818,7 @@ document.write(`
                     <span class="n">segs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">featranges</span><span class="p">,</span>
                     <span class="n">xaxis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">tof</span><span class="p">,</span>
                     <span class="n">peaks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">peaks</span><span class="p">,</span>
-                    <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
+                    <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not determine all peaks!&quot;</span><span class="p">)</span>
@@ -2943,7 +2950,7 @@ document.write(`
         <span class="n">bins</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
+        <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
         <span class="n">legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">histkwds</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">legkwds</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2962,7 +2969,7 @@ document.write(`
 <span class="sd">            ranges (Sequence[tuple[float, float]], optional): Value ranges of all</span>
 <span class="sd">                specified axes. Defaults to config[&quot;histogram&quot;][&quot;ranges&quot;].</span>
 <span class="sd">            backend (str, optional): Backend of the plotting library</span>
-<span class="sd">                (&#39;matplotlib&#39; or &#39;bokeh&#39;). Defaults to &quot;bokeh&quot;.</span>
+<span class="sd">                (&quot;matplotlib&quot; or &quot;bokeh&quot;). Defaults to &quot;matplotlib&quot;.</span>
 <span class="sd">            legend (bool, optional): Option to include a legend in the histogram plots.</span>
 <span class="sd">                Defaults to True.</span>
 <span class="sd">            histkwds (dict, optional): Keyword arguments for histograms</span>
