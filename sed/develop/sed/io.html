@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>IO &#8212; SED 0.2.1.dev0 documentation</title>
+    <title>IO &#8212; SED 1.0.0a0.dev0 documentation</title>
   
   
   
@@ -16,38 +16,35 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=19209950"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=b9783c13"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/io';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.2.1.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0a0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -56,7 +53,6 @@
     <link rel="prev" title="Diagnostics" href="diagnostic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.2.1.dev0" />
   </head>
   
   
@@ -72,8 +68,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -81,6 +88,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -88,8 +96,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,7 +126,7 @@
   
   
   
-    <p class="title logo__title">SED 0.2.1.dev0 documentation</p>
+    <p class="title logo__title">SED 1.0.0a0.dev0 documentation</p>
   
 </a></div>
     
@@ -129,24 +137,28 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-2"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-2"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-2"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-2">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
       
         <div class="navbar-item">
 <nav>
@@ -190,21 +202,29 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -229,11 +249,15 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
@@ -252,8 +276,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -265,24 +288,28 @@
           
           
             <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-3"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-3"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-3"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-3">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
           
         
           
@@ -330,11 +357,15 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -412,6 +443,8 @@
       
         <div class="header-article-item">
 
+
+
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -423,7 +456,7 @@
     
     <li class="breadcrumb-item"><a href="api.html" class="nav-link">API</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">IO</span></li>
+    <li class="breadcrumb-item active" aria-current="page">IO</li>
   </ul>
 </nav>
 </div>
@@ -441,11 +474,11 @@
                 <article class="bd-article">
                   
   <section id="module-sed.io">
-<span id="io"></span><h1>IO<a class="headerlink" href="#module-sed.io" title="Permalink to this heading">#</a></h1>
+<span id="io"></span><h1>IO<a class="headerlink" href="#module-sed.io" title="Link to this heading">#</a></h1>
 <p>sed.io module easy access APIs</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.io.load_h5">
-<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">load_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/hdf5.html#load_h5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.load_h5" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">load_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/hdf5.html#load_h5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.load_h5" title="Link to this definition">#</a></dt>
 <dd><p>Read xarray data from formatted hdf5 file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -468,7 +501,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.io.to_h5">
-<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">to_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/hdf5.html#to_h5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.to_h5" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">to_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/hdf5.html#to_h5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.to_h5" title="Link to this definition">#</a></dt>
 <dd><p>Save xarray formatted data to hdf5</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -487,7 +520,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.io.load_tiff">
-<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">load_tiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/tiff.html#load_tiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.load_tiff" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">load_tiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/tiff.html#load_tiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.load_tiff" title="Link to this definition">#</a></dt>
 <dd><p>Loads a tiff stack to an xarray.</p>
 <p>The .tiff format does not retain information on the axes, so these need to
 be manually added with the axes argument. Otherwise, this returns the data
@@ -495,7 +528,7 @@ only as np.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>faddr</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – Path to file to load.</p></li>
+<li><p><strong>faddr</strong> (<em>str</em><em> | </em><em>Path</em>) – Path to file to load.</p></li>
 <li><p><strong>coords</strong> (<em>dict</em><em>, </em><em>optional</em>) – The axes describing the data, following the tiff
 stack order. Defaults to None.</p></li>
 <li><p><strong>dims</strong> (<em>Sequence</em><em>, </em><em>optional</em>) – the order of the coordinates provided, considering
@@ -516,24 +549,25 @@ xarray.DataArray. Defaults to None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.io.to_tiff">
-<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">to_tiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/tiff.html#to_tiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.to_tiff" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">to_tiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/tiff.html#to_tiff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.to_tiff" title="Link to this definition">#</a></dt>
 <dd><p>Save an array as a .tiff stack compatible with ImageJ</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>Union</em><em>[</em><em>xr.DataArray</em><em>, </em><em>np.ndarray</em><em>]</em>) – data to be saved. If a np.ndarray,
+<li><p><strong>data</strong> (<em>xr.DataArray</em><em> | </em><em>np.ndarray</em>) – data to be saved. If a np.ndarray,
 the order is retained. If it is an xarray.DataArray, the order is inferred
 from axis_dict instead. ImageJ likes tiff files with axis order as
 TZCYXS. Therefore, best axis order in input should be: Time, Energy,
 posY, posX. The channels ‘C’ and ‘S’ are automatically added and can
 be ignored.</p></li>
-<li><p><strong>faddr</strong> (<em>Union</em><em>[</em><em>Path</em><em>, </em><em>str</em><em>]</em>) – full path and name of file to save.</p></li>
+<li><p><strong>str</strong><strong>)</strong> (<em>faddr Path</em><em> |</em>) – full path and name of file to save.</p></li>
 <li><p><strong>alias_dict</strong> (<em>dict</em><em>, </em><em>optional</em>) – name pairs for correct axis ordering. Keys should
 be any of T,Z,C,Y,X,S. The Corresponding value should be a dimension of the
 xarray or the dimension number if a numpy array. This is used to sort the
 data in the correct order for imagej standards. If None it tries to guess
 the order from the name of the axes or assumes T,Z,C,Y,X,S order for numpy
 arrays. Defaults to None.</p></li>
+<li><p><strong>faddr</strong> (<span class="sphinx_autodoc_typehints-type">Path | str</span>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -548,7 +582,7 @@ arrays. Defaults to None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.io.to_nexus">
-<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">to_nexus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_files</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/nexus.html#to_nexus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.to_nexus" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.io.</span></span><span class="sig-name descname"><span class="pre">to_nexus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_files</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/io/nexus.html#to_nexus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.io.to_nexus" title="Link to this definition">#</a></dt>
 <dd><p>Saves the x-array provided to a NeXus file at faddr, using the provided reader,
 NeXus definition and configuration file.</p>
 <dl class="field-list simple">
@@ -559,8 +593,7 @@ data._attrs[“metadata”].</p></li>
 <li><p><strong>faddr</strong> (<em>str</em>) – The file path to save to.</p></li>
 <li><p><strong>reader</strong> (<em>str</em>) – The name of the NeXus reader to use.</p></li>
 <li><p><strong>definition</strong> (<em>str</em>) – The NeXus definition to use.</p></li>
-<li><p><strong>input_files</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – The file path or paths to the additional files to
-use.</p></li>
+<li><p><strong>input_files</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – The file path or paths to the additional files to use.</p></li>
 <li><p><strong>**kwds</strong> – Keyword arguments for <code class="docutils literal notranslate"><span class="pre">pynxtools.dataconverter.convert.convert()</span></code>.</p></li>
 </ul>
 </dd>
@@ -604,8 +637,7 @@ use.</p></li>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -646,8 +678,8 @@ use.</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -667,7 +699,7 @@ use.</p></li>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
@@ -680,7 +712,7 @@ use.</p></li>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>

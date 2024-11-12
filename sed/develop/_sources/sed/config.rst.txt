@@ -1,6 +1,6 @@
 Config
 ***************************************************
-.. automodule:: sed.core.config
+.. automobile:: sed.core.config
    :members:
    :undoc-members:
 
