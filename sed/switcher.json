@@ -6,8 +6,8 @@
   },
   {
     "name": "stable",
-    "version": "0.3.1",
-    "url": "https://opencompes.github.io/docs/sed/v0.3.1",
+    "version": "0.3.2",
+    "url": "https://opencompes.github.io/docs/sed/v0.3.2",
     "preferred": "true"
   },
   {
@@ -29,5 +29,10 @@
     "name": "v0.3.1",
     "version": "0.3.1",
     "url": "https://opencompes.github.io/docs/sed/v0.3.1"
+  },
+  {
+    "name": "v0.3.2",
+    "version": "0.3.2",
+    "url": "https://opencompes.github.io/docs/sed/v0.3.2"
   }
 ]
