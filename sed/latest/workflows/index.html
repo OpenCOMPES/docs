@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="Workflows showcasing different SED loaders and methods " lang="en" name="description" xml:lang="en" />
 
-    <title>Workflows &#8212; SED 0.2.2a0 documentation</title>
+    <title>Workflows &#8212; SED 0.3.2 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=8596200e"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=53a30eae"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -48,16 +48,16 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.2.2a0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.2';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tutorial for binning data from the HEXTOF instrument at FLASH" href="../tutorial/4_hextof_workflow.html" />
-    <link rel="prev" title="Correct use of Jittering" href="../tutorial/8_jittering_tutorial.html" />
+    <link rel="prev" title="Tutorial for trXPS for energy calibration using core level side-bands" href="../tutorial/11_hextof_workflow_trXPS_energy_calibration_using_SB.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.2.2a0" />
+  <meta name="docsearch:version" content="0.3.2" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.2.2a0 documentation</p>
+    <p class="title logo__title">SED 0.3.2 documentation</p>
   
 </a></div>
     
@@ -365,6 +365,7 @@
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/4_hextof_workflow.html">Tutorial for binning data from the HEXTOF instrument at FLASH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/5_sxp_workflow.html">Tutorial for binning data from the SXP instrument at the European XFEL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html">Tutorial for trXPD for the HEXTOF instrument at FLASH with background normalization</a></li>
 </ul>
 </div>
 </nav></div>
@@ -504,6 +505,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/5_sxp_workflow.html#Correct-delay-stage-offset.">Correct delay stage offset.</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html">Tutorial for trXPD for the HEXTOF instrument at FLASH with background normalization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#Preparation">Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#Import-necessary-libraries">Import necessary libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#Get-data-paths">Get data paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#Config-setup">Config setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#Prepare-Energy-Calibration">Prepare Energy Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#Read-data">Read data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#bin-in-the-calibrated-energy-and-corrected-delay-axis">bin in the calibrated energy and corrected delay axis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#XPD-from-W4f-core-level">XPD from W4f core level</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -519,12 +535,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../tutorial/8_jittering_tutorial.html"
+       href="../tutorial/11_hextof_workflow_trXPS_energy_calibration_using_SB.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Correct use of Jittering</p>
+        <p class="prev-next-title">Tutorial for trXPS for energy calibration using core level side-bands</p>
       </div>
     </a>
     <a class="right-next"
