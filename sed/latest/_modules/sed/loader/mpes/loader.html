@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.mpes.loader &#8212; SED 0.3.2 documentation</title>
+    <title>sed.loader.mpes.loader &#8212; SED 0.3.3a0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=53a30eae"></script>
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=09335511"></script>
     <script src="../../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,14 +46,14 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.3a0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.3.2" />
+  <meta name="docsearch:version" content="0.3.3a0" />
   </head>
   
   
@@ -115,7 +115,7 @@
   
   
   
-    <p class="title logo__title">SED 0.3.2 documentation</p>
+    <p class="title logo__title">SED 0.3.3a0 documentation</p>
   
 </a></div>
     
@@ -505,20 +505,27 @@
     <span class="p">)</span>
 
     <span class="c1"># Delay-read all files</span>
-    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">da</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span>
-            <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">hdf5_to_array</span><span class="p">)(</span>
-                <span class="n">h5file</span><span class="o">=</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
-                <span class="n">group_names</span><span class="o">=</span><span class="n">group_names</span><span class="p">,</span>
-                <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
-                <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
-                <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">dtype</span><span class="o">=</span><span class="n">test_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
-            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">test_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
-        <span class="p">)</span>
-        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span>
-    <span class="p">]</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">da</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span>
+                    <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">hdf5_to_array</span><span class="p">)(</span>
+                        <span class="n">h5file</span><span class="o">=</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
+                        <span class="n">group_names</span><span class="o">=</span><span class="n">group_names</span><span class="p">,</span>
+                        <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+                        <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
+                        <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">test_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">test_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to open file </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="si">}</span><span class="s2">. Most likely the file is incomplete.&quot;</span><span class="p">)</span>
+                <span class="k">pass</span>
+
     <span class="n">array_stack</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
     <span class="k">return</span> <span class="n">ddf</span><span class="o">.</span><span class="n">from_dask_array</span><span class="p">(</span><span class="n">array_stack</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span></div>
@@ -586,20 +593,26 @@
     <span class="p">)</span>
 
     <span class="c1"># Delay-read all files</span>
-    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">da</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span>
-            <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">hdf5_to_timed_array</span><span class="p">)(</span>
-                <span class="n">h5file</span><span class="o">=</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
-                <span class="n">group_names</span><span class="o">=</span><span class="n">group_names</span><span class="p">,</span>
-                <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
-                <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
-                <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">dtype</span><span class="o">=</span><span class="n">test_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
-            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">test_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
-        <span class="p">)</span>
-        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span>
-    <span class="p">]</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">da</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span>
+                    <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">hdf5_to_timed_array</span><span class="p">)(</span>
+                        <span class="n">h5file</span><span class="o">=</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">),</span>
+                        <span class="n">group_names</span><span class="o">=</span><span class="n">group_names</span><span class="p">,</span>
+                        <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+                        <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
+                        <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">test_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">test_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                <span class="k">pass</span>
+
     <span class="n">array_stack</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
     <span class="k">return</span> <span class="n">ddf</span><span class="o">.</span><span class="n">from_dask_array</span><span class="p">(</span><span class="n">array_stack</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span></div>
@@ -1331,13 +1344,18 @@
         <span class="n">count_rate_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">accumulated_time</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">fid</span> <span class="ow">in</span> <span class="n">fids</span><span class="p">:</span>
-            <span class="n">count_rate_</span><span class="p">,</span> <span class="n">secs_</span> <span class="o">=</span> <span class="n">get_count_rate</span><span class="p">(</span>
-                <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fid</span><span class="p">]),</span>
-                <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
-            <span class="p">)</span>
-            <span class="n">secs_list</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">accumulated_time</span> <span class="o">+</span> <span class="n">secs_</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-            <span class="n">count_rate_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count_rate_</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-            <span class="n">accumulated_time</span> <span class="o">+=</span> <span class="n">secs_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">count_rate_</span><span class="p">,</span> <span class="n">secs_</span> <span class="o">=</span> <span class="n">get_count_rate</span><span class="p">(</span>
+                    <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fid</span><span class="p">]),</span>
+                    <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">secs_list</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">accumulated_time</span> <span class="o">+</span> <span class="n">secs_</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">count_rate_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count_rate_</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">accumulated_time</span> <span class="o">+=</span> <span class="n">secs_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to open file </span><span class="si">{</span><span class="n">fid</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">pass</span>
 
         <span class="n">count_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">count_rate_list</span><span class="p">)</span>
         <span class="n">secs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">secs_list</span><span class="p">)</span>
@@ -1371,10 +1389,15 @@
 
         <span class="n">secs</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">fid</span> <span class="ow">in</span> <span class="n">fids</span><span class="p">:</span>
-            <span class="n">secs</span> <span class="o">+=</span> <span class="n">get_elapsed_time</span><span class="p">(</span>
-                <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fid</span><span class="p">]),</span>
-                <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">secs</span> <span class="o">+=</span> <span class="n">get_elapsed_time</span><span class="p">(</span>
+                    <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fid</span><span class="p">]),</span>
+                    <span class="n">ms_markers_group</span><span class="o">=</span><span class="n">ms_markers_group</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to open file </span><span class="si">{</span><span class="n">fid</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">pass</span>
 
         <span class="k">return</span> <span class="n">secs</span></div></div>
 
