@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.sxp.loader &#8212; SED 0.3.2.dev0 documentation</title>
+    <title>sed.loader.sxp.loader &#8212; SED 1.0.0a0.dev0 documentation</title>
   
   
   
@@ -15,45 +15,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=1f5a8830"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/documentation_options.js?v=b9783c13"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/loader/sxp/loader';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.2.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0a0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.3.2.dev0" />
   </head>
   
   
@@ -69,8 +65,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../../../search.html"
       method="get">
@@ -78,6 +85,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -85,8 +93,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -115,7 +123,7 @@
   
   
   
-    <p class="title logo__title">SED 0.3.2.dev0 documentation</p>
+    <p class="title logo__title">SED 1.0.0a0.dev0 documentation</p>
   
 </a></div>
     
@@ -126,24 +134,28 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-2"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-2"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-2"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-2">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
       
         <div class="navbar-item">
 <nav>
@@ -187,21 +199,29 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -226,11 +246,15 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
@@ -247,8 +271,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -260,24 +283,28 @@
           
           
             <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-3"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-3"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-3"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-3">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
           
         
           
@@ -325,11 +352,15 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -386,6 +417,8 @@
       
         <div class="header-article-item">
 
+
+
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -397,7 +430,7 @@
     
     <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sed.loader.sxp.loader</span></li>
+    <li class="breadcrumb-item active" aria-current="page">sed.loader.s...</li>
   </ul>
 </nav>
 </div>
@@ -426,13 +459,12 @@
 <span class="sd">sed functionality.</span>
 <span class="sd">Most of the structure is identical to the FLASH loader.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
 <span class="kn">import</span> <span class="nn">h5py</span>
@@ -446,37 +478,68 @@
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
 
 <span class="kn">from</span> <span class="nn">sed.core</span> <span class="kn">import</span> <span class="n">dfops</span>
+<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">set_verbosity</span>
+<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">setup_logging</span>
 <span class="kn">from</span> <span class="nn">sed.loader.base.loader</span> <span class="kn">import</span> <span class="n">BaseLoader</span>
 <span class="kn">from</span> <span class="nn">sed.loader.utils</span> <span class="kn">import</span> <span class="n">parse_h5_keys</span>
 <span class="kn">from</span> <span class="nn">sed.loader.utils</span> <span class="kn">import</span> <span class="n">split_dld_time_from_sector_id</span>
 
+<span class="c1"># Configure logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">setup_logging</span><span class="p">(</span><span class="s2">&quot;sxp_loader&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SXPLoader"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader">[docs]</a><span class="k">class</span> <span class="nc">SXPLoader</span><span class="p">(</span><span class="n">BaseLoader</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SXPLoader">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader">[docs]</a>
+<span class="k">class</span> <span class="nc">SXPLoader</span><span class="p">(</span><span class="n">BaseLoader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The class generates multiindexed multidimensional pandas dataframes from the new SXP</span>
 <span class="sd">    dataformat resolved by both macro and microbunches alongside electrons.</span>
 <span class="sd">    Only the read_dataframe (inherited and implemented) method is accessed by other modules.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config (dict): Config dictionary.</span>
+<span class="sd">        verbose (bool, optional): Option to print out diagnostic information.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;sxp&quot;</span>
 
     <span class="n">supported_file_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;h5&quot;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="n">set_verbosity</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">multi_index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;trainId&quot;</span><span class="p">,</span> <span class="s2">&quot;pulseId&quot;</span><span class="p">,</span> <span class="s2">&quot;electronId&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index_per_electron</span><span class="p">:</span> <span class="n">MultiIndex</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index_per_pulse</span><span class="p">:</span> <span class="n">MultiIndex</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">failed_files_error</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">array_indices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">slice</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed_files_error</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array_indices</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">slice</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processed_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="SXPLoader.initialize_paths"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.initialize_paths">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="n">Path</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initializes the paths based on the configuration.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the verbosity flag.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[Path], Path]: A tuple containing a list of raw data directories</span>
-<span class="sd">            paths and the parquet data directory path.</span>
+<span class="sd">            bool: Verbosity flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
+
+    <span class="nd">@verbose</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the verbosity.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            verbose (bool): Option to turn on verbose output. Sets loglevel to INFO.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="n">set_verbosity</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_initialize_dirs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the paths based on the configuration.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If required values are missing from the configuration.</span>
@@ -485,14 +548,14 @@
         <span class="c1"># Parses to locate the raw beamtime directory from config file</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="s2">&quot;paths&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">]</span>
-            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_raw_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_parquet_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;processed&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="p">):</span>
             <span class="n">data_raw_dir</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_raw_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)),</span>
+                <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)),</span>
             <span class="p">]</span>
             <span class="n">data_parquet_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_parquet_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;processed&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
             <span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
@@ -505,7 +568,7 @@
                 <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
 
             <span class="n">beamtime_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;beamtime_dir&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;beamline&quot;</span><span class="p">]],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;beamtime_dir&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;beamline&quot;</span><span class="p">]],</span>
             <span class="p">)</span>
             <span class="n">beamtime_dir</span> <span class="o">=</span> <span class="n">beamtime_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">beamtime_id</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
 
@@ -519,35 +582,38 @@
 
         <span class="n">data_parquet_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">data_raw_dir</span><span class="p">,</span> <span class="n">data_parquet_dir</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_dir</span> <span class="o">=</span> <span class="n">data_raw_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processed_dir</span> <span class="o">=</span> <span class="n">data_parquet_dir</span>
 
-<div class="viewcode-block" id="SXPLoader.get_files_from_run_id"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_files_from_run_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_files_from_run_id</span><span class="p">(</span>
+<div class="viewcode-block" id="SXPLoader.get_files_from_run_id">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_files_from_run_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_files_from_run_id</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">folders</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a list of filenames for a given run located in the specified directory</span>
 <span class="sd">        for the specified data acquisition (daq).</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            run_id (str): The run identifier to locate.</span>
-<span class="sd">            folders (Union[str, Sequence[str]], optional): The directory(ies) where the raw</span>
+<span class="sd">            folders (str | Sequence[str], optional): The directory(ies) where the raw</span>
 <span class="sd">                data is located. Defaults to config[&quot;core&quot;][&quot;base_folder&quot;].</span>
 <span class="sd">            extension (str, optional): The file extension. Defaults to &quot;h5&quot;.</span>
 <span class="sd">            kwds: Keyword arguments:</span>
 <span class="sd">                - daq (str): The data acquisition identifier.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            List[str]: A list of path strings representing the collected file names.</span>
+<span class="sd">            list[str]: A list of path strings representing the collected file names.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            FileNotFoundError: If no files are found for the given run in the directory.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Define the stream name prefixes based on the data acquisition identifier</span>
-        <span class="n">stream_name_prefixes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;stream_name_prefixes&quot;</span><span class="p">]</span>
-        <span class="n">stream_name_postfixes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stream_name_postfixes&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">stream_name_prefixes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;stream_name_prefixes&quot;</span><span class="p">]</span>
+        <span class="n">stream_name_postfixes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stream_name_postfixes&quot;</span><span class="p">,</span> <span class="p">{})</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
             <span class="n">run_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -560,11 +626,16 @@
 
         <span class="n">daq</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;daq&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;daq&quot;</span><span class="p">))</span>
 
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;get_files_from_run_id() got unexpected keyword arguments </span><span class="si">{</span><span class="n">kwds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
         <span class="n">stream_name_postfix</span> <span class="o">=</span> <span class="n">stream_name_postfixes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">daq</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="c1"># Generate the file patterns to search for in the directory</span>
         <span class="n">file_pattern</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;**/</span><span class="si">{</span><span class="n">stream_name_prefixes</span><span class="p">[</span><span class="n">daq</span><span class="p">]</span><span class="si">}{</span><span class="n">run_id</span><span class="si">}{</span><span class="n">stream_name_postfix</span><span class="si">}</span><span class="s2">*.&quot;</span> <span class="o">+</span> <span class="n">extension</span>
 
-        <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># Use pathlib to search for matching files in each directory</span>
         <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
             <span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
@@ -583,8 +654,9 @@
         <span class="c1"># Return the list of found files</span>
         <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span></div>
 
+
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">available_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">available_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the channel names that are available for use,</span>
 <span class="sd">        excluding pulseId, defined by the json file&quot;&quot;&quot;</span>
         <span class="n">available_channels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -592,13 +664,15 @@
         <span class="n">available_channels</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;trainId&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">available_channels</span>
 
-<div class="viewcode-block" id="SXPLoader.get_channels"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_channels">[docs]</a>    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formats</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="viewcode-block" id="SXPLoader.get_channels">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_channels">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_channels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formats</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list of channels associated with the specified format(s).</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            formats (Union[str, List[str]]): The desired format(s)</span>
-<span class="sd">                                (&#39;per_pulse&#39;, &#39;per_electron&#39;, &#39;per_train&#39;, &#39;all&#39;).</span>
+<span class="sd">            formats (str | list[str]): The desired format(s)</span>
+<span class="sd">                (&#39;per_pulse&#39;, &#39;per_electron&#39;, &#39;per_train&#39;, &#39;all&#39;).</span>
 <span class="sd">            index (bool): If True, includes channels from the multi_index.</span>
 
 <span class="sd">        Returns:</span>
@@ -634,13 +708,19 @@
 
         <span class="k">return</span> <span class="n">channels</span></div>
 
-<div class="viewcode-block" id="SXPLoader.reset_multi_index"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.reset_multi_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_multi_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<div class="viewcode-block" id="SXPLoader.reset_multi_index">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.reset_multi_index">[docs]</a>
+    <span class="k">def</span> <span class="nf">reset_multi_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Resets the index per pulse and electron&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index_per_electron</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">index_per_pulse</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">array_indices</span> <span class="o">=</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_multi_index_per_electron"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_electron">[docs]</a>    <span class="k">def</span> <span class="nf">create_multi_index_per_electron</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<div class="viewcode-block" id="SXPLoader.create_multi_index_per_electron">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_electron">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_multi_index_per_electron</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates an index per electron using pulseId for usage with the electron</span>
 <span class="sd">            resolved pandas DataFrame.</span>
@@ -735,7 +815,10 @@
             <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">multi_index</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_multi_index_per_pulse"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_pulse">[docs]</a>    <span class="k">def</span> <span class="nf">create_multi_index_per_pulse</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_multi_index_per_pulse">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_pulse">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_multi_index_per_pulse</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">train_id</span><span class="p">:</span> <span class="n">Series</span><span class="p">,</span>
         <span class="n">np_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -759,11 +842,14 @@
             <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;trainId&quot;</span><span class="p">,</span> <span class="s2">&quot;pulseId&quot;</span><span class="p">],</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_numpy_array_per_channel"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_numpy_array_per_channel">[docs]</a>    <span class="k">def</span> <span class="nf">create_numpy_array_per_channel</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_numpy_array_per_channel">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_numpy_array_per_channel">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_numpy_array_per_channel</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">h5_file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
         <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a numpy array for a given channel name for a given file.</span>
 
@@ -772,7 +858,7 @@
 <span class="sd">            channel (str): The name of the channel.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[Series, np.ndarray]: A tuple containing the train ID Series and the numpy array</span>
+<span class="sd">            tuple[Series, np.ndarray]: A tuple containing the train ID Series and the numpy array</span>
 <span class="sd">            for the channel&#39;s data.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -806,7 +892,10 @@
 
         <span class="k">return</span> <span class="n">train_id</span><span class="p">,</span> <span class="n">np_array</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_dataframe_per_electron"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_electron">[docs]</a>    <span class="k">def</span> <span class="nf">create_dataframe_per_electron</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_dataframe_per_electron">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_electron">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_dataframe_per_electron</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">np_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -847,7 +936,10 @@
             <span class="p">)</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_dataframe_per_pulse"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_pulse">[docs]</a>    <span class="k">def</span> <span class="nf">create_dataframe_per_pulse</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_dataframe_per_pulse">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_pulse">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_dataframe_per_pulse</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">np_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">train_id</span><span class="p">:</span> <span class="n">Series</span><span class="p">,</span>
@@ -905,7 +997,10 @@
 
         <span class="k">return</span> <span class="n">data</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_dataframe_per_train"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_train">[docs]</a>    <span class="k">def</span> <span class="nf">create_dataframe_per_train</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_dataframe_per_train">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_train">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_dataframe_per_train</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">np_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">train_id</span><span class="p">:</span> <span class="n">Series</span><span class="p">,</span>
@@ -928,11 +1023,14 @@
             <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">train_id</span><span class="p">)</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_dataframe_per_channel"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel">[docs]</a>    <span class="k">def</span> <span class="nf">create_dataframe_per_channel</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_dataframe_per_channel">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_dataframe_per_channel</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Series</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a pandas DataFrame for a given channel name from a given file.</span>
 
@@ -945,7 +1043,7 @@
 <span class="sd">            channel (str): The name of the channel.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Union[Series, DataFrame]: A pandas Series or DataFrame representing the channel&#39;s data.</span>
+<span class="sd">            Series | DataFrame: A pandas Series or DataFrame representing the channel&#39;s data.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If the channel has an undefined format.</span>
@@ -1009,7 +1107,10 @@
 
         <span class="k">return</span> <span class="n">data</span></div>
 
-<div class="viewcode-block" id="SXPLoader.concatenate_channels"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.concatenate_channels">[docs]</a>    <span class="k">def</span> <span class="nf">concatenate_channels</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.concatenate_channels">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.concatenate_channels">[docs]</a>
+    <span class="k">def</span> <span class="nf">concatenate_channels</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
@@ -1058,7 +1159,10 @@
             <span class="n">data_frames</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_dataframe_per_file"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_file">[docs]</a>    <span class="k">def</span> <span class="nf">create_dataframe_per_file</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.create_dataframe_per_file">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_file">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_dataframe_per_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
@@ -1079,13 +1183,16 @@
         <span class="c1"># Loads h5 file and creates a dataframe</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reset_multi_index</span><span class="p">()</span>  <span class="c1"># Reset MultiIndexes for next file</span>
         <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">concatenate_channels</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tof_column&quot;</span><span class="p">,</span> <span class="s2">&quot;dldTimeSteps&quot;</span><span class="p">))</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tof&quot;</span><span class="p">,</span> <span class="s2">&quot;dldTimeSteps&quot;</span><span class="p">))</span>
         <span class="c1"># correct the 3 bit shift which encodes the detector ID in the 8s time</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;split_sector_id_from_dld_time&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">split_dld_time_from_sector_id</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span>
+            <span class="n">df</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">split_dld_time_from_sector_id</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">df</span></div>
 
-<div class="viewcode-block" id="SXPLoader.create_buffer_file"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_buffer_file">[docs]</a>    <span class="k">def</span> <span class="nf">create_buffer_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">parquet_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="SXPLoader.create_buffer_file">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_buffer_file">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_buffer_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">parquet_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="ne">Exception</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts an HDF5 file to Parquet format to create a buffer file.</span>
 
@@ -1095,6 +1202,9 @@
 <span class="sd">        Args:</span>
 <span class="sd">            h5_path (Path): Path to the input HDF5 file.</span>
 <span class="sd">            parquet_path (Path): Path to the output Parquet file.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool | Exception: Collected exceptions if any.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If an error occurs during the conversion process.</span>
@@ -1111,12 +1221,15 @@
             <span class="k">return</span> <span class="n">exc</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="SXPLoader.buffer_file_handler"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.buffer_file_handler">[docs]</a>    <span class="k">def</span> <span class="nf">buffer_file_handler</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.buffer_file_handler">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.buffer_file_handler">[docs]</a>
+    <span class="k">def</span> <span class="nf">buffer_file_handler</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_parquet_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">detector</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">force_recreate</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="n">List</span><span class="p">,</span> <span class="n">List</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Handles the conversion of buffer files (h5 to parquet) and returns the filenames.</span>
 
@@ -1126,7 +1239,7 @@
 <span class="sd">            force_recreate (bool): Forces recreation of buffer files</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[Path], List, List]: Three lists, one for</span>
+<span class="sd">            tuple[list[Path], list, list]: Three lists, one for</span>
 <span class="sd">            parquet file paths, one for metadata and one for schema.</span>
 
 <span class="sd">        Raises:</span>
@@ -1153,7 +1266,7 @@
             <span class="n">parquet_schemas</span> <span class="o">=</span> <span class="p">[</span><span class="n">pq</span><span class="o">.</span><span class="n">read_schema</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">existing_parquet_filenames</span><span class="p">]</span>
             <span class="n">config_schema</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">(</span><span class="n">formats</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;split_sector_id_from_dld_time&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-                <span class="n">config_schema</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sector_id_column&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+                <span class="n">config_schema</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sector_id&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
 
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">schema</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parquet_schemas</span><span class="p">):</span>
                 <span class="n">schema_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
@@ -1214,7 +1327,10 @@
 
         <span class="k">return</span> <span class="n">parquet_filenames</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">schema</span></div>
 
-<div class="viewcode-block" id="SXPLoader.parquet_handler"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.parquet_handler">[docs]</a>    <span class="k">def</span> <span class="nf">parquet_handler</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.parquet_handler">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.parquet_handler">[docs]</a>
+    <span class="k">def</span> <span class="nf">parquet_handler</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_parquet_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">detector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -1223,7 +1339,7 @@
         <span class="n">load_parquet</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">save_parquet</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">force_recreate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Handles loading and saving of parquet files based on the provided parameters.</span>
 
@@ -1238,7 +1354,7 @@
 <span class="sd">            save_parquet (bool, optional): Saves the entire dataframe into a parquet.</span>
 <span class="sd">            force_recreate (bool, optional): Forces recreation of buffer file.</span>
 <span class="sd">        Returns:</span>
-<span class="sd">            tuple: A tuple containing two dataframes:</span>
+<span class="sd">            tuple[dd.DataFrame, dd.DataFrame]: A tuple containing two dataframes:</span>
 <span class="sd">            - dataframe_electron: Dataframe containing the loaded/augmented electron data.</span>
 <span class="sd">            - dataframe_pulse: Dataframe containing the loaded/augmented timed data.</span>
 
@@ -1279,7 +1395,7 @@
             <span class="n">dataframe</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">calculate_divisions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             <span class="c1"># Channels to fill NaN values</span>
-            <span class="n">channels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">([</span><span class="s2">&quot;per_pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;per_train&quot;</span><span class="p">])</span>
+            <span class="n">channels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_channels</span><span class="p">([</span><span class="s2">&quot;per_pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;per_train&quot;</span><span class="p">])</span>
 
             <span class="n">overlap</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">num_rows</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">)</span>
 
@@ -1308,7 +1424,10 @@
 
         <span class="k">return</span> <span class="n">dataframe_electron</span><span class="p">,</span> <span class="n">dataframe_pulse</span></div>
 
-<div class="viewcode-block" id="SXPLoader.gather_metadata"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.gather_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">gather_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+
+<div class="viewcode-block" id="SXPLoader.gather_metadata">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.gather_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">gather_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Dummy function returning empty metadata dictionary for now.</span>
 
 <span class="sd">        Args:</span>
@@ -1323,43 +1442,54 @@
 
         <span class="k">return</span> <span class="n">metadata</span></div>
 
-<div class="viewcode-block" id="SXPLoader.get_count_rate"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_count_rate">[docs]</a>    <span class="k">def</span> <span class="nf">get_count_rate</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.get_count_rate">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_count_rate">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_count_rate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">fids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
     <span class="p">):</span>
         <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="SXPLoader.get_elapsed_time"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_elapsed_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_elapsed_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>  <span class="c1"># noqa: ARG002</span>
+
+<div class="viewcode-block" id="SXPLoader.get_elapsed_time">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_elapsed_time">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_elapsed_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>  <span class="c1"># noqa: ARG002</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="SXPLoader.read_dataframe"><a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.read_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">read_dataframe</span><span class="p">(</span>
+
+<div class="viewcode-block" id="SXPLoader.read_dataframe">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.sxp.loader.SXPLoader.read_dataframe">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_dataframe</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">files</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">folders</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">runs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">runs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">ftype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read express data from the DAQ, generating a parquet in between.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            files (Union[str, Sequence[str]], optional): File path(s) to process. Defaults to None.</span>
-<span class="sd">            folders (Union[str, Sequence[str]], optional): Path to folder(s) where files are stored</span>
+<span class="sd">            files (str | Sequence[str], optional): File path(s) to process. Defaults to None.</span>
+<span class="sd">            folders (str | Sequence[str], optional): Path to folder(s) where files are stored</span>
 <span class="sd">                Path has priority such that if it&#39;s specified, the specified files will be ignored.</span>
 <span class="sd">                Defaults to None.</span>
-<span class="sd">            runs (Union[str, Sequence[str]], optional): Run identifier(s). Corresponding files will</span>
+<span class="sd">            runs (str | Sequence[str], optional): Run identifier(s). Corresponding files will</span>
 <span class="sd">                be located in the location provided by ``folders``. Takes precedence over</span>
 <span class="sd">                ``files`` and ``folders``. Defaults to None.</span>
 <span class="sd">            ftype (str, optional): The file extension type. Defaults to &quot;h5&quot;.</span>
 <span class="sd">            metadata (dict, optional): Additional metadata. Defaults to None.</span>
 <span class="sd">            collect_metadata (bool, optional): Whether to collect metadata. Defaults to False.</span>
+<span class="sd">            **kwds: Keyword arguments passed to ``parquet_handler``.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[dd.DataFrame, dict]: A tuple containing the concatenated DataFrame and metadata.</span>
+<span class="sd">            tuple[dd.DataFrame, dd.DataFrame, dict]: A tuple containing the concatenated DataFrame,</span>
+<span class="sd">            timed DataFrame, and metadata.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            ValueError: If neither &#39;runs&#39; nor &#39;files&#39;/&#39;data_raw_dir&#39; is provided.</span>
@@ -1367,7 +1497,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        <span class="n">data_raw_dir</span><span class="p">,</span> <span class="n">data_parquet_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialize_paths</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_dirs</span><span class="p">()</span>
 
         <span class="c1"># Prepare a list of names for the runs to read and parquets to write</span>
         <span class="k">if</span> <span class="n">runs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1377,7 +1507,7 @@
             <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">runs</span><span class="p">:</span>
                 <span class="n">run_files</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_files_from_run_id</span><span class="p">(</span>
                     <span class="n">run_id</span><span class="o">=</span><span class="n">run</span><span class="p">,</span>
-                    <span class="n">folders</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">folder</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span> <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">data_raw_dir</span><span class="p">],</span>
+                    <span class="n">folders</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span> <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_dir</span><span class="p">],</span>
                     <span class="n">extension</span><span class="o">=</span><span class="n">ftype</span><span class="p">,</span>
                     <span class="n">daq</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;daq&quot;</span><span class="p">],</span>
                 <span class="p">)</span>
@@ -1395,7 +1525,7 @@
                 <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="n">df</span><span class="p">,</span> <span class="n">df_timed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parquet_handler</span><span class="p">(</span><span class="n">data_parquet_dir</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">,</span> <span class="n">df_timed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parquet_handler</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_dir</span><span class="p">),</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">collect_metadata</span><span class="p">:</span>
             <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gather_metadata</span><span class="p">(</span>
@@ -1405,7 +1535,9 @@
             <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loading complete in </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2"> .2f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">df_timed</span><span class="p">,</span> <span class="n">metadata</span></div></div>
+        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">df_timed</span><span class="p">,</span> <span class="n">metadata</span></div>
+</div>
+
 
 
 <span class="n">LOADER</span> <span class="o">=</span> <span class="n">SXPLoader</span>
@@ -1438,8 +1570,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1459,7 +1591,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
@@ -1472,7 +1604,7 @@
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>

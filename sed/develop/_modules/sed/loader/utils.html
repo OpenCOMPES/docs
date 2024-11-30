@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.utils &#8212; SED 0.3.2.dev0 documentation</title>
+    <title>sed.loader.utils &#8212; SED 1.0.0a0.dev0 documentation</title>
   
   
   
@@ -15,45 +15,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=1f5a8830"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/documentation_options.js?v=b9783c13"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/loader/utils';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.2.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0a0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.3.2.dev0" />
   </head>
   
   
@@ -69,8 +65,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -78,6 +85,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -85,8 +93,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -115,7 +123,7 @@
   
   
   
-    <p class="title logo__title">SED 0.3.2.dev0 documentation</p>
+    <p class="title logo__title">SED 1.0.0a0.dev0 documentation</p>
   
 </a></div>
     
@@ -126,24 +134,28 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-2"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-2"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-2"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-2">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
       
         <div class="navbar-item">
 <nav>
@@ -187,21 +199,29 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -226,11 +246,15 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
@@ -247,8 +271,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -260,24 +283,28 @@
           
           
             <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-3"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-3"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-3"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-3">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
           
         
           
@@ -325,11 +352,15 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -386,6 +417,8 @@
       
         <div class="header-article-item">
 
+
+
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -397,7 +430,7 @@
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sed.loader.utils</span></li>
+    <li class="breadcrumb-item active" aria-current="page">sed.loader.utils</li>
   </ul>
 </nav>
 </div>
@@ -417,28 +450,32 @@
   <h1>Source code for sed.loader.utils</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Utilities for loaders</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">dask.dataframe</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pyarrow.parquet</span> <span class="k">as</span> <span class="nn">pq</span>
 <span class="kn">from</span> <span class="nn">h5py</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">h5py</span> <span class="kn">import</span> <span class="n">Group</span>
 <span class="kn">from</span> <span class="nn">natsort</span> <span class="kn">import</span> <span class="n">natsorted</span>
 
 
-<div class="viewcode-block" id="gather_files"><a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.gather_files">[docs]</a><span class="k">def</span> <span class="nf">gather_files</span><span class="p">(</span>
+<div class="viewcode-block" id="gather_files">
+<a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.gather_files">[docs]</a>
+<span class="k">def</span> <span class="nf">gather_files</span><span class="p">(</span>
     <span class="n">folder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">f_start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">f_end</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">f_step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">file_sorting</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Collects and sorts files with specified extension from a given folder.</span>
 
 <span class="sd">    Args:</span>
@@ -454,13 +491,13 @@
 <span class="sd">            Defaults to True.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[str]: List of collected file names.</span>
+<span class="sd">        list[str]: List of collected file names.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;/*.&quot;</span> <span class="o">+</span> <span class="n">extension</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">file_sorting</span><span class="p">:</span>
-            <span class="n">files</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">natsorted</span><span class="p">(</span><span class="n">files</span><span class="p">))</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">natsorted</span><span class="p">(</span><span class="n">files</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">f_start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">f_end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="n">f_start</span><span class="p">,</span> <span class="n">f_end</span><span class="p">,</span> <span class="n">f_step</span><span class="p">)]</span>
@@ -472,7 +509,10 @@
     <span class="k">return</span> <span class="n">files</span></div>
 
 
-<div class="viewcode-block" id="parse_h5_keys"><a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.parse_h5_keys">[docs]</a><span class="k">def</span> <span class="nf">parse_h5_keys</span><span class="p">(</span><span class="n">h5_file</span><span class="p">:</span> <span class="n">File</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="parse_h5_keys">
+<a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.parse_h5_keys">[docs]</a>
+<span class="k">def</span> <span class="nf">parse_h5_keys</span><span class="p">(</span><span class="n">h5_file</span><span class="p">:</span> <span class="n">File</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper method which parses the channels present in the h5 file</span>
 <span class="sd">    Args:</span>
 <span class="sd">        h5_file (h5py.File): The H5 file object.</span>
@@ -480,7 +520,7 @@
 <span class="sd">        Defaults to an empty string.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        List[str]: A list of channel names in the H5 file.</span>
+<span class="sd">        list[str]: A list of channel names in the H5 file.</span>
 
 <span class="sd">    Raises:</span>
 <span class="sd">        Exception: If an error occurs while parsing the keys.</span>
@@ -513,7 +553,10 @@
     <span class="k">return</span> <span class="n">file_channel_list</span></div>
 
 
-<div class="viewcode-block" id="split_channel_bitwise"><a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.split_channel_bitwise">[docs]</a><span class="k">def</span> <span class="nf">split_channel_bitwise</span><span class="p">(</span>
+
+<div class="viewcode-block" id="split_channel_bitwise">
+<a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.split_channel_bitwise">[docs]</a>
+<span class="k">def</span> <span class="nf">split_channel_bitwise</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">input_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">output_columns</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -560,58 +603,135 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
-<div class="viewcode-block" id="split_dld_time_from_sector_id"><a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.split_dld_time_from_sector_id">[docs]</a><span class="k">def</span> <span class="nf">split_dld_time_from_sector_id</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+
+<div class="viewcode-block" id="split_dld_time_from_sector_id">
+<a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.split_dld_time_from_sector_id">[docs]</a>
+<span class="k">def</span> <span class="nf">split_dld_time_from_sector_id</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">tof_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">sector_id_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">sector_id_reserved_bits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts the 8s time in steps to time in steps and sectorID.</span>
 
 <span class="sd">    The 8s detector encodes the dldSectorID in the 3 least significant bits of the</span>
 <span class="sd">    dldTimeSteps channel.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to use.</span>
+<span class="sd">        df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to use.</span>
 <span class="sd">        tof_column (str, optional): Name of the column containing the</span>
-<span class="sd">            time-of-flight steps. Defaults to config[&quot;dataframe&quot;][&quot;tof_column&quot;].</span>
+<span class="sd">            time-of-flight steps. Defaults to config[&quot;dataframe&quot;][&quot;columns&quot;][&quot;tof&quot;].</span>
 <span class="sd">        sector_id_column (str, optional): Name of the column containing the</span>
-<span class="sd">            sectorID. Defaults to config[&quot;dataframe&quot;][&quot;sector_id_column&quot;].</span>
+<span class="sd">            sectorID. Defaults to config[&quot;dataframe&quot;][&quot;columns&quot;][&quot;sector_id&quot;].</span>
 <span class="sd">        sector_id_reserved_bits (int, optional): Number of bits reserved for the</span>
-<span class="sd">        config (dict, optional): Configuration dictionary. Defaults to None.</span>
+<span class="sd">        config (dict, optional): Dataframe configuration dictionary. Defaults to None.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: Dataframe with the new columns.</span>
+<span class="sd">        pd.DataFrame | dask.dataframe.DataFrame: Dataframe with the new columns.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">tof_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either tof_column or config must be given.&quot;</span><span class="p">)</span>
-        <span class="n">tof_column</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;tof_column&quot;</span><span class="p">]</span>
+        <span class="n">tof_column</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">][</span><span class="s2">&quot;tof&quot;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">sector_id_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either sector_id_column or config must be given.&quot;</span><span class="p">)</span>
-        <span class="n">sector_id_column</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;sector_id_column&quot;</span><span class="p">]</span>
+        <span class="n">sector_id_column</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">][</span><span class="s2">&quot;sector_id&quot;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">sector_id_reserved_bits</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either sector_id_reserved_bits or config must be given.&quot;</span><span class="p">)</span>
-        <span class="n">sector_id_reserved_bits</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sector_id_reserved_bits&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">sector_id_reserved_bits</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sector_id_reserved_bits&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">sector_id_reserved_bits</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No value for &quot;sector_id_reserved_bits&quot; found in config.&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">sector_id_column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Column </span><span class="si">{</span><span class="n">sector_id_column</span><span class="si">}</span><span class="s2"> already in dataframe. This function is not idempotent.&quot;</span><span class="p">,</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;applied&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Column </span><span class="si">{</span><span class="n">sector_id_column</span><span class="si">}</span><span class="s2"> already in dataframe&quot;</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Split the time-of-flight column into sector ID and time-of-flight steps</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">split_channel_bitwise</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+            <span class="n">input_column</span><span class="o">=</span><span class="n">tof_column</span><span class="p">,</span>
+            <span class="n">output_columns</span><span class="o">=</span><span class="p">[</span><span class="n">sector_id_column</span><span class="p">,</span> <span class="n">tof_column</span><span class="p">],</span>
+            <span class="n">bit_mask</span><span class="o">=</span><span class="n">sector_id_reserved_bits</span><span class="p">,</span>
+            <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">types</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span>
         <span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">split_channel_bitwise</span><span class="p">(</span>
-        <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-        <span class="n">input_column</span><span class="o">=</span><span class="n">tof_column</span><span class="p">,</span>
-        <span class="n">output_columns</span><span class="o">=</span><span class="p">[</span><span class="n">sector_id_column</span><span class="p">,</span> <span class="n">tof_column</span><span class="p">],</span>
-        <span class="n">bit_mask</span><span class="o">=</span><span class="n">sector_id_reserved_bits</span><span class="p">,</span>
-        <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">types</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span></div>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;applied&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;tof_column&quot;</span><span class="p">:</span> <span class="n">tof_column</span><span class="p">,</span>
+            <span class="s2">&quot;sector_id_column&quot;</span><span class="p">:</span> <span class="n">sector_id_column</span><span class="p">,</span>
+            <span class="s2">&quot;sector_id_reserved_bits&quot;</span><span class="p">:</span> <span class="n">sector_id_reserved_bits</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;split_dld_time_from_sector_id&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="get_stats">
+<a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.get_stats">[docs]</a>
+<span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">meta</span><span class="p">:</span> <span class="n">pq</span><span class="o">.</span><span class="n">FileMetaData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extracts the minimum and maximum of all columns from the metadata of a Parquet file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        meta (pq.FileMetaData): The metadata of the Parquet file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple[int, int]: The minimum and maximum timestamps.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">min_max</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">names</span><span class="p">):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">num_row_groups</span><span class="p">):</span>
+            <span class="n">stats</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">row_group</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">statistics</span>
+            <span class="k">if</span> <span class="n">stats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">stats</span><span class="o">.</span><span class="n">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">stats</span><span class="o">.</span><span class="n">max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">col</span><span class="p">:</span>
+            <span class="n">min_max</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">col</span><span class="p">),</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">col</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">min_max</span></div>
+
+
+
+<div class="viewcode-block" id="get_parquet_metadata">
+<a class="viewcode-back" href="../../../sed/loader.html#sed.loader.utils.get_parquet_metadata">[docs]</a>
+<span class="k">def</span> <span class="nf">get_parquet_metadata</span><span class="p">(</span><span class="n">file_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extracts and organizes metadata from a list of Parquet files.</span>
+
+<span class="sd">    For each file, the function reads the metadata, adds the filename,</span>
+<span class="sd">    and extracts the minimum and maximum timestamps.</span>
+<span class="sd">    &quot;row_groups&quot; entry is removed from FileMetaData.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_paths (list[Path]): A list of paths to the Parquet files.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, dict]: A dictionary file index as key and the values as metadata of each file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">organized_metadata</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file_paths</span><span class="p">):</span>
+        <span class="c1"># Read the metadata for the file</span>
+        <span class="n">file_meta</span><span class="p">:</span> <span class="n">pq</span><span class="o">.</span><span class="n">FileMetaData</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">read_metadata</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="c1"># Convert the metadata to a dictionary</span>
+        <span class="n">metadata_dict</span> <span class="o">=</span> <span class="n">file_meta</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="c1"># Add the filename to the metadata dictionary</span>
+        <span class="n">metadata_dict</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_path</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># Get column min and max values</span>
+        <span class="n">metadata_dict</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_stats</span><span class="p">(</span><span class="n">file_meta</span><span class="p">)</span>
+
+        <span class="c1"># Remove &quot;row_groups&quot; as they contain a lot of info that is not needed</span>
+        <span class="n">metadata_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;row_groups&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># Add the metadata dictionary to the organized_metadata dictionary</span>
+        <span class="n">organized_metadata</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">metadata_dict</span>
+
+    <span class="k">return</span> <span class="n">organized_metadata</span></div>
+
 </pre></div>
 
                 </article>
@@ -641,8 +761,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -662,7 +782,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
@@ -675,7 +795,7 @@
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>
