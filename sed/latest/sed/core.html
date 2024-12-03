@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Core &#8212; SED 0.3.3a0 documentation</title>
+    <title>Core &#8212; SED 0.3.3a2 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=09335511"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=9ab35b62"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.3a0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.3a2';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -56,7 +56,7 @@
     <link rel="prev" title="API" href="api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.3.3a0" />
+  <meta name="docsearch:version" content="0.3.3a2" />
   </head>
   
   
@@ -118,7 +118,7 @@
   
   
   
-    <p class="title logo__title">SED 0.3.3a0 documentation</p>
+    <p class="title logo__title">SED 0.3.3a2 documentation</p>
   
 </a></div>
     
@@ -889,7 +889,7 @@ use. Defaults to None.</p></li>
 Defaults to False.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
 Defaults to config[“core”][“verbose”].</p></li>
-<li><p><strong>**kwds</strong> – Keyword args passed to <code class="docutils literal notranslate"><span class="pre">DelayCalibrator.append_delay_axis</span></code>.</p></li>
+<li><p><strong>**kwds</strong> – Keyword args passed to <code class="docutils literal notranslate"><span class="pre">MomentumCorrector.append_k_axis</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1192,7 +1192,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.calibrate_delay_axis">
-<span class="sig-name descname"><span class="pre">calibrate_delay_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_delay_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_delay_axis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calibrate_delay_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_delay_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_delay_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_delay_axis" title="Permalink to this definition">#</a></dt>
 <dd><p>Append delay column to dataframe. Either provide delay ranges, or read
 them from a file.</p>
 <dl class="field-list simple">
@@ -1200,8 +1200,10 @@ them from a file.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>delay_range</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The scanned delay range in
 picoseconds. Defaults to None.</p></li>
+<li><p><strong>read_delay_ranges</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option whether to read the delay ranges from the
+data. Defaults to True. If false, parameters in the config will be used.</p></li>
 <li><p><strong>datafile</strong> (<em>str</em><em>, </em><em>optional</em>) – The file from which to read the delay ranges.
-Defaults to None.</p></li>
+Defaults to the first file of the dataset.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
