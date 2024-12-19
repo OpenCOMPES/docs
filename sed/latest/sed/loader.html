@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data loader &#8212; SED 0.3.3a2 documentation</title>
+    <title>Data loader &#8212; SED 0.3.3a3 documentation</title>
   
   
   
@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,28 +27,29 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=9ab35b62"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=3ecbdf7b"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/loader';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.3a2';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.3a3';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,7 +57,7 @@
     <link rel="prev" title="Dataframe Operations" href="dfops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.3.3a2" />
+  <meta name="docsearch:version" content="0.3.3a3" />
   </head>
   
   
@@ -118,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.3.3a2 documentation</p>
+    <p class="title logo__title">SED 0.3.3a3 documentation</p>
   
 </a></div>
     
@@ -393,8 +394,6 @@
   </ul>
 </nav></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -780,6 +779,23 @@ include. Defaults to list of all file ids.</p></li>
 Mostly ported from <a class="github reference external" href="https://github.com/mpes-kit/mpes">mpes-kit/mpes</a>.
 &#64;author: L. Rettig</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="sed.loader.mpes.loader.load_h5_in_memory">
+<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">load_h5_in_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#load_h5_in_memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.load_h5_in_memory" title="Permalink to this definition">#</a></dt>
+<dd><p>Load an HDF5 file entirely into memory and open it with h5py.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – Path to the .h5 file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An h5py File object representing the in-memory HDF5 file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>h5py.File</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="sed.loader.mpes.loader.hdf5_to_dataframe">
 <span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">hdf5_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamp_alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'timeStamps'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_markers_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'msMarkers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_event_time_stamp_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FirstEventTimeStamp'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#hdf5_to_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.hdf5_to_dataframe" title="Permalink to this definition">#</a></dt>
 <dd><p>Function to read a selection of hdf5-files, and generate a delayed dask
@@ -871,13 +887,13 @@ timestamp of a file. Defaults to “FirstEventTimeStamp”.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.loader.mpes.loader.hdf5_to_array">
-<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">hdf5_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_markers_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'msMarkers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_event_time_stamp_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FirstEventTimeStamp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#hdf5_to_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.hdf5_to_array" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">hdf5_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_markers_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'msMarkers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_event_time_stamp_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FirstEventTimeStamp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#hdf5_to_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.hdf5_to_array" title="Permalink to this definition">#</a></dt>
 <dd><p>Reads the content of the given groups in an hdf5 file, and returns a
 2-dimensional array with the corresponding values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>h5file</strong> (<em>h5py.File</em>) – hdf5 file handle to read from</p></li>
+<li><p><strong>h5filename</strong> (<em>str</em>) – hdf5 file name to read from</p></li>
 <li><p><strong>group_names</strong> (<em>str</em>) – group names to read</p></li>
 <li><p><strong>data_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Data type of the output data. Defaults to “float32”.</p></li>
 <li><p><strong>time_stamps</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to calculate time stamps. Defaults to False.</p></li>
@@ -898,13 +914,13 @@ timestamp of a file. Defaults to “FirstEventTimeStamp”.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.loader.mpes.loader.hdf5_to_timed_array">
-<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">hdf5_to_timed_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_markers_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'msMarkers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_event_time_stamp_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FirstEventTimeStamp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#hdf5_to_timed_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.hdf5_to_timed_array" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">hdf5_to_timed_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_markers_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'msMarkers'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_event_time_stamp_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FirstEventTimeStamp'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#hdf5_to_timed_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.hdf5_to_timed_array" title="Permalink to this definition">#</a></dt>
 <dd><p>Reads the content of the given groups in an hdf5 file, and returns a
 timed version of a 2-dimensional array with the corresponding values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>h5file</strong> (<em>h5py.File</em>) – hdf5 file handle to read from</p></li>
+<li><p><strong>h5filename</strong> (<em>str</em>) – hdf5 file name to read from</p></li>
 <li><p><strong>group_names</strong> (<em>str</em>) – group names to read</p></li>
 <li><p><strong>data_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Data type of the output data. Defaults to “float32”.</p></li>
 <li><p><strong>time_stamps</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to calculate time stamps. Defaults to False.</p></li>
@@ -2663,6 +2679,7 @@ Defaults to False.</p></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sed.loader.mpes.loader">MpesLoader</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.load_h5_in_memory"><code class="docutils literal notranslate"><span class="pre">load_h5_in_memory()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.hdf5_to_dataframe"><code class="docutils literal notranslate"><span class="pre">hdf5_to_dataframe()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.hdf5_to_timed_dataframe"><code class="docutils literal notranslate"><span class="pre">hdf5_to_timed_dataframe()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.get_groups_and_aliases"><code class="docutils literal notranslate"><span class="pre">get_groups_and_aliases()</span></code></a></li>
@@ -2776,13 +2793,13 @@ Defaults to False.</p></li>
   </nav></div>
 
   <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/sed/loader.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/sed/loader.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
 
 </div></div>
               
@@ -2797,8 +2814,8 @@ Defaults to False.</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2831,7 +2848,8 @@ Defaults to False.</p></li>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
