@@ -9,5 +9,10 @@
     "version": "0.3.2",
     "url": "https://opencompes.github.io/docs/specsanalyzer/v0.3.2",
     "preferred": "true"
+  },
+  {
+    "name": "develop",
+    "version": "0.4.2a0.dev0",
+    "url": "https://opencompes.github.io/docs/specsanalyzer/develop"
   }
 ]
