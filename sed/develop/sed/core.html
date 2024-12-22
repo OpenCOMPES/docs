@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Core &#8212; SED 0.3.3a3.dev0 documentation</title>
+    <title>Core &#8212; SED 1.0.0a0.dev0 documentation</title>
   
   
   
@@ -16,40 +16,36 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=56302997"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=b9783c13"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/core';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.3.3a3.dev0';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner =
-            true;
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0a0.dev0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -57,7 +53,6 @@
     <link rel="prev" title="API" href="api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.3.3a3.dev0" />
   </head>
   
   
@@ -73,8 +68,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -82,6 +88,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -89,8 +96,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -119,7 +126,7 @@
   
   
   
-    <p class="title logo__title">SED 0.3.3a3.dev0 documentation</p>
+    <p class="title logo__title">SED 1.0.0a0.dev0 documentation</p>
   
 </a></div>
     
@@ -130,24 +137,28 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-2"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-2"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-2"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-2">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
       
         <div class="navbar-item">
 <nav>
@@ -191,21 +202,29 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -230,11 +249,15 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
@@ -253,8 +276,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -266,24 +288,28 @@
           
           
             <div class="navbar-item">
-<div class="version-switcher__container dropdown pst-js-only">
-  <button id="pst-version-switcher-button-3"
-    type="button"
-    class="version-switcher__button btn btn-sm dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-haspopup="listbox"
-    aria-controls="pst-version-switcher-list-3"
-    aria-label="Version switcher list"
-  >
-    Choose version  <!-- this text may get changed later by javascript -->
-    <span class="caret"></span>
-  </button>
-  <div id="pst-version-switcher-list-3"
-    class="version-switcher__menu dropdown-menu list-group-flush py-0"
-    role="listbox" aria-labelledby="pst-version-switcher-button-3">
-    <!-- dropdown will be populated by javascript on page load -->
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
   </div>
-</div></div>
+`);
+</script></div>
           
         
           
@@ -331,11 +357,15 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -394,6 +424,8 @@
   </ul>
 </nav></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -411,6 +443,8 @@
       
         <div class="header-article-item">
 
+
+
 <nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
@@ -422,7 +456,7 @@
     
     <li class="breadcrumb-item"><a href="api.html" class="nav-link">API</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Core</span></li>
+    <li class="breadcrumb-item active" aria-current="page">Core</li>
   </ul>
 </nav>
 </div>
@@ -440,11 +474,11 @@
                 <article class="bd-article">
                   
   <section id="module-sed.core">
-<span id="core"></span><h1>Core<a class="headerlink" href="#module-sed.core" title="Permalink to this heading">#</a></h1>
+<span id="core"></span><h1>Core<a class="headerlink" href="#module-sed.core" title="Link to this heading">#</a></h1>
 <p>sed.core module easy access APIs</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="sed.core.SedProcessor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.core.</span></span><span class="sig-name descname"><span class="pre">SedProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.core.</span></span><span class="sig-name descname"><span class="pre">SedProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Processor class of sed. Contains wrapper functions defining a work flow for data
 correction, calibration and binning.</p>
@@ -452,11 +486,11 @@ correction, calibration and binning.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dict of external Metadata. Defaults to None.</p></li>
-<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Config dictionary or config file name.
+<li><p><strong>config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – Config dictionary or config file name.
 Defaults to None.</p></li>
-<li><p><strong>dataframe</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>ddf.DataFrame</em><em>]</em><em>, </em><em>optional</em>) – dataframe to load
+<li><p><strong>dataframe</strong> (<em>pd.DataFrame</em><em> | </em><em>ddf.DataFrame</em><em>, </em><em>optional</em>) – dataframe to load
 into the class. Defaults to None.</p></li>
-<li><p><strong>files</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of files to pass to the loader defined in
+<li><p><strong>files</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of files to pass to the loader defined in
 the config. Defaults to None.</p></li>
 <li><p><strong>folder</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder containing files to pass to the loader
 defined in the config. Defaults to None.</p></li>
@@ -465,42 +499,56 @@ defined in the config. Defaults to None.</p></li>
 <li><p><strong>collect_metadata</strong> (<em>bool</em>) – Option to collect metadata from files.
 Defaults to False.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”] or False.</p></li>
+Defaults to config[“core”][“verbose”] or True.</p></li>
 <li><p><strong>**kwds</strong> – Keyword arguments passed to the reader.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
+<dt class="sig sig-object py" id="sed.core.SedProcessor.verbose">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verbose</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sed.core.SedProcessor.verbose" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the verbosity flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Verbosity flag.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.dataframe">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.dataframe" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ddf.DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.dataframe" title="Link to this definition">#</a></dt>
 <dd><p>Accessor to the underlying dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Dataframe object.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Union[pd.DataFrame, ddf.DataFrame]</p>
+<dd class="field-even"><p>pd.DataFrame | ddf.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.timed_dataframe">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timed_dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.timed_dataframe" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timed_dataframe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ddf.DataFrame</span></em><a class="headerlink" href="#sed.core.SedProcessor.timed_dataframe" title="Link to this definition">#</a></dt>
 <dd><p>Accessor to the underlying timed_dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Timed Dataframe object.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Union[pd.DataFrame, ddf.DataFrame]</p>
+<dd class="field-even"><p>pd.DataFrame | ddf.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.attributes">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attributes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="metadata.html#sed.core.metadata.MetaHandler" title="sed.core.metadata.MetaHandler"><span class="pre">MetaHandler</span></a></em><a class="headerlink" href="#sed.core.SedProcessor.attributes" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attributes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="metadata.html#sed.core.metadata.MetaHandler" title="sed.core.metadata.MetaHandler"><span class="pre">MetaHandler</span></a></em><a class="headerlink" href="#sed.core.SedProcessor.attributes" title="Link to this definition">#</a></dt>
 <dd><p>Accessor to the metadata dict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -514,13 +562,14 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.add_attribute">
-<span class="sig-name descname"><span class="pre">add_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attributes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_attribute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attributes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_attribute" title="Link to this definition">#</a></dt>
 <dd><p>Function to add element to the attributes dict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>attributes</strong> (<em>dict</em>) – The attributes dictionary object to add.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – Key under which to add the dictionary to the attributes.</p></li>
+<li><p><strong>**kwds</strong> – Additional keywords are passed to the <code class="docutils literal notranslate"><span class="pre">MetaHandler.add()</span></code> function.</p></li>
 </ul>
 </dd>
 </dl>
@@ -528,35 +577,35 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.config">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.config" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.config" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the config dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The config dictionary.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dict</p>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.files">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.files" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sed.core.SedProcessor.files" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the list of files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The list of loaded files</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>List[str]</p>
+<dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.binned">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">binned</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataArray</span></em><a class="headerlink" href="#sed.core.SedProcessor.binned" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">binned</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataArray</span></em><a class="headerlink" href="#sed.core.SedProcessor.binned" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the binned data array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -570,7 +619,7 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.normalized">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataArray</span></em><a class="headerlink" href="#sed.core.SedProcessor.normalized" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataArray</span></em><a class="headerlink" href="#sed.core.SedProcessor.normalized" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the normalized data array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -584,7 +633,7 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.normalization_histogram">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalization_histogram</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataArray</span></em><a class="headerlink" href="#sed.core.SedProcessor.normalization_histogram" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalization_histogram</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataArray</span></em><a class="headerlink" href="#sed.core.SedProcessor.normalization_histogram" title="Link to this definition">#</a></dt>
 <dd><p>Getter attribute for the normalization histogram</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -598,43 +647,47 @@ Defaults to config[“core”][“verbose”] or False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.cpy">
-<span class="sig-name descname"><span class="pre">cpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.cpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.cpy" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">cpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.cpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.cpy" title="Link to this definition">#</a></dt>
 <dd><p>Function to mirror a list of files or a folder from a network drive to a
 local storage. Returns either the original or the copied path to the given
 path. The option to use this functionality is set by
 config[“core”][“use_copy_tool”].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Source path or path list.</p>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>]</em>) – Source path or path list.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Source or destination path or path list.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[str, List[str]]</p>
+<dd class="field-odd"><p>str | list[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.load" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.load" title="Link to this definition">#</a></dt>
 <dd><p>Load tabular data of single events into the dataframe object in the class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dataframe</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>ddf.DataFrame</em><em>]</em><em>, </em><em>optional</em>) – data in tabular
+<li><p><strong>dataframe</strong> (<em>pd.DataFrame</em><em> | </em><em>ddf.DataFrame</em><em>, </em><em>optional</em>) – data in tabular
 format. Accepts anything which can be interpreted by pd.DataFrame as
 an input. Defaults to None.</p></li>
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dict of external Metadata. Defaults to None.</p></li>
-<li><p><strong>files</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of file paths to pass to the loader.
+<li><p><strong>files</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of file paths to pass to the loader.
 Defaults to None.</p></li>
 <li><p><strong>runs</strong> (<em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – List of run identifiers to pass to the
 loader. Defaults to None.</p></li>
 <li><p><strong>folder</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder path to pass to the loader.
 Defaults to None.</p></li>
 <li><p><strong>collect_metadata</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option for collecting metadata in the reader.</p></li>
-<li><p><strong>**kwds</strong> – Keyword parameters passed to the reader.</p></li>
+<li><p><strong>**kwds</strong> – <ul>
+<li><p><em>timed_dataframe</em>: timed dataframe if dataframe is provided.</p></li>
+</ul>
+<p>Additional keyword parameters are passed to <code class="docutils literal notranslate"><span class="pre">loader.read_dataframe()</span></code>.</p>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -645,7 +698,7 @@ Defaults to None.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.filter_column">
-<span class="sig-name descname"><span class="pre">filter_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.filter_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.filter_column" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">filter_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.filter_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.filter_column" title="Link to this definition">#</a></dt>
 <dd><p>Filter values in a column which are outside of a given range</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -663,20 +716,20 @@ Defaults to None.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.bin_and_load_momentum_calibration">
-<span class="sig-name descname"><span class="pre">bin_and_load_momentum_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_partitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.bin_and_load_momentum_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.bin_and_load_momentum_calibration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">bin_and_load_momentum_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_partitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.bin_and_load_momentum_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.bin_and_load_momentum_calibration" title="Link to this definition">#</a></dt>
 <dd><p>1st step of momentum correction work flow. Function to do an initial binning
 of the dataframe loaded to the class, slice a plane from it using an
 interactive view, and load it into the momentum corrector class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df_partitions</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions
+<li><p><strong>df_partitions</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions
 to use for the initial binning. Defaults to 100.</p></li>
-<li><p><strong>axes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
+<li><p><strong>axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
 Defaults to config[“momentum”][“axes”].</p></li>
-<li><p><strong>bins</strong> (<em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
+<li><p><strong>bins</strong> (<em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
 Defaults to config[“momentum”][“bins”].</p></li>
-<li><p><strong>ranges</strong> (<em>List</em><em>[</em><em>Tuple</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
 Defaults to config[“momentum”][“ranges”].</p></li>
 <li><p><strong>plane</strong> (<em>int</em><em>, </em><em>optional</em>) – Initial value for the plane slider. Defaults to 0.</p></li>
 <li><p><strong>width</strong> (<em>int</em><em>, </em><em>optional</em>) – Initial value for the width slider. Defaults to 5.</p></li>
@@ -690,7 +743,7 @@ slice. Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.define_features">
-<span class="sig-name descname"><span class="pre">define_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_detect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.define_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.define_features" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">define_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_detect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.define_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.define_features" title="Link to this definition">#</a></dt>
 <dd><p>2. Step of the distortion correction workflow: Define feature points in
 momentum space. They can be either manually selected using a GUI tool, be
 provided as list of feature points, or auto-generated using a
@@ -716,7 +769,7 @@ slice. Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.generate_splinewarp">
-<span class="sig-name descname"><span class="pre">generate_splinewarp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.generate_splinewarp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.generate_splinewarp" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">generate_splinewarp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.generate_splinewarp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.generate_splinewarp" title="Link to this definition">#</a></dt>
 <dd><p>3. Step of the distortion correction workflow: Generate the correction
 function restoring the symmetry in the image using a splinewarp algorithm.</p>
 <dl class="field-list simple">
@@ -724,8 +777,6 @@ function restoring the symmetry in the image using a splinewarp algorithm.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>use_center</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to use the position of the
 center point in the correction. Default is read from config, or set to True.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – Keyword arguments for MomentumCorrector.spline_warp_estimate().</p></li>
 </ul>
 </dd>
@@ -734,7 +785,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_splinewarp">
-<span class="sig-name descname"><span class="pre">save_splinewarp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_splinewarp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_splinewarp" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_splinewarp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_splinewarp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_splinewarp" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated spline-warp parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -750,7 +801,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.pose_adjustment">
-<span class="sig-name descname"><span class="pre">pose_adjustment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.pose_adjustment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.pose_adjustment" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pose_adjustment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.pose_adjustment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.pose_adjustment" title="Link to this definition">#</a></dt>
 <dd><p>3. step of the distortion correction workflow: Generate an interactive panel
 to adjust affine transformations that are applied to the image. Applies first
 a scaling, next an x/y translation, and last a rotation around the center of
@@ -758,7 +809,7 @@ the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>transformations</strong> (<em>dict</em><em>, </em><em>optional</em>) – Dictionary with transformations.
+<li><p><strong>transformations</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – Dictionary with transformations.
 Defaults to self.transformations or config[“momentum”][“transformations”].</p></li>
 <li><p><strong>apply</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to directly apply the provided
 transformations. Defaults to False.</p></li>
@@ -766,8 +817,6 @@ transformations. Defaults to False.</p></li>
 or not. Defaults to True.</p></li>
 <li><p><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to reset the correction before transformation.
 Defaults to True.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – <p>Keyword parameters defining defaults for the transformations:</p>
 <ul>
 <li><p><strong>scale</strong> (float): Initial value of the scaling slider.</p></li>
@@ -783,7 +832,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_transformations">
-<span class="sig-name descname"><span class="pre">save_transformations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_transformations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_transformations" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_transformations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_transformations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_transformations" title="Link to this definition">#</a></dt>
 <dd><p>Save the pose adjustment parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -799,7 +848,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.apply_momentum_correction">
-<span class="sig-name descname"><span class="pre">apply_momentum_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_momentum_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_momentum_correction" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">apply_momentum_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_momentum_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_momentum_correction" title="Link to this definition">#</a></dt>
 <dd><p>Applies the distortion correction and pose adjustment (optional)
 to the dataframe.</p>
 <dl class="field-list simple">
@@ -807,8 +856,6 @@ to the dataframe.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – <p>Keyword parameters for <code class="docutils literal notranslate"><span class="pre">MomentumCorrector.apply_correction</span></code>:</p>
 <ul>
 <li><p><strong>rdeform_field</strong> (np.ndarray, optional): Row deformation field.</p></li>
@@ -823,7 +870,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.calibrate_momentum_axes">
-<span class="sig-name descname"><span class="pre">calibrate_momentum_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_coord_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_coord_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equiscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_momentum_axes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_momentum_axes" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calibrate_momentum_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_coord_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_coord_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equiscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_momentum_axes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_momentum_axes" title="Link to this definition">#</a></dt>
 <dd><p>1. step of the momentum calibration workflow. Calibrate momentum
 axes using either provided pixel coordinates of a high-symmetry point and its
 distance to the BZ center, or the k-coordinates of two points in the BZ
@@ -832,18 +879,18 @@ the points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>point_a</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Pixel coordinates of the first
+<li><p><strong>point_a</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Pixel coordinates of the first
 point used for momentum calibration.</p></li>
-<li><p><strong>point_b</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Pixel coordinates of the
+<li><p><strong>point_b</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Pixel coordinates of the
 second point used for momentum calibration.
 Defaults to config[“momentum”][“center_pixel”].</p></li>
 <li><p><strong>k_distance</strong> (<em>float</em><em>, </em><em>optional</em>) – Momentum distance between point a and b.
 Needs to be provided if no specific k-coordinates for the two points
 are given. Defaults to None.</p></li>
-<li><p><strong>k_coord_a</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
+<li><p><strong>k_coord_a</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
 of the first point used for calibration. Used if equiscale is False.
 Defaults to None.</p></li>
-<li><p><strong>k_coord_b</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
+<li><p><strong>k_coord_b</strong> (<em>np.ndarray</em><em> | </em><em>list</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Momentum coordinate
 of the second point used for calibration. Defaults to [0.0, 0.0].</p></li>
 <li><p><strong>equiscale</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to apply different scales to kx and ky.
 If True, the distance between points a and b, and the absolute
@@ -859,7 +906,7 @@ in the class. Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_momentum_calibration">
-<span class="sig-name descname"><span class="pre">save_momentum_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_momentum_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_momentum_calibration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_momentum_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_momentum_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_momentum_calibration" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated momentum calibration parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -875,7 +922,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.apply_momentum_calibration">
-<span class="sig-name descname"><span class="pre">apply_momentum_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_momentum_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_momentum_calibration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">apply_momentum_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_momentum_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_momentum_calibration" title="Link to this definition">#</a></dt>
 <dd><p>2. step of the momentum calibration work flow: Apply the momentum
 calibration stored in the class to the dataframe. If corrected X/Y axis exist,
 these are used.</p>
@@ -896,7 +943,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.adjust_energy_correction">
-<span class="sig-name descname"><span class="pre">adjust_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correction_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.adjust_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.adjust_energy_correction" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">adjust_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correction_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.adjust_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.adjust_energy_correction" title="Link to this definition">#</a></dt>
 <dd><p>1. step of the energy correction workflow: Opens an interactive plot to
 adjust the parameters for the TOF/energy correction. Also pre-bins the data if
 they are not present yet.</p>
@@ -915,7 +962,7 @@ axis. Valid values are:</p>
 </p></li>
 <li><p><strong>amplitude</strong> (<em>float</em><em>, </em><em>optional</em>) – Amplitude of the correction.
 Defaults to config[“energy”][“correction”][“amplitude”].</p></li>
-<li><p><strong>center</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Center X/Y coordinates for the
+<li><p><strong>center</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Center X/Y coordinates for the
 correction. Defaults to config[“energy”][“correction”][“center”].</p></li>
 <li><p><strong>apply</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to directly apply the provided or default
 correction parameters. Defaults to False.</p></li>
@@ -927,7 +974,7 @@ correction parameters. Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_energy_correction">
-<span class="sig-name descname"><span class="pre">save_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_energy_correction" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_energy_correction" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated energy correction parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -943,7 +990,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.apply_energy_correction">
-<span class="sig-name descname"><span class="pre">apply_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_energy_correction" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">apply_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.apply_energy_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.apply_energy_correction" title="Link to this definition">#</a></dt>
 <dd><p>2. step of the energy correction workflow: Apply the energy correction
 parameters stored in the class to the dataframe.</p>
 <dl class="field-list simple">
@@ -953,8 +1000,6 @@ parameters stored in the class to the dataframe.</p>
 parameters. Defaults to config[“energy”][“calibration”].</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – Keyword args passed to <code class="docutils literal notranslate"><span class="pre">EnergyCalibrator.apply_energy_correction()</span></code>.</p></li>
 </ul>
 </dd>
@@ -963,21 +1008,21 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.load_bias_series">
-<span class="sig-name descname"><span class="pre">load_bias_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binned_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.load_bias_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.load_bias_series" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_bias_series</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binned_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">biases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.load_bias_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.load_bias_series" title="Link to this definition">#</a></dt>
 <dd><p>1. step of the energy calibration workflow: Load and bin data from
 single-event files, or load binned bias/TOF traces.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>binned_data</strong> (<em>Union</em><em>[</em><em>xr.DataArray</em><em>, </em><em>Tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Binned data If provided as DataArray, Needs to contain dimensions
-config[“dataframe”][“tof_column”] and config[“dataframe”][“bias_column”]. If
-provided as tuple, needs to contain elements tof, biases, traces.</p></li>
-<li><p><strong>data_files</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list of file paths to bin</p></li>
-<li><p><strong>axes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – bin axes.
-Defaults to config[“dataframe”][“tof_column”].</p></li>
-<li><p><strong>bins</strong> (<em>List</em><em>, </em><em>optional</em>) – number of bins.
+<li><p><strong>binned_data</strong> (<em>xr.DataArray</em><em> | </em><em>tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>, </em><em>optional</em>) – Binned data If provided as DataArray, Needs to contain dimensions
+config[“dataframe”][“columns”][“tof”] and config[“dataframe”][“columns”][“bias”].
+If provided as tuple, needs to contain elements tof, biases, traces.</p></li>
+<li><p><strong>data_files</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – list of file paths to bin</p></li>
+<li><p><strong>axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – bin axes.
+Defaults to config[“dataframe”][“columns”][“tof”].</p></li>
+<li><p><strong>bins</strong> (<em>list</em><em>, </em><em>optional</em>) – number of bins.
 Defaults to config[“energy”][“bins”].</p></li>
-<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – bin ranges.
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – bin ranges.
 Defaults to config[“energy”][“ranges”].</p></li>
 <li><p><strong>biases</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – Bias voltages used. If missing, bias
 voltages are extracted from the data files.</p></li>
@@ -998,7 +1043,7 @@ Defaults to config[“energy”][“normalize_order”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.find_bias_peaks">
-<span class="sig-name descname"><span class="pre">find_bias_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infer_others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'replace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.find_bias_peaks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.find_bias_peaks" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">find_bias_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infer_others</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'replace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.find_bias_peaks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.find_bias_peaks" title="Link to this definition">#</a></dt>
 <dd><p>2. step of the energy calibration workflow: Find a peak within a given range
 for the indicated reference trace, and tries to find the same peak for all
 other traces. Uses fast_dtw to align curves, which might not be too good if the
@@ -1008,7 +1053,7 @@ Alternatively, a list of ranges for all traces can be provided.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ranges</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><em>Tuple</em><em>]</em><em>, </em><em>Tuple</em><em>]</em>) – Tuple of TOF values indicating a range.
+<li><p><strong>ranges</strong> (<em>list</em><em>[</em><em>tuple</em><em>] </em><em>| </em><em>tuple</em>) – Tuple of TOF values indicating a range.
 Alternatively, a list of ranges for all traces can be given.</p></li>
 <li><p><strong>ref_id</strong> (<em>int</em><em>, </em><em>optional</em>) – The id of the trace the range refers to.
 Defaults to 0.</p></li>
@@ -1030,7 +1075,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.calibrate_energy_axis">
-<span class="sig-name descname"><span class="pre">calibrate_energy_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_energy_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_energy_axis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calibrate_energy_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_energy_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_energy_axis" title="Link to this definition">#</a></dt>
 <dd><p>3. Step of the energy calibration workflow: Calculate the calibration
 function for the energy axis, and apply it to the dataframe. Two
 approximations are implemented, a (normally 3rd order) polynomial
@@ -1038,10 +1083,7 @@ approximation, and a d^2/(t-t0)^2 relation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ref_id</strong> (<em>int</em>) – id of the trace at the bias where the reference energy is
-given.</p></li>
-<li><p><strong>ref_energy</strong> (<em>float</em>) – Absolute energy of the detected feature at the bias
-of ref_id</p></li>
+<li><p><strong>ref_energy</strong> (<em>float</em>) – Binding/kinetic energy of the detected feature.</p></li>
 <li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Method for determining the energy calibration.</p>
 <ul>
 <li><p><strong>’lmfit’</strong>: Energy calibration using lmfit and 1/t^2 form.</p></li>
@@ -1056,8 +1098,6 @@ of ref_id</p></li>
 </ul>
 <p>Defaults to config[“energy”][“energy_scale”]</p>
 </p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds**</strong> – Keyword parameters passed to <code class="docutils literal notranslate"><span class="pre">EnergyCalibrator.calibrate()</span></code>.</p></li>
 </ul>
 </dd>
@@ -1066,7 +1106,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_energy_calibration">
-<span class="sig-name descname"><span class="pre">save_energy_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_energy_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_energy_calibration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_energy_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_energy_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_energy_calibration" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated energy calibration parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1082,7 +1122,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.append_energy_axis">
-<span class="sig-name descname"><span class="pre">append_energy_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.append_energy_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.append_energy_axis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">append_energy_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_voltage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.append_energy_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.append_energy_axis" title="Link to this definition">#</a></dt>
 <dd><p>4. step of the energy calibration workflow: Apply the calibration function
 to to the dataframe. Two approximations are implemented, a (normally 3rd order)
 polynomial approximation, and a d^2/(t-t0)^2 relation. a calibration dictionary
@@ -1093,9 +1133,10 @@ can be provided.</p>
 <li><p><strong>calibration</strong> (<em>dict</em><em>, </em><em>optional</em>) – Calibration dict containing calibration
 parameters. Overrides calibration from class or config.
 Defaults to None.</p></li>
+<li><p><strong>bias_voltage</strong> (<em>float</em><em>, </em><em>optional</em>) – Sample bias voltage of the scan data. If omitted,
+the bias voltage is being read from the dataframe. If it is not found there,
+a warning is printed and the calibrated data might have an offset.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em>) – Option to preview the first elements of the data frame.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – Keyword args passed to <code class="docutils literal notranslate"><span class="pre">EnergyCalibrator.append_energy_axis()</span></code>.</p></li>
 </ul>
 </dd>
@@ -1104,39 +1145,38 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.add_energy_offset">
-<span class="sig-name descname"><span class="pre">add_energy_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reductions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_energy_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_energy_offset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_energy_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reductions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_energy_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_energy_offset" title="Link to this definition">#</a></dt>
 <dd><p>Shift the energy axis of the dataframe by a given amount.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constant</strong> (<em>float</em><em>, </em><em>optional</em>) – The constant to shift the energy axis by.</p></li>
-<li><p><strong>columns</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Name of the column(s) to apply the shift from.</p></li>
-<li><p><strong>weights</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – weights to apply to the columns.
+<li><p><strong>columns</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Name of the column(s) to apply the shift from.</p></li>
+<li><p><strong>weights</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – weights to apply to the columns.
 Can also be used to flip the sign (e.g. -1). Defaults to 1.</p></li>
-<li><p><strong>preserve_mean</strong> (<em>bool</em>) – Whether to subtract the mean of the column before applying the
-shift. Defaults to False.</p></li>
-<li><p><strong>reductions</strong> (<em>str</em>) – The reduction to apply to the column. Should be an available method
-of dask.dataframe.Series. For example “mean”. In this case the function is applied
-to the column to generate a single value for the whole dataset. If None, the shift
-is applied per-dataframe-row. Defaults to None. Currently only “mean” is supported.</p></li>
+<li><p><strong>reductions</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The reduction to apply to the column.
+Should be an available method of dask.dataframe.Series. For example “mean”. In this
+case the function is applied to the column to generate a single value for the whole
+dataset. If None, the shift is applied per-dataframe-row. Defaults to None.
+Currently only “mean” is supported.</p></li>
+<li><p><strong>preserve_mean</strong> (<em>bool</em><em> | </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the
+column before applying the shift. Defaults to False.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the energy column is not in the dataframe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type">None</span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_energy_offset">
-<span class="sig-name descname"><span class="pre">save_energy_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_energy_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_energy_offset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_energy_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_energy_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_energy_offset" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated energy calibration parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1152,19 +1192,17 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.append_tof_ns_axis">
-<span class="sig-name descname"><span class="pre">append_tof_ns_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.append_tof_ns_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.append_tof_ns_axis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">append_tof_ns_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.append_tof_ns_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.append_tof_ns_axis" title="Link to this definition">#</a></dt>
 <dd><p>Convert time-of-flight channel steps to nanoseconds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tof_ns_column</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the generated column containing the
 time-of-flight in nanosecond.
-Defaults to config[“dataframe”][“tof_ns_column”].</p></li>
+Defaults to config[“dataframe”][“columns”][“tof_ns”].</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
-<li><p><strong>**kwds</strong> – additional arguments are passed to <code class="docutils literal notranslate"><span class="pre">EnergyCalibrator.tof_step_to_ns()</span></code>.</p></li>
+<li><p><strong>**kwds</strong> – additional arguments are passed to <code class="docutils literal notranslate"><span class="pre">EnergyCalibrator.append_tof_ns_axis()</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1172,7 +1210,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.align_dld_sectors">
-<span class="sig-name descname"><span class="pre">align_dld_sectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sector_delays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.align_dld_sectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.align_dld_sectors" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">align_dld_sectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sector_delays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.align_dld_sectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.align_dld_sectors" title="Link to this definition">#</a></dt>
 <dd><p>Align the 8s sectors of the HEXTOF endstation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1181,8 +1219,6 @@ Defaults to config[“core”][“verbose”].</p></li>
 config[“dataframe”][“sector_delays”].</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – additional arguments are passed to <code class="docutils literal notranslate"><span class="pre">EnergyCalibrator.align_dld_sectors()</span></code>.</p></li>
 </ul>
 </dd>
@@ -1191,13 +1227,13 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.calibrate_delay_axis">
-<span class="sig-name descname"><span class="pre">calibrate_delay_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_delay_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_delay_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_delay_axis" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calibrate_delay_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_delay_ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.calibrate_delay_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.calibrate_delay_axis" title="Link to this definition">#</a></dt>
 <dd><p>Append delay column to dataframe. Either provide delay ranges, or read
 them from a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>delay_range</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The scanned delay range in
+<li><p><strong>delay_range</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – The scanned delay range in
 picoseconds. Defaults to None.</p></li>
 <li><p><strong>read_delay_ranges</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option whether to read the delay ranges from the
 data. Defaults to True. If false, parameters in the config will be used.</p></li>
@@ -1205,8 +1241,6 @@ data. Defaults to True. If false, parameters in the config will be used.</p></li
 Defaults to the first file of the dataset.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 <li><p><strong>**kwds</strong> – Keyword args passed to <code class="docutils literal notranslate"><span class="pre">DelayCalibrator.append_delay_axis</span></code>.</p></li>
 </ul>
 </dd>
@@ -1215,7 +1249,7 @@ Defaults to config[“core”][“verbose”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_delay_calibration">
-<span class="sig-name descname"><span class="pre">save_delay_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_delay_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_delay_calibration" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_delay_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_delay_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_delay_calibration" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated delay calibration parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1234,40 +1268,39 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.add_delay_offset">
-<span class="sig-name descname"><span class="pre">add_delay_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip_delay_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reductions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_delay_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_delay_offset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_delay_offset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip_delay_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reductions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preview</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_delay_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_delay_offset" title="Link to this definition">#</a></dt>
 <dd><p>Shift the delay axis of the dataframe by a constant or other columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>constant</strong> (<em>float</em><em>, </em><em>optional</em>) – The constant to shift the delay axis by.</p></li>
 <li><p><strong>flip_delay_axis</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to reverse the direction of the delay axis.</p></li>
-<li><p><strong>columns</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Name of the column(s) to apply the shift from.</p></li>
-<li><p><strong>weights</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – weights to apply to the columns.
+<li><p><strong>columns</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Name of the column(s) to apply the shift from.</p></li>
+<li><p><strong>weights</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – weights to apply to the columns.
 Can also be used to flip the sign (e.g. -1). Defaults to 1.</p></li>
-<li><p><strong>preserve_mean</strong> (<em>bool</em>) – Whether to subtract the mean of the column before applying the
-shift. Defaults to False.</p></li>
-<li><p><strong>reductions</strong> (<em>str</em>) – The reduction to apply to the column. Should be an available method
-of dask.dataframe.Series. For example “mean”. In this case the function is applied
-to the column to generate a single value for the whole dataset. If None, the shift
-is applied per-dataframe-row. Defaults to None. Currently only “mean” is supported.</p></li>
+<li><p><strong>reductions</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The reduction to apply to the column.
+Should be an available method of dask.dataframe.Series. For example “mean”. In this
+case the function is applied to the column to generate a single value for the whole
+dataset. If None, the shift is applied per-dataframe-row. Defaults to None.
+Currently only “mean” is supported.</p></li>
+<li><p><strong>preserve_mean</strong> (<em>bool</em><em> | </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the
+column before applying the shift. Defaults to False.</p></li>
 <li><p><strong>preview</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to preview the first elements of the data frame.
 Defaults to False.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to print out diagnostic information.
-Defaults to config[“core”][“verbose”].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the delay column is not in the dataframe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type">None</span></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_delay_offsets">
-<span class="sig-name descname"><span class="pre">save_delay_offsets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_delay_offsets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_delay_offsets" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_delay_offsets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_delay_offsets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_delay_offsets" title="Link to this definition">#</a></dt>
 <dd><p>Save the generated delay calibration parameters to the folder config file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1286,7 +1319,7 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save_workflow_params">
-<span class="sig-name descname"><span class="pre">save_workflow_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_workflow_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_workflow_params" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_workflow_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save_workflow_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save_workflow_params" title="Link to this definition">#</a></dt>
 <dd><p>run all save calibration parameter methods</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1305,14 +1338,14 @@ Defaults to False.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.add_jitter">
-<span class="sig-name descname"><span class="pre">add_jitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_jitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_jitter" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_jitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_jitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_jitter" title="Link to this definition">#</a></dt>
 <dd><p>Add jitter to the selected dataframe columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cols</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The columns onto which to apply jitter.
+<li><p><strong>cols</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The columns onto which to apply jitter.
 Defaults to config[“dataframe”][“jitter_cols”].</p></li>
-<li><p><strong>amps</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
+<li><p><strong>amps</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
 jittering noise. If one number is given, the same is used for all axes.
 For uniform noise (default) it will cover the interval [-amp, +amp].
 Defaults to config[“dataframe”][“jitter_amps”].</p></li>
@@ -1324,7 +1357,7 @@ Defaults to config[“dataframe”][“jitter_amps”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.add_time_stamped_data">
-<span class="sig-name descname"><span class="pre">add_time_stamped_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archiver_channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_time_stamped_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_time_stamped_data" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add_time_stamped_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archiver_channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.add_time_stamped_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.add_time_stamped_data" title="Link to this definition">#</a></dt>
 <dd><p>Add data in form of timestamp/value pairs to the dataframe using interpolation to the
 timestamps in the dataframe. The time-stamped data can either be provided, or fetched from
 an EPICS archiver instance.</p>
@@ -1338,7 +1371,11 @@ time stamps are retrieved from the epics archiver</p></li>
 If omitted, data are retrieved from the epics archiver.</p></li>
 <li><p><strong>archiver_channel</strong> (<em>str</em><em>, </em><em>optional</em>) – EPICS archiver channel from which to retrieve data.
 Either this or data and time_stamps have to be present.</p></li>
-<li><p><strong>**kwds</strong> – additional keyword arguments passed to <code class="docutils literal notranslate"><span class="pre">add_time_stamped_data</span></code>.</p></li>
+<li><p><strong>**kwds</strong> – <ul>
+<li><p><strong>time_stamp_column</strong>: Dataframe column containing time-stamp data</p></li>
+</ul>
+<p>Additional keyword arguments passed to <code class="docutils literal notranslate"><span class="pre">add_time_stamped_data</span></code>.</p>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -1346,18 +1383,18 @@ Either this or data and time_stamps have to be present.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.pre_binning">
-<span class="sig-name descname"><span class="pre">pre_binning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_partitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.pre_binning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.pre_binning" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">pre_binning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_partitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.pre_binning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.pre_binning" title="Link to this definition">#</a></dt>
 <dd><p>Function to do an initial binning of the dataframe loaded to the class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df_partitions</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions to
+<li><p><strong>df_partitions</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Number of dataframe partitions to
 use for the initial binning. Defaults to 100.</p></li>
-<li><p><strong>axes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
+<li><p><strong>axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Axes to bin.
 Defaults to config[“momentum”][“axes”].</p></li>
-<li><p><strong>bins</strong> (<em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
+<li><p><strong>bins</strong> (<em>list</em><em>[</em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Bin numbers to use for binning.
 Defaults to config[“momentum”][“bins”].</p></li>
-<li><p><strong>ranges</strong> (<em>List</em><em>[</em><em>Tuple</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Ranges to use for binning.
 Defaults to config[“momentum”][“ranges”].</p></li>
 <li><p><strong>**kwds</strong> – Keyword argument passed to <code class="docutils literal notranslate"><span class="pre">compute</span></code>.</p></li>
 </ul>
@@ -1373,12 +1410,12 @@ Defaults to config[“momentum”][“ranges”].</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.compute">
-<span class="sig-name descname"><span class="pre">compute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_to_acquisition_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.compute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.compute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">compute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_to_acquisition_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.compute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.compute" title="Link to this definition">#</a></dt>
 <dd><p>Compute the histogram along the given dimensions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bins</strong> (<em>int</em><em>, </em><em>dict</em><em>, </em><em>tuple</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>, </em><em>List</em><em>[</em><em>np.ndarray</em><em>]</em><em>, </em><em>List</em><em>[</em><em>tuple</em><em>]</em><em>, </em><em>optional</em>) – <p>Definition of the bins. Can be any of the following cases:</p>
+<li><p><strong>bins</strong> (<em>int</em><em> | </em><em>dict</em><em> | </em><em>tuple</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>list</em><em>[</em><em>np.ndarray</em><em>] </em><em>| </em><em>list</em><em>[</em><em>tuple</em><em>]</em><em>, </em><em>optional</em>) – <p>Definition of the bins. Can be any of the following cases:</p>
 <ul>
 <li><p>an integer describing the number of bins in on all dimensions</p></li>
 <li><p>a tuple of 3 numbers describing start, end and step of the binning
@@ -1389,12 +1426,12 @@ range</p></li>
 </ul>
 <p>This takes priority over the axes and range arguments. Defaults to 100.</p>
 </p></li>
-<li><p><strong>axes</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – The names of the axes (columns)
+<li><p><strong>axes</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The names of the axes (columns)
 on which to calculate the histogram. The order will be the order of the
 dimensions in the resulting array. Defaults to None.</p></li>
-<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – list of tuples containing
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – list of tuples containing
 the start and end point of the binning range. Defaults to None.</p></li>
-<li><p><strong>normalize_to_acquisition_time</strong> (<em>Union</em><em>[</em><em>bool</em><em>, </em><em>str</em><em>]</em>) – Option to normalize the
+<li><p><strong>normalize_to_acquisition_time</strong> (<em>bool</em><em> | </em><em>str</em>) – Option to normalize the
 result to the acquisition time. If a “slow” axis was scanned, providing
 the name of the scanned axis will compute and apply the corresponding
 normalization histogram. Defaults to False.</p></li>
@@ -1409,7 +1446,7 @@ Defaults to config[“binning”][“mode”].</p></li>
 <li><p><strong>pbar</strong>: Option to show the tqdm progress bar. Defaults to
 config[“binning”][“pbar”].</p></li>
 <li><p><strong>n_cores</strong>: Number of CPU cores to use for parallelization.
-Defaults to config[“binning”][“num_cores”] or N_CPU-1.</p></li>
+Defaults to config[“core”][“num_cores”] or N_CPU-1.</p></li>
 <li><p><strong>threads_per_worker</strong>: Limit the number of threads that
 multiprocessing can spawn per binning thread. Defaults to
 config[“binning”][“threads_per_worker”].</p></li>
@@ -1441,7 +1478,7 @@ xarray object, combining the data with the axes.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.get_normalization_histogram">
-<span class="sig-name descname"><span class="pre">get_normalization_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'delay'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.get_normalization_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.get_normalization_histogram" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_normalization_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'delay'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_time_stamps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.get_normalization_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.get_normalization_histogram" title="Link to this definition">#</a></dt>
 <dd><p>Generates a normalization histogram from the timed dataframe. Optionally,
 use the TimeStamps column instead.</p>
 <dl class="field-list simple">
@@ -1479,7 +1516,7 @@ per bin).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.view_event_histogram">
-<span class="sig-name descname"><span class="pre">view_event_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dfpid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bokeh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.view_event_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.view_event_histogram" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">view_event_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dfpid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matplotlib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legkwds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.view_event_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.view_event_histogram" title="Link to this definition">#</a></dt>
 <dd><p>Plot individual histograms of specified dimensions (axes) from a substituent
 dataframe partition.</p>
 <dl class="field-list simple">
@@ -1491,10 +1528,10 @@ dataframe partition.</p>
 axes. Defaults to config[“histogram”][“bins”].</p></li>
 <li><p><strong>axes</strong> (<em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Names of the axes to display.
 Defaults to config[“histogram”][“axes”].</p></li>
-<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Value ranges of all
+<li><p><strong>ranges</strong> (<em>Sequence</em><em>[</em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Value ranges of all
 specified axes. Defaults to config[“histogram”][“ranges”].</p></li>
 <li><p><strong>backend</strong> (<em>str</em><em>, </em><em>optional</em>) – Backend of the plotting library
-(‘matplotlib’ or ‘bokeh’). Defaults to “bokeh”.</p></li>
+(“matplotlib” or “bokeh”). Defaults to “matplotlib”.</p></li>
 <li><p><strong>legend</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to include a legend in the histogram plots.
 Defaults to True.</p></li>
 <li><p><strong>histkwds</strong> (<em>dict</em><em>, </em><em>optional</em>) – Keyword arguments for histograms
@@ -1513,7 +1550,7 @@ Defaults to True.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.SedProcessor.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faddr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/processor.html#SedProcessor.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.SedProcessor.save" title="Link to this definition">#</a></dt>
 <dd><p>Saves the binned data to the provided path and filename.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1592,8 +1629,7 @@ to add to the list of files to pass to the reader.</p></li>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1605,6 +1641,7 @@ to add to the list of files to pass to the reader.</p></li>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.core.SedProcessor"><code class="docutils literal notranslate"><span class="pre">SedProcessor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.core.SedProcessor.verbose"><code class="docutils literal notranslate"><span class="pre">SedProcessor.verbose</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.core.SedProcessor.dataframe"><code class="docutils literal notranslate"><span class="pre">SedProcessor.dataframe</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.core.SedProcessor.timed_dataframe"><code class="docutils literal notranslate"><span class="pre">SedProcessor.timed_dataframe</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.core.SedProcessor.attributes"><code class="docutils literal notranslate"><span class="pre">SedProcessor.attributes</span></code></a></li>
@@ -1657,13 +1694,13 @@ to add to the list of files to pass to the reader.</p></li>
   </nav></div>
 
   <div class="sidebar-secondary-item">
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/sed/core.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div></div>
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/sed/core.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
 
 </div></div>
               
@@ -1678,8 +1715,8 @@ to add to the list of files to pass to the reader.</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1699,7 +1736,7 @@ to add to the list of files to pass to the reader.</p></li>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
@@ -1712,8 +1749,7 @@ to add to the list of files to pass to the reader.</p></li>
       
         <div class="footer-item">
 <p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>
