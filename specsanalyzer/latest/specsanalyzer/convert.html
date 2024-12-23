@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. convert functions (specsanalyzer.convert) &#8212; specsanalyzer 0.4.2.dev43+gba30cb5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=2cca2a3b"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'specsanalyzer/convert';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev43+gba30cb5';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
+        </script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. image tool functions (specsanalyzer.img_tools)" href="img_tools.html" />
+    <link rel="prev" title="1. Core functions (specsanalyzer.core)" href="core.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.2.dev43+gba30cb5" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">specsanalyzer 0.4.2.dev43+gba30cb5 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    specsanalyzer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="config.html">
+    Config
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/1_specsanalyzer_conversion_examples.html">
+    Example 1: SpecsAnalyzer conversion
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/2_specsscan_example.html">
+    Example 2: SpecsScan loading
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/3_specsscan_conversion_to_NeXus.html">
+    Example 3: Export to NeXus
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorial/4_specsscan_load_sweep_scan.html">
+    Example 4: Sweep Scan loading
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="core.html">
+    Core functions  (specsanalyzer.core)
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    convert functions (specsanalyzer.convert)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="img_tools.html">
+    image tool functions (specsanalyzer.img_tools)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="io.html">
+    io functions  (specsanalyzer.io)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../specsscan/core.html">
+    Core functions  (specsscan.core)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../specsscan/helpers.html">
+    Helpers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../misc/maintain.html">
+    How to maintain
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/specsanalyzer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    specsanalyzer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="config.html">
+    Config
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/1_specsanalyzer_conversion_examples.html">
+    Example 1: SpecsAnalyzer conversion
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/2_specsscan_example.html">
+    Example 2: SpecsScan loading
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/3_specsscan_conversion_to_NeXus.html">
+    Example 3: Export to NeXus
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorial/4_specsscan_load_sweep_scan.html">
+    Example 4: Sweep Scan loading
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="core.html">
+    Core functions  (specsanalyzer.core)
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    convert functions (specsanalyzer.convert)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="img_tools.html">
+    image tool functions (specsanalyzer.img_tools)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="io.html">
+    io functions  (specsanalyzer.io)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../specsscan/core.html">
+    Core functions  (specsscan.core)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../specsscan/helpers.html">
+    Helpers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../misc/maintain.html">
+    How to maintain
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/specsanalyzer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="../genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+        <li class="toctree-l1">
+          <a class="reference internal" href="../py-modindex.html">Python Module Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><span class="section-number">2. </span>convert functions <code class="docutils literal notranslate"><span class="pre">(specsanalyzer.convert)</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="convert-functions-specsanalyzer-convert">
+<h1><span class="section-number">2. </span>convert functions <code class="docutils literal notranslate"><span class="pre">(specsanalyzer.convert)</span></code><a class="headerlink" href="#convert-functions-specsanalyzer-convert" title="Link to this heading">#</a></h1>
+<p>convert functions for the specsanalyzer package</p>
+<p id="module-specsanalyzer.convert">Specsanalyzer image conversion module</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.get_damatrix_from_calib2d">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">get_damatrix_from_calib2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lens_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib2d_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#get_damatrix_from_calib2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.get_damatrix_from_calib2d" title="Link to this definition">#</a></dt>
+<dd><p>This function estimates the best angular conversion coefficients for the current analyzer
+mode, starting from a dictionary containing the specs .calib2d database. A linear interpolation
+is performed from the tabulated coefficients based on the retardation ratio value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lens_mode</strong> (<em>str</em>) – the lens mode string description</p></li>
+<li><p><strong>kinetic_energy</strong> (<em>float</em>) – kinetic energy of the photoelectron</p></li>
+<li><p><strong>pass_energy</strong> (<em>float</em>) – analyzer pass energy</p></li>
+<li><p><strong>work_function</strong> (<em>float</em>) – work function settings</p></li>
+<li><p><strong>calib2d_dict</strong> (<em>dict</em>) – dictionary containing the configuration parameters for angular
+correction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(a_inner, da_matrix, retardation_ratio,
+source, dims) interpolated a_inner and da_matrix, needed for the coordinate conversion,
+retardation ratio, interpolation values, dims</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[float, np.ndarray, float, str, list[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.bisection">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">bisection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#bisection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.bisection" title="Link to this definition">#</a></dt>
+<dd><p>Auxiliary function to find the closest rr index from <a class="reference external" href="https://stackoverflow.com/questions/2566412/">https://stackoverflow.com/questions/2566412/</a>
+find-nearest-value-in-numpy-array</p>
+<p>Given an <code class="docutils literal notranslate"><span class="pre">array</span></code> , and given a <code class="docutils literal notranslate"><span class="pre">value</span></code> , returns an index j such that <code class="docutils literal notranslate"><span class="pre">value</span></code> is between
+array[j] and array[j+1]. <code class="docutils literal notranslate"><span class="pre">array</span></code> must be monotonic increasing. j=-1 or j=len(array) is
+returned to indicate that <code class="docutils literal notranslate"><span class="pre">value</span></code> is out of range below and above respectively.
+This should mimic the function BinarySearch in igor pro 6</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>np.ndarray</em>) – ordered array</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – comparison value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>index (non-integer) expressing the position of value between array[j] and array[j+1]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.second_closest_rr">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">second_closest_rr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rrvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">closest_rr_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#second_closest_rr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.second_closest_rr" title="Link to this definition">#</a></dt>
+<dd><p>Return closest_rr_index+1 unless you are at the edge of the rrvec.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rrvec</strong> (<em>np.ndarray</em>) – the retardation ratio vector</p></li>
+<li><p><strong>closest_rr_index</strong> (<em>int</em>) – the nearest rr index corresponding to the scan</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nearest rr index to calculate the best da coefficients</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.get_rr_da">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">get_rr_da</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lens_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calib2d_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#get_rr_da"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.get_rr_da" title="Link to this definition">#</a></dt>
+<dd><p>Get the retardation ratios and the da for a certain lens mode from the configuration
+dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lens_mode</strong> (<em>string</em>) – string containing the lens mode</p></li>
+<li><p><strong>calib2d_dict</strong> (<em>dict</em>) – dictionary containing the configuration parameters for angular
+correction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>KeyError</strong> – Raised if the requested lens mode is not found</p></li>
+<li><p><strong>ValueError</strong> – Raised if no da values are found for the given mode</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rr vector, matrix of da coefficients
+per row row0 : da1, row1: da3, .. up to da7.
+Non angle resolved lens modes do only posses da1.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple[np.ndarray, np.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.calculate_polynomial_coef_da">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">calculate_polynomial_coef_da</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">da_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_shift</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#calculate_polynomial_coef_da"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.calculate_polynomial_coef_da" title="Link to this definition">#</a></dt>
+<dd><p>Given the da coefficients contained in the scan parameters, the program calculates the energy
+range based on the eshift parameter and fits a second order polynomial to the tabulated values.
+The polynomial coefficients are packed in the dapolymatrix array (row0 da1, row1 da3, ..)
+The function returns a matrix of the fit coefficients, given the physical energy scale
+Each line of the matrix is a set of coefficients for each of the da[i] corrections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>da_matrix</strong> (<em>np.ndarray</em>) – the matrix of interpolated da coefficients</p></li>
+<li><p><strong>kinetic_energy</strong> (<em>float</em>) – photoelectron kinetic energy</p></li>
+<li><p><strong>pass_energy</strong> (<em>float</em>) – analyzer pass energy</p></li>
+<li><p><strong>e_shift</strong> (<em>np.ndarray</em>) – e shift parameter, defining the energy
+range around the center for the polynomial fit of the da coefficients</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dapolymatrix containing the fit results (row0 da1, row1 da3, ..)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.zinner">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">zinner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da_poly_matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#zinner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.zinner" title="Link to this definition">#</a></dt>
+<dd><p>Auxiliary function for mcp_position_mm, uses kinetic energy and angle starting from the
+dapolymatrix, to get the zinner coefficient to calculate the electron arrival position on the
+mcp withing the a_inner boundaries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kinetic_energy</strong> (<em>np.ndarray</em>) – kinetic energies</p></li>
+<li><p><strong>angle</strong> (<em>np.ndarray</em>) – angles</p></li>
+<li><p><strong>da_poly_matrix</strong> (<em>np.ndarray</em>) – matrix with polynomial coefficients</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>returns the calculated positions on the mcp, valid for low angles  (&lt; a_inner)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.zinner_diff">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">zinner_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da_poly_matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#zinner_diff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.zinner_diff" title="Link to this definition">#</a></dt>
+<dd><p>Auxiliary function for mcp_position_mm, uses kinetic energy and angle starting from the
+dapolymatrix, to get the zinner_diff coefficient to correct the electron arrival position on
+the mcp outside the a_inner boundaries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kinetic_energy</strong> (<em>np.ndarray</em>) – kinetic energies</p></li>
+<li><p><strong>angle</strong> (<em>np.ndarray</em>) – angles</p></li>
+<li><p><strong>da_poly_matrix</strong> (<em>np.ndarray</em>) – polynomial matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>zinner_diff the correction for the zinner position on the MCP for high
+(&gt;a_inner) angles.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.mcp_position_mm">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">mcp_position_mm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_inner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da_poly_matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#mcp_position_mm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.mcp_position_mm" title="Link to this definition">#</a></dt>
+<dd><p>calculated the position of the photoelectron on the mcp, for a certain kinetic energy and
+emission angle. This is determined for the given lens mode (as defined by the a_inner and
+dapolymatrix)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kinetic_energy</strong> (<em>np.ndarray</em>) – kinetic energies</p></li>
+<li><p><strong>angle</strong> (<em>np.ndarray</em>) – photoemission angles</p></li>
+<li><p><strong>a_inner</strong> (<em>float</em>) – inner angle parameter of the lens mode</p></li>
+<li><p><strong>da_poly_matrix</strong> (<em>np.ndarray</em>) – matrix with the polynomial correction coefficients for
+calculating the arrival position on the MCP</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>lateral position of photoelectron on the mcp (angular dispersing axis)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.calculate_matrix_correction">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">calculate_matrix_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetic_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx_pixels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny_pixels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnification</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">de1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_inner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_offset_px</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_offset_px</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#calculate_matrix_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.calculate_matrix_correction" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the angular and energy interpolation matrices for the correction function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kinetic_energy</strong> (<em>float</em>) – analyzer set kinetic energy</p></li>
+<li><p><strong>pass_energy</strong> (<em>float</em>) – analyzer set pass energy</p></li>
+<li><p><strong>nx_pixels</strong> (<em>int</em>) – number of image pixels (after binning) along the energy dispersing
+direction</p></li>
+<li><p><strong>ny_pixels</strong> (<em>int</em>) – number of image pixels (after binning) along the angle/spatially
+dispersing direction</p></li>
+<li><p><strong>pixel_size</strong> (<em>float</em>) – pixel size in millimeter</p></li>
+<li><p><strong>magnification</strong> (<em>float</em>) – magnification of the lens system used for imaging the detector</p></li>
+<li><p><strong>e_shift</strong> (<em>np.ndarray</em>) – e shift parameter, defining the energy
+range around the center for the polynomial fit of the da coefficients</p></li>
+<li><p><strong>de1</strong> (<em>float</em>) – energy dispersion factor (fraction of pass_energy)/mm_z)</p></li>
+<li><p><strong>e_range</strong> (<em>np.ndarray</em>) – energy range (minimal/maximal energy, in units of pass_energy)</p></li>
+<li><p><strong>a_range</strong> (<em>np.ndarray</em>) – angular/spatial range (minimal/maximal angle or distance, in deg
+or mm)</p></li>
+<li><p><strong>a_inner</strong> (<em>float</em>) – inner angle parameter of the lens mode</p></li>
+<li><p><strong>da_matrix</strong> (<em>np.ndarray</em>) – the matrix of interpolated da coefficients</p></li>
+<li><p><strong>angle_offset_px</strong> (<em>int</em>) – Angular offset in pixel</p></li>
+<li><p><strong>energy_offset_px</strong> (<em>int</em>) – Energy offset in pixel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>ek_axis: kinetic energy axis</p></li>
+<li><p>angle_axis, angle of emission axis</p></li>
+<li><p>angular_correction_matrix: the matrix for angular interpolation</p></li>
+<li><p>e_correction: the matrix for energy interpolation</p></li>
+<li><p>jacobian_determinant: the transformation jacobian for area preserving transformation</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.calculate_jacobian">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">calculate_jacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angular_correction_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_correction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ek_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle_axis</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#calculate_jacobian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.calculate_jacobian" title="Link to this definition">#</a></dt>
+<dd><p>calculate the jacobian matrix associated with the transformation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angular_correction_matrix</strong> (<em>np.ndarray</em>) – angular correction matrix</p></li>
+<li><p><strong>e_correction</strong> (<em>np.ndarray</em>) – energy correction</p></li>
+<li><p><strong>ek_axis</strong> (<em>np.ndarray</em>) – kinetic energy axis</p></li>
+<li><p><strong>angle_axis</strong> (<em>np.ndarray</em>) – angle axis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>jacobian_determinant matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="specsanalyzer.convert.physical_unit_data">
+<span class="sig-prename descclassname"><span class="pre">specsanalyzer.convert.</span></span><span class="sig-name descname"><span class="pre">physical_unit_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_correction_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_correction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jacobian_determinant</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/convert.html#physical_unit_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.convert.physical_unit_data" title="Link to this definition">#</a></dt>
+<dd><p>interpolate the image on physical units, using the <code class="docutils literal notranslate"><span class="pre">map_coordinates</span></code> function from
+<code class="docutils literal notranslate"><span class="pre">scipy.ndimage</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>np.ndarray</em>) – raw image</p></li>
+<li><p><strong>angular_correction_matrix</strong> (<em>np.ndarray</em>) – angular correction matrix</p></li>
+<li><p><strong>e_correction</strong> (<em>float</em>) – energy correction</p></li>
+<li><p><strong>jacobian_determinant</strong> (<em>np.ndarray</em>) – jacobian determinant for preserving
+the area normalization</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>interpolated image as a function of angle and energy</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="core.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Core functions  <code class="docutils literal notranslate"><span class="pre">(specsanalyzer.core)</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="img_tools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>image tool functions <code class="docutils literal notranslate"><span class="pre">(specsanalyzer.img_tools)</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.get_damatrix_from_calib2d"><code class="docutils literal notranslate"><span class="pre">get_damatrix_from_calib2d()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.bisection"><code class="docutils literal notranslate"><span class="pre">bisection()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.second_closest_rr"><code class="docutils literal notranslate"><span class="pre">second_closest_rr()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.get_rr_da"><code class="docutils literal notranslate"><span class="pre">get_rr_da()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.calculate_polynomial_coef_da"><code class="docutils literal notranslate"><span class="pre">calculate_polynomial_coef_da()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.zinner"><code class="docutils literal notranslate"><span class="pre">zinner()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.zinner_diff"><code class="docutils literal notranslate"><span class="pre">zinner_diff()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.mcp_position_mm"><code class="docutils literal notranslate"><span class="pre">mcp_position_mm()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.calculate_matrix_correction"><code class="docutils literal notranslate"><span class="pre">calculate_matrix_correction()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.calculate_jacobian"><code class="docutils literal notranslate"><span class="pre">calculate_jacobian()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsanalyzer.convert.physical_unit_data"><code class="docutils literal notranslate"><span class="pre">physical_unit_data()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/specsanalyzer/convert.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, OpenCOMPES team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
