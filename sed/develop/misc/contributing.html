@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing to sed &#8212; SED 0.4.1.dev343+g6452e2b documentation</title>
+    <title>Contributing to sed &#8212; SED 0.4.1.dev345+gf831898 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=2e89a715"></script>
+    <script src="../_static/documentation_options.js?v=e42bc4b6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev343+g6452e2b';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev345+gf831898';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="Development" href="contribution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev343+g6452e2b" />
+  <meta name="docsearch:version" content="0.4.1.dev345+gf831898" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev343+g6452e2b documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev345+gf831898 documentation</p>
   
 </a></div>
     
@@ -457,11 +457,11 @@
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Install Python and Poetry:</strong>
-- Ensure you have Python 3.8, 3.9, 3.10 or 3.11 and poetry installed.</p>
+<li><p><strong>Install uv and Python:</strong>
+- Ensure you have uv and Python 3.9, 3.10, 3.11 or 3.12 installed. You can install it e.g. using the following commands:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pipx
-pipx<span class="w"> </span>install<span class="w"> </span>poetry
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.10
 </pre></div>
 </div>
 </div></blockquote>
@@ -473,10 +473,19 @@ pipx<span class="w"> </span>install<span class="w"> </span>poetry
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Install Dependencies:</strong>
-- Navigate to the project directory and install the project dependencies (including development ones) using Poetry:</p>
+<li><p><strong>Set up virtual environment:</strong>
+- Create a python virtual environment, and activate it. You can optionally select the python version, and set the path</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install<span class="w"> </span>--dev
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>-p<span class="o">=</span><span class="m">3</span>.10<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Install Dependencies:</strong>
+- Navigate to the project directory and install the project and its dependencies (including development ones) in “editable” mode using uv. Optionally, the jupyter notebook can be installed as well:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev,notebook<span class="o">]</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -487,12 +496,12 @@ pipx<span class="w"> </span>install<span class="w"> </span>poetry
 <h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This guide assumes that you have Python (version 3.8, 3.9, 3.10, 3.11) and poetry with dev dependencies installed on your machine.</p>
+<p>This guide assumes that you followed the previous steps and have uv, python and the package with dev dependencies installed on your machine.</p>
 </div>
 <ol class="arabic">
 <li><p><strong>Install pre-commit hooks:</strong> To ensure your code is formatted correctly, install pre-commit hooks:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
 </pre></div>
 </div>
 </div></blockquote>
@@ -519,7 +528,7 @@ pipx<span class="w"> </span>install<span class="w"> </span>poetry
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Push Changes:</strong> Push your changes to your fork:</p>
+<li><p><strong>Push Changes:</strong> Push your changes to your new branch:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature-branch
 </pre></div>
