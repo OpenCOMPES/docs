@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.core.dfops &#8212; SED 0.4.1.dev346+g64b07c1 documentation</title>
+    <title>sed.core.dfops &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=99a6d217"></script>
+    <script src="../../../_static/documentation_options.js?v=79a2d137"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev346+g64b07c1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev346+g64b07c1" />
+  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev346+g64b07c1 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
   
 </a></div>
     
@@ -419,20 +419,20 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># Note: some of the functions presented here were</span>
 <span class="c1"># inspired by https://github.com/mpes-kit/mpes</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 
-<span class="kn">import</span> <span class="nn">dask.dataframe</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dask.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProgressBar</span>
 
 
 <div class="viewcode-block" id="apply_jitter">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.apply_jitter">[docs]</a>
-<span class="k">def</span> <span class="nf">apply_jitter</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_jitter</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">cols</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">cols_jittered</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -492,7 +492,7 @@
 
 <div class="viewcode-block" id="drop_column">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.drop_column">[docs]</a>
-<span class="k">def</span> <span class="nf">drop_column</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">drop_column</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
@@ -513,7 +513,7 @@
 
 <div class="viewcode-block" id="apply_filter">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.apply_filter">[docs]</a>
-<span class="k">def</span> <span class="nf">apply_filter</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_filter</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">lower_bound</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
@@ -548,7 +548,7 @@
 
 <div class="viewcode-block" id="add_time_stamped_data">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.add_time_stamped_data">[docs]</a>
-<span class="k">def</span> <span class="nf">add_time_stamped_data</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_time_stamped_data</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">time_stamps</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -576,7 +576,7 @@
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_stamps</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;time_stamps and data have to be of same length!&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">interpolate_timestamps</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">interpolate_timestamps</span><span class="p">(</span>
         <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">df_timestamps</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">time_stamp_column</span><span class="p">]</span>
@@ -594,7 +594,7 @@
 
 <div class="viewcode-block" id="map_columns_2d">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.map_columns_2d">[docs]</a>
-<span class="k">def</span> <span class="nf">map_columns_2d</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">map_columns_2d</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">map_2d</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -632,7 +632,7 @@
 
 <div class="viewcode-block" id="forward_fill_lazy">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.forward_fill_lazy">[docs]</a>
-<span class="k">def</span> <span class="nf">forward_fill_lazy</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">forward_fill_lazy</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">columns</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">before</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
@@ -670,7 +670,7 @@
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> not in dataframe!&quot;</span><span class="p">)</span>
 
     <span class="c1"># Define a custom function to forward fill specified columns</span>
-    <span class="k">def</span> <span class="nf">forward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
         <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">df</span>
 
@@ -697,7 +697,7 @@
 
 <div class="viewcode-block" id="backward_fill_lazy">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.backward_fill_lazy">[docs]</a>
-<span class="k">def</span> <span class="nf">backward_fill_lazy</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">backward_fill_lazy</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">columns</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">after</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
@@ -733,7 +733,7 @@
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> not in dataframe!&quot;</span><span class="p">)</span>
 
     <span class="c1"># Define a custom function to forward fill specified columns</span>
-    <span class="k">def</span> <span class="nf">backward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">backward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
         <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">bfill</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">df</span>
 
@@ -760,7 +760,7 @@
 
 <div class="viewcode-block" id="offset_by_other_columns">
 <a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.offset_by_other_columns">[docs]</a>
-<span class="k">def</span> <span class="nf">offset_by_other_columns</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">offset_by_other_columns</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">target_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">offset_columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>

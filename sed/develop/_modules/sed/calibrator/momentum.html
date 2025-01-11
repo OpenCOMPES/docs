@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.calibrator.momentum &#8212; SED 0.4.1.dev346+g64b07c1 documentation</title>
+    <title>sed.calibrator.momentum &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=99a6d217"></script>
+    <script src="../../../_static/documentation_options.js?v=79a2d137"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev346+g64b07c1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev346+g64b07c1" />
+  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev346+g64b07c1 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
   
 </a></div>
     
@@ -417,40 +417,40 @@
 <span></span><span class="sd">&quot;&quot;&quot;sed.calibrator.momentum module. Code for momentum calibration and distortion</span>
 <span class="sd">correction. Mostly ported from https://github.com/mpes-kit/mpes.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">it</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.palettes</span> <span class="k">as</span> <span class="nn">bp</span>
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span> <span class="k">as</span> <span class="nn">pbk</span>
-<span class="kn">import</span> <span class="nn">dask.dataframe</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">ipw</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">scipy.ndimage</span> <span class="k">as</span> <span class="nn">ndi</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">bokeh.colors</span> <span class="kn">import</span> <span class="n">RGB</span>
-<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_notebook</span>
-<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">Category10</span> <span class="k">as</span> <span class="n">ColorCycle</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">delayed</span>
-<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">map_coordinates</span>
-<span class="kn">from</span> <span class="nn">symmetrize</span> <span class="kn">import</span> <span class="n">pointops</span> <span class="k">as</span> <span class="n">po</span>
-<span class="kn">from</span> <span class="nn">symmetrize</span> <span class="kn">import</span> <span class="n">sym</span>
-<span class="kn">from</span> <span class="nn">symmetrize</span> <span class="kn">import</span> <span class="n">tps</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.palettes</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">bp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pbk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipw</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">RGB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">output_notebook</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">Category10</span> <span class="k">as</span> <span class="n">ColorCycle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">joblib</span><span class="w"> </span><span class="kn">import</span> <span class="n">delayed</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">joblib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parallel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">griddata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">map_coordinates</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">symmetrize</span><span class="w"> </span><span class="kn">import</span> <span class="n">pointops</span> <span class="k">as</span> <span class="n">po</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">symmetrize</span><span class="w"> </span><span class="kn">import</span> <span class="n">sym</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">symmetrize</span><span class="w"> </span><span class="kn">import</span> <span class="n">tps</span>
 
-<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">set_verbosity</span>
-<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">setup_logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_verbosity</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_logging</span>
 
 <span class="c1"># Configure logging</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">setup_logging</span><span class="p">(</span><span class="s2">&quot;momentum&quot;</span><span class="p">)</span>
@@ -458,7 +458,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector">[docs]</a>
-<span class="k">class</span> <span class="nc">MomentumCorrector</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MomentumCorrector</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Momentum distortion correction and momentum calibration workflow functions.</span>
 
@@ -473,7 +473,7 @@
 <span class="sd">            Defaults to True.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -552,7 +552,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the verbosity flag.</span>
 
 <span class="sd">        Returns:</span>
@@ -561,7 +561,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
 
     <span class="nd">@verbose</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the verbosity.</span>
 
 <span class="sd">        Args:</span>
@@ -571,7 +571,7 @@
         <span class="n">set_verbosity</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">features</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">features</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of detected features for the symmetrization process.</span>
 <span class="sd">        ``self.features`` is a derived attribute from existing ones.</span>
 
@@ -586,7 +586,7 @@
         <span class="k">return</span> <span class="n">feature_dict</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">symscores</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">symscores</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of symmetry-related scores.</span>
 
 <span class="sd">        Returns:</span>
@@ -603,7 +603,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.load_data">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.load_data">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -648,7 +648,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.select_slicer">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.select_slicer">[docs]</a>
-    <span class="k">def</span> <span class="nf">select_slicer</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select_slicer</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">plane</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -677,7 +677,7 @@
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_slice</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain_r&quot;</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">plane</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">plane</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
             <span class="n">selector</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span> <span class="n">plane</span> <span class="o">+</span> <span class="n">width</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">img_slice</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">selector</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -707,7 +707,7 @@
             <span class="n">width</span><span class="o">=</span><span class="n">width_slider</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">apply_fun</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">apply_fun</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">plane_slider</span><span class="o">.</span><span class="n">value</span>
             <span class="n">stop</span> <span class="o">=</span> <span class="n">plane_slider</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">width_slider</span><span class="o">.</span><span class="n">value</span>
 
@@ -741,7 +741,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.select_slice">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.select_slice">[docs]</a>
-    <span class="k">def</span> <span class="nf">select_slice</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select_slice</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">selector</span><span class="p">:</span> <span class="nb">slice</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -776,7 +776,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.add_features">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.add_features">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_features</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_features</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ccw&quot;</span><span class="p">,</span>
@@ -847,7 +847,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.feature_extract">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.feature_extract">[docs]</a>
-    <span class="k">def</span> <span class="nf">feature_extract</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feature_extract</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ccw&quot;</span><span class="p">,</span>
@@ -911,7 +911,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.feature_select">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.feature_select">[docs]</a>
-    <span class="k">def</span> <span class="nf">feature_select</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feature_select</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -961,7 +961,7 @@
         <span class="k">for</span> <span class="n">peak</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
             <span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">peak</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">peak</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
-        <span class="k">def</span> <span class="nf">update_point_no</span><span class="p">(</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update_point_no</span><span class="p">(</span>
             <span class="n">point_no</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="p">):</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
@@ -972,7 +972,7 @@
             <span class="n">point_input_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">point_x</span>
             <span class="n">point_input_y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">point_y</span>
 
-        <span class="k">def</span> <span class="nf">update_point_pos</span><span class="p">(</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update_point_pos</span><span class="p">(</span>
             <span class="n">point_x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
             <span class="n">point_y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="p">):</span>
@@ -1001,14 +1001,14 @@
             <span class="n">point_x</span><span class="o">=</span><span class="n">point_input_x</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
             <span class="n">point_input_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span>
             <span class="n">point_input_y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">ydata</span>
             <span class="n">point_no_input</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">point_no_input</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">&quot;button_press_event&quot;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">apply_func</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">apply_func</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
             <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_disconnect</span><span class="p">(</span><span class="n">cid</span><span class="p">)</span>
 
             <span class="n">point_no_input</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1032,7 +1032,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.calc_geometric_distances">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.calc_geometric_distances">[docs]</a>
-    <span class="k">def</span> <span class="nf">calc_geometric_distances</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calc_geometric_distances</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate geometric distances involving the center and the vertices.</span>
 <span class="sd">        Distances calculated include center-vertex and nearest-neighbor vertex-vertex</span>
 <span class="sd">        distances.</span>
@@ -1045,7 +1045,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.calc_symmetry_scores">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.calc_symmetry_scores">[docs]</a>
-    <span class="k">def</span> <span class="nf">calc_symmetry_scores</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symtype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rotation&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calc_symmetry_scores</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symtype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rotation&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the symmetry scores from geometric quantities.</span>
 
 <span class="sd">        Args:</span>
@@ -1067,7 +1067,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.spline_warp_estimate">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.spline_warp_estimate">[docs]</a>
-    <span class="k">def</span> <span class="nf">spline_warp_estimate</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">spline_warp_estimate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">use_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1151,7 +1151,7 @@
                 <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                         <span class="s2">&quot;No valid landmarks defined, and no landmarks found in configuration!&quot;</span><span class="p">,</span>
-                    <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">add_features</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> <span class="n">rotsym</span><span class="o">=</span><span class="n">rotsym</span><span class="p">)</span>
 
@@ -1270,7 +1270,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.apply_correction">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.apply_correction">[docs]</a>
-    <span class="k">def</span> <span class="nf">apply_correction</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1302,7 +1302,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.reset_deformation">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.reset_deformation">[docs]</a>
-    <span class="k">def</span> <span class="nf">reset_deformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset_deformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the deformation field.</span>
 
 <span class="sd">        Args:</span>
@@ -1332,7 +1332,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.update_deformation">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.update_deformation">[docs]</a>
-    <span class="k">def</span> <span class="nf">update_deformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdeform</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">cdeform</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_deformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdeform</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">cdeform</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the class deformation field by applying the provided column/row</span>
 <span class="sd">        deformation fields.</span>
 
@@ -1358,7 +1358,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.coordinate_transform">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.coordinate_transform">[docs]</a>
-    <span class="k">def</span> <span class="nf">coordinate_transform</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">coordinate_transform</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">transform_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">keep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1525,7 +1525,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.pose_adjustment">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.pose_adjustment">[docs]</a>
-    <span class="k">def</span> <span class="nf">pose_adjustment</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pose_adjustment</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">transformations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1594,7 +1594,7 @@
             <span class="n">datestring</span> <span class="o">=</span> <span class="n">transformations</span><span class="p">[</span><span class="s2">&quot;creation_date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y, %H:%M:%S&quot;</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using transformation parameters generated on </span><span class="si">{</span><span class="n">datestring</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">xtrans</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">ytrans</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">xtrans</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">ytrans</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
             <span class="n">transformed_image</span> <span class="o">=</span> <span class="n">source_image</span>
             <span class="k">if</span> <span class="n">scale</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">transformations</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span>
@@ -1671,7 +1671,7 @@
             <span class="n">angle</span><span class="o">=</span><span class="n">angle_slider</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">apply_func</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">apply_func</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
             <span class="k">if</span> <span class="n">transformations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">coordinate_transform</span><span class="p">(</span>
                     <span class="n">transform_type</span><span class="o">=</span><span class="s2">&quot;scaling&quot;</span><span class="p">,</span>
@@ -1743,7 +1743,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.calc_inverse_dfield">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.calc_inverse_dfield">[docs]</a>
-    <span class="k">def</span> <span class="nf">calc_inverse_dfield</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calc_inverse_dfield</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the inverse dfield from the cdeform and rdeform fields&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inverse_dfield</span> <span class="o">=</span> <span class="n">generate_inverse_dfield</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rdeform_field</span><span class="p">,</span>
@@ -1757,7 +1757,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.view">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.view">[docs]</a>
-    <span class="k">def</span> <span class="nf">view</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">origin</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;upper&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span>
@@ -1922,7 +1922,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.select_k_range">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.select_k_range">[docs]</a>
-    <span class="k">def</span> <span class="nf">select_k_range</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select_k_range</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">point_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">point_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1992,7 +1992,7 @@
         <span class="p">(</span><span class="n">marker_a</span><span class="p">,)</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">point_a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">point_a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
         <span class="p">(</span><span class="n">marker_b</span><span class="p">,)</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">point_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">point_b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
             <span class="n">point_a_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
             <span class="n">point_a_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
             <span class="n">point_b_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -2021,7 +2021,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="k">def</span> <span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">onclick</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">point_a_input_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span>
                 <span class="n">point_a_input_y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">ydata</span>
@@ -2033,7 +2033,7 @@
 
         <span class="n">cid</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">&quot;button_press_event&quot;</span><span class="p">,</span> <span class="n">onclick</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">apply_func</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">apply_func</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># noqa: ARG001</span>
             <span class="n">point_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">point_a_input_x</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">point_a_input_y</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
             <span class="n">point_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">point_b_input_x</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">point_b_input_y</span><span class="o">.</span><span class="n">value</span><span class="p">]</span>
             <span class="n">calibration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span>
@@ -2075,7 +2075,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.calibrate">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.calibrate">[docs]</a>
-    <span class="k">def</span> <span class="nf">calibrate</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calibrate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">point_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
         <span class="n">point_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
@@ -2208,7 +2208,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.apply_corrections">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.apply_corrections">[docs]</a>
-    <span class="k">def</span> <span class="nf">apply_corrections</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_corrections</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2284,7 +2284,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.gather_correction_metadata">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.gather_correction_metadata">[docs]</a>
-    <span class="k">def</span> <span class="nf">gather_correction_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gather_correction_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Collect meta data for momentum correction.</span>
 
 <span class="sd">        Returns:</span>
@@ -2361,7 +2361,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.append_k_axis">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.append_k_axis">[docs]</a>
-    <span class="k">def</span> <span class="nf">append_k_axis</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">append_k_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2457,7 +2457,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;Required calibration parameters missing!&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gather_calibration_metadata</span><span class="p">(</span><span class="n">calibration</span><span class="o">=</span><span class="n">calibration</span><span class="p">)</span>
 
@@ -2466,7 +2466,7 @@
 
 <div class="viewcode-block" id="MomentumCorrector.gather_calibration_metadata">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.gather_calibration_metadata">[docs]</a>
-    <span class="k">def</span> <span class="nf">gather_calibration_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gather_calibration_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Collect meta data for momentum calibration</span>
 
 <span class="sd">        Args:</span>
@@ -2498,7 +2498,7 @@
 
 <div class="viewcode-block" id="cm2palette">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.cm2palette">[docs]</a>
-<span class="k">def</span> <span class="nf">cm2palette</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cm2palette</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert certain matplotlib colormap (cm) to bokeh palette.</span>
 
 <span class="sd">    Args:</span>
@@ -2522,7 +2522,7 @@
 
 <div class="viewcode-block" id="dictmerge">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.dictmerge">[docs]</a>
-<span class="k">def</span> <span class="nf">dictmerge</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dictmerge</span><span class="p">(</span>
     <span class="n">main_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
     <span class="n">other_entries</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
@@ -2550,7 +2550,7 @@
 
 <div class="viewcode-block" id="detector_coordinates_2_k_coordinates">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.detector_coordinates_2_k_coordinates">[docs]</a>
-<span class="k">def</span> <span class="nf">detector_coordinates_2_k_coordinates</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">detector_coordinates_2_k_coordinates</span><span class="p">(</span>
     <span class="n">r_det</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">c_det</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">r_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -2591,7 +2591,7 @@
 
 <div class="viewcode-block" id="apply_dfield">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.apply_dfield">[docs]</a>
-<span class="k">def</span> <span class="nf">apply_dfield</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_dfield</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">dfield</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2633,7 +2633,7 @@
 
 <div class="viewcode-block" id="generate_inverse_dfield">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.generate_inverse_dfield">[docs]</a>
-<span class="k">def</span> <span class="nf">generate_inverse_dfield</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_inverse_dfield</span><span class="p">(</span>
     <span class="n">rdeform_field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">cdeform_field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">bin_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
@@ -2711,7 +2711,7 @@
 
 <div class="viewcode-block" id="load_dfield">
 <a class="viewcode-back" href="../../../sed/calibrator.html#sed.calibrator.momentum.load_dfield">[docs]</a>
-<span class="k">def</span> <span class="nf">load_dfield</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_dfield</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load inverse dfield from file</span>
 
 <span class="sd">    Args:</span>

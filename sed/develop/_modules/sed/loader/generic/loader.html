@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.generic.loader &#8212; SED 0.4.1.dev346+g64b07c1 documentation</title>
+    <title>sed.loader.generic.loader &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../_static/documentation_options.js?v=99a6d217"></script>
+    <script src="../../../../_static/documentation_options.js?v=79a2d137"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev346+g64b07c1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev346+g64b07c1" />
+  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev346+g64b07c1 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
   
 </a></div>
     
@@ -419,19 +419,19 @@
 <span class="sd">Mostly ported from https://github.com/mpes-kit/mpes.</span>
 <span class="sd">@author: L. Rettig</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 
-<span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">ddf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ddf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sed.loader.base.loader</span> <span class="kn">import</span> <span class="n">BaseLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.base.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLoader</span>
 
 
 <div class="viewcode-block" id="GenericLoader">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.generic.loader.GenericLoader">[docs]</a>
-<span class="k">class</span> <span class="nc">GenericLoader</span><span class="p">(</span><span class="n">BaseLoader</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GenericLoader</span><span class="p">(</span><span class="n">BaseLoader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Dask implementation of the Loader. Reads from various file types using the</span>
 <span class="sd">    utilities of Dask.</span>
 
@@ -447,7 +447,7 @@
 
 <div class="viewcode-block" id="GenericLoader.read_dataframe">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.generic.loader.GenericLoader.read_dataframe">[docs]</a>
-    <span class="k">def</span> <span class="nf">read_dataframe</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_dataframe</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -517,12 +517,12 @@
         <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="ne">NotImplementedError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;The file format cannot be understood!&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span></div>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span></div>
 
 
 <div class="viewcode-block" id="GenericLoader.get_files_from_run_id">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.generic.loader.GenericLoader.get_files_from_run_id">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_files_from_run_id</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_files_from_run_id</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
         <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
@@ -546,7 +546,7 @@
 
 <div class="viewcode-block" id="GenericLoader.get_count_rate">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.generic.loader.GenericLoader.get_count_rate">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_count_rate</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_count_rate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">fids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
@@ -568,7 +568,7 @@
 
 <div class="viewcode-block" id="GenericLoader.get_elapsed_time">
 <a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.generic.loader.GenericLoader.get_elapsed_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_elapsed_time</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_elapsed_time</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">fids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>  <span class="c1"># noqa: ARG002</span>

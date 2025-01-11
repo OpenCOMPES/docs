@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.core.processor &#8212; SED 0.4.1.dev346+g64b07c1 documentation</title>
+    <title>sed.core.processor &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=99a6d217"></script>
+    <script src="../../../_static/documentation_options.js?v=79a2d137"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev346+g64b07c1';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev346+g64b07c1" />
+  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev346+g64b07c1 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
   
 </a></div>
     
@@ -417,45 +417,45 @@
 <span></span><span class="sd">&quot;&quot;&quot;This module contains the core class for the sed package</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span>
 
-<span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">ddf</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">psutil</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ddf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
-<span class="kn">from</span> <span class="nn">sed.binning</span> <span class="kn">import</span> <span class="n">bin_dataframe</span>
-<span class="kn">from</span> <span class="nn">sed.binning.binning</span> <span class="kn">import</span> <span class="n">normalization_histogram_from_timed_dataframe</span>
-<span class="kn">from</span> <span class="nn">sed.binning.binning</span> <span class="kn">import</span> <span class="n">normalization_histogram_from_timestamps</span>
-<span class="kn">from</span> <span class="nn">sed.calibrator</span> <span class="kn">import</span> <span class="n">DelayCalibrator</span>
-<span class="kn">from</span> <span class="nn">sed.calibrator</span> <span class="kn">import</span> <span class="n">EnergyCalibrator</span>
-<span class="kn">from</span> <span class="nn">sed.calibrator</span> <span class="kn">import</span> <span class="n">MomentumCorrector</span>
-<span class="kn">from</span> <span class="nn">sed.core.config</span> <span class="kn">import</span> <span class="n">parse_config</span>
-<span class="kn">from</span> <span class="nn">sed.core.config</span> <span class="kn">import</span> <span class="n">save_config</span>
-<span class="kn">from</span> <span class="nn">sed.core.dfops</span> <span class="kn">import</span> <span class="n">add_time_stamped_data</span>
-<span class="kn">from</span> <span class="nn">sed.core.dfops</span> <span class="kn">import</span> <span class="n">apply_filter</span>
-<span class="kn">from</span> <span class="nn">sed.core.dfops</span> <span class="kn">import</span> <span class="n">apply_jitter</span>
-<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">call_logger</span>
-<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">set_verbosity</span>
-<span class="kn">from</span> <span class="nn">sed.core.logging</span> <span class="kn">import</span> <span class="n">setup_logging</span>
-<span class="kn">from</span> <span class="nn">sed.core.metadata</span> <span class="kn">import</span> <span class="n">MetaHandler</span>
-<span class="kn">from</span> <span class="nn">sed.diagnostics</span> <span class="kn">import</span> <span class="n">grid_histogram</span>
-<span class="kn">from</span> <span class="nn">sed.io</span> <span class="kn">import</span> <span class="n">to_h5</span>
-<span class="kn">from</span> <span class="nn">sed.io</span> <span class="kn">import</span> <span class="n">to_nexus</span>
-<span class="kn">from</span> <span class="nn">sed.io</span> <span class="kn">import</span> <span class="n">to_tiff</span>
-<span class="kn">from</span> <span class="nn">sed.loader</span> <span class="kn">import</span> <span class="n">CopyTool</span>
-<span class="kn">from</span> <span class="nn">sed.loader</span> <span class="kn">import</span> <span class="n">get_loader</span>
-<span class="kn">from</span> <span class="nn">sed.loader.mpes.loader</span> <span class="kn">import</span> <span class="n">get_archiver_data</span>
-<span class="kn">from</span> <span class="nn">sed.loader.mpes.loader</span> <span class="kn">import</span> <span class="n">MpesLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">bin_dataframe</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.binning.binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalization_histogram_from_timed_dataframe</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.binning.binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalization_histogram_from_timestamps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.calibrator</span><span class="w"> </span><span class="kn">import</span> <span class="n">DelayCalibrator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.calibrator</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnergyCalibrator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.calibrator</span><span class="w"> </span><span class="kn">import</span> <span class="n">MomentumCorrector</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.dfops</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_time_stamped_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.dfops</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_filter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.dfops</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_jitter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">call_logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_verbosity</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetaHandler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">grid_histogram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_h5</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_nexus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_tiff</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">CopyTool</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_loader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.mpes.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_archiver_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.mpes.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">MpesLoader</span>
 
 <span class="n">N_CPU</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
 
@@ -465,7 +465,7 @@
 
 <div class="viewcode-block" id="SedProcessor">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor">[docs]</a>
-<span class="k">class</span> <span class="nc">SedProcessor</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SedProcessor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Processor class of sed. Contains wrapper functions defining a work flow for data</span>
 <span class="sd">    correction, calibration and binning.</span>
 
@@ -489,7 +489,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -607,7 +607,7 @@
                 <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">df_str</span> <span class="o">=</span> <span class="s2">&quot;Dataframe: No Data loaded&quot;</span>
         <span class="k">else</span><span class="p">:</span>
@@ -615,7 +615,7 @@
         <span class="n">pretty_str</span> <span class="o">=</span> <span class="n">df_str</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;Metadata: &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">pretty_str</span>
 
-    <span class="k">def</span> <span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;div&gt;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -642,7 +642,7 @@
     <span class="c1">#     self.view_event_histogram(dfpid=2, backend=&quot;matplotlib&quot;)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the verbosity flag.</span>
 
 <span class="sd">        Returns:</span>
@@ -651,7 +651,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
 
     <span class="nd">@verbose</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the verbosity.</span>
 
 <span class="sd">        Args:</span>
@@ -665,7 +665,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the underlying dataframe.</span>
 
 <span class="sd">        Returns:</span>
@@ -674,7 +674,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span>
 
     <span class="nd">@dataframe</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the underlying dataframe.</span>
 
 <span class="sd">        Args:</span>
@@ -692,7 +692,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="o">=</span> <span class="n">dataframe</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the underlying timed_dataframe.</span>
 
 <span class="sd">        Returns:</span>
@@ -701,7 +701,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timed_dataframe</span>
 
     <span class="nd">@timed_dataframe</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timed_dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">timed_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timed_dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the underlying timed dataframe.</span>
 
 <span class="sd">        Args:</span>
@@ -720,7 +720,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_timed_dataframe</span> <span class="o">=</span> <span class="n">timed_dataframe</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetaHandler</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetaHandler</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the metadata dict.</span>
 
 <span class="sd">        Returns:</span>
@@ -730,7 +730,7 @@
 
 <div class="viewcode-block" id="SedProcessor.add_attribute">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_attribute">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Function to add element to the attributes dict.</span>
 
 <span class="sd">        Args:</span>
@@ -746,7 +746,7 @@
 
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the config dictionary</span>
 
 <span class="sd">        Returns:</span>
@@ -755,7 +755,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">files</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">files</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the list of files</span>
 
 <span class="sd">        Returns:</span>
@@ -764,7 +764,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_files</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">binned</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">binned</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the binned data array</span>
 
 <span class="sd">        Returns:</span>
@@ -775,7 +775,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binned</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">normalized</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalized</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the normalized data array</span>
 
 <span class="sd">        Returns:</span>
@@ -788,7 +788,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalized</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">normalization_histogram</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalization_histogram</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter attribute for the normalization histogram</span>
 
 <span class="sd">        Returns:</span>
@@ -800,7 +800,7 @@
 
 <div class="viewcode-block" id="SedProcessor.cpy">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.cpy">[docs]</a>
-    <span class="k">def</span> <span class="nf">cpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Function to mirror a list of files or a folder from a network drive to a</span>
 <span class="sd">        local storage. Returns either the original or the copied path to the given</span>
 <span class="sd">        path. The option to use this functionality is set by</span>
@@ -830,7 +830,7 @@
 <div class="viewcode-block" id="SedProcessor.load">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.load">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -920,7 +920,7 @@
 <div class="viewcode-block" id="SedProcessor.filter_column">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.filter_column">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">filter_column</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_column</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">min_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
@@ -966,7 +966,7 @@
 <div class="viewcode-block" id="SedProcessor.bin_and_load_momentum_calibration">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.bin_and_load_momentum_calibration">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">bin_and_load_momentum_calibration</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bin_and_load_momentum_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">df_partitions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
         <span class="n">axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1013,7 +1013,7 @@
 <div class="viewcode-block" id="SedProcessor.define_features">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.define_features">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">define_features</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">define_features</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">features</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">rotation_symmetry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
@@ -1070,7 +1070,7 @@
 <div class="viewcode-block" id="SedProcessor.generate_splinewarp">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.generate_splinewarp">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">generate_splinewarp</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_splinewarp</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">use_center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
@@ -1115,7 +1115,7 @@
     <span class="c1"># 3a. Save spline-warp parameters to config file.</span>
 <div class="viewcode-block" id="SedProcessor.save_splinewarp">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_splinewarp">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_splinewarp</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_splinewarp</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1166,7 +1166,7 @@
 <div class="viewcode-block" id="SedProcessor.pose_adjustment">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.pose_adjustment">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">pose_adjustment</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pose_adjustment</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">transformations</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1221,7 +1221,7 @@
 <div class="viewcode-block" id="SedProcessor.save_transformations">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_transformations">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">save_transformations</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_transformations</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1261,7 +1261,7 @@
 <div class="viewcode-block" id="SedProcessor.apply_momentum_correction">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_momentum_correction">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">apply_momentum_correction</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_momentum_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
@@ -1324,7 +1324,7 @@
 <div class="viewcode-block" id="SedProcessor.calibrate_momentum_axes">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_momentum_axes">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">calibrate_momentum_axes</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calibrate_momentum_axes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">point_a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">point_b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1379,7 +1379,7 @@
     <span class="c1"># 1a. Save momentum calibration parameters to config file.</span>
 <div class="viewcode-block" id="SedProcessor.save_momentum_calibration">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_momentum_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_momentum_calibration</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_momentum_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1417,7 +1417,7 @@
 <div class="viewcode-block" id="SedProcessor.apply_momentum_calibration">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_momentum_calibration">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">apply_momentum_calibration</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_momentum_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1484,7 +1484,7 @@
 <div class="viewcode-block" id="SedProcessor.adjust_energy_correction">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.adjust_energy_correction">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">adjust_energy_correction</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_energy_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">correction_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1531,7 +1531,7 @@
     <span class="c1"># 1a. Save energy correction parameters to config file.</span>
 <div class="viewcode-block" id="SedProcessor.save_energy_correction">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_correction">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_energy_correction</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_energy_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1571,7 +1571,7 @@
 <div class="viewcode-block" id="SedProcessor.apply_energy_correction">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.apply_energy_correction">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">apply_energy_correction</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_energy_correction</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">correction</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1626,7 +1626,7 @@
 <div class="viewcode-block" id="SedProcessor.load_bias_series">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.load_bias_series">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">load_bias_series</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_bias_series</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">binned_data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">data_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1688,7 +1688,7 @@
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                         <span class="s2">&quot;If binned_data is provided as tuple, it needs to contain &quot;</span>
                         <span class="s2">&quot;(tof, biases, traces)!&quot;</span><span class="p">,</span>
-                    <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Energy calibration data loaded from binned data. Bias values=</span><span class="si">{</span><span class="n">biases</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ec</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">biases</span><span class="o">=</span><span class="n">biases</span><span class="p">,</span> <span class="n">traces</span><span class="o">=</span><span class="n">traces</span><span class="p">,</span> <span class="n">tof</span><span class="o">=</span><span class="n">tof</span><span class="p">)</span>
 
@@ -1731,7 +1731,7 @@
 <div class="viewcode-block" id="SedProcessor.find_bias_peaks">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.find_bias_peaks">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">find_bias_peaks</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_bias_peaks</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span>
         <span class="n">ref_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -1809,7 +1809,7 @@
 <div class="viewcode-block" id="SedProcessor.calibrate_energy_axis">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_energy_axis">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">calibrate_energy_axis</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calibrate_energy_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ref_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1906,7 +1906,7 @@
     <span class="c1"># 3a. Save energy calibration parameters to config file.</span>
 <div class="viewcode-block" id="SedProcessor.save_energy_calibration">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_energy_calibration</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_energy_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1948,7 +1948,7 @@
 <div class="viewcode-block" id="SedProcessor.append_energy_axis">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.append_energy_axis">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">append_energy_axis</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">append_energy_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">calibration</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">bias_voltage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2011,7 +2011,7 @@
 <div class="viewcode-block" id="SedProcessor.add_energy_offset">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_energy_offset">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">add_energy_offset</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_energy_offset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">constant</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2089,7 +2089,7 @@
 
 <div class="viewcode-block" id="SedProcessor.save_energy_offset">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_energy_offset">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_energy_offset</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_energy_offset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2122,7 +2122,7 @@
 <div class="viewcode-block" id="SedProcessor.append_tof_ns_axis">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.append_tof_ns_axis">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">append_tof_ns_axis</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">append_tof_ns_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
@@ -2173,7 +2173,7 @@
 <div class="viewcode-block" id="SedProcessor.align_dld_sectors">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.align_dld_sectors">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">align_dld_sectors</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">align_dld_sectors</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">sector_delays</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">preview</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2226,7 +2226,7 @@
 <div class="viewcode-block" id="SedProcessor.calibrate_delay_axis">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.calibrate_delay_axis">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">calibrate_delay_axis</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calibrate_delay_axis</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">delay_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">read_delay_ranges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -2261,7 +2261,7 @@
                 <span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                         <span class="s2">&quot;No datafile available, specify either &#39;datafile&#39; or &#39;delay_range&#39;.&quot;</span><span class="p">,</span>
-                    <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                    <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
             <span class="n">df</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dc</span><span class="o">.</span><span class="n">append_delay_axis</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span><span class="p">,</span>
@@ -2297,7 +2297,7 @@
 
 <div class="viewcode-block" id="SedProcessor.save_delay_calibration">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_delay_calibration">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_delay_calibration</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_delay_calibration</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2340,7 +2340,7 @@
 <div class="viewcode-block" id="SedProcessor.add_delay_offset">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_delay_offset">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">add_delay_offset</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_delay_offset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">constant</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">flip_delay_axis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2418,7 +2418,7 @@
 
 <div class="viewcode-block" id="SedProcessor.save_delay_offsets">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_delay_offsets">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_delay_offsets</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_delay_offsets</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2450,7 +2450,7 @@
 
 <div class="viewcode-block" id="SedProcessor.save_workflow_params">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save_workflow_params">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_workflow_params</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_workflow_params</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2482,7 +2482,7 @@
 <div class="viewcode-block" id="SedProcessor.add_jitter">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_jitter">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">add_jitter</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_jitter</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">cols</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">amps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2538,7 +2538,7 @@
 <div class="viewcode-block" id="SedProcessor.add_time_stamped_data">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.add_time_stamped_data">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">add_time_stamped_data</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_time_stamped_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dest_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">time_stamps</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2616,7 +2616,7 @@
 <div class="viewcode-block" id="SedProcessor.pre_binning">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.pre_binning">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">pre_binning</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pre_binning</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">df_partitions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
         <span class="n">axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2667,7 +2667,7 @@
 <div class="viewcode-block" id="SedProcessor.compute">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.compute">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
         <span class="n">axes</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2769,7 +2769,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;Only &#39;col&#39;, &#39;lower_bound&#39; and &#39;upper_bound&#39; allowed as filter entries. &quot;</span><span class="p">,</span>
                     <span class="sa">f</span><span class="s2">&quot;Parameters </span><span class="si">{</span><span class="n">invalid_keys</span><span class="si">}</span><span class="s2"> not valid in </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-                <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_binned</span> <span class="o">=</span> <span class="n">bin_dataframe</span><span class="p">(</span>
             <span class="n">df</span><span class="o">=</span><span class="n">dataframe</span><span class="p">,</span>
@@ -2834,7 +2834,7 @@
 <div class="viewcode-block" id="SedProcessor.get_normalization_histogram">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.get_normalization_histogram">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">get_normalization_histogram</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_normalization_histogram</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;delay&quot;</span><span class="p">,</span>
         <span class="n">use_time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2914,7 +2914,7 @@
 
 <div class="viewcode-block" id="SedProcessor.view_event_histogram">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.view_event_histogram">[docs]</a>
-    <span class="k">def</span> <span class="nf">view_event_histogram</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view_event_histogram</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dfpid</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">ncol</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -3005,7 +3005,7 @@
 <div class="viewcode-block" id="SedProcessor.save">
 <a class="viewcode-back" href="../../../sed/core.html#sed.core.SedProcessor.save">[docs]</a>
     <span class="nd">@call_logger</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
@@ -3077,7 +3077,7 @@
             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;The nexus reader, definition and input files need to be provide!&quot;</span><span class="p">,</span>
-                <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                 <span class="n">input_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">input_files</span><span class="p">]</span>
