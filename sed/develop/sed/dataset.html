@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Dataset &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>Dataset &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,16 +38,16 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=79a2d137"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/dataset';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="Calibrator" href="calibrator.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -440,18 +440,18 @@
                 <article class="bd-article">
                   
   <section id="dataset">
-<h1>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h1>
+<h1>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h1>
 <p>SED comes with the ability to download and extract any URL based
 datasets. By default, user can the “WSe2”, “TaS2” and “Gd_W110” datasets
 but easy to extend this list.</p>
 <section id="getting-datasets">
-<h2>Getting datasets<a class="headerlink" href="#getting-datasets" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sed.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataset</span>
+<h2>Getting datasets<a class="headerlink" href="#getting-datasets" title="Permalink to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">sed.dataset</span> <span class="kn">import</span> <span class="n">dataset</span>
 </pre></div>
 </div>
 <section id="get">
-<h3>get()<a class="headerlink" href="#get" title="Link to this heading">#</a></h3>
+<h3>get()<a class="headerlink" href="#get" title="Permalink to this heading">#</a></h3>
 <p>The “get” just needs the data name, but another root_dir can be provided.</p>
 <p>Try to interrupt the download process and restart to see that it continues the download from where it stopped</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">,</span> <span class="n">remove_zip</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
@@ -508,7 +508,7 @@ WSe2 data extracted successfully.
 </div>
 </section>
 <section id="remove">
-<h3>remove()<a class="headerlink" href="#remove" title="Link to this heading">#</a></h3>
+<h3>remove()<a class="headerlink" href="#remove" title="Permalink to this heading">#</a></h3>
 <p>“remove” allows removal of some or all instances of existing data</p>
 <p>This would remove only one of the two existing paths</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;WSe2&quot;</span><span class="p">,</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">existing_data_paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -526,7 +526,7 @@ WSe2 data extracted successfully.
 </div>
 </section>
 <section id="attributes-useful-for-user">
-<h3>Attributes useful for user<a class="headerlink" href="#attributes-useful-for-user" title="Link to this heading">#</a></h3>
+<h3>Attributes useful for user<a class="headerlink" href="#attributes-useful-for-user" title="Permalink to this heading">#</a></h3>
 <p>All available datasets after looking at module, user and folder levels</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">available</span>
 </pre></div>
@@ -559,13 +559,13 @@ WSe2 data extracted successfully.
 </section>
 </section>
 <section id="example-of-adding-custom-datasets">
-<h2>Example of adding custom datasets<a class="headerlink" href="#example-of-adding-custom-datasets" title="Link to this heading">#</a></h2>
+<h2>Example of adding custom datasets<a class="headerlink" href="#example-of-adding-custom-datasets" title="Permalink to this heading">#</a></h2>
 <section id="datasetsmanager">
-<h3>DatasetsManager<a class="headerlink" href="#datasetsmanager" title="Link to this heading">#</a></h3>
+<h3>DatasetsManager<a class="headerlink" href="#datasetsmanager" title="Permalink to this heading">#</a></h3>
 <p>Allows to add or remove datasets in json file at any level (module, user, folder).</p>
 <p>Looks at all levels to give the available datasets</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sed.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatasetsManager</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">sed.dataset</span> <span class="kn">import</span> <span class="n">DatasetsManager</span>
 </pre></div>
 </div>
 <p>We add a new dataset to both folder and user levels</p>
@@ -596,7 +596,7 @@ WSe2 data extracted successfully.
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DatasetsManager</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">data_name</span><span class="o">=</span><span class="n">example_dset_name</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Removed</span> <span class="n">Example</span> <span class="n">dataset</span> <span class="kn">from</span><span class="w"> </span><span class="nn">user</span> <span class="n">datasets</span><span class="o">.</span><span class="n">json</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Removed</span> <span class="n">Example</span> <span class="n">dataset</span> <span class="kn">from</span> <span class="nn">user</span> <span class="n">datasets</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 </div>
 <p>Adding dataset that already exists will give an error. Likewise, removing one that doesn’t exist</p>
@@ -669,7 +669,7 @@ Rearranging complete.
 </section>
 </section>
 <section id="default-datasets-json">
-<h2>Default datasets.json<a class="headerlink" href="#default-datasets-json" title="Link to this heading">#</a></h2>
+<h2>Default datasets.json<a class="headerlink" href="#default-datasets-json" title="Permalink to this heading">#</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;WSe2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://zenodo.org/record/6369728/files/WSe2.zip&quot;</span><span class="p">,</span>
@@ -716,7 +716,7 @@ Rearranging complete.
 </div>
 </section>
 <section id="module-sed.dataset.dataset">
-<span id="api"></span><h2>API<a class="headerlink" href="#module-sed.dataset.dataset" title="Link to this heading">#</a></h2>
+<span id="api"></span><h2>API<a class="headerlink" href="#module-sed.dataset.dataset" title="Permalink to this heading">#</a></h2>
 <p>This module provides a Dataset class to download and extract datasets from web.
 These datasets are defined in a JSON file. The Dataset class implements these features
 Easy API:
@@ -724,27 +724,27 @@ from sed.dataset import datasets
 datasets.get(“NAME”)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.dataset.dataset.</span></span><span class="sig-name descname"><span class="pre">DatasetsManager</span></span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.dataset.dataset.</span></span><span class="sig-name descname"><span class="pre">DatasetsManager</span></span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to manage adding and removing datasets from the JSON file.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager.NAME">
-<span class="sig-name descname"><span class="pre">NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'datasets'</span></em><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.NAME" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'datasets'</span></em><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.NAME" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager.FILENAME">
-<span class="sig-name descname"><span class="pre">FILENAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'datasets.json'</span></em><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.FILENAME" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">FILENAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'datasets.json'</span></em><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.FILENAME" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager.json_path">
-<span class="sig-name descname"><span class="pre">json_path</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'folder':</span> <span class="pre">'./datasets.json',</span> <span class="pre">'module':</span> <span class="pre">'/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/sed/config/datasets.json',</span> <span class="pre">'user':</span> <span class="pre">'/home/runner/.config/sed/datasets.json'}</span></em><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.json_path" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">json_path</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'folder':</span> <span class="pre">'./datasets.json',</span> <span class="pre">'module':</span> <span class="pre">'/home/runner/work/sed/sed/sed/dataset/datasets.json',</span> <span class="pre">'user':</span> <span class="pre">'/home/runner/.config/sed/datasets.json'}</span></em><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.json_path" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager.load_datasets_dict">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_datasets_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager.load_datasets_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.load_datasets_dict" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_datasets_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager.load_datasets_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.load_datasets_dict" title="Permalink to this definition">#</a></dt>
 <dd><p>Loads the datasets configuration dictionary from the user’s datasets JSON file.</p>
 <p>If the file does not exist, it copies the default datasets JSON file from the module
 directory to the user’s datasets directory.</p>
@@ -760,7 +760,7 @@ directory to the user’s datasets directory.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager.add">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['user']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.add" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['user']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.add" title="Permalink to this definition">#</a></dt>
 <dd><p>Adds a new dataset to the datasets JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -775,7 +775,7 @@ directory to the user’s datasets directory.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.dataset.dataset.DatasetsManager.remove">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['user']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.remove" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['user']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#DatasetsManager.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.DatasetsManager.remove" title="Permalink to this definition">#</a></dt>
 <dd><p>Removes a dataset from the datasets JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -791,11 +791,11 @@ directory to the user’s datasets directory.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sed.dataset.dataset.Dataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.dataset.dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.Dataset" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.dataset.dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.Dataset" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.dataset.dataset.Dataset.available">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">available</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#sed.dataset.dataset.Dataset.available" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">available</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#sed.dataset.dataset.Dataset.available" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns a list of available datasets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -809,19 +809,19 @@ directory to the user’s datasets directory.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.dataset.dataset.Dataset.data_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sed.dataset.dataset.Dataset.data_name" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sed.dataset.dataset.Dataset.data_name" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the data name.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.dataset.dataset.Dataset.existing_data_paths">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">existing_data_paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#sed.dataset.dataset.Dataset.existing_data_paths" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">existing_data_paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#sed.dataset.dataset.Dataset.existing_data_paths" title="Permalink to this definition">#</a></dt>
 <dd><p>Get paths where dataset exists.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.dataset.dataset.Dataset.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#Dataset.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.Dataset.get" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#Dataset.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.Dataset.get" title="Permalink to this definition">#</a></dt>
 <dd><p>Fetches the specified data and extracts it to the given data path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -838,7 +838,7 @@ directory to the user’s datasets directory.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.dataset.dataset.Dataset.remove">
-<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#Dataset.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.Dataset.remove" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/dataset/dataset.html#Dataset.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.dataset.dataset.Dataset.remove" title="Permalink to this definition">#</a></dt>
 <dd><p>Removes directories of all or defined instances of the specified dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -979,7 +979,7 @@ directory to the user’s datasets directory.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.core.dfops &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>sed.core.dfops &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,16 +37,16 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=79a2d137"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/core/dfops';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -419,35 +419,32 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># Note: some of the functions presented here were</span>
 <span class="c1"># inspired by https://github.com/mpes-kit/mpes</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dask.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProgressBar</span>
+<span class="kn">import</span> <span class="nn">dask.dataframe</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
 
 
-<div class="viewcode-block" id="apply_jitter">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.apply_jitter">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">apply_jitter</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
-    <span class="n">cols</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-    <span class="n">cols_jittered</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">amps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<div class="viewcode-block" id="apply_jitter"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.apply_jitter">[docs]</a><span class="k">def</span> <span class="nf">apply_jitter</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">cols</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="n">cols_jittered</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">amps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
     <span class="n">jitter_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add jittering to one or more dataframe columns.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to add</span>
+<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to add</span>
 <span class="sd">            noise/jittering to.</span>
-<span class="sd">        cols (str | Sequence[str]): Names of the columns to add jittering to.</span>
-<span class="sd">        cols_jittered (str | Sequence[str], optional): Names of the columns</span>
+<span class="sd">        cols (Union[str, Sequence[str]]): Names of the columns to add jittering to.</span>
+<span class="sd">        cols_jittered (Union[str, Sequence[str]], optional): Names of the columns</span>
 <span class="sd">            with added jitter. Defaults to None.</span>
-<span class="sd">        amps (float | Sequence[float], optional): Amplitude scalings for the</span>
+<span class="sd">        amps (Union[float, Sequence[float]], optional): Amplitude scalings for the</span>
 <span class="sd">            jittering noise. If one number is given, the same is used for all axes.</span>
 <span class="sd">            For normal noise, the added noise will have stdev [-amp, +amp], for</span>
 <span class="sd">            uniform noise it will cover the interval [-amp, +amp].</span>
@@ -456,7 +453,7 @@
 <span class="sd">            distributed noise. Defaults to &quot;uniform&quot;.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        pd.DataFrame | dask.dataframe.DataFrame: dataframe with added columns.</span>
+<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: dataframe with added columns.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">cols</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;cols needs to be provided!&quot;</span>
     <span class="k">assert</span> <span class="n">jitter_type</span> <span class="ow">in</span> <span class="p">(</span>
@@ -489,40 +486,34 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
-
-<div class="viewcode-block" id="drop_column">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.drop_column">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">drop_column</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
-    <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<div class="viewcode-block" id="drop_column"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.drop_column">[docs]</a><span class="k">def</span> <span class="nf">drop_column</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">column_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Delete columns.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to use.</span>
-<span class="sd">        column_name (str | Sequence[str]): List of column names to be dropped.</span>
+<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to use.</span>
+<span class="sd">        column_name (Union[str, Sequence[str]])): List of column names to be dropped.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        pd.DataFrame | dask.dataframe.DataFrame: Dataframe with dropped columns.</span>
+<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: Dataframe with dropped columns.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">out_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">out_df</span></div>
 
 
-
-<div class="viewcode-block" id="apply_filter">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.apply_filter">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">apply_filter</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+<div class="viewcode-block" id="apply_filter"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.apply_filter">[docs]</a><span class="k">def</span> <span class="nf">apply_filter</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
     <span class="n">col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">lower_bound</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
     <span class="n">upper_bound</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Application of bound filters to a specified column (can be used consecutively).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to use.</span>
+<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to use.</span>
 <span class="sd">        col (str): Name of the column to filter. Passing &quot;index&quot; for col will</span>
 <span class="sd">            filter on the index in each dataframe partition.</span>
 <span class="sd">        lower_bound (float, optional): The lower bound used in the filtering.</span>
@@ -531,7 +522,7 @@
 <span class="sd">            Defaults to np.inf.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        pd.DataFrame | dask.dataframe.DataFrame: The filtered dataframe.</span>
+<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: The filtered dataframe.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span>
@@ -545,10 +536,7 @@
     <span class="k">return</span> <span class="n">out_df</span></div>
 
 
-
-<div class="viewcode-block" id="add_time_stamped_data">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.add_time_stamped_data">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">add_time_stamped_data</span><span class="p">(</span>
+<div class="viewcode-block" id="add_time_stamped_data"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.add_time_stamped_data">[docs]</a><span class="k">def</span> <span class="nf">add_time_stamped_data</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">time_stamps</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -560,15 +548,14 @@
 <span class="sd">    timestamps in the dataframe.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (dask.dataframe.DataFrame): Dataframe to use.</span>
+<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to use.</span>
 <span class="sd">        time_stamps (np.ndarray): Time stamps of the values to add</span>
 <span class="sd">        data (np.ndarray): Values corresponding at the time stamps in time_stamps</span>
 <span class="sd">        dest_column (str): destination column name</span>
 <span class="sd">        time_stamp_column (str): Time stamp column name</span>
-<span class="sd">        **kwds: Keyword arguments passed to map_partitions</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        dask.dataframe.DataFrame: Dataframe with added column</span>
+<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: Dataframe with added column</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">time_stamp_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">time_stamp_column</span><span class="si">}</span><span class="s2"> not found in dataframe!&quot;</span><span class="p">)</span>
@@ -576,7 +563,7 @@
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_stamps</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;time_stamps and data have to be of same length!&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">interpolate_timestamps</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">interpolate_timestamps</span><span class="p">(</span>
         <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">df_timestamps</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">time_stamp_column</span><span class="p">]</span>
@@ -591,31 +578,24 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
-
-<div class="viewcode-block" id="map_columns_2d">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.map_columns_2d">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">map_columns_2d</span><span class="p">(</span>
-    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+<div class="viewcode-block" id="map_columns_2d"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.map_columns_2d">[docs]</a><span class="k">def</span> <span class="nf">map_columns_2d</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
     <span class="n">map_2d</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">x_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">y_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a 2-dimensional mapping simultaneously to two dimensions.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        df (pd.DataFrame | dask.dataframe.DataFrame): Dataframe to use.</span>
+<span class="sd">        df (Union[pd.DataFrame, dask.dataframe.DataFrame]): Dataframe to use.</span>
 <span class="sd">        map_2d (Callable): 2D mapping function.</span>
 <span class="sd">        x_column (str): The X column of the dataframe to apply mapping to.</span>
 <span class="sd">        y_column (str): The Y column of the dataframe to apply mapping to.</span>
-<span class="sd">        **kwds:</span>
-<span class="sd">            - *new_x_column*: Name of the new x-column. Default is to overwrite the x-column.</span>
-<span class="sd">            - *new_y_column*: Name of the new y-column. Default is to overwrite the y-column.</span>
-
-<span class="sd">            Additional keyword argument are passed to the 2D mapping function.</span>
+<span class="sd">        **kwds: Additional arguments for the 2D mapping function.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        pd.DataFrame | dask.dataframe.DataFrame: Dataframe with mapped columns.</span>
+<span class="sd">        Union[pd.DataFrame, dask.dataframe.DataFrame]: Dataframe with mapped columns.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">new_x_column</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;new_x_column&quot;</span><span class="p">,</span> <span class="n">x_column</span><span class="p">)</span>
     <span class="n">new_y_column</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;new_y_column&quot;</span><span class="p">,</span> <span class="n">y_column</span><span class="p">)</span>
@@ -629,13 +609,10 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
-
-<div class="viewcode-block" id="forward_fill_lazy">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.forward_fill_lazy">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">forward_fill_lazy</span><span class="p">(</span>
+<div class="viewcode-block" id="forward_fill_lazy"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.forward_fill_lazy">[docs]</a><span class="k">def</span> <span class="nf">forward_fill_lazy</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">columns</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">before</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+    <span class="n">before</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
     <span class="n">compute_lengths</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
@@ -649,8 +626,8 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        df (dask.dataframe.DataFrame): The dataframe to forward fill.</span>
-<span class="sd">        columns (list, optional): The columns to forward fill. If None, fills all columns</span>
-<span class="sd">        before (str | int, optional): The number of rows to include before the current partition.</span>
+<span class="sd">        columns (list): The columns to forward fill. If None, fills all columns</span>
+<span class="sd">        before (int, str, optional): The number of rows to include before the current partition.</span>
 <span class="sd">            if &#39;max&#39; it takes as much as possible from the previous partition, which is</span>
 <span class="sd">            the size of the smallest partition in the dataframe. Defaults to &#39;max&#39;.</span>
 <span class="sd">        compute_lengths (bool, optional): Whether to compute the length of each partition</span>
@@ -670,7 +647,7 @@
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> not in dataframe!&quot;</span><span class="p">)</span>
 
     <span class="c1"># Define a custom function to forward fill specified columns</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">forward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
         <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">df</span>
 
@@ -694,13 +671,10 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
-
-<div class="viewcode-block" id="backward_fill_lazy">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.backward_fill_lazy">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">backward_fill_lazy</span><span class="p">(</span>
+<div class="viewcode-block" id="backward_fill_lazy"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.backward_fill_lazy">[docs]</a><span class="k">def</span> <span class="nf">backward_fill_lazy</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">columns</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">after</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+    <span class="n">after</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
     <span class="n">compute_lengths</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
@@ -712,8 +686,8 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        df (dask.dataframe.DataFrame): The dataframe to forward fill.</span>
-<span class="sd">        columns (list, optional): The columns to forward fill. If None, fills all columns</span>
-<span class="sd">        after (str | int, optional): The number of rows to include after the current partition.</span>
+<span class="sd">        columns (list): The columns to forward fill. If None, fills all columns</span>
+<span class="sd">        after (int, str, optional): The number of rows to include after the current partition.</span>
 <span class="sd">            if &#39;max&#39; it takes as much as possible from the previous partition, which is</span>
 <span class="sd">            the size of the smallest partition in the dataframe. Defaults to &#39;max&#39;.</span>
 <span class="sd">        compute_lengths (bool, optional): Whether to compute the length of each partition</span>
@@ -733,7 +707,7 @@
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> not in dataframe!&quot;</span><span class="p">)</span>
 
     <span class="c1"># Define a custom function to forward fill specified columns</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">backward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">backward_fill_partition</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
         <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">bfill</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">df</span>
 
@@ -757,16 +731,13 @@
     <span class="k">return</span> <span class="n">df</span></div>
 
 
-
-<div class="viewcode-block" id="offset_by_other_columns">
-<a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.offset_by_other_columns">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">offset_by_other_columns</span><span class="p">(</span>
+<div class="viewcode-block" id="offset_by_other_columns"><a class="viewcode-back" href="../../../sed/dfops.html#sed.core.dfops.offset_by_other_columns">[docs]</a><span class="k">def</span> <span class="nf">offset_by_other_columns</span><span class="p">(</span>
     <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">target_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">offset_columns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-    <span class="n">weights</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
-    <span class="n">reductions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">preserve_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">offset_columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
+    <span class="n">reductions</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">preserve_mean</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">rename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
@@ -775,13 +746,13 @@
 <span class="sd">    Args:</span>
 <span class="sd">        df (dask.dataframe.DataFrame): Dataframe to use. Currently supports only dask dataframes.</span>
 <span class="sd">        target_column (str): Name of the column to apply the offset to.</span>
-<span class="sd">        offset_columns (str | Sequence[str]): Name of the column(s) to use for the offset.</span>
-<span class="sd">        weights (float | Sequence[float]): weights to apply on each column before adding. Used also</span>
-<span class="sd">            for changing sign.</span>
-<span class="sd">        reductions (str | Sequence[str], optional): Reduction function to use for the offset.</span>
+<span class="sd">        offset_columns (str): Name of the column(s) to use for the offset.</span>
+<span class="sd">        weights (Union[float, Sequence[float]]): weights to apply on each column before adding.</span>
+<span class="sd">            Used also for changing sign.</span>
+<span class="sd">        reductions (Union[str, Sequence[str]], optional): Reduction function to use for the offset.</span>
 <span class="sd">            Defaults to &quot;mean&quot;. Currently, only mean is supported.</span>
-<span class="sd">        preserve_mean (bool | Sequence[bool], optional): Whether to subtract the mean of the offset</span>
-<span class="sd">            column. Defaults to False. If a list is given, it must have the same length as</span>
+<span class="sd">        preserve_mean (Union[bool, Sequence[bool]], optional): Whether to subtract the mean of the</span>
+<span class="sd">            offset column. Defaults to False. If a list is given, it must have the same length as</span>
 <span class="sd">            offset_columns. Otherwise the value passed is used for all columns.</span>
 <span class="sd">        inplace (bool, optional): Whether to apply the offset inplace.</span>
 <span class="sd">            If false, the new column will have the name provided by rename, or has the same name as</span>
@@ -836,24 +807,56 @@
             <span class="s2">&quot;Please open a request on GitHub if this feature is required.&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
+    <span class="c1"># calculate the mean of the columns to reduce</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">col</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">pm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">reductions</span><span class="p">,</span> <span class="n">preserve_mean</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">red</span> <span class="ow">or</span> <span class="n">pm</span>
+    <span class="p">}</span>
+
+    <span class="c1"># define the functions to apply the offsets</span>
+    <span class="k">def</span> <span class="nf">shift_by_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">signs</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">flip_signs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shift the target column by the mean of the offset columns.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="o">-</span><span class="n">signs</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="k">if</span> <span class="n">flip_signs</span> <span class="k">else</span> <span class="n">signs</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span> <span class="o">*</span> <span class="n">means</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">shift_by_row</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">signs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply the offsets to the target column.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">+</span> <span class="n">signs</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
+
     <span class="c1"># apply offset from the reduced columns</span>
-    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">red</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">reductions</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">red</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">+</span> <span class="n">signs_dict</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">(</span>
+        <span class="n">shift_by_mean</span><span class="p">,</span>
+        <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">red</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">reductions</span><span class="p">)</span> <span class="k">if</span> <span class="n">red</span><span class="p">],</span>
+        <span class="n">signs</span><span class="o">=</span><span class="n">signs_dict</span><span class="p">,</span>
+        <span class="n">means</span><span class="o">=</span><span class="n">means</span><span class="p">,</span>
+        <span class="n">meta</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># apply offset from the offset columns</span>
-    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">red</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">reductions</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">red</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">+</span> <span class="n">signs_dict</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">(</span>
+        <span class="n">shift_by_row</span><span class="p">,</span>
+        <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">red</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">reductions</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">red</span><span class="p">],</span>
+        <span class="n">signs</span><span class="o">=</span><span class="n">signs_dict</span><span class="p">,</span>
+        <span class="n">meta</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># compensate shift from the preserved mean columns</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">preserve_mean</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">pmean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">preserve_mean</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">pmean</span><span class="p">:</span>
-                <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">-</span> <span class="n">signs_dict</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">(</span>
+            <span class="n">shift_by_mean</span><span class="p">,</span>
+            <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">pmean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">offset_columns</span><span class="p">,</span> <span class="n">preserve_mean</span><span class="p">)</span> <span class="k">if</span> <span class="n">pmean</span><span class="p">],</span>
+            <span class="n">signs</span><span class="o">=</span><span class="n">signs_dict</span><span class="p">,</span>
+            <span class="n">means</span><span class="o">=</span><span class="n">means</span><span class="p">,</span>
+            <span class="n">flip_signs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">meta</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">df</span></div>
-
 </pre></div>
 
                 </article>
@@ -904,7 +907,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

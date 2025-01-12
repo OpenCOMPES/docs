@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contributing to sed &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>Contributing to sed &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,16 +38,16 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=79a2d137"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'misc/contributing';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="Development" href="contribution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -432,12 +432,12 @@
                 <article class="bd-article">
                   
   <section id="contributing-to-sed">
-<h1>Contributing to sed<a class="headerlink" href="#contributing-to-sed" title="Link to this heading">#</a></h1>
+<h1>Contributing to sed<a class="headerlink" href="#contributing-to-sed" title="Permalink to this heading">#</a></h1>
 <p>Welcome to the sed project, a collaboration of the Open Community of Multidimensional Photoemission Spectroscopy.</p>
 <p>Whether you are a beamline scientist hoping to create a loader for your data, or would like to add a new feature to the project, we welcome your contributions.</p>
 <p>This guide will walk you through the process of setting up your development environment, and the workflow for contributing to the project.</p>
 <section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
 <li><p><strong>Clone the Repository:</strong></p>
 <ul class="simple">
@@ -457,10 +457,11 @@
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Install uv and Python:</strong> Ensure you have uv and Python 3.9, 3.10, 3.11 or 3.12 installed. You can install it e.g. using the following commands:</p>
+<li><p><strong>Install Python and Poetry:</strong>
+- Ensure you have Python 3.8, 3.9, 3.10 or 3.11 and poetry installed.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.10
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pipx
+pipx<span class="w"> </span>install<span class="w"> </span>poetry
 </pre></div>
 </div>
 </div></blockquote>
@@ -472,17 +473,10 @@ uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> 
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Set up virtual environment:</strong> Create a python virtual environment, and activate it. You can optionally select the python version, and set the path</p>
+<li><p><strong>Install Dependencies:</strong>
+- Navigate to the project directory and install the project dependencies (including development ones) using Poetry:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>-p<span class="o">=</span><span class="m">3</span>.10<span class="w"> </span>.venv
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-<li><p><strong>Install Dependencies:</strong> Navigate to the project directory and install the project and its dependencies (including development ones) in “editable” mode using uv. Optionally, the jupyter notebook can be installed as well:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev,notebook<span class="o">]</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install<span class="w"> </span>--dev
 </pre></div>
 </div>
 </div></blockquote>
@@ -490,15 +484,15 @@ uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> 
 </ol>
 </section>
 <section id="development-workflow">
-<h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading">#</a></h2>
+<h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This guide assumes that you followed the previous steps and have uv, python and the package with dev dependencies installed on your machine.</p>
+<p>This guide assumes that you have Python (version 3.8, 3.9, 3.10, 3.11) and poetry with dev dependencies installed on your machine.</p>
 </div>
 <ol class="arabic">
 <li><p><strong>Install pre-commit hooks:</strong> To ensure your code is formatted correctly, install pre-commit hooks:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
 </pre></div>
 </div>
 </div></blockquote>
@@ -525,7 +519,7 @@ uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> 
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Push Changes:</strong> Push your changes to your new branch:</p>
+<li><p><strong>Push Changes:</strong> Push your changes to your fork:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature-branch
 </pre></div>
@@ -536,7 +530,7 @@ uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> 
 </ol>
 </section>
 <section id="pull-request-guidelines">
-<h2>Pull Request Guidelines<a class="headerlink" href="#pull-request-guidelines" title="Link to this heading">#</a></h2>
+<h2>Pull Request Guidelines<a class="headerlink" href="#pull-request-guidelines" title="Permalink to this heading">#</a></h2>
 <p>Please give a brief description of the changes you have made in your pull request.
 If your pull request fixes an issue, please reference the issue number in the pull request description.</p>
 <p>Before your pull request can be merged, it must pass the following checks:</p>
@@ -549,7 +543,7 @@ If your pull request fixes an issue, please reference the issue number in the pu
 <p>Once all checks are successful and your code is approved, it will be merged into the main branch.</p>
 </section>
 <section id="developing-a-loader">
-<h2>Developing a Loader<a class="headerlink" href="#developing-a-loader" title="Link to this heading">#</a></h2>
+<h2>Developing a Loader<a class="headerlink" href="#developing-a-loader" title="Permalink to this heading">#</a></h2>
 <p>If you are developing a loader for your beamline, please follow the guidelines below.</p>
 <ol class="arabic simple">
 <li><p><strong>Create a Loader:</strong></p>
@@ -668,7 +662,7 @@ If your pull request fixes an issue, please reference the issue number in the pu
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

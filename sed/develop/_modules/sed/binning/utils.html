@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.binning.utils &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>sed.binning.utils &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,16 +37,16 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=79a2d137"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/binning/utils';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -415,27 +415,33 @@
                   
   <h1>Source code for sed.binning.utils</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This file contains helper functions for the sed.binning module</span>
+
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_arraysum</span><span class="p">(</span><span class="n">array_a</span><span class="p">,</span> <span class="n">array_b</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_arraysum</span><span class="p">(</span><span class="n">array_a</span><span class="p">,</span> <span class="n">array_b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the sum of two arrays.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">array_a</span> <span class="o">+</span> <span class="n">array_b</span>
 
 
-<div class="viewcode-block" id="simplify_binning_arguments">
-<a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.simplify_binning_arguments">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">simplify_binning_arguments</span><span class="p">(</span>
-    <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+<div class="viewcode-block" id="simplify_binning_arguments"><a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.simplify_binning_arguments">[docs]</a><span class="k">def</span> <span class="nf">simplify_binning_arguments</span><span class="p">(</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="nb">int</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">,</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="p">],</span>
     <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the flexible input for defining bins into a</span>
 <span class="sd">    simple &quot;axes&quot; &quot;bins&quot; &quot;ranges&quot; tuple.</span>
 
@@ -443,7 +449,7 @@
 <span class="sd">    binning functions defined here.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        bins (int | dict | Sequence[int] | Sequence[np.ndarray] | Sequence[tuple]):</span>
+<span class="sd">        bins (int, dict, Sequence[int], Sequence[np.ndarray], Sequence[tuple]):</span>
 <span class="sd">            Definition of the bins. Can  be any of the following cases:</span>
 
 <span class="sd">                - an integer describing the number of bins for all dimensions. This</span>
@@ -466,7 +472,7 @@
 <span class="sd">            the order of the dimensions in the resulting array. Only not required if</span>
 <span class="sd">            bins are provided as dictionary containing the axis names.</span>
 <span class="sd">            Defaults to None.</span>
-<span class="sd">        ranges (Sequence[tuple[float, float]], optional): Sequence of tuples containing</span>
+<span class="sd">        ranges (Sequence[Tuple[float, float]], optional): Sequence of tuples containing</span>
 <span class="sd">            the start and end point of the binning range. Required if bins given as</span>
 <span class="sd">            int or Sequence[int]. Defaults to None.</span>
 
@@ -477,7 +483,7 @@
 <span class="sd">        AttributeError: Shape mismatch</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple[list[int] | list[np.ndarray], list[str], list[tuple[float, float]]]: Tuple</span>
+<span class="sd">        Tuple[Union[List[int], List[np.ndarray]], List[Tuple[float, float]]]: Tuple</span>
 <span class="sd">        containing lists of bin centers, axes, and ranges.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># if bins is a dictionary: unravel to axes and bins</span>
@@ -523,7 +529,7 @@
 
     <span class="c1"># if bins are provided as int, check that ranges are present</span>
     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">ranges</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
                 <span class="s2">&quot;Must provide a range if bins is an integer or list of integers&quot;</span><span class="p">,</span>
@@ -535,7 +541,7 @@
 
     <span class="c1"># otherwise, all bins should be of type np.ndarray here</span>
     <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">):</span>
-        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not interpret bins of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -548,10 +554,7 @@
     <span class="k">return</span> <span class="n">bins</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">axes</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span> <span class="k">if</span> <span class="n">ranges</span> <span class="k">else</span> <span class="kc">None</span></div>
 
 
-
-<div class="viewcode-block" id="bin_edges_to_bin_centers">
-<a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.bin_edges_to_bin_centers">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">bin_edges_to_bin_centers</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="bin_edges_to_bin_centers"><a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.bin_edges_to_bin_centers">[docs]</a><span class="k">def</span> <span class="nf">bin_edges_to_bin_centers</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a list of bin edges into corresponding bin centers</span>
 
 <span class="sd">    Args:</span>
@@ -565,10 +568,7 @@
     <span class="k">return</span> <span class="n">bin_centers</span></div>
 
 
-
-<div class="viewcode-block" id="bin_centers_to_bin_edges">
-<a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.bin_centers_to_bin_edges">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">bin_centers_to_bin_edges</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="bin_centers_to_bin_edges"><a class="viewcode-back" href="../../../sed/binning.html#sed.binning.utils.bin_centers_to_bin_edges">[docs]</a><span class="k">def</span> <span class="nf">bin_centers_to_bin_edges</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a list of bin centers into corresponding bin edges</span>
 
 <span class="sd">    Args:</span>
@@ -591,7 +591,6 @@
     <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">bin_edges</span></div>
-
 </pre></div>
 
                 </article>
@@ -642,7 +641,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

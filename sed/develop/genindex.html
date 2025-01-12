@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>Index &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,16 +37,16 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=79a2d137"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -398,6 +398,7 @@
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
  | <a href="#J"><strong>J</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -500,10 +501,12 @@
 </li>
       <li><a href="sed/dataset.html#sed.dataset.dataset.Dataset.available">available (sed.dataset.dataset.Dataset property)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.available_channels">available_channels (sed.loader.sxp.loader.SXPLoader property)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.available_channels">available_channels (sed.loader.flash.loader.FlashLoader property)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.available_channels">(sed.loader.sxp.loader.SXPLoader property)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.available_runs">available_runs (sed.loader.flash.loader.FlashLoader property)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -520,10 +523,10 @@
 </li>
       <li><a href="sed/calibrator.html#sed.calibrator.energy.EnergyCalibrator.bin_data">bin_data() (sed.calibrator.energy.EnergyCalibrator method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/binning.html#sed.binning.bin_dataframe">bin_dataframe() (in module sed.binning)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/binning.html#sed.binning.utils.bin_edges_to_bin_centers">bin_edges_to_bin_centers() (in module sed.binning.utils)</a>
 </li>
       <li><a href="sed/binning.html#sed.binning.bin_partition">bin_partition() (in module sed.binning)</a>
@@ -532,8 +535,12 @@
 </li>
       <li><a href="sed/binning.html#sed.binning.numba_bin.binsearch">binsearch() (in module sed.binning.numba_bin)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.buffer_file_handler">buffer_file_handler() (sed.loader.sxp.loader.SXPLoader method)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.buffer_file_handler">buffer_file_handler() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.buffer_file_handler">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -566,12 +573,14 @@
 </li>
       <li><a href="sed/core.html#sed.core.SedProcessor.compute">compute() (sed.core.SedProcessor method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.concatenate_channels">concatenate_channels() (sed.loader.sxp.loader.SXPLoader method)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.concatenate_channels">concatenate_channels() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.concatenate_channels">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
+      </ul></li>
       <li><a href="sed/core.html#sed.core.SedProcessor.config">config (sed.core.SedProcessor property)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.coordinate_transform">coordinate_transform() (sed.calibrator.momentum.MomentumCorrector method)</a>
 </li>
       <li><a href="sed/loader.html#sed.loader.mirrorutil.CopyTool.copy">copy() (sed.loader.mirrorutil.CopyTool method)</a>
@@ -580,26 +589,64 @@
 </li>
       <li><a href="sed/calibrator.html#sed.calibrator.energy.correction_function">correction_function() (in module sed.calibrator.energy)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/core.html#sed.core.SedProcessor.cpy">cpy() (sed.core.SedProcessor method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_buffer_file">create_buffer_file() (sed.loader.sxp.loader.SXPLoader method)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_buffer_file">create_buffer_file() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_buffer_file">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel">create_dataframe_per_channel() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_dataframe_per_channel">create_dataframe_per_channel() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_channel">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_electron">create_dataframe_per_electron() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_dataframe_per_electron">create_dataframe_per_electron() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_electron">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_file">create_dataframe_per_file() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_dataframe_per_file">create_dataframe_per_file() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_file">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_pulse">create_dataframe_per_pulse() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_dataframe_per_pulse">create_dataframe_per_pulse() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_pulse">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_train">create_dataframe_per_train() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_dataframe_per_train">create_dataframe_per_train() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_dataframe_per_train">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_electron">create_multi_index_per_electron() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_multi_index_per_electron">create_multi_index_per_electron() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_electron">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_pulse">create_multi_index_per_pulse() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_multi_index_per_pulse">create_multi_index_per_pulse() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_multi_index_per_pulse">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_numpy_array_per_channel">create_numpy_array_per_channel() (sed.loader.sxp.loader.SXPLoader method)</a>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.create_numpy_array_per_channel">create_numpy_array_per_channel() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.create_numpy_array_per_channel">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -665,7 +712,17 @@
       <li><a href="sed/dataset.html#sed.dataset.dataset.DatasetsManager.FILENAME">FILENAME (sed.dataset.dataset.DatasetsManager attribute)</a>
 </li>
       <li><a href="sed/core.html#sed.core.SedProcessor.files">files (sed.core.SedProcessor property)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.files">(sed.loader.flash.loader.FlashLoader attribute)</a>
 </li>
+        <li><a href="sed/loader.html#sed.loader.generic.loader.GenericLoader.files">(sed.loader.generic.loader.GenericLoader attribute)</a>
+</li>
+        <li><a href="sed/loader.html#sed.loader.mpes.loader.MpesLoader.files">(sed.loader.mpes.loader.MpesLoader attribute)</a>
+</li>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.files">(sed.loader.sxp.loader.SXPLoader attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/core.html#sed.core.SedProcessor.filter_column">filter_column() (sed.core.SedProcessor method)</a>
@@ -720,8 +777,12 @@
 </li>
       <li><a href="sed/loader.html#sed.loader.mpes.loader.get_attribute">get_attribute() (in module sed.loader.mpes.loader)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_channels">get_channels() (sed.loader.sxp.loader.SXPLoader method)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.get_channels">get_channels() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_channels">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
+      </ul></li>
       <li><a href="sed/loader.html#sed.loader.mpes.loader.get_count_rate">get_count_rate() (in module sed.loader.mpes.loader)</a>
 
       <ul>
@@ -738,8 +799,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sed/loader.html#sed.loader.mpes.loader.get_datasets_and_aliases">get_datasets_and_aliases() (in module sed.loader.mpes.loader)</a>
-</li>
       <li><a href="sed/loader.html#sed.loader.mpes.loader.get_elapsed_time">get_elapsed_time() (in module sed.loader.mpes.loader)</a>
 
       <ul>
@@ -766,6 +825,8 @@
         <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.get_files_from_run_id">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
       </ul></li>
+      <li><a href="sed/loader.html#sed.loader.mpes.loader.get_groups_and_aliases">get_groups_and_aliases() (in module sed.loader.mpes.loader)</a>
+</li>
       <li><a href="sed/loader.html#sed.loader.loader_interface.get_loader">get_loader() (in module sed.loader.loader_interface)</a>
 </li>
       <li><a href="sed/loader.html#sed.loader.flash.metadata.MetadataRetriever.get_metadata">get_metadata() (sed.loader.flash.metadata.MetadataRetriever method)</a>
@@ -774,11 +835,7 @@
 </li>
       <li><a href="sed/core.html#sed.core.SedProcessor.get_normalization_histogram">get_normalization_histogram() (sed.core.SedProcessor method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.utils.get_parquet_metadata">get_parquet_metadata() (in module sed.loader.utils)</a>
-</li>
       <li><a href="sed/loader.html#sed.loader.mpes.loader.MpesLoader.get_start_and_end_time">get_start_and_end_time() (sed.loader.mpes.loader.MpesLoader method)</a>
-</li>
-      <li><a href="sed/loader.html#sed.loader.utils.get_stats">get_stats() (in module sed.loader.utils)</a>
 </li>
       <li><a href="sed/loader.html#sed.loader.mirrorutil.get_target_dir">get_target_dir() (in module sed.loader.mirrorutil)</a>
 </li>
@@ -800,6 +857,18 @@
 </li>
       <li><a href="sed/loader.html#sed.loader.mpes.loader.hdf5_to_timed_dataframe">hdf5_to_timed_dataframe() (in module sed.loader.mpes.loader)</a>
 </li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.initialize_paths">initialize_paths() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.initialize_paths">(sed.loader.sxp.loader.SXPLoader method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -859,7 +928,17 @@
       <li><a href="sed/dfops.html#sed.core.dfops.map_columns_2d">map_columns_2d() (in module sed.core.dfops)</a>
 </li>
       <li><a href="sed/metadata.html#sed.core.metadata.MetaHandler.metadata">metadata (sed.core.metadata.MetaHandler property)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.metadata">(sed.loader.flash.loader.FlashLoader attribute)</a>
 </li>
+        <li><a href="sed/loader.html#sed.loader.generic.loader.GenericLoader.metadata">(sed.loader.generic.loader.GenericLoader attribute)</a>
+</li>
+        <li><a href="sed/loader.html#sed.loader.mpes.loader.MpesLoader.metadata">(sed.loader.mpes.loader.MpesLoader attribute)</a>
+</li>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.metadata">(sed.loader.sxp.loader.SXPLoader attribute)</a>
+</li>
+      </ul></li>
       <li><a href="sed/loader.html#sed.loader.flash.metadata.MetadataRetriever">MetadataRetriever (class in sed.loader.flash.metadata)</a>
 </li>
       <li><a href="sed/metadata.html#sed.core.metadata.MetaHandler">MetaHandler (class in sed.core.metadata)</a>
@@ -963,8 +1042,12 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.parquet_handler">parquet_handler() (sed.loader.sxp.loader.SXPLoader method)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.parquet_handler">parquet_handler() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.parquet_handler">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
+      </ul></li>
       <li><a href="sed/config.html#sed.core.config.parse_config">parse_config() (in module sed.core.config)</a>
 </li>
       <li><a href="sed/loader.html#sed.loader.utils.parse_h5_keys">parse_h5_keys() (in module sed.loader.utils)</a>
@@ -1009,18 +1092,32 @@
         <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.read_dataframe">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/dataset.html#sed.dataset.dataset.Dataset.remove">remove() (sed.dataset.dataset.Dataset method)</a>
 
       <ul>
         <li><a href="sed/dataset.html#sed.dataset.dataset.DatasetsManager.remove">(sed.dataset.dataset.DatasetsManager static method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.reset_deformation">reset_deformation() (sed.calibrator.momentum.MomentumCorrector method)</a>
 </li>
-      <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.reset_multi_index">reset_multi_index() (sed.loader.sxp.loader.SXPLoader method)</a>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.reset_multi_index">reset_multi_index() (sed.loader.flash.loader.FlashLoader method)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.reset_multi_index">(sed.loader.sxp.loader.SXPLoader method)</a>
 </li>
+      </ul></li>
+      <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.runs">runs (sed.loader.flash.loader.FlashLoader attribute)</a>
+
+      <ul>
+        <li><a href="sed/loader.html#sed.loader.generic.loader.GenericLoader.runs">(sed.loader.generic.loader.GenericLoader attribute)</a>
+</li>
+        <li><a href="sed/loader.html#sed.loader.mpes.loader.MpesLoader.runs">(sed.loader.mpes.loader.MpesLoader attribute)</a>
+</li>
+        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.runs">(sed.loader.sxp.loader.SXPLoader attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1275,32 +1372,14 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sed/calibrator.html#sed.calibrator.delay.DelayCalibrator.verbose">verbose (sed.calibrator.delay.DelayCalibrator property)</a>
-
-      <ul>
-        <li><a href="sed/calibrator.html#sed.calibrator.energy.EnergyCalibrator.verbose">(sed.calibrator.energy.EnergyCalibrator property)</a>
-</li>
-        <li><a href="sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.verbose">(sed.calibrator.momentum.MomentumCorrector property)</a>
-</li>
-        <li><a href="sed/core.html#sed.core.SedProcessor.verbose">(sed.core.SedProcessor property)</a>
-</li>
-        <li><a href="sed/loader.html#sed.loader.base.loader.BaseLoader.verbose">(sed.loader.base.loader.BaseLoader property)</a>
-</li>
-        <li><a href="sed/loader.html#sed.loader.flash.loader.FlashLoader.verbose">(sed.loader.flash.loader.FlashLoader property)</a>
-</li>
-        <li><a href="sed/loader.html#sed.loader.mpes.loader.MpesLoader.verbose">(sed.loader.mpes.loader.MpesLoader property)</a>
-</li>
-        <li><a href="sed/loader.html#sed.loader.sxp.loader.SXPLoader.verbose">(sed.loader.sxp.loader.SXPLoader property)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/calibrator.html#sed.calibrator.energy.EnergyCalibrator.view">view() (sed.calibrator.energy.EnergyCalibrator method)</a>
 
       <ul>
         <li><a href="sed/calibrator.html#sed.calibrator.momentum.MomentumCorrector.view">(sed.calibrator.momentum.MomentumCorrector method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sed/core.html#sed.core.SedProcessor.view_event_histogram">view_event_histogram() (sed.core.SedProcessor method)</a>
 </li>
   </ul></td>
@@ -1356,7 +1435,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

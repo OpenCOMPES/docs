@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Metadata &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>Metadata &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,16 +38,16 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=79a2d137"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/metadata';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="IO" href="io.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -440,22 +440,22 @@
                 <article class="bd-article">
                   
   <section id="module-sed.core.metadata">
-<span id="metadata"></span><h1>Metadata<a class="headerlink" href="#module-sed.core.metadata" title="Link to this heading">#</a></h1>
+<span id="metadata"></span><h1>Metadata<a class="headerlink" href="#module-sed.core.metadata" title="Permalink to this heading">#</a></h1>
 <p>This is a metadata handler class from the sed package</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="sed.core.metadata.MetaHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.core.metadata.</span></span><span class="sig-name descname"><span class="pre">MetaHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/metadata.html#MetaHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.metadata.MetaHandler" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.core.metadata.</span></span><span class="sig-name descname"><span class="pre">MetaHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/metadata.html#MetaHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.metadata.MetaHandler" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class provides methods to manipulate metadata dictionaries,
 and give a nice representation of them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>meta</strong> (<em>dict</em><em>, </em><em>optional</em>) – Pre-existing metadata dict. Defaults to None.</p>
+<dd class="field-odd"><p><strong>meta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">typing.Dict</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p>
 </dd>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="sed.core.metadata.MetaHandler.metadata">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#sed.core.metadata.MetaHandler.metadata" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><a class="headerlink" href="#sed.core.metadata.MetaHandler.metadata" title="Permalink to this definition">#</a></dt>
 <dd><p>Property returning the metadata dict.
 :returns: Dictionary of metadata.
 :rtype: dict</p>
@@ -463,7 +463,7 @@ and give a nice representation of them.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.core.metadata.MetaHandler.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duplicate_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/metadata.html#MetaHandler.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.metadata.MetaHandler.add" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duplicate_policy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/metadata.html#MetaHandler.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.metadata.MetaHandler.add" title="Permalink to this definition">#</a></dt>
 <dd><p>Add an entry to the metadata container</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -498,7 +498,7 @@ the same as “overwrite”.</p></li>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="sed.core.metadata.DuplicateEntryError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.core.metadata.</span></span><span class="sig-name descname"><span class="pre">DuplicateEntryError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'An</span> <span class="pre">entry</span> <span class="pre">already</span> <span class="pre">exists</span> <span class="pre">in</span> <span class="pre">metadata'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/metadata.html#DuplicateEntryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.metadata.DuplicateEntryError" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.core.metadata.</span></span><span class="sig-name descname"><span class="pre">DuplicateEntryError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'An</span> <span class="pre">entry</span> <span class="pre">already</span> <span class="pre">exists</span> <span class="pre">in</span> <span class="pre">metadata'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/metadata.html#DuplicateEntryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.metadata.DuplicateEntryError" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception raised when attempting to add a duplicate entry to the metadata container.</p>
 <dl class="py attribute">
@@ -508,7 +508,7 @@ the same as “overwrite”.</p></li>
 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">'An</span> <span class="pre">entry</span> <span class="pre">already</span> <span class="pre">exists</span> <span class="pre">in</span> <span class="pre">metadata'</span></code>)</p>
+<dd class="field-odd"><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">'An</span> <span class="pre">entry</span> <span class="pre">already</span> <span class="pre">exists</span> <span class="pre">in</span> <span class="pre">metadata'</span></code>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -614,7 +614,7 @@ the same as “overwrite”.</p></li>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>

@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Config &#8212; SED 0.4.1.dev352+gb3e79c3 documentation</title>
+    <title>Config &#8212; SED 0.4.0.dev0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,16 +38,16 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=79a2d137"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=57b8f4a9"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/config';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev352+gb3e79c3';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="Metadata" href="metadata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.1.dev352+gb3e79c3" />
+  <meta name="docsearch:version" content="0.4.0.dev0" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.1.dev352+gb3e79c3 documentation</p>
+    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
   
 </a></div>
     
@@ -440,11 +440,11 @@
                 <article class="bd-article">
                   
   <section id="module-sed.core.config">
-<span id="config"></span><h1>Config<a class="headerlink" href="#module-sed.core.config" title="Link to this heading">#</a></h1>
+<span id="config"></span><h1>Config<a class="headerlink" href="#module-sed.core.config" title="Permalink to this heading">#</a></h1>
 <p>This module contains a config library for loading yaml/json files into dicts</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.config.parse_config">
-<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">parse_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/sed/config/default.yaml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#parse_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.parse_config" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">parse_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/runner/work/sed/sed/sed/config/default.yaml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#parse_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.parse_config" title="Permalink to this definition">#</a></dt>
 <dd><p>Load the config dictionary from a file, or pass the provided config dictionary.
 The content of the loaded config dictionary is then completed from a set of pre-configured
 config files in hierarchical order, by adding missing items. These additional config files
@@ -453,25 +453,24 @@ can be also passed as optional arguments (file path strings or dictionaries).</p
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – config dictionary or file path.
+<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – config dictionary or file path.
 Files can be <em>json</em> or <em>yaml</em>. Defaults to None.</p></li>
-<li><p><strong>folder_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – working-folder-based config dictionary
+<li><p><strong>folder_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – working-folder-based config dictionary
 or file path. The loaded dictionary is completed with the folder-based values,
 taking preference over user, system and default values. Defaults to the file
 “sed_config.yaml” in the current working directory.</p></li>
-<li><p><strong>user_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – user-based config dictionary
+<li><p><strong>user_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – user-based config dictionary
 or file path. The loaded dictionary is completed with the user-based values,
 taking preference over system and default values.
 Defaults to the file “.sed/config.yaml” in the current user’s home directory.</p></li>
-<li><p><strong>system_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – system-wide config dictionary
+<li><p><strong>system_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – system-wide config dictionary
 or file path. The loaded dictionary is completed with the system-wide values,
 taking preference over default values. Defaults to the file “/etc/sed/config.yaml”
 on linux, and “%ALLUSERSPROFILE%/sed/config.yaml” on windows.</p></li>
-<li><p><strong>default_config</strong> (<em>dict</em><em> | </em><em>str</em><em>, </em><em>optional</em>) – default config dictionary
+<li><p><strong>default_config</strong> (<em>Union</em><em>[ </em><em>dict</em><em>, </em><em>str</em><em>, </em><em>]</em><em>, </em><em>optional</em>) – default config dictionary
 or file path. The loaded dictionary is completed with the default values.
 Defaults to <em>package_dir</em>/config/default.yaml”.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to report loaded config files. Defaults to True.</p></li>
-<li><p><strong>verify_config</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to verify config file. Defaults to True.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -481,7 +480,7 @@ Defaults to <em>package_dir</em>/config/default.yaml”.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Loaded and completed config dict, possibly verified by pydantic config model.</p>
+<dd class="field-odd"><p>Loaded and possibly completed config dictionary.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
@@ -491,7 +490,7 @@ Defaults to <em>package_dir</em>/config/default.yaml”.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.config.load_config">
-<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#load_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.load_config" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#load_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.load_config" title="Permalink to this definition">#</a></dt>
 <dd><p>Loads config parameter files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -514,7 +513,7 @@ Defaults to <em>package_dir</em>/config/default.yaml”.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.config.save_config">
-<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#save_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.save_config" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#save_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.save_config" title="Permalink to this definition">#</a></dt>
 <dd><p>Function to save a given config dictionary to a json or yaml file. Normally, it loads any
 existing file of the given name, and keeps any existing dictionary keys not present in the
 provided dictionary. The overwrite option creates a fully empty dictionary first.</p>
@@ -533,7 +532,7 @@ Defaults to False.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.config.complete_dictionary">
-<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">complete_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dictionary</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#complete_dictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.complete_dictionary" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.config.</span></span><span class="sig-name descname"><span class="pre">complete_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dictionary</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dictionary</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/config.html#complete_dictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.config.complete_dictionary" title="Permalink to this definition">#</a></dt>
 <dd><p>Iteratively completes a dictionary from a base dictionary, by adding keys that are missing
 in the dictionary, and are present in the base dictionary.</p>
 <dl class="field-list simple">
@@ -651,7 +650,7 @@ in the dictionary, and are present in the base dictionary.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>
