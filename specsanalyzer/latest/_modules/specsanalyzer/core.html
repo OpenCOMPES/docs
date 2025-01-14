@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>specsanalyzer.core &#8212; specsanalyzer 0.5.1.dev2+g5d28e05 documentation</title>
+    <title>specsanalyzer.core &#8212; specsanalyzer 0.5.1.dev10+g0c6ed22 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=b7a8c58f"></script>
+    <script src="../../_static/documentation_options.js?v=8ac8b1d2"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.1.dev2+g5d28e05';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.1.dev10+g0c6ed22';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.5.1.dev2+g5d28e05" />
+  <meta name="docsearch:version" content="0.5.1.dev10+g0c6ed22" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.5.1.dev2+g5d28e05 documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.1.dev10+g0c6ed22 documentation</p>
   
 </a></div>
     
@@ -551,35 +551,35 @@
                   
   <h1>Source code for specsanalyzer.core</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This is the specsanalyzer core class&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generator</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generator</span>
 
-<span class="kn">import</span> <span class="nn">imutils</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">ipw</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imutils</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipw</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
 
-<span class="kn">from</span> <span class="nn">specsanalyzer</span> <span class="kn">import</span> <span class="n">io</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.config</span> <span class="kn">import</span> <span class="n">complete_dictionary</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.config</span> <span class="kn">import</span> <span class="n">parse_config</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.convert</span> <span class="kn">import</span> <span class="n">calculate_matrix_correction</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.convert</span> <span class="kn">import</span> <span class="n">get_damatrix_from_calib2d</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.convert</span> <span class="kn">import</span> <span class="n">physical_unit_data</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.img_tools</span> <span class="kn">import</span> <span class="n">crop_xarray</span>
-<span class="kn">from</span> <span class="nn">specsanalyzer.img_tools</span> <span class="kn">import</span> <span class="n">fourier_filter_2d</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer</span><span class="w"> </span><span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">complete_dictionary</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_matrix_correction</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_damatrix_from_calib2d</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">physical_unit_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.img_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">crop_xarray</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.img_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">fourier_filter_2d</span>
 
 <span class="n">package_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="SpecsAnalyzer">
 <a class="viewcode-back" href="../../specsanalyzer/core.html#specsanalyzer.core.SpecsAnalyzer">[docs]</a>
-<span class="k">class</span> <span class="nc">SpecsAnalyzer</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SpecsAnalyzer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;SpecsAnalyzer: A class to convert photoemission data from a SPECS Phoibos analyzer from</span>
 <span class="sd">    camera image coordinates into physical units (energy, angle, position).</span>
 
@@ -589,7 +589,7 @@
 <span class="sd">        **kwds: Keyword arguments passed to ``parse_config``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">{},</span>
@@ -619,7 +619,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_correction_matrix_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">pretty_str</span> <span class="o">=</span> <span class="s2">&quot;No configuration available&quot;</span>
         <span class="k">else</span><span class="p">:</span>
@@ -630,23 +630,23 @@
         <span class="k">return</span> <span class="n">pretty_str</span> <span class="k">if</span> <span class="n">pretty_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get config&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">calib2d</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calib2d</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get calib2d dict&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calib2d</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">correction_matrix_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">correction_matrix_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get correction_matrix_dict&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_correction_matrix_dict</span>
 
 <div class="viewcode-block" id="SpecsAnalyzer.convert_image">
 <a class="viewcode-back" href="../../specsanalyzer/core.html#specsanalyzer.core.SpecsAnalyzer.convert_image">[docs]</a>
-    <span class="k">def</span> <span class="nf">convert_image</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_image</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">raw_img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">lens_mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -914,7 +914,7 @@
 
 <div class="viewcode-block" id="SpecsAnalyzer.crop_tool">
 <a class="viewcode-back" href="../../specsanalyzer/core.html#specsanalyzer.core.SpecsAnalyzer.crop_tool">[docs]</a>
-    <span class="k">def</span> <span class="nf">crop_tool</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">crop_tool</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">raw_img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">lens_mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1053,7 +1053,7 @@
             <span class="nb">max</span><span class="o">=</span><span class="n">data_array</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">hline</span><span class="p">,</span> <span class="n">vline</span><span class="p">,</span> <span class="n">v_vals</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">hline</span><span class="p">,</span> <span class="n">vline</span><span class="p">,</span> <span class="n">v_vals</span><span class="p">):</span>
             <span class="n">lineh1</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">([</span><span class="n">hline</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
             <span class="n">lineh2</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">([</span><span class="n">hline</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
             <span class="n">linev1</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">([</span><span class="n">vline</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
@@ -1068,7 +1068,7 @@
             <span class="n">v_vals</span><span class="o">=</span><span class="n">clim_slider</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">cropit</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">cropit</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
             <span class="n">ang_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">hline_slider</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
             <span class="n">ang_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">hline_slider</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
             <span class="n">ek_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">vline_slider</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
@@ -1131,7 +1131,7 @@
 
 <div class="viewcode-block" id="SpecsAnalyzer.fft_tool">
 <a class="viewcode-back" href="../../specsanalyzer/core.html#specsanalyzer.core.SpecsAnalyzer.fft_tool">[docs]</a>
-    <span class="k">def</span> <span class="nf">fft_tool</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fft_tool</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">raw_image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1252,7 +1252,7 @@
             <span class="nb">max</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">v_vals</span><span class="p">,</span> <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">v_vals</span><span class="p">,</span> <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">):</span>
             <span class="n">fft_filter_peaks</span> <span class="o">=</span> <span class="n">create_fft_params</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">,</span> <span class="n">sigma_x</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">)</span>
             <span class="n">msk</span> <span class="o">=</span> <span class="n">fourier_filter_2d</span><span class="p">(</span><span class="n">raw_image</span><span class="p">,</span> <span class="n">peaks</span><span class="o">=</span><span class="n">fft_filter_peaks</span><span class="p">,</span> <span class="n">ret</span><span class="o">=</span><span class="s2">&quot;mask&quot;</span><span class="p">)</span>
             <span class="n">filtered_new</span> <span class="o">=</span> <span class="n">fourier_filter_2d</span><span class="p">(</span><span class="n">raw_image</span><span class="p">,</span> <span class="n">peaks</span><span class="o">=</span><span class="n">fft_filter_peaks</span><span class="p">,</span> <span class="n">ret</span><span class="o">=</span><span class="s2">&quot;filtered&quot;</span><span class="p">)</span>
@@ -1289,7 +1289,7 @@
             <span class="n">v_vals</span><span class="o">=</span><span class="n">clim_slider</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">apply_fft</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">apply_fft</span><span class="p">(</span><span class="n">apply</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
             <span class="n">amplitude</span> <span class="o">=</span> <span class="n">amplitude_slider</span><span class="o">.</span><span class="n">value</span>
             <span class="n">pos_x</span> <span class="o">=</span> <span class="n">pos_x_slider</span><span class="o">.</span><span class="n">value</span>
             <span class="n">pos_y</span> <span class="o">=</span> <span class="n">pos_y_slider</span><span class="o">.</span><span class="n">value</span>
@@ -1329,7 +1329,7 @@
 
 <div class="viewcode-block" id="create_fft_params">
 <a class="viewcode-back" href="../../specsanalyzer/core.html#specsanalyzer.core.create_fft_params">[docs]</a>
-<span class="k">def</span> <span class="nf">create_fft_params</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_fft_params</span><span class="p">(</span>
     <span class="n">amplitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">pos_x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">pos_y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>specsscan.helpers &#8212; specsanalyzer 0.5.1.dev2+g5d28e05 documentation</title>
+    <title>specsscan.helpers &#8212; specsanalyzer 0.5.1.dev10+g0c6ed22 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=b7a8c58f"></script>
+    <script src="../../_static/documentation_options.js?v=8ac8b1d2"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.1.dev2+g5d28e05';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.1.dev10+g0c6ed22';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.5.1.dev2+g5d28e05" />
+  <meta name="docsearch:version" content="0.5.1.dev10+g0c6ed22" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.5.1.dev2+g5d28e05 documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.1.dev10+g0c6ed22 documentation</p>
   
 </a></div>
     
@@ -551,27 +551,27 @@
                   
   <h1>Source code for specsscan.helpers</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This script contains helper functions used by the specsscan class&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">HTTPError</span>
-<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">URLError</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">URLError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">specsanalyzer.config</span> <span class="kn">import</span> <span class="n">complete_dictionary</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">complete_dictionary</span>
 
 
 <div class="viewcode-block" id="get_scan_path">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_scan_path">[docs]</a>
-<span class="k">def</span> <span class="nf">get_scan_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">basepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_scan_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">basepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the path to the given scan.</span>
 
 <span class="sd">    Args:</span>
@@ -607,7 +607,7 @@
 
 <div class="viewcode-block" id="load_images">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.load_images">[docs]</a>
-<span class="k">def</span> <span class="nf">load_images</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_images</span><span class="p">(</span>
     <span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">df_lut</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">iterations</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">slice</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">slice</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -681,7 +681,7 @@
                 <span class="s2">&quot;the chosen data. In case of a single scan, &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;try without passing iterations inside the &quot;</span>
                 <span class="s2">&quot;load_scan method.&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Averaging over </span><span class="si">{</span><span class="n">avg_dim</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">raw_2d_sliced</span><span class="p">):</span>
@@ -718,7 +718,7 @@
 
 <div class="viewcode-block" id="get_raw2d">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_raw2d">[docs]</a>
-<span class="k">def</span> <span class="nf">get_raw2d</span><span class="p">(</span><span class="n">scan_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">raw_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_raw2d</span><span class="p">(</span><span class="n">scan_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">raw_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a 1-D array of raw scan names into 2-D based on the number of iterations</span>
 
 <span class="sd">    Args:</span>
@@ -762,7 +762,7 @@
 
 <div class="viewcode-block" id="parse_lut_to_df">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.parse_lut_to_df">[docs]</a>
-<span class="k">def</span> <span class="nf">parse_lut_to_df</span><span class="p">(</span><span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_lut_to_df</span><span class="p">(</span><span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads the contents of LUT.txt file into a pandas data frame to be used as metadata.</span>
 
 <span class="sd">    Args:</span>
@@ -794,7 +794,7 @@
 
 <div class="viewcode-block" id="get_coords">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_coords">[docs]</a>
-<span class="k">def</span> <span class="nf">get_coords</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_coords</span><span class="p">(</span>
     <span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">scan_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">scan_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
@@ -842,7 +842,7 @@
             <span class="n">dim</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;scanvector.txt file not found!&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;scanvector.txt file not found!&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="k">if</span> <span class="n">scan_type</span> <span class="o">==</span> <span class="s2">&quot;delay&quot;</span><span class="p">:</span>
         <span class="n">t_0</span> <span class="o">=</span> <span class="n">scan_info</span><span class="p">[</span><span class="s2">&quot;TimeZero&quot;</span><span class="p">]</span>
@@ -855,7 +855,7 @@
 
 <div class="viewcode-block" id="compare_coords">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.compare_coords">[docs]</a>
-<span class="k">def</span> <span class="nf">compare_coords</span><span class="p">(</span><span class="n">axis_data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_coords</span><span class="p">(</span><span class="n">axis_data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Identifies the most changing column in a given 2-D numpy array.</span>
 
 <span class="sd">    Args:</span>
@@ -881,7 +881,7 @@
 
 <div class="viewcode-block" id="parse_info_to_dict">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.parse_info_to_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">parse_info_to_dict</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_info_to_dict</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parses the contents of info.txt file into a dictionary</span>
 
 <span class="sd">    Args:</span>
@@ -911,7 +911,7 @@
                     <span class="n">info_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;info.txt file not found.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;info.txt file not found.&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="k">return</span> <span class="n">info_dict</span></div>
 
@@ -919,7 +919,7 @@
 
 <div class="viewcode-block" id="handle_meta">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.handle_meta">[docs]</a>
-<span class="k">def</span> <span class="nf">handle_meta</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_meta</span><span class="p">(</span>
     <span class="n">df_lut</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">scan_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
@@ -1062,7 +1062,7 @@
 
 <div class="viewcode-block" id="get_archiver_data">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_archiver_data">[docs]</a>
-<span class="k">def</span> <span class="nf">get_archiver_data</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_archiver_data</span><span class="p">(</span>
     <span class="n">archiver_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">archiver_channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">ts_from</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -1093,7 +1093,7 @@
 
 <div class="viewcode-block" id="find_scan">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.find_scan">[docs]</a>
-<span class="k">def</span> <span class="nf">find_scan</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_scan</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Search function to locate the scan folder</span>
 
 <span class="sd">    Args:</span>
@@ -1127,7 +1127,7 @@
 
 <div class="viewcode-block" id="find_scan_type">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.find_scan_type">[docs]</a>
-<span class="k">def</span> <span class="nf">find_scan_type</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_scan_type</span><span class="p">(</span>
     <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">scan_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">):</span>
