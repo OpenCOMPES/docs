@@ -6,8 +6,8 @@
   },
   {
     "name": "stable",
-    "version": "0.6.0a1",
-    "url": "https://opencompes.github.io/docs/specsanalyzer/v0.6.0a1",
+    "version": "0.5.1",
+    "url": "https://opencompes.github.io/docs/specsanalyzer/v0.5.1",
     "preferred": "true"
   },
   {
@@ -29,5 +29,10 @@
     "name": "v0.6.0a1",
     "version": "0.6.0a1",
     "url": "https://opencompes.github.io/docs/specsanalyzer/v0.6.0a1"
+  },
+  {
+    "name": "v0.5.1",
+    "version": "0.5.1",
+    "url": "https://opencompes.github.io/docs/specsanalyzer/v0.5.1"
   }
 ]
