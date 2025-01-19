@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Configuration &#8212; SED 0.4.0.dev0 documentation</title>
+    <title>Configuration &#8212; SED 0.4.1.dev383+g27234e0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,26 +38,26 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=57b8f4a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=db21e222"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/config';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev383+g27234e0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="advanced_topics.html" />
+    <link rel="next" title="Binning of temperature-dependent ARPES data using time-stamped external temperature data" href="../tutorial/6_binning_with_time-stamped_data.html" />
     <link rel="prev" title="Binning with metadata generation, and storing into a NeXus file" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0.dev0" />
+  <meta name="docsearch:version" content="0.4.1.dev383+g27234e0" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev383+g27234e0 documentation</p>
   
 </a></div>
     
@@ -445,7 +445,7 @@
                 <article class="bd-article">
                   
   <section id="configuration">
-<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h1>
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h1>
 <p>The config module contains a mechanism to collect configuration parameters from various sources and configuration files, and to combine them in a hierarchical manner into a single, consistent configuration dictionary.
 It will load an (optional) provided config file, or alternatively use a passed python dictionary as initial config dictionary, and subsequently look for the following additional config files to load:</p>
 <ul class="simple">
@@ -456,46 +456,37 @@ It will load an (optional) provided config file, or alternatively use a passed p
 </ul>
 <p>The config mechanism returns the combined dictionary, and reports the loaded configuration files. In order to disable or overwrite any of the configuration files, they can be also given as optional parameters (path to a file, or python dictionary).</p>
 <section id="default-configuration-settings">
-<h2>Default configuration settings<a class="headerlink" href="#default-configuration-settings" title="Permalink to this heading">#</a></h2>
+<h2>Default configuration settings<a class="headerlink" href="#default-configuration-settings" title="Link to this heading">#</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">core</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># The loader to use. The generic loader allows for loading various files types directly using dask.</span>
 <span class="w">  </span><span class="nt">loader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generic</span>
 
 <span class="nt">dataframe</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># dataframe column containing x coordinates</span>
-<span class="w">  </span><span class="nt">x_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;X&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing y coordinates</span>
-<span class="w">  </span><span class="nt">y_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Y&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing time-of-flight data</span>
-<span class="w">  </span><span class="nt">tof_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;t&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing time-of-flight data in nanoseconds</span>
-<span class="w">  </span><span class="nt">tof_ns_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;t_ns&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing analog-to-digital data</span>
-<span class="w">  </span><span class="nt">adc_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADC&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing bias voltage data</span>
-<span class="w">  </span><span class="nt">bias_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sampleBias&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected x coordinates</span>
-<span class="w">  </span><span class="nt">corrected_x_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Xm&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected y coordinates</span>
-<span class="w">  </span><span class="nt">corrected_y_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Ym&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected time-of-flight data</span>
-<span class="w">  </span><span class="nt">corrected_tof_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tm&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing kx coordinates</span>
-<span class="w">  </span><span class="nt">kx_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kx&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing ky coordinates</span>
-<span class="w">  </span><span class="nt">ky_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ky&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing energy data</span>
-<span class="w">  </span><span class="nt">energy_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;energy&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing delay data</span>
-<span class="w">  </span><span class="nt">delay_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;delay&quot;</span>
+<span class="w">  </span><span class="c1"># Column settings</span>
+<span class="w">  </span><span class="nt">columns</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w">   </span><span class="c1"># dataframe column containing x coordinates</span>
+<span class="w">    </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Y</span><span class="w">  </span><span class="c1"># dataframe column containing y coordinates</span>
+<span class="w">    </span><span class="nt">tof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t</span><span class="w">   </span><span class="c1"># dataframe column containing time-of-flight data</span>
+<span class="w">    </span><span class="nt">tof_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t_ns</span><span class="w">   </span><span class="c1"># dataframe column containing time-of-flight data in nanoseconds</span>
+<span class="w">    </span><span class="nt">corrected_x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Xm</span><span class="w">   </span><span class="c1"># dataframe column containing corrected x coordinates</span>
+<span class="w">    </span><span class="nt">corrected_y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ym</span><span class="w">   </span><span class="c1"># dataframe column containing corrected y coordinates</span>
+<span class="w">    </span><span class="nt">corrected_tof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tm</span><span class="w">   </span><span class="c1"># dataframe column containing corrected time-of-flight data</span>
+<span class="w">    </span><span class="nt">kx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kx</span><span class="w">   </span><span class="c1"># dataframe column containing kx coordinates</span>
+<span class="w">    </span><span class="nt">ky</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ky</span><span class="w">   </span><span class="c1"># dataframe column containing ky coordinates</span>
+<span class="w">    </span><span class="nt">energy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">energy</span><span class="w">   </span><span class="c1"># dataframe column containing energy data</span>
+<span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delay</span><span class="w">   </span><span class="c1"># dataframe column containing delay data</span>
+<span class="w">    </span><span class="nt">adc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ADC</span><span class="w">   </span><span class="c1"># dataframe column containing analog-to-digital data</span>
+<span class="w">    </span><span class="nt">bias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sampleBias</span><span class="w">   </span><span class="c1"># dataframe column containing bias voltage data</span>
+<span class="w">    </span><span class="nt">timestamp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timeStamp</span><span class="w">  </span><span class="c1"># dataframe column containing timestamp data</span>
+
 <span class="w">  </span><span class="c1"># time length of a base time-of-flight bin in s</span>
 <span class="w">  </span><span class="nt">tof_binwidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4.125e-12</span>
-<span class="w">  </span><span class="c1"># Binning factor of the tof_column-data compared to tof_binwidth (2^(tof_binning-1))</span>
+<span class="w">  </span><span class="c1"># Binning factor of the tof_column-data compared to tof_binwidth</span>
 <span class="w">  </span><span class="nt">tof_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">  </span><span class="c1"># binning factor used for the adc coordinate (2^(adc_binning-1))</span>
+<span class="w">  </span><span class="c1"># binning factor used for the adc coordinate</span>
 <span class="w">  </span><span class="nt">adc_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">  </span><span class="c1"># list of columns to apply jitter to.</span>
-<span class="w">  </span><span class="nt">jitter_cols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof_column&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">jitter_cols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># Jitter amplitude or list of jitter amplitudes. Should equal half the digital step size of each jitter_column</span>
 <span class="w">  </span><span class="nt">jitter_amps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
 <span class="w">  </span><span class="c1"># Time stepping in seconds of the successive events in the timed dataframe</span>
@@ -504,7 +495,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="nt">energy</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># Number of bins to use for energy calibration traces</span>
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">  </span><span class="c1"># Bin ranges to use for energy calibration curves (for tof_binning=0)</span>
+<span class="w">  </span><span class="c1"># Bin ranges to use for energy calibration curves (for tof_binning=1)</span>
 <span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">100000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">150000</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># Option to normalize energy calibration traces</span>
 <span class="w">  </span><span class="nt">normalize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
@@ -536,7 +527,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="nt">momentum</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># binning axes to use for momentum correction/calibration.</span>
 <span class="w">  </span><span class="c1"># Axes names starting with &quot;@&quot; refer to keys in the &quot;dataframe&quot; section</span>
-<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof_column&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># Bin numbers used for the respective axes</span>
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">300</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># bin ranges to use (in unbinned detector coordinates)</span>
@@ -556,8 +547,6 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="c1"># value ranges of the analog-to-digital converter axes used for encoding the delay stage position</span>
 <span class="w">  </span><span class="c1"># (in unbinned coordinates)</span>
 <span class="w">  </span><span class="nt">adc_range</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1900</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">25600</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="c1"># pump probe time overlap in ps</span>
-<span class="w">  </span><span class="nt">time0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">  </span><span class="c1"># if to flip the time axis</span>
 <span class="w">  </span><span class="nt">flip_time_axis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 
@@ -578,77 +567,57 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># default axes to use for histogram visualization.</span>
 <span class="w">  </span><span class="c1"># Axes names starting with &quot;@&quot; refer to keys in the &quot;dataframe&quot; section</span>
-<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof_column&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># default ranges to use for histogram visualization (in unbinned detector coordinates)</span>
 <span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">150000</span><span class="p p-Indicator">]]</span>
 </pre></div>
 </div>
 </section>
 <section id="example-configuration-file-for-mpes-metis-momentum-microscope-at-fhi-berlin">
-<h2>Example configuration file for mpes (METIS momentum microscope at FHI-Berlin)<a class="headerlink" href="#example-configuration-file-for-mpes-metis-momentum-microscope-at-fhi-berlin" title="Permalink to this heading">#</a></h2>
+<h2>Example configuration file for mpes (METIS momentum microscope at FHI-Berlin)<a class="headerlink" href="#example-configuration-file-for-mpes-metis-momentum-microscope-at-fhi-berlin" title="Link to this heading">#</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">core</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># The loader to use. The mpes loader allows for loading hdf5 files from the METIS momentum microscope.</span>
 <span class="w">  </span><span class="nt">loader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mpes</span>
+<span class="w">  </span><span class="c1"># Number of parallel threads to use for parallelized jobs (e.g. binning, data conversion, copy, ...)</span>
+<span class="w">  </span><span class="nt">num_cores</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
 <span class="w">  </span><span class="c1"># Option to use the copy tool to mirror data to a local storage location before processing.</span>
-<span class="w">  </span><span class="nt">use_copy_tool</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
-<span class="w">  </span><span class="c1"># path to the root of the source data directory</span>
-<span class="w">  </span><span class="nt">copy_tool_source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/data/&quot;</span>
-<span class="w">  </span><span class="c1"># path to the root or the local data storage</span>
-<span class="w">  </span><span class="nt">copy_tool_dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/localDataStore/&quot;</span>
-<span class="w">  </span><span class="c1"># optional keywords for the copy tool:</span>
-<span class="w">  </span><span class="nt">copy_tool_kwds</span><span class="p">:</span>
-<span class="w">    </span><span class="c1"># number of parallel copy jobs</span>
-<span class="w">    </span><span class="nt">ntasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
-<span class="w">    </span><span class="c1"># group id to set for copied files and folders</span>
-<span class="w">    </span><span class="nt">gid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
+<span class="w">  </span><span class="c1"># copy_tool:</span>
+<span class="w">    </span><span class="c1"># # path to the root of the source data directory</span>
+<span class="w">    </span><span class="c1"># source: &quot;/path/to/data/&quot;</span>
+<span class="w">    </span><span class="c1"># # path to the root or the local data storage</span>
+<span class="w">    </span><span class="c1"># dest: &quot;/path/to/localDataStore/&quot;</span>
+<span class="w">    </span><span class="c1"># # group id to set for copied files and folders</span>
+<span class="w">    </span><span class="c1"># gid: 1000</span>
 
 <span class="nt">dataframe</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># hdf5 group names to read from the h5 files (for mpes reader)</span>
-<span class="w">  </span><span class="nt">hdf5_groupnames</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Stream_0&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Stream_1&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Stream_2&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Stream_4&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="c1"># aliases to assign to the dataframe columns for the corresponding hdf5 streams</span>
-<span class="w">  </span><span class="nt">hdf5_aliases</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">Stream_0</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;X&quot;</span>
-<span class="w">    </span><span class="nt">Stream_1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Y&quot;</span>
-<span class="w">    </span><span class="nt">Stream_2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;t&quot;</span>
-<span class="w">    </span><span class="nt">Stream_4</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADC&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column name for the time stamp column</span>
-<span class="w">  </span><span class="nt">time_stamp_alias</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;timeStamps&quot;</span>
 <span class="w">  </span><span class="c1"># hdf5 group name containing eventIDs occurring at every millisecond (used to calculate timestamps)</span>
-<span class="w">  </span><span class="nt">ms_markers_group</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;msMarkers&quot;</span>
+<span class="w">  </span><span class="nt">ms_markers_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;msMarkers&quot;</span>
 <span class="w">  </span><span class="c1"># hdf5 attribute containing the timestamp of the first event in a file</span>
 <span class="w">  </span><span class="nt">first_event_time_stamp_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FirstEventTimeStamp&quot;</span>
 <span class="w">  </span><span class="c1"># Time stepping in seconds of the successive events in the timed dataframe</span>
 <span class="w">  </span><span class="nt">timed_dataframe_unit_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.001</span>
 <span class="w">  </span><span class="c1"># list of columns to apply jitter to</span>
 <span class="w">  </span><span class="nt">jitter_cols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;X&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;t&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;ADC&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="c1"># dataframe column containing x coordinates</span>
-<span class="w">  </span><span class="nt">x_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;X&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing y coordinates</span>
-<span class="w">  </span><span class="nt">y_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Y&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing time-of-flight data</span>
-<span class="w">  </span><span class="nt">tof_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;t&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing analog-to-digital data</span>
-<span class="w">  </span><span class="nt">adc_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ADC&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected x coordinates</span>
-<span class="w">  </span><span class="nt">corrected_x_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Xm&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected y coordinates</span>
-<span class="w">  </span><span class="nt">corrected_y_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Ym&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected time-of-flight data</span>
-<span class="w">  </span><span class="nt">corrected_tof_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tm&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing kx coordinates</span>
-<span class="w">  </span><span class="nt">kx_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kx&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing ky coordinates</span>
-<span class="w">  </span><span class="nt">ky_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ky&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing energy data</span>
-<span class="w">  </span><span class="nt">energy_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;energy&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing delay data</span>
-<span class="w">  </span><span class="nt">delay_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;delay&quot;</span>
+<span class="w">  </span><span class="nt">columns</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="w"> </span><span class="c1"># dataframe column containing x coordinates</span>
+<span class="w">    </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Y</span><span class="w"> </span><span class="c1"># dataframe column containing y coordinates</span>
+<span class="w">    </span><span class="nt">tof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t</span><span class="w"> </span><span class="c1"># dataframe column containing time-of-flight data</span>
+<span class="w">    </span><span class="nt">adc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ADC</span><span class="w"> </span><span class="c1"># dataframe column containing analog-to-digital data</span>
+<span class="w">    </span><span class="nt">bias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sampleBias</span><span class="w"> </span><span class="c1"># dataframe column containing bias voltage data</span>
+<span class="w">    </span><span class="nt">corrected_x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Xm</span><span class="w"> </span><span class="c1"># dataframe column containing corrected x coordinates</span>
+<span class="w">    </span><span class="nt">corrected_y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ym</span><span class="w"> </span><span class="c1"># dataframe column containing corrected y coordinates</span>
+<span class="w">    </span><span class="nt">corrected_tof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tm</span><span class="w"> </span><span class="c1"># dataframe column containing corrected time-of-flight data</span>
+<span class="w">    </span><span class="nt">kx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kx</span><span class="w"> </span><span class="c1"># dataframe column containing kx coordinates</span>
+<span class="w">    </span><span class="nt">ky</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ky</span><span class="w"> </span><span class="c1"># dataframe column containing ky coordinates</span>
+<span class="w">    </span><span class="nt">energy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">energy</span><span class="w"> </span><span class="c1"># dataframe column containing energy data</span>
+<span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delay</span><span class="w"> </span><span class="c1"># dataframe column containing delay data</span>
+<span class="w">    </span><span class="nt">timestamp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timeStamps</span><span class="w">  </span><span class="c1"># dataframe column containing timestamp data</span>
 <span class="w">  </span><span class="c1"># time length of a base time-of-flight bin in ns</span>
 <span class="w">  </span><span class="nt">tof_binwidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4.125e-12</span>
-<span class="w">  </span><span class="c1"># Binning factor of the tof_column-data compared to tof_binwidth (2^(tof_binning-1))</span>
-<span class="w">  </span><span class="nt">tof_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">  </span><span class="c1"># binning factor used for the adc coordinate (2^(adc_binning-1))</span>
-<span class="w">  </span><span class="nt">adc_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="c1"># Binning factor of the tof_column-data compared to tof_binwidth</span>
+<span class="w">  </span><span class="nt">tof_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">  </span><span class="c1"># binning factor used for the adc coordinate</span>
+<span class="w">  </span><span class="nt">adc_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="w">  </span><span class="c1"># Default units for dataframe entries</span>
 <span class="w">  </span><span class="nt">units</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">X</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;step&#39;</span>
@@ -667,11 +636,34 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">    </span><span class="nt">kx</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1/A&#39;</span>
 <span class="w">    </span><span class="nt">ky</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1/A&#39;</span>
 
+<span class="w">  </span><span class="c1"># dataframe channels and group names to read from the h5 files</span>
+<span class="w">  </span><span class="nt">channels</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># The X-channel</span>
+<span class="w">    </span><span class="nt">X</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Stream_0&quot;</span>
+<span class="w">    </span><span class="c1"># The Y-channel</span>
+<span class="w">    </span><span class="nt">Y</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Stream_1&quot;</span>
+<span class="w">    </span><span class="c1"># The tof-channel</span>
+<span class="w">    </span><span class="nt">t</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Stream_2&quot;</span>
+<span class="w">    </span><span class="c1"># The ADC-channel</span>
+<span class="w">    </span><span class="nt">ADC</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Stream_4&quot;</span>
+<span class="w">    </span><span class="c1"># The sample Bias-channel</span>
+<span class="w">    </span><span class="nt">sampleBias</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_file</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;KTOF:Lens:Sample:V&quot;</span>
+
 <span class="nt">energy</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># Number of bins to use for energy calibration traces</span>
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">  </span><span class="c1"># Bin ranges to use for energy calibration curves (for tof_binning=0)</span>
-<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">128000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">138000</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="c1"># Bin ranges to use for energy calibration curves (for tof_binning=1)</span>
+<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">276000</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># hdf5 path to attribute storing bias information for a given file</span>
 <span class="w">  </span><span class="nt">bias_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@KTOF:Lens:Sample:V&quot;</span>
 <span class="w">  </span><span class="c1"># Option to normalize energy calibration traces</span>
@@ -690,7 +682,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="nt">energy_scale</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kinetic&quot;</span>
 <span class="w">  </span><span class="c1"># Approximate position of the high-energy-cutoff in tof_column bins,</span>
 <span class="w">  </span><span class="c1"># used for displaying a graph to choose the energy correction function parameters.</span>
-<span class="w">  </span><span class="nt">tof_fermi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">132250</span>
+<span class="w">  </span><span class="nt">tof_fermi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">264500</span>
 <span class="w">  </span><span class="c1"># TOF range to visualize for the correction tool around tof_fermi</span>
 <span class="w">  </span><span class="nt">tof_width</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-600</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># x-integration range for the correction tool around the center pixel</span>
@@ -726,11 +718,11 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="nt">momentum</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># binning axes to use for momentum correction/calibration.</span>
 <span class="w">  </span><span class="c1"># Axes names starting with &quot;@&quot; refer to keys in the &quot;dataframe&quot; section</span>
-<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof_column&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># Bin numbers used for the respective axes</span>
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">300</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># bin ranges to use (in unbinned detector coordinates)</span>
-<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">132000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">136000</span><span class="p p-Indicator">]]</span>
+<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">264000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">272000</span><span class="p p-Indicator">]]</span>
 <span class="w">  </span><span class="c1"># The x/y pixel ranges of the detector</span>
 <span class="w">  </span><span class="nt">detector_ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2048</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2048</span><span class="p p-Indicator">]]</span>
 <span class="w">  </span><span class="c1"># The center pixel of the detector in the binned x/y coordinates</span>
@@ -787,8 +779,6 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fast&quot;</span>
 <span class="w">  </span><span class="c1"># Whether to display a progress bar</span>
 <span class="w">  </span><span class="nt">pbar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
-<span class="w">  </span><span class="c1"># Number of parallel binning threads to use</span>
-<span class="w">  </span><span class="nt">num_cores</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
 <span class="w">  </span><span class="c1"># Number of multithreading threads per worker thread</span>
 <span class="w">  </span><span class="nt">threads_per_worker</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="w">  </span><span class="c1"># API for numpy multithreading</span>
@@ -799,9 +789,9 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># default axes to use for histogram visualization.</span>
 <span class="w">  </span><span class="c1"># Axes names starting with &quot;@&quot; refer to keys in the &quot;dataframe&quot; section</span>
-<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof_column&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@adc_column&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@adc&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># default ranges to use for histogram visualization (in unbinned detector coordinates)</span>
-<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">128000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">138000</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">32000</span><span class="p p-Indicator">]]</span>
+<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">276000</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">32000</span><span class="p p-Indicator">]]</span>
 
 <span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># URL of the epics archiver request engine</span>
@@ -897,82 +887,93 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="nt">definition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NXmpes&quot;</span>
 <span class="w">  </span><span class="c1"># List containing additional input files to be handed to the pynxtools converter tool,</span>
 <span class="w">  </span><span class="c1"># e.g. containing a configuration file, and additional metadata.</span>
-<span class="w">  </span><span class="nt">input_files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;../sed/config/NXmpes_config.json&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">input_files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;../src/sed/config/NXmpes_config.json&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </section>
 <section id="example-configuration-file-for-flash-hextof-momentum-microscope-at-flash-desy">
-<h2>Example configuration file for flash (HEXTOF momentum microscope at FLASH, Desy)<a class="headerlink" href="#example-configuration-file-for-flash-hextof-momentum-microscope-at-flash-desy" title="Permalink to this heading">#</a></h2>
+<h2>Example configuration file for flash (HEXTOF momentum microscope at FLASH, Desy)<a class="headerlink" href="#example-configuration-file-for-flash-hextof-momentum-microscope-at-flash-desy" title="Link to this heading">#</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># This file contains the default configuration for the flash loader.</span>
-
 <span class="nt">core</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># defines the loader</span>
 <span class="w">  </span><span class="nt">loader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flash</span>
+<span class="w">  </span><span class="c1"># Since this will run on maxwell most probably, we have a lot of cores at our disposal</span>
+<span class="w">  </span><span class="nt">num_cores</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
 <span class="w">  </span><span class="c1"># the beamline where experiment took place</span>
 <span class="w">  </span><span class="nt">beamline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg2</span>
 <span class="w">  </span><span class="c1"># the ID number of the beamtime</span>
 <span class="w">  </span><span class="nt">beamtime_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">11019101</span>
 <span class="w">  </span><span class="c1"># the year of the beamtime</span>
 <span class="w">  </span><span class="nt">year</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2023</span>
-
+<span class="w">  </span><span class="c1"># the instrument used</span>
+<span class="w">  </span><span class="nt">instrument</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hextof</span><span class="w"> </span><span class="c1"># hextof, wespe, etc</span>
 <span class="w">  </span><span class="c1"># The paths to the raw and parquet data directories. If these are not</span>
 <span class="w">  </span><span class="c1"># provided, the loader will try to find the data based on year beamtimeID etc</span>
-<span class="w">  </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">    </span><span class="c1"># location of the raw data.</span>
-<span class="w">    </span><span class="nt">data_raw_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
-<span class="w">    </span><span class="c1"># location of the intermediate parquet files.</span>
-<span class="w">    </span><span class="nt">data_parquet_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="c1"># paths:</span>
+<span class="w">  </span><span class="c1"># # location of the raw data.</span>
+<span class="w">  </span><span class="c1">#  raw: &quot;&quot;</span>
+<span class="w">  </span><span class="c1"># # location of the intermediate parquet files.</span>
+<span class="w">  </span><span class="c1">#  processed: &quot;&quot;</span>
+<span class="w">  </span><span class="c1"># The prefixes of the stream names for different DAQ systems for parsing filenames</span>
+<span class="w">  </span><span class="nt">stream_name_prefixes</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">pbd</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GMD_DATA_gmd_data&quot;</span>
+<span class="w">    </span><span class="nt">pbd2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FL2PhotDiag_pbd2_gmd_data&quot;</span>
+<span class="w">    </span><span class="nt">fl1user1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH1_USER1_stream_2&quot;</span>
+<span class="w">    </span><span class="nt">fl1user2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH1_USER2_stream_2&quot;</span>
+<span class="w">    </span><span class="nt">fl1user3</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH1_USER3_stream_2&quot;</span>
+<span class="w">    </span><span class="nt">fl2user1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH2_USER1_stream_2&quot;</span>
+<span class="w">    </span><span class="nt">fl2user2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH2_USER2_stream_2&quot;</span>
+<span class="w">  </span><span class="c1"># The beamtime directories for different DAQ systems.</span>
+<span class="w">  </span><span class="c1"># (Not to be changed by user)</span>
+<span class="w">  </span><span class="nt">beamtime_dir</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">pg2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/asap3/flash/gpfs/pg2/&quot;</span>
 
 <span class="nt">binning</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># Since this will run on maxwell most probably, we have a lot of cores at our disposal</span>
-<span class="w">  </span><span class="nt">num_cores</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">  </span><span class="c1"># Histogram computation mode to use.</span>
+<span class="w">  </span><span class="nt">hist_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;numba&quot;</span>
+<span class="w">  </span><span class="c1"># Mode for histogram recombination to use</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fast</span>
+<span class="w">  </span><span class="c1"># Whether to display a progress bar</span>
+<span class="w">  </span><span class="nt">pbar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="w">  </span><span class="c1"># Number of multithreading threads per worker thread</span>
+<span class="w">  </span><span class="nt">threads_per_worker</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">  </span><span class="c1"># API for numpy multithreading</span>
+<span class="w">  </span><span class="nt">threadpool_API</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;blas&quot;</span>
 
 <span class="nt">dataframe</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># The name of the DAQ system to use. Necessary to resolve the filenames/paths.</span>
-<span class="w">  </span><span class="nt">daq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fl1user3</span>
-<span class="w">  </span><span class="c1"># The offset correction to the pulseId</span>
-<span class="w">  </span><span class="nt">ubid_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">  </span><span class="nt">daq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fl1user3</span><span class="w">                                   </span><span class="c1"># DAQ system name to resolve filenames/paths</span>
+<span class="w">  </span><span class="nt">ubid_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">                                  </span><span class="c1"># Offset correction to the pulseId</span>
+<span class="w">  </span><span class="nt">forward_fill_iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">                      </span><span class="c1"># Number of iterations to fill the pulseId forward</span>
+<span class="w">  </span><span class="nt">split_sector_id_from_dld_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">             </span><span class="c1"># Remove reserved bits for dldSectorID from dldTimeSteps column</span>
+<span class="w">  </span><span class="nt">sector_id_reserved_bits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w">                      </span><span class="c1"># Bits reserved for dldSectorID in the dldTimeSteps column</span>
+<span class="w">  </span><span class="nt">sector_delays</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># Sector delays</span>
 
-<span class="w">  </span><span class="c1"># the number of iterations to fill the pulseId forward.</span>
-<span class="w">  </span><span class="nt">forward_fill_iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">  </span><span class="c1"># if true, removes the 3 bits reserved for dldSectorID from the dldTimeSteps column</span>
-<span class="w">  </span><span class="nt">split_sector_id_from_dld_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
-<span class="w">  </span><span class="c1"># bits reserved for dldSectorID in the dldTimeSteps column</span>
-<span class="w">  </span><span class="nt">sector_id_reserved_bits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">  </span><span class="c1"># dataframe column containing x coordinates</span>
-<span class="w">  </span><span class="nt">x_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldPosX</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected x coordinates</span>
-<span class="w">  </span><span class="nt">corrected_x_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;X&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing kx coordinates</span>
-<span class="w">  </span><span class="nt">kx_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kx&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing y coordinates</span>
-<span class="w">  </span><span class="nt">y_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldPosY</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected y coordinates</span>
-<span class="w">  </span><span class="nt">corrected_y_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Y&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing kx coordinates</span>
-<span class="w">  </span><span class="nt">ky_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ky&quot;</span>
-<span class="w">  </span><span class="c1"># dataframe column containing time-of-flight data</span>
-<span class="w">  </span><span class="nt">tof_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldTimeSteps</span>
-<span class="w">  </span><span class="c1"># dataframe column containing time-of-flight data in ns</span>
-<span class="w">  </span><span class="nt">tof_ns_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldTime</span>
-<span class="w">  </span><span class="c1"># dataframe column containing corrected time-of-flight data</span>
-<span class="w">  </span><span class="nt">corrected_tof_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tm&quot;</span>
-<span class="w">  </span><span class="c1"># time length of a base time-of-flight bin in seconds</span>
-<span class="w">  </span><span class="nt">tof_binwidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0576131995767355E-11</span>
-<span class="w">  </span><span class="c1"># binning parameter for time-of-flight data. 2**tof_binning bins per base bin</span>
-<span class="w">  </span><span class="nt">tof_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w">  </span><span class="c1"># power of 2, 3 means 8 bins per step</span>
-<span class="w">  </span><span class="c1"># dataframe column containing sector ID. obtained from dldTimeSteps column</span>
-<span class="w">  </span><span class="nt">sector_id_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldSectorID</span>
+<span class="w">  </span><span class="c1"># Time and binning settings</span>
+<span class="w">  </span><span class="nt">tof_binwidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0576131995767355E-11</span><span class="w">            </span><span class="c1"># Base time-of-flight bin width in seconds</span>
+<span class="w">  </span><span class="nt">tof_binning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span><span class="w">                                  </span><span class="c1"># Binning parameter for time-of-flight data</span>
 
-<span class="w">  </span><span class="nt">sector_delays</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="c1"># the delay stage column</span>
-<span class="w">  </span><span class="nt">delay_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delayStage</span>
-<span class="w">  </span><span class="c1"># the corrected pump-probe time axis</span>
-<span class="w">  </span><span class="nt">corrected_delay_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pumpProbeTime</span>
-<span class="w">  </span><span class="nt">jitter_cols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;dldPosX&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dldPosY&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dldTimeSteps&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="c1"># Columns used for jitter correction</span>
+<span class="w">  </span><span class="nt">jitter_cols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">dldPosX</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">dldPosY</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">dldTimeSteps</span><span class="p p-Indicator">]</span>
 
+<span class="w">  </span><span class="c1"># Column settings</span>
+<span class="w">  </span><span class="nt">columns</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldPosX</span>
+<span class="w">    </span><span class="nt">corrected_x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">X</span>
+<span class="w">    </span><span class="nt">kx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kx</span>
+<span class="w">    </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldPosY</span>
+<span class="w">    </span><span class="nt">corrected_y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Y</span>
+<span class="w">    </span><span class="nt">ky</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ky</span>
+<span class="w">    </span><span class="nt">tof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldTimeSteps</span>
+<span class="w">    </span><span class="nt">tof_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldTime</span>
+<span class="w">    </span><span class="nt">corrected_tof</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tm</span>
+<span class="w">    </span><span class="nt">timestamp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">timeStamp</span>
+<span class="w">    </span><span class="nt">auxiliary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldAux</span>
+<span class="w">    </span><span class="nt">sector_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dldSectorID</span>
+<span class="w">    </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delayStage</span>
+<span class="w">    </span><span class="nt">corrected_delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pumpProbeTime</span>
+
+<span class="w">  </span><span class="c1"># These are the units of the columns</span>
 <span class="w">  </span><span class="nt">units</span><span class="p">:</span>
-<span class="w">    </span><span class="c1"># These are the units of the columns</span>
 <span class="w">    </span><span class="nt">dldPosX</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;step&#39;</span>
 <span class="w">    </span><span class="nt">dldPosY</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;step&#39;</span>
 <span class="w">    </span><span class="nt">dldTimeSteps</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;step&#39;</span>
@@ -990,102 +991,118 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">    </span><span class="nt">kx</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1/A&#39;</span>
 <span class="w">    </span><span class="nt">ky</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1/A&#39;</span>
 
-<span class="w">  </span><span class="c1"># The channels to load.</span>
+<span class="w">  </span><span class="c1"># The channels to load from the raw data. The channels have the following structure:</span>
 <span class="w">  </span><span class="c1"># channels have the following structure:</span>
-<span class="w">  </span><span class="c1"># channelAlias:</span>
+<span class="w">  </span><span class="c1"># &lt;channelAlias&gt;:</span>
 <span class="w">  </span><span class="c1">#   format: per_pulse/per_electron/per_train</span>
-<span class="w">  </span><span class="c1">#   group_name: the hdf5 group path</span>
-<span class="w">  </span><span class="c1">#   slice: if the group contains multidimensional data, where to slice</span>
+<span class="w">  </span><span class="c1">#   index_key: the hdf5 index key</span>
+<span class="w">  </span><span class="c1">#   dataset_key: the hdf5 dataset key</span>
+<span class="w">  </span><span class="c1">#   slice: int to slice a multidimensional data along axis=1. If not defined, there is no slicing</span>
+<span class="w">  </span><span class="c1">#   dtype: the datatype of the data</span>
+<span class="w">  </span><span class="c1">#   subChannels: further aliases for if the data is multidimensional and needs to be split in different cols</span>
+<span class="w">  </span><span class="c1">#                used currently for the auxiliary channel</span>
+<span class="w">  </span><span class="c1">#      &lt;subChannelAlias&gt;:</span>
+<span class="w">  </span><span class="c1">#        slice: int to slice a multidimensional data along axis=1. Must be defined</span>
+<span class="w">  </span><span class="c1">#        dtype: the datatype of the data</span>
 
 <span class="w">  </span><span class="nt">channels</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># The timestamp</span>
 <span class="w">    </span><span class="nt">timeStamp</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_train</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.DIAG/TIMINGINFO/TIME1.BUNCH_FIRST_INDEX.1/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.DIAG/TIMINGINFO/TIME1.BUNCH_FIRST_INDEX.1/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.DIAG/TIMINGINFO/TIME1.BUNCH_FIRST_INDEX.1/time&quot;</span>
 
 <span class="w">    </span><span class="c1"># pulse ID is a necessary channel for using the loader.</span>
 <span class="w">    </span><span class="nt">pulseId</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/value&quot;</span>
 <span class="w">      </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">      </span><span class="nt">dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uint16</span>
 
 <span class="w">    </span><span class="c1"># detector x position</span>
 <span class="w">    </span><span class="nt">dldPosX</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/value&quot;</span>
 <span class="w">      </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uint16</span>
 
 <span class="w">    </span><span class="c1"># detector y position</span>
 <span class="w">    </span><span class="nt">dldPosY</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/value&quot;</span>
 <span class="w">      </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">      </span><span class="nt">dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uint16</span>
 
 <span class="w">    </span><span class="c1"># Detector time-of-flight channel</span>
 <span class="w">    </span><span class="c1"># if split_sector_id_from_dld_time is set to True, This this will generate</span>
 <span class="w">    </span><span class="c1"># also the dldSectorID channel</span>
 <span class="w">    </span><span class="nt">dldTimeSteps</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_electron</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/value&quot;</span>
 <span class="w">      </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">      </span><span class="nt">dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uint32</span>
 
 <span class="w">    </span><span class="c1"># The auxiliary channel has a special structure where the group further contains</span>
 <span class="w">    </span><span class="c1"># a multidimensional structure so further aliases are defined below</span>
 <span class="w">    </span><span class="nt">dldAux</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_pulse</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/&quot;</span>
+<span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_train</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.EXP/HEXTOF.DAQ/DLD1/value&quot;</span>
 <span class="w">      </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="w">      </span><span class="nt">dldAuxChannels</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">sampleBias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">        </span><span class="nt">tofVoltage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">        </span><span class="nt">extractorVoltage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">        </span><span class="nt">extractorCurrent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">        </span><span class="nt">cryoTemperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="w">        </span><span class="nt">sampleTemperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="w">        </span><span class="nt">dldTimeBinSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
+<span class="w">      </span><span class="nt">sub_channels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">sampleBias</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">          </span><span class="nt">dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float32</span>
+<span class="w">        </span><span class="nt">tofVoltage</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">          </span><span class="nt">dtype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">float64</span>
+<span class="w">        </span><span class="nt">extractorVoltage</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">extractorCurrent</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">        </span><span class="nt">cryoTemperature</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">        </span><span class="nt">sampleTemperature</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">        </span><span class="nt">dldTimeBinSize</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">slice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
 
 <span class="w">    </span><span class="c1"># ADC containing the pulser sign (1: value approx. 35000, 0: 33000)</span>
 <span class="w">    </span><span class="nt">pulserSignAdc</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_pulse</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Experiment/PG/SIS8300</span><span class="nv"> </span><span class="s">100MHz</span><span class="nv"> </span><span class="s">ADC/CH6/TD/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Experiment/PG/SIS8300</span><span class="nv"> </span><span class="s">100MHz</span><span class="nv"> </span><span class="s">ADC/CH6/TD/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Experiment/PG/SIS8300</span><span class="nv"> </span><span class="s">100MHz</span><span class="nv"> </span><span class="s">ADC/CH6/TD/value&quot;</span>
 
 <span class="w">    </span><span class="c1"># the energy of the monochromatized beam. This is a quasi-static value.</span>
 <span class="w">    </span><span class="c1"># there is a better channel which still needs implementation.</span>
 <span class="w">    </span><span class="nt">monochromatorPhotonEnergy</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_train</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Beamlines/PG/Monochromator/monochromator</span><span class="nv"> </span><span class="s">photon</span><span class="nv"> </span><span class="s">energy/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Beamlines/PG/Monochromator/monochromator</span><span class="nv"> </span><span class="s">photon</span><span class="nv"> </span><span class="s">energy/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Beamlines/PG/Monochromator/monochromator</span><span class="nv"> </span><span class="s">photon</span><span class="nv"> </span><span class="s">energy/value&quot;</span>
 
 <span class="w">    </span><span class="c1"># The GMDs can not be read yet...</span>
 <span class="w">    </span><span class="nt">gmdBda</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_train</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Photon</span><span class="nv"> </span><span class="s">Diagnostic/GMD/Average</span><span class="nv"> </span><span class="s">energy/energy</span><span class="nv"> </span><span class="s">BDA/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Photon</span><span class="nv"> </span><span class="s">Diagnostic/GMD/Average</span><span class="nv"> </span><span class="s">energy/energy</span><span class="nv"> </span><span class="s">BDA/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/FL1/Photon</span><span class="nv"> </span><span class="s">Diagnostic/GMD/Average</span><span class="nv"> </span><span class="s">energy/energy</span><span class="nv"> </span><span class="s">BDA/value&quot;</span>
+
 <span class="w">    </span><span class="c1"># Beam Arrival Monitor, vital for pump-probe experiments as it can compensate sase</span>
 <span class="w">    </span><span class="c1"># timing fluctuations.</span>
 <span class="w">    </span><span class="c1"># Here we use the DBC2 BAM as the &quot;normal&quot; one is broken.</span>
 <span class="w">    </span><span class="nt">bam</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_pulse</span>
-<span class="w">        </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.SDIAG/BAM.DAQ/FL0.DBC2.ARRIVAL_TIME.ABSOLUTE.SA1.COMP/&quot;</span>
+<span class="w">        </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.SDIAG/BAM.DAQ/FL0.DBC2.ARRIVAL_TIME.ABSOLUTE.SA1.COMP/index&quot;</span>
+<span class="w">        </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/uncategorised/FLASH.SDIAG/BAM.DAQ/FL0.DBC2.ARRIVAL_TIME.ABSOLUTE.SA1.COMP/value&quot;</span>
 
 <span class="w">    </span><span class="c1"># The delay Stage position, encoding the pump-probe delay</span>
 <span class="w">    </span><span class="nt">delayStage</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_train</span>
-<span class="w">      </span><span class="nt">group_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/zraw/FLASH.SYNC/LASER.LOCK.EXP/F1.PG.OSC/FMC0.MD22.1.ENCODER_POSITION.RD/dGroup/&quot;</span>
-
-<span class="w">  </span><span class="c1"># The prefixes of the stream names for different DAQ systems for parsing filenames</span>
-<span class="w">  </span><span class="c1"># (Not to be changed by user)</span>
-<span class="w">  </span><span class="nt">stream_name_prefixes</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">pbd</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GMD_DATA_gmd_data&quot;</span>
-<span class="w">    </span><span class="nt">pbd2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FL2PhotDiag_pbd2_gmd_data&quot;</span>
-<span class="w">    </span><span class="nt">fl1user1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH1_USER1_stream_2&quot;</span>
-<span class="w">    </span><span class="nt">fl1user2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH1_USER2_stream_2&quot;</span>
-<span class="w">    </span><span class="nt">fl1user3</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH1_USER3_stream_2&quot;</span>
-<span class="w">    </span><span class="nt">fl2user1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH2_USER1_stream_2&quot;</span>
-<span class="w">    </span><span class="nt">fl2user2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FLASH2_USER2_stream_2&quot;</span>
-
-<span class="w">  </span><span class="c1"># The beamtime directories for different DAQ systems.</span>
-<span class="w">  </span><span class="c1"># (Not to be changed by user)</span>
-<span class="w">  </span><span class="nt">beamtime_dir</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">pg2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/asap3/flash/gpfs/pg2/&quot;</span>
+<span class="w">      </span><span class="nt">index_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/zraw/FLASH.SYNC/LASER.LOCK.EXP/F1.PG.OSC/FMC0.MD22.1.ENCODER_POSITION.RD/dGroup/index&quot;</span>
+<span class="w">      </span><span class="nt">dataset_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/zraw/FLASH.SYNC/LASER.LOCK.EXP/F1.PG.OSC/FMC0.MD22.1.ENCODER_POSITION.RD/dGroup/value&quot;</span>
 
 <span class="c1"># metadata collection from scicat</span>
 <span class="c1"># metadata:</span>
@@ -1096,7 +1113,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="nt">nexus</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">reader</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mpes&quot;</span>
 <span class="w">  </span><span class="nt">definition</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NXmpes&quot;</span>
-<span class="w">  </span><span class="nt">input_files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;../sed/config/NXmpes_config-HEXTOF.json&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">input_files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;../src/sed/config/NXmpes_config-HEXTOF.json&quot;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </section>
@@ -1122,11 +1139,11 @@ It will load an (optional) provided config file, or alternatively use a passed p
       </div>
     </a>
     <a class="right-next"
-       href="advanced_topics.html"
+       href="../tutorial/6_binning_with_time-stamped_data.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Binning of temperature-dependent ARPES data using time-stamped external temperature data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1198,7 +1215,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

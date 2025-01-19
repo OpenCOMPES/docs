@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.io.tiff &#8212; SED 0.4.0.dev0 documentation</title>
+    <title>sed.io.tiff &#8212; SED 0.4.1.dev383+g27234e0 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,16 +37,16 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=57b8f4a9"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/documentation_options.js?v=db21e222"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/io/tiff';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev383+g27234e0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0.dev0" />
+  <meta name="docsearch:version" content="0.4.1.dev383+g27234e0" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev383+g27234e0 documentation</p>
   
 </a></div>
     
@@ -417,13 +417,14 @@
 <span></span><span class="sd">&quot;&quot;&quot;This module contains tiff file input/output functions for the sed.io module</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tifffile</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
 
 <span class="n">_IMAGEJ_DIMS_ORDER</span> <span class="o">=</span> <span class="s2">&quot;TZCYXS&quot;</span>
@@ -452,21 +453,23 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="to_tiff"><a class="viewcode-back" href="../../../sed/io.html#sed.io.to_tiff">[docs]</a><span class="k">def</span> <span class="nf">to_tiff</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-    <span class="n">faddr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+<div class="viewcode-block" id="to_tiff">
+<a class="viewcode-back" href="../../../sed/io.html#sed.io.to_tiff">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_tiff</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Save an array as a .tiff stack compatible with ImageJ</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (Union[xr.DataArray, np.ndarray]): data to be saved. If a np.ndarray,</span>
+<span class="sd">        data (xr.DataArray | np.ndarray): data to be saved. If a np.ndarray,</span>
 <span class="sd">            the order is retained. If it is an xarray.DataArray, the order is inferred</span>
 <span class="sd">            from axis_dict instead. ImageJ likes tiff files with axis order as</span>
 <span class="sd">            TZCYXS. Therefore, best axis order in input should be: Time, Energy,</span>
 <span class="sd">            posY, posX. The channels &#39;C&#39; and &#39;S&#39; are automatically added and can</span>
 <span class="sd">            be ignored.</span>
-<span class="sd">        faddr (Union[Path, str]): full path and name of file to save.</span>
+<span class="sd">        faddr Path | str): full path and name of file to save.</span>
 <span class="sd">        alias_dict (dict, optional): name pairs for correct axis ordering. Keys should</span>
 <span class="sd">            be any of T,Z,C,Y,X,S. The Corresponding value should be a dimension of the</span>
 <span class="sd">            xarray or the dimension number if a numpy array. This is used to sort the</span>
@@ -479,7 +482,7 @@
 <span class="sd">        NotImplementedError: if data is not 2,3 or 4 dimensional</span>
 <span class="sd">        TypeError: if data is not a np.ndarray or an xarray.DataArray</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">out</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">out</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
         <span class="c1"># TODO: add sorting by dictionary keys</span>
         <span class="n">dim_expansions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>
@@ -493,7 +496,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Only 2-3-4D arrays supported when data is a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="n">dims_order</span> <span class="o">=</span> <span class="n">dims</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">]</span>
 
@@ -513,7 +516,8 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully saved </span><span class="si">{</span><span class="n">faddr</span><span class="si">}</span><span class="se">\n</span><span class="s2"> Axes order: </span><span class="si">{</span><span class="n">dims_order</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">_sort_dims_for_imagej</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_sort_dims_for_imagej</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Guess the order of the dimensions from the alias dictionary.</span>
 
 <span class="sd">    Args:</span>
@@ -536,7 +540,7 @@
     <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">order</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_fill_missing_dims</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_fill_missing_dims</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fill in the missing dimensions from the alias dictionary.</span>
 
 <span class="sd">    Args:</span>
@@ -587,8 +591,10 @@
     <span class="k">return</span> <span class="n">order</span>
 
 
-<div class="viewcode-block" id="load_tiff"><a class="viewcode-back" href="../../../sed/io.html#sed.io.load_tiff">[docs]</a><span class="k">def</span> <span class="nf">load_tiff</span><span class="p">(</span>
-    <span class="n">faddr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
+<div class="viewcode-block" id="load_tiff">
+<a class="viewcode-back" href="../../../sed/io.html#sed.io.load_tiff">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_tiff</span><span class="p">(</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">coords</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">attrs</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -600,7 +606,7 @@
 <span class="sd">    only as np.ndarray.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        faddr (Union[str, Path]): Path to file to load.</span>
+<span class="sd">        faddr (str | Path): Path to file to load.</span>
 <span class="sd">        coords (dict, optional): The axes describing the data, following the tiff</span>
 <span class="sd">            stack order. Defaults to None.</span>
 <span class="sd">        dims (Sequence, optional): the order of the coordinates provided, considering</span>
@@ -634,6 +640,7 @@
         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span><span class="si">}</span><span class="s2"> and dimensions </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span><span class="si">}</span><span class="s2"> provided,&quot;</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span></div>
+
 </pre></div>
 
                 </article>
@@ -684,7 +691,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

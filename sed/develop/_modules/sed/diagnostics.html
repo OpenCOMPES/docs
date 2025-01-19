@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.diagnostics &#8212; SED 0.4.0.dev0 documentation</title>
+    <title>sed.diagnostics &#8212; SED 0.4.1.dev383+g27234e0 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,16 +37,16 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=57b8f4a9"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/documentation_options.js?v=db21e222"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/diagnostics';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev383+g27234e0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0.dev0" />
+  <meta name="docsearch:version" content="0.4.1.dev383+g27234e0" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev383+g27234e0 documentation</p>
   
 </a></div>
     
@@ -417,17 +417,20 @@
 <span></span><span class="sd">&quot;&quot;&quot;This module contains diagnostic output functions for the sed module</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span> <span class="k">as</span> <span class="nn">pbk</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_notebook</span>
-<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">gridplot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pbk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">output_notebook</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.layouts</span><span class="w"> </span><span class="kn">import</span> <span class="n">gridplot</span>
 
 
-<div class="viewcode-block" id="plot_single_hist"><a class="viewcode-back" href="../../sed/diagnostic.html#sed.diagnostics.plot_single_hist">[docs]</a><span class="k">def</span> <span class="nf">plot_single_hist</span><span class="p">(</span>
+<div class="viewcode-block" id="plot_single_hist">
+<a class="viewcode-back" href="../../sed/diagnostic.html#sed.diagnostics.plot_single_hist">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_single_hist</span><span class="p">(</span>
     <span class="n">histvals</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">edges</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">legend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -439,7 +442,10 @@
 <span class="sd">        histvals (np.ndarray): Histogram counts (e.g. vertical axis).</span>
 <span class="sd">        edges (np.ndarray): Histogram edge values (e.g. horizontal axis).</span>
 <span class="sd">        legend (str, optional): Text for the plot legend. Defaults to None.</span>
-<span class="sd">        **kwds: Keyword arguments for ``bokeh.plotting.figure().quad()``.</span>
+<span class="sd">        **kwds:</span>
+<span class="sd">            - *tooltip*: Tooltip formatting tuple. Defaults to [(&quot;(x, y)&quot;, &quot;($x, $y)&quot;)]</span>
+
+<span class="sd">            Additional keyword arguments are passed to ``bokeh.plotting.figure().quad()``.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        pbk.figure: An instance of &#39;bokeh.plotting.figure&#39; as a plot handle.</span>
@@ -465,13 +471,16 @@
     <span class="k">return</span> <span class="n">fig</span></div>
 
 
-<div class="viewcode-block" id="grid_histogram"><a class="viewcode-back" href="../../sed/diagnostic.html#sed.diagnostics.grid_histogram">[docs]</a><span class="k">def</span> <span class="nf">grid_histogram</span><span class="p">(</span>
+
+<div class="viewcode-block" id="grid_histogram">
+<a class="viewcode-back" href="../../sed/diagnostic.html#sed.diagnostics.grid_histogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">grid_histogram</span><span class="p">(</span>
     <span class="n">dct</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
     <span class="n">ncol</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">rvs</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span>
     <span class="n">rvbins</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span>
-    <span class="n">rvranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
-    <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bokeh&quot;</span><span class="p">,</span>
+    <span class="n">rvranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+    <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
     <span class="n">legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">histkwds</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">legkwds</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -484,35 +493,42 @@
 <span class="sd">        ncol (int): Number of columns in the plot grid.</span>
 <span class="sd">        rvs (Sequence): List of names for the random variables (rvs).</span>
 <span class="sd">        rvbins (Sequence): Bin values for all random variables.</span>
-<span class="sd">        rvranges (Sequence[Tuple[float, float]]): Value ranges of all random variables.</span>
-<span class="sd">        backend (str, optional): Backend for making the plot (&#39;matplotlib&#39; or &#39;bokeh&#39;).</span>
-<span class="sd">            Defaults to &quot;bokeh&quot;.</span>
+<span class="sd">        rvranges (Sequence[tuple[float, float]]): Value ranges of all random variables.</span>
+<span class="sd">        backend (str, optional): Backend for making the plot (&quot;matplotlib&quot; or &quot;bokeh&quot;).</span>
+<span class="sd">            Defaults to &quot;matplotlib&quot;.</span>
 <span class="sd">        legend (bool, optional): Option to include a legend in each histogram plot.</span>
 <span class="sd">            Defaults to True.</span>
 <span class="sd">        histkwds (dict, optional): Keyword arguments for histogram plots.</span>
 <span class="sd">            Defaults to None.</span>
 <span class="sd">        legkwds (dict, optional): Keyword arguments for legends. Defaults to None.</span>
-<span class="sd">        **kwds: Additional keyword arguments.</span>
+<span class="sd">        **kwds:</span>
+<span class="sd">            - *figsize*: Figure size. Defaults to (6, 4)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">histkwds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">histkwds</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="n">legkwds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">legkwds</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="n">figsz</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;figsize&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">figsz</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;figsize&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># figure size of each panel</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;grid_histogram() got unexpected keyword arguments </span><span class="si">{</span><span class="n">kwds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span>
         <span class="n">nrv</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rvs</span><span class="p">)</span>
         <span class="n">nrow</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">nrv</span> <span class="o">/</span> <span class="n">ncol</span><span class="p">))</span>
-        <span class="n">histtype</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;histtype&quot;</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">)</span>
+        <span class="n">histtype</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;histtype&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
 
-        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsz</span><span class="p">)</span>
+        <span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="n">figsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">figsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">nrow</span><span class="p">]</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
         <span class="n">otherax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">zipped</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="n">rvbins</span><span class="p">,</span> <span class="n">rvranges</span><span class="p">)):</span>
             <span class="c1"># Make each histogram plot</span>
             <span class="n">rvname</span><span class="p">,</span> <span class="n">rvbin</span><span class="p">,</span> <span class="n">rvrg</span> <span class="o">=</span> <span class="n">zipped</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">axind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">))</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">axind</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">axind</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
                 <span class="n">ax</span><span class="p">[</span><span class="n">axind</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
                     <span class="n">dct</span><span class="p">[</span><span class="n">rvname</span><span class="p">],</span>
                     <span class="n">bins</span><span class="o">=</span><span class="n">rvbin</span><span class="p">,</span>
@@ -522,11 +538,13 @@
                     <span class="o">**</span><span class="n">histkwds</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="k">if</span> <span class="n">legend</span><span class="p">:</span>
-                    <span class="n">ax</span><span class="p">[</span><span class="n">axind</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="o">**</span><span class="n">legkwds</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="p">[</span><span class="n">axind</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="n">legkwds</span><span class="p">)</span>
 
                 <span class="n">otherax</span><span class="p">[</span><span class="n">axind</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
                 <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
                     <span class="n">dct</span><span class="p">[</span><span class="n">rvname</span><span class="p">],</span>
                     <span class="n">bins</span><span class="o">=</span><span class="n">rvbin</span><span class="p">,</span>
@@ -536,13 +554,15 @@
                     <span class="o">**</span><span class="n">histkwds</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="k">if</span> <span class="n">legend</span><span class="p">:</span>
-                    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="o">**</span><span class="n">legkwds</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="n">legkwds</span><span class="p">)</span>
 
                 <span class="n">otherax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">for</span> <span class="n">oax</span> <span class="ow">in</span> <span class="n">otherax</span><span class="o">.</span><span class="n">flatten</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">oax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">fig</span><span class="o">.</span><span class="n">delaxes</span><span class="p">(</span><span class="n">oax</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
     <span class="k">elif</span> <span class="n">backend</span> <span class="o">==</span> <span class="s2">&quot;bokeh&quot;</span><span class="p">:</span>
         <span class="n">output_notebook</span><span class="p">(</span><span class="n">hide_banner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -571,10 +591,11 @@
             <span class="n">gridplot</span><span class="p">(</span>
                 <span class="n">plots</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
                 <span class="n">ncols</span><span class="o">=</span><span class="n">ncol</span><span class="p">,</span>
-                <span class="n">width</span><span class="o">=</span><span class="n">figsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span>
-                <span class="n">height</span><span class="o">=</span><span class="n">figsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span>
+                <span class="n">width</span><span class="o">=</span><span class="n">figsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="n">height</span><span class="o">=</span><span class="n">figsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span></div>
+
 </pre></div>
 
                 </article>
@@ -625,7 +646,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

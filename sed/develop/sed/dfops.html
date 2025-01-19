@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Dataframe Operations &#8212; SED 0.4.0.dev0 documentation</title>
+    <title>Dataframe Operations &#8212; SED 0.4.1.dev383+g27234e0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,16 +38,16 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=57b8f4a9"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=db21e222"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sed/dfops';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.0.dev0';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1.dev383+g27234e0';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="Core" href="core.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.0.dev0" />
+  <meta name="docsearch:version" content="0.4.1.dev383+g27234e0" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">SED 0.4.0.dev0 documentation</p>
+    <p class="title logo__title">SED 0.4.1.dev383+g27234e0 documentation</p>
   
 </a></div>
     
@@ -440,21 +440,21 @@
                 <article class="bd-article">
                   
   <section id="module-sed.core.dfops">
-<span id="dataframe-operations"></span><h1>Dataframe Operations<a class="headerlink" href="#module-sed.core.dfops" title="Permalink to this heading">#</a></h1>
+<span id="dataframe-operations"></span><h1>Dataframe Operations<a class="headerlink" href="#module-sed.core.dfops" title="Link to this heading">#</a></h1>
 <p>This module contains dataframe operations functions for the sed package</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.apply_jitter">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">apply_jitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols_jittered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jitter_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uniform'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#apply_jitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.apply_jitter" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">apply_jitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols_jittered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jitter_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uniform'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#apply_jitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.apply_jitter" title="Link to this definition">#</a></dt>
 <dd><p>Add jittering to one or more dataframe columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to add
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to add
 noise/jittering to.</p></li>
-<li><p><strong>cols</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Names of the columns to add jittering to.</p></li>
-<li><p><strong>cols_jittered</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Names of the columns
+<li><p><strong>cols</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – Names of the columns to add jittering to.</p></li>
+<li><p><strong>cols_jittered</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Names of the columns
 with added jitter. Defaults to None.</p></li>
-<li><p><strong>amps</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
+<li><p><strong>amps</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Amplitude scalings for the
 jittering noise. If one number is given, the same is used for all axes.
 For normal noise, the added noise will have stdev [-amp, +amp], for
 uniform noise it will cover the interval [-amp, +amp].
@@ -467,39 +467,39 @@ distributed noise. Defaults to “uniform”.</p></li>
 <dd class="field-even"><p>dataframe with added columns.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.drop_column">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">drop_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#drop_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.drop_column" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">drop_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#drop_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.drop_column" title="Link to this definition">#</a></dt>
 <dd><p>Delete columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
-<li><p><strong>column_name</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>)</em>) – List of column names to be dropped.</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – List of column names to be dropped.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Dataframe with dropped columns.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.apply_filter">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">apply_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#apply_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.apply_filter" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">apply_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#apply_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.apply_filter" title="Link to this definition">#</a></dt>
 <dd><p>Application of bound filters to a specified column (can be used consecutively).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
 <li><p><strong>col</strong> (<em>str</em>) – Name of the column to filter. Passing “index” for col will
 filter on the index in each dataframe partition.</p></li>
 <li><p><strong>lower_bound</strong> (<em>float</em><em>, </em><em>optional</em>) – The lower bound used in the filtering.
@@ -512,61 +512,67 @@ Defaults to np.inf.</p></li>
 <dd class="field-even"><p>The filtered dataframe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.add_time_stamped_data">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">add_time_stamped_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamp_column</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#add_time_stamped_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.add_time_stamped_data" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">add_time_stamped_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_stamp_column</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#add_time_stamped_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.add_time_stamped_data" title="Link to this definition">#</a></dt>
 <dd><p>Add data in form of timestamp/value pairs to the dataframe using interpolation to the
 timestamps in the dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
+<li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
 <li><p><strong>time_stamps</strong> (<em>np.ndarray</em>) – Time stamps of the values to add</p></li>
 <li><p><strong>data</strong> (<em>np.ndarray</em>) – Values corresponding at the time stamps in time_stamps</p></li>
 <li><p><strong>dest_column</strong> (<em>str</em>) – destination column name</p></li>
 <li><p><strong>time_stamp_column</strong> (<em>str</em>) – Time stamp column name</p></li>
+<li><p><strong>**kwds</strong> – Keyword arguments passed to map_partitions</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Dataframe with added column</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.map_columns_2d">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">map_columns_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_column</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#map_columns_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.map_columns_2d" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">map_columns_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_column</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#map_columns_2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.map_columns_2d" title="Link to this definition">#</a></dt>
 <dd><p>Apply a 2-dimensional mapping simultaneously to two dimensions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>Union</em><em>[</em><em>pd.DataFrame</em><em>, </em><em>dask.dataframe.DataFrame</em><em>]</em>) – Dataframe to use.</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em><em> | </em><em>dask.dataframe.DataFrame</em>) – Dataframe to use.</p></li>
 <li><p><strong>map_2d</strong> (<em>Callable</em>) – 2D mapping function.</p></li>
 <li><p><strong>x_column</strong> (<em>str</em>) – The X column of the dataframe to apply mapping to.</p></li>
 <li><p><strong>y_column</strong> (<em>str</em>) – The Y column of the dataframe to apply mapping to.</p></li>
-<li><p><strong>**kwds</strong> – Additional arguments for the 2D mapping function.</p></li>
+<li><p><strong>**kwds</strong> – <ul>
+<li><p><em>new_x_column</em>: Name of the new x-column. Default is to overwrite the x-column.</p></li>
+<li><p><em>new_y_column</em>: Name of the new y-column. Default is to overwrite the y-column.</p></li>
+</ul>
+<p>Additional keyword argument are passed to the 2D mapping function.</p>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Dataframe with mapped columns.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[pd.DataFrame, dask.dataframe.DataFrame]</p>
+<dd class="field-odd"><p>pd.DataFrame | dask.dataframe.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.forward_fill_lazy">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">forward_fill_lazy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#forward_fill_lazy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.forward_fill_lazy" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">forward_fill_lazy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#forward_fill_lazy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.forward_fill_lazy" title="Link to this definition">#</a></dt>
 <dd><p>Forward fill the specified columns multiple times in a dask dataframe.</p>
 <p>Allows forward filling between partitions. This is useful for dataframes
 that have sparse data, such as those with many NaNs.
@@ -577,8 +583,8 @@ is enough to fix the issue for dataframes with no consecutive partitions of NaNs
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – The dataframe to forward fill.</p></li>
-<li><p><strong>columns</strong> (<em>list</em>) – The columns to forward fill. If None, fills all columns</p></li>
-<li><p><strong>before</strong> (<em>int</em><em>, </em><em>str</em><em>, </em><em>optional</em>) – The number of rows to include before the current partition.
+<li><p><strong>columns</strong> (<em>list</em><em>, </em><em>optional</em>) – The columns to forward fill. If None, fills all columns</p></li>
+<li><p><strong>before</strong> (<em>str</em><em> | </em><em>int</em><em>, </em><em>optional</em>) – The number of rows to include before the current partition.
 if ‘max’ it takes as much as possible from the previous partition, which is
 the size of the smallest partition in the dataframe. Defaults to ‘max’.</p></li>
 <li><p><strong>compute_lengths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to compute the length of each partition</p></li>
@@ -596,7 +602,7 @@ the size of the smallest partition in the dataframe. Defaults to ‘max’.</p><
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.backward_fill_lazy">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">backward_fill_lazy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#backward_fill_lazy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.backward_fill_lazy" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">backward_fill_lazy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'max'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_lengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#backward_fill_lazy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.backward_fill_lazy" title="Link to this definition">#</a></dt>
 <dd><p>Forward fill the specified columns multiple times in a dask dataframe.</p>
 <p>Allows backward filling between partitions. Similar to forward fill, but backwards.
 This helps to fill the initial values of a dataframe, which are often NaNs.
@@ -605,8 +611,8 @@ Use with care as the assumption of the values being the same in the past is ofte
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – The dataframe to forward fill.</p></li>
-<li><p><strong>columns</strong> (<em>list</em>) – The columns to forward fill. If None, fills all columns</p></li>
-<li><p><strong>after</strong> (<em>int</em><em>, </em><em>str</em><em>, </em><em>optional</em>) – The number of rows to include after the current partition.
+<li><p><strong>columns</strong> (<em>list</em><em>, </em><em>optional</em>) – The columns to forward fill. If None, fills all columns</p></li>
+<li><p><strong>after</strong> (<em>str</em><em> | </em><em>int</em><em>, </em><em>optional</em>) – The number of rows to include after the current partition.
 if ‘max’ it takes as much as possible from the previous partition, which is
 the size of the smallest partition in the dataframe. Defaults to ‘max’.</p></li>
 <li><p><strong>compute_lengths</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to compute the length of each partition</p></li>
@@ -624,20 +630,20 @@ the size of the smallest partition in the dataframe. Defaults to ‘max’.</p><
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sed.core.dfops.offset_by_other_columns">
-<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">offset_by_other_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reductions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#offset_by_other_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.offset_by_other_columns" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sed.core.dfops.</span></span><span class="sig-name descname"><span class="pre">offset_by_other_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reductions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/core/dfops.html#offset_by_other_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.core.dfops.offset_by_other_columns" title="Link to this definition">#</a></dt>
 <dd><p>Apply an offset to a column based on the values of other columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>dask.dataframe.DataFrame</em>) – Dataframe to use. Currently supports only dask dataframes.</p></li>
 <li><p><strong>target_column</strong> (<em>str</em>) – Name of the column to apply the offset to.</p></li>
-<li><p><strong>offset_columns</strong> (<em>str</em>) – Name of the column(s) to use for the offset.</p></li>
-<li><p><strong>weights</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>Sequence</em><em>[</em><em>float</em><em>]</em><em>]</em>) – weights to apply on each column before adding.
-Used also for changing sign.</p></li>
-<li><p><strong>reductions</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Reduction function to use for the offset.
+<li><p><strong>offset_columns</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em>) – Name of the column(s) to use for the offset.</p></li>
+<li><p><strong>weights</strong> (<em>float</em><em> | </em><em>Sequence</em><em>[</em><em>float</em><em>]</em>) – weights to apply on each column before adding. Used also
+for changing sign.</p></li>
+<li><p><strong>reductions</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Reduction function to use for the offset.
 Defaults to “mean”. Currently, only mean is supported.</p></li>
-<li><p><strong>preserve_mean</strong> (<em>Union</em><em>[</em><em>bool</em><em>, </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the
-offset column. Defaults to False. If a list is given, it must have the same length as
+<li><p><strong>preserve_mean</strong> (<em>bool</em><em> | </em><em>Sequence</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) – Whether to subtract the mean of the offset
+column. Defaults to False. If a list is given, it must have the same length as
 offset_columns. Otherwise the value passed is used for all columns.</p></li>
 <li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to apply the offset inplace.
 If false, the new column will have the name provided by rename, or has the same name as
@@ -757,7 +763,7 @@ target_column with the suffix _offset if that is None. Defaults to True.</p></li
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
