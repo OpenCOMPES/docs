@@ -13,10 +13,14 @@ with open(switcher_file, encoding="utf-8") as f:
     data = json.load(f)
     if branch.startswith("refs/tags"):  # add a new version tag
         version_tag = branch.split("/")[-1]
+        prerelease = "a" in version_tag
         for item in data:
             if version_tag in item.get("name", ""):
                 present = True
-            if "stable" in item.get("name", ""):
+            if "latest" in item.get("name", ""):
+                item["version"] = version
+                item["url"] = "https://opencompes.github.io/docs/specsanalyzer/" + version_tag
+            if "stable" in item.get("name", "") and not prerelease:
                 item["version"] = version
                 item["url"] = "https://opencompes.github.io/docs/specsanalyzer/" + version_tag
         if not present:
