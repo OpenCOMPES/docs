@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Core functions (specsanalyzer.core) &#8212; specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</title>
+    <title>1. Core functions (specsanalyzer.core) &#8212; specsanalyzer 0.5.2.dev10+g554f714 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a485e8e6"></script>
+    <script src="../_static/documentation_options.js?v=c58a65cb"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev40+g8ed2f0c';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.2.dev10+g554f714';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="Example 4: Sweep Scan loading" href="../tutorial/4_specsscan_load_sweep_scan.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2.dev40+g8ed2f0c" />
+  <meta name="docsearch:version" content="0.5.2.dev10+g554f714" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.2.dev10+g554f714 documentation</p>
   
 </a></div>
     
@@ -566,7 +566,7 @@
 <p id="module-specsanalyzer.core">This is the specsanalyzer core class</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="specsanalyzer.core.SpecsAnalyzer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">specsanalyzer.core.</span></span><span class="sig-name descname"><span class="pre">SpecsAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/core.html#SpecsAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.core.SpecsAnalyzer" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">specsanalyzer.core.</span></span><span class="sig-name descname"><span class="pre">SpecsAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsanalyzer/core.html#SpecsAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsanalyzer.core.SpecsAnalyzer" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>SpecsAnalyzer: A class to convert photoemission data from a SPECS Phoibos analyzer from
 camera image coordinates into physical units (energy, angle, position).</p>
@@ -576,6 +576,7 @@ camera image coordinates into physical units (energy, angle, position).</p>
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Metadata dictionary. Defaults to {}.</p></li>
 <li><p><strong>config</strong> (<em>dict</em><em>  | </em><em>str</em><em>, </em><em>optional</em>) – Metadata dictionary or file path. Defaults to {}.</p></li>
 <li><p><strong>**kwds</strong> – Keyword arguments passed to <code class="docutils literal notranslate"><span class="pre">parse_config</span></code>.</p></li>
+<li><p><strong>verbose</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -644,6 +645,8 @@ Defaults to False.</p></li>
 <li><p>ek_range_max</p></li>
 <li><p>ang_range_min</p></li>
 <li><p>ang_range_max</p></li>
+<li><p>angle_offset_px</p></li>
+<li><p>rotation_angle</p></li>
 </ul>
 <p>Other parameters are passed to <code class="docutils literal notranslate"><span class="pre">convert_image()</span></code>.</p>
 </p></li>

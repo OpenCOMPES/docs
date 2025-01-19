@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Helpers &#8212; specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</title>
+    <title>2. Helpers &#8212; specsanalyzer 0.5.2.dev10+g554f714 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a485e8e6"></script>
+    <script src="../_static/documentation_options.js?v=c58a65cb"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev40+g8ed2f0c';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.2.dev10+g554f714';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="1. Core functions (specsscan.core)" href="core.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2.dev40+g8ed2f0c" />
+  <meta name="docsearch:version" content="0.5.2.dev10+g554f714" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.2.dev10+g554f714 documentation</p>
   
 </a></div>
     
@@ -696,6 +696,11 @@ obtained from parse_lut_to_df(). Defaults to None.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="specsscan.helpers.mm_to_fs">
+<span class="sig-prename descclassname"><span class="pre">specsscan.helpers.</span></span><span class="sig-name descname"><span class="pre">mm_to_fs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delaystage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/helpers.html#mm_to_fs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.helpers.mm_to_fs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="specsscan.helpers.compare_coords">
 <span class="sig-prename descclassname"><span class="pre">specsscan.helpers.</span></span><span class="sig-name descname"><span class="pre">compare_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/helpers.html#compare_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.helpers.compare_coords" title="Link to this definition">#</a></dt>
 <dd><p>Identifies the most changing column in a given 2-D numpy array.</p>
@@ -735,7 +740,7 @@ obtained from parse_lut_to_df(). Defaults to None.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="specsscan.helpers.handle_meta">
-<span class="sig-prename descclassname"><span class="pre">specsscan.helpers.</span></span><span class="sig-name descname"><span class="pre">handle_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_lut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast_axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slow_axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/helpers.html#handle_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.helpers.handle_meta" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">specsscan.helpers.</span></span><span class="sig-name descname"><span class="pre">handle_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_lut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast_axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slow_axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collect_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/helpers.html#handle_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.helpers.handle_meta" title="Link to this definition">#</a></dt>
 <dd><p>Helper function for the handling metadata from different files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -744,43 +749,23 @@ obtained from parse_lut_to_df(). Defaults to None.</p></li>
 from <code class="docutils literal notranslate"><span class="pre">parse_lut_to_df()</span></code></p></li>
 <li><p><strong>scan_info</strong> (<em>dict</em>) – scan_info class dict containing containing the contents of info.txt file</p></li>
 <li><p><strong>config</strong> (<em>dict</em>) – config dictionary containing the contents of config.yaml file</p></li>
+<li><p><strong>scan</strong> (<em>int</em>) – Scan number</p></li>
 <li><p><strong>fast_axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The fast-axis dimensions of the scan</p></li>
 <li><p><strong>slow_axes</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The slow-axis dimensions of the scan</p></li>
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Metadata dictionary with additional metadata for the scan.
 Defaults to empty dictionary.</p></li>
 <li><p><strong>collect_metadata</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to collect further metadata e.g. from EPICS
 archiver needed for NeXus conversion. Defaults to False.</p></li>
+<li><p><strong>token</strong> (<em>str</em><em>, </em><em>optional</em>)</p></li>
 <li><p><strong>projection</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>metadata dictionary containing additional metadata from the EPICS
-archive.</p>
+archive and elabFTW.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="specsscan.helpers.get_archiver_data">
-<span class="sig-prename descclassname"><span class="pre">specsscan.helpers.</span></span><span class="sig-name descname"><span class="pre">get_archiver_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">archiver_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archiver_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_to</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/helpers.html#get_archiver_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.helpers.get_archiver_data" title="Link to this definition">#</a></dt>
-<dd><p>Extract time stamps and corresponding data from and EPICS archiver instance</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>archiver_url</strong> (<em>str</em>) – URL of the archiver data extraction interface</p></li>
-<li><p><strong>archiver_channel</strong> (<em>str</em>) – EPICS channel to extract data for</p></li>
-<li><p><strong>ts_from</strong> (<em>float</em>) – starting time stamp of the range of interest</p></li>
-<li><p><strong>ts_to</strong> (<em>float</em>) – ending time stamp of the range of interest</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The extracted time stamps and corresponding data</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[List, List]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -875,10 +860,10 @@ Path(“//nap32/topfloor/trARPES/PESData/2020”)</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.get_raw2d"><code class="docutils literal notranslate"><span class="pre">get_raw2d()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.parse_lut_to_df"><code class="docutils literal notranslate"><span class="pre">parse_lut_to_df()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.get_coords"><code class="docutils literal notranslate"><span class="pre">get_coords()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.mm_to_fs"><code class="docutils literal notranslate"><span class="pre">mm_to_fs()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.compare_coords"><code class="docutils literal notranslate"><span class="pre">compare_coords()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.parse_info_to_dict"><code class="docutils literal notranslate"><span class="pre">parse_info_to_dict()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.handle_meta"><code class="docutils literal notranslate"><span class="pre">handle_meta()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.get_archiver_data"><code class="docutils literal notranslate"><span class="pre">get_archiver_data()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.find_scan"><code class="docutils literal notranslate"><span class="pre">find_scan()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.helpers.find_scan_type"><code class="docutils literal notranslate"><span class="pre">find_scan_type()</span></code></a></li>
 </ul>

@@ -1,14 +1,15 @@
 data_path: "//mnt/topfloor/trARPES/PESData/"
 enable_nested_progress_bar: false
-epics_channels:
-  tempa: "trARPES:Carving:TEMP_RBV"
-  x: "trARPES:Carving:TRX.RBV"
-  y: "trARPES:Carving:TRY.RBV"
-  z: "trARPES:Carving:TRZ.RBV"
-  polar: "trARPES:Carving:THT.RBV"
-  tilt: "trARPES:Carving:PHI.RBV"
-  azimuth: "trARPES:Carving:OMG.RBV"
-  pressure: "trARPES:XGS600:PressureAC:P_RD"
+metadata:
+  epics_channels:
+    tempa: "trARPES:Carving:TEMP_RBV"
+    x: "trARPES:Carving:TRX.RBV"
+    y: "trARPES:Carving:TRY.RBV"
+    z: "trARPES:Carving:TRZ.RBV"
+    polar: "trARPES:Carving:THT.RBV"
+    tilt: "trARPES:Carving:PHI.RBV"
+    azimuth: "trARPES:Carving:OMG.RBV"
+    pressure: "trARPES:XGS600:PressureAC:P_RD"
 nexus:
   reader: "mpes"
   definition: "NXmpes"

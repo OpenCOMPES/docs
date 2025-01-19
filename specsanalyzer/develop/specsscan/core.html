@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Core functions (specsscan.core) &#8212; specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</title>
+    <title>1. Core functions (specsscan.core) &#8212; specsanalyzer 0.5.2.dev10+g554f714 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a485e8e6"></script>
+    <script src="../_static/documentation_options.js?v=c58a65cb"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev40+g8ed2f0c';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.2.dev10+g554f714';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="4. io functions (specsanalyzer.io)" href="../specsanalyzer/io.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2.dev40+g8ed2f0c" />
+  <meta name="docsearch:version" content="0.5.2.dev10+g554f714" />
   </head>
   
   
@@ -119,7 +119,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.2.dev10+g554f714 documentation</p>
   
 </a></div>
     
@@ -566,7 +566,7 @@
 <p id="module-specsscan.core">This is the SpecsScan core class</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="specsscan.core.SpecsScan">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">specsscan.core.</span></span><span class="sig-name descname"><span class="pre">SpecsScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/core.html#SpecsScan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.core.SpecsScan" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">specsscan.core.</span></span><span class="sig-name descname"><span class="pre">SpecsScan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/core.html#SpecsScan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.core.SpecsScan" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>SpecsAnalyzer class for loading scans and data from SPECS Phoibos electron analyzers,
 generated with the ARPESControl software at Fritz Haber Institute, Berlin, and EPFL, Lausanne.</p>
@@ -576,6 +576,7 @@ generated with the ARPESControl software at Fritz Haber Institute, Berlin, and E
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Metadata dictionary. Defaults to {}.</p></li>
 <li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Metadata dictionary or file path. Defaults to {}.</p></li>
 <li><p><strong>**kwds</strong> – Keyword arguments passed to <code class="docutils literal notranslate"><span class="pre">parse_config</span></code>.</p></li>
+<li><p><strong>verbose</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -642,6 +643,22 @@ Defaults to config[‘data_path’].</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="specsscan.core.SpecsScan.save_crop_params">
+<span class="sig-name descname"><span class="pre">save_crop_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/core.html#SpecsScan.save_crop_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.core.SpecsScan.save_crop_params" title="Link to this definition">#</a></dt>
+<dd><p>Save the generated crop parameters to the folder config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Filename of the config dictionary to save to.
+Defaults to “specs_config.yaml” in the current folder.</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to overwrite the present dictionary.
+Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="specsscan.core.SpecsScan.fft_tool">
 <span class="sig-name descname"><span class="pre">fft_tool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/core.html#SpecsScan.fft_tool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.core.SpecsScan.fft_tool" title="Link to this definition">#</a></dt>
 <dd><p>FFT tool to play around with the peak parameters in the Fourier plane. Built to filter
@@ -662,6 +679,22 @@ the class config dict under fft_filter_peaks.</p>
 <li><p><cite>sigma_y</cite>: vertical frequency width</p></li>
 </ul>
 </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="specsscan.core.SpecsScan.save_fft_params">
+<span class="sig-name descname"><span class="pre">save_fft_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/specsscan/core.html#SpecsScan.save_fft_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#specsscan.core.SpecsScan.save_fft_params" title="Link to this definition">#</a></dt>
+<dd><p>Save the generated fft filter parameters to the folder config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Filename of the config dictionary to save to.
+Defaults to “specs_config.yaml” in the current folder.</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to overwrite the present dictionary.
+Defaults to False.</p></li>
 </ul>
 </dd>
 </dl>
@@ -822,7 +855,9 @@ convention e.g. “WideAngleMode”</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.result"><code class="docutils literal notranslate"><span class="pre">SpecsScan.result</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.load_scan"><code class="docutils literal notranslate"><span class="pre">SpecsScan.load_scan()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.crop_tool"><code class="docutils literal notranslate"><span class="pre">SpecsScan.crop_tool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.save_crop_params"><code class="docutils literal notranslate"><span class="pre">SpecsScan.save_crop_params()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.fft_tool"><code class="docutils literal notranslate"><span class="pre">SpecsScan.fft_tool()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.save_fft_params"><code class="docutils literal notranslate"><span class="pre">SpecsScan.save_fft_params()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.check_scan"><code class="docutils literal notranslate"><span class="pre">SpecsScan.check_scan()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.save"><code class="docutils literal notranslate"><span class="pre">SpecsScan.save()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specsscan.core.SpecsScan.process_sweep_scan"><code class="docutils literal notranslate"><span class="pre">SpecsScan.process_sweep_scan()</span></code></a></li>

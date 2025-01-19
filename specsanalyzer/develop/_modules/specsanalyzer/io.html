@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>specsanalyzer.io &#8212; specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</title>
+    <title>specsanalyzer.io &#8212; specsanalyzer 0.5.2.dev10+g554f714 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a485e8e6"></script>
+    <script src="../../_static/documentation_options.js?v=c58a65cb"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev40+g8ed2f0c';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.2.dev10+g554f714';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2.dev40+g8ed2f0c" />
+  <meta name="docsearch:version" content="0.5.2.dev10+g554f714" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.2.dev10+g554f714 documentation</p>
   
 </a></div>
     
@@ -551,17 +551,17 @@
                   
   <h1>Source code for specsanalyzer.io</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This module contains file input/output functions for the specsanalyzer module&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 
-<span class="kn">import</span> <span class="nn">h5py</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tifffile</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">pynxtools.dataconverter.convert</span> <span class="kn">import</span> <span class="n">convert</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pynxtools.dataconverter.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 
 <span class="n">_IMAGEJ_DIMS_ORDER</span> <span class="o">=</span> <span class="s2">&quot;TZCYXS&quot;</span>
 <span class="n">_IMAGEJ_DIMS_ALIAS</span> <span class="o">=</span> <span class="p">{</span>
@@ -591,7 +591,7 @@
 
 <div class="viewcode-block" id="recursive_write_metadata">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.recursive_write_metadata">[docs]</a>
-<span class="k">def</span> <span class="nf">recursive_write_metadata</span><span class="p">(</span><span class="n">h5group</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">recursive_write_metadata</span><span class="p">(</span><span class="n">h5group</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Recurses through a python dictionary and writes it into an hdf5 file.</span>
 
 <span class="sd">    Args:</span>
@@ -631,13 +631,13 @@
             <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;Unknown error occurred, cannot save </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-                <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span></div>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span></div>
 
 
 
 <div class="viewcode-block" id="recursive_parse_metadata">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.recursive_parse_metadata">[docs]</a>
-<span class="k">def</span> <span class="nf">recursive_parse_metadata</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">recursive_parse_metadata</span><span class="p">(</span>
     <span class="n">node</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span> <span class="o">|</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Recurses through an hdf5 file, and parse it into a dictionary.</span>
@@ -668,7 +668,7 @@
 
 <div class="viewcode-block" id="to_h5">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.to_h5">[docs]</a>
-<span class="k">def</span> <span class="nf">to_h5</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_h5</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Save xarray formatted data to hdf5</span>
 
 <span class="sd">    Args:</span>
@@ -720,7 +720,7 @@
 
 <div class="viewcode-block" id="load_h5">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.load_h5">[docs]</a>
-<span class="k">def</span> <span class="nf">load_h5</span><span class="p">(</span><span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_h5</span><span class="p">(</span><span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read xarray data from formatted hdf5 file</span>
 
 <span class="sd">    Args:</span>
@@ -737,7 +737,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Wrong Data Format, the BinnedData were not found. The error was</span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="c1"># Reading the axes</span>
         <span class="n">bin_axes</span> <span class="o">=</span> <span class="p">[]</span>
@@ -750,7 +750,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Wrong Data Format, the axes were not found. The error was </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="c1"># load metadata</span>
         <span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span>
@@ -780,7 +780,7 @@
 
 <div class="viewcode-block" id="to_tiff">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.to_tiff">[docs]</a>
-<span class="k">def</span> <span class="nf">to_tiff</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_tiff</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">faddr</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -845,7 +845,7 @@
 
 <div class="viewcode-block" id="_sort_dims_for_imagej">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io._sort_dims_for_imagej">[docs]</a>
-<span class="k">def</span> <span class="nf">_sort_dims_for_imagej</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_sort_dims_for_imagej</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Guess the order of the dimensions from the alias dictionary</span>
 
 <span class="sd">    Args:</span>
@@ -871,7 +871,7 @@
 
 <div class="viewcode-block" id="_fill_missing_dims">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io._fill_missing_dims">[docs]</a>
-<span class="k">def</span> <span class="nf">_fill_missing_dims</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_fill_missing_dims</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Guess the order of the dimensions from the alias dictionary</span>
 
 <span class="sd">    Args:</span>
@@ -925,7 +925,7 @@
 
 <div class="viewcode-block" id="load_tiff">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.load_tiff">[docs]</a>
-<span class="k">def</span> <span class="nf">load_tiff</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_tiff</span><span class="p">(</span>
     <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">coords</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -975,7 +975,7 @@
 
 <div class="viewcode-block" id="to_nexus">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.to_nexus">[docs]</a>
-<span class="k">def</span> <span class="nf">to_nexus</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_nexus</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
     <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">reader</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1014,7 +1014,7 @@
 
 <div class="viewcode-block" id="get_pair_from_list">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.get_pair_from_list">[docs]</a>
-<span class="k">def</span> <span class="nf">get_pair_from_list</span><span class="p">(</span><span class="n">list_line</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pair_from_list</span><span class="p">(</span><span class="n">list_line</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns key value pair for the read function</span>
 <span class="sd">    where a line in the file contains &#39;=&#39; character.</span>
 
@@ -1047,7 +1047,7 @@
 
 <div class="viewcode-block" id="read_calib2d">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.read_calib2d">[docs]</a>
-<span class="k">def</span> <span class="nf">read_calib2d</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_calib2d</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads the calib2d file into a convenient list for the parser</span>
 <span class="sd">    function containing useful and cleaned data.</span>
 
@@ -1090,7 +1090,7 @@
 
 <div class="viewcode-block" id="parse_calib2d_to_dict">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.parse_calib2d_to_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">parse_calib2d_to_dict</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_calib2d_to_dict</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parses the given calib2d file into a nested dictionary structure</span>
 <span class="sd">    to provide parameters for image conversion.</span>
 
@@ -1133,7 +1133,7 @@
 
 <div class="viewcode-block" id="get_modes_from_calib_dict">
 <a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.get_modes_from_calib_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">get_modes_from_calib_dict</span><span class="p">(</span><span class="n">calib_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_modes_from_calib_dict</span><span class="p">(</span><span class="n">calib_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;create a list of supported modes, divided in spatial and angular modes</span>
 
 <span class="sd">    Args:</span>

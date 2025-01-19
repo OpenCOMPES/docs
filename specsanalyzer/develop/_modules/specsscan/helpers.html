@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>specsscan.helpers &#8212; specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</title>
+    <title>specsscan.helpers &#8212; specsanalyzer 0.5.2.dev10+g554f714 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a485e8e6"></script>
+    <script src="../../_static/documentation_options.js?v=c58a65cb"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev40+g8ed2f0c';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.2.dev10+g554f714';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2.dev40+g8ed2f0c" />
+  <meta name="docsearch:version" content="0.5.2.dev10+g554f714" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.2.dev10+g554f714 documentation</p>
   
 </a></div>
     
@@ -551,27 +551,28 @@
                   
   <h1>Source code for specsscan.helpers</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;This script contains helper functions used by the specsscan class&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
-<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">HTTPError</span>
-<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">URLError</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">specsanalyzer.config</span> <span class="kn">import</span> <span class="n">complete_dictionary</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsanalyzer.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">complete_dictionary</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specsscan.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetadataRetriever</span>
+
+<span class="c1"># Configure logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;specsanalyzer.specsscan&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="get_scan_path">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_scan_path">[docs]</a>
-<span class="k">def</span> <span class="nf">get_scan_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">basepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_scan_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">basepath</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the path to the given scan.</span>
 
 <span class="sd">    Args:</span>
@@ -607,7 +608,7 @@
 
 <div class="viewcode-block" id="load_images">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.load_images">[docs]</a>
-<span class="k">def</span> <span class="nf">load_images</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_images</span><span class="p">(</span>
     <span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">df_lut</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">iterations</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">slice</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">slice</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -681,9 +682,9 @@
                 <span class="s2">&quot;the chosen data. In case of a single scan, &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;try without passing iterations inside the &quot;</span>
                 <span class="s2">&quot;load_scan method.&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Averaging over </span><span class="si">{</span><span class="n">avg_dim</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Averaging over </span><span class="si">{</span><span class="n">avg_dim</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">raw_2d_sliced</span><span class="p">):</span>
             <span class="n">avg_list</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">disable</span><span class="o">=</span><span class="ow">not</span> <span class="n">tqdm_enable_nested</span><span class="p">):</span>
@@ -718,7 +719,7 @@
 
 <div class="viewcode-block" id="get_raw2d">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_raw2d">[docs]</a>
-<span class="k">def</span> <span class="nf">get_raw2d</span><span class="p">(</span><span class="n">scan_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">raw_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_raw2d</span><span class="p">(</span><span class="n">scan_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">raw_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a 1-D array of raw scan names into 2-D based on the number of iterations</span>
 
 <span class="sd">    Args:</span>
@@ -762,7 +763,7 @@
 
 <div class="viewcode-block" id="parse_lut_to_df">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.parse_lut_to_df">[docs]</a>
-<span class="k">def</span> <span class="nf">parse_lut_to_df</span><span class="p">(</span><span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_lut_to_df</span><span class="p">(</span><span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads the contents of LUT.txt file into a pandas data frame to be used as metadata.</span>
 
 <span class="sd">    Args:</span>
@@ -776,14 +777,14 @@
         <span class="n">df_lut</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">new_cols</span> <span class="o">=</span> <span class="n">df_lut</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="n">new_cols</span><span class="p">[</span><span class="n">new_cols</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;delaystage&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Delay&quot;</span>
+        <span class="n">new_cols</span><span class="p">[</span><span class="n">new_cols</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;delaystage&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;DelayStage&quot;</span>
         <span class="n">new_cols</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;delay (fs)&quot;</span><span class="p">)</span>  <span class="c1"># Create label to drop the column later</span>
 
         <span class="n">df_lut</span> <span class="o">=</span> <span class="n">df_lut</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">new_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
         <span class="n">df_lut</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;delay (fs)&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="s2">&quot;LUT.txt not found. Storing metadata from info.txt&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span>
@@ -794,7 +795,7 @@
 
 <div class="viewcode-block" id="get_coords">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_coords">[docs]</a>
-<span class="k">def</span> <span class="nf">get_coords</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_coords</span><span class="p">(</span>
     <span class="n">scan_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">scan_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">scan_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
@@ -834,7 +835,7 @@
             <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">df_lut</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;scanvector.txt not found. Obtaining coordinates from LUT&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;scanvector.txt not found. Obtaining coordinates from LUT&quot;</span><span class="p">)</span>
 
             <span class="n">df_new</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">df_lut</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">df_lut</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:]]</span>
 
@@ -842,20 +843,28 @@
             <span class="n">dim</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;scanvector.txt file not found!&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;scanvector.txt file not found!&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="k">if</span> <span class="n">scan_type</span> <span class="o">==</span> <span class="s2">&quot;delay&quot;</span><span class="p">:</span>
-        <span class="n">t_0</span> <span class="o">=</span> <span class="n">scan_info</span><span class="p">[</span><span class="s2">&quot;TimeZero&quot;</span><span class="p">]</span>
-        <span class="n">coords</span> <span class="o">-=</span> <span class="n">t_0</span>
-        <span class="n">coords</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">3e11</span> <span class="o">*</span> <span class="mf">1e15</span>
+        <span class="n">t0</span> <span class="o">=</span> <span class="n">scan_info</span><span class="p">[</span><span class="s2">&quot;TimeZero&quot;</span><span class="p">]</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">mm_to_fs</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">t0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">coords</span><span class="p">,</span> <span class="n">dim</span></div>
 
 
 
+<div class="viewcode-block" id="mm_to_fs">
+<a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.mm_to_fs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mm_to_fs</span><span class="p">(</span><span class="n">delaystage</span><span class="p">,</span> <span class="n">t0</span><span class="p">):</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="n">delaystage</span> <span class="o">-</span> <span class="n">t0</span>
+    <span class="n">delay</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">2.99792458e11</span> <span class="o">*</span> <span class="mf">1e15</span>
+    <span class="k">return</span> <span class="n">delay</span></div>
+
+
+
 <div class="viewcode-block" id="compare_coords">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.compare_coords">[docs]</a>
-<span class="k">def</span> <span class="nf">compare_coords</span><span class="p">(</span><span class="n">axis_data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_coords</span><span class="p">(</span><span class="n">axis_data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Identifies the most changing column in a given 2-D numpy array.</span>
 
 <span class="sd">    Args:</span>
@@ -881,7 +890,7 @@
 
 <div class="viewcode-block" id="parse_info_to_dict">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.parse_info_to_dict">[docs]</a>
-<span class="k">def</span> <span class="nf">parse_info_to_dict</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_info_to_dict</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parses the contents of info.txt file into a dictionary</span>
 
 <span class="sd">    Args:</span>
@@ -911,7 +920,10 @@
                     <span class="n">info_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;info.txt file not found.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;info.txt file not found.&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+    <span class="k">if</span> <span class="s2">&quot;DelayStage&quot;</span> <span class="ow">in</span> <span class="n">info_dict</span> <span class="ow">and</span> <span class="s2">&quot;TimeZero&quot;</span> <span class="ow">in</span> <span class="n">info_dict</span><span class="p">:</span>
+        <span class="n">info_dict</span><span class="p">[</span><span class="s2">&quot;delay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mm_to_fs</span><span class="p">(</span><span class="n">info_dict</span><span class="p">[</span><span class="s2">&quot;DelayStage&quot;</span><span class="p">],</span> <span class="n">info_dict</span><span class="p">[</span><span class="s2">&quot;TimeZero&quot;</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">info_dict</span></div>
 
@@ -919,15 +931,17 @@
 
 <div class="viewcode-block" id="handle_meta">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.handle_meta">[docs]</a>
-<span class="k">def</span> <span class="nf">handle_meta</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_meta</span><span class="p">(</span>
     <span class="n">df_lut</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">scan_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
     <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+    <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">fast_axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">slow_axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">projection</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function for the handling metadata from different files</span>
 
@@ -936,22 +950,24 @@
 <span class="sd">            from ``parse_lut_to_df()``</span>
 <span class="sd">        scan_info (dict): scan_info class dict containing containing the contents of info.txt file</span>
 <span class="sd">        config (dict): config dictionary containing the contents of config.yaml file</span>
+<span class="sd">        scan (int): Scan number</span>
 <span class="sd">        fast_axes (list[str]): The fast-axis dimensions of the scan</span>
 <span class="sd">        slow_axes (list[str]): The slow-axis dimensions of the scan</span>
 <span class="sd">        metadata (dict, optional): Metadata dictionary with additional metadata for the scan.</span>
 <span class="sd">            Defaults to empty dictionary.</span>
 <span class="sd">        collect_metadata (bool, optional): Option to collect further metadata e.g. from EPICS</span>
 <span class="sd">            archiver needed for NeXus conversion. Defaults to False.</span>
+<span class="sd">        token (str, optional):: The elabFTW api token to use for fetching metadata</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        dict: metadata dictionary containing additional metadata from the EPICS</span>
-<span class="sd">        archive.</span>
+<span class="sd">        archive and elabFTW.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gathering metadata from different locations&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Gathering metadata from different locations&quot;</span><span class="p">)</span>
     <span class="c1"># get metadata from LUT dataframe</span>
     <span class="n">lut_meta</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">energy_scan_mode</span> <span class="o">=</span> <span class="s2">&quot;snapshot&quot;</span>
@@ -969,10 +985,10 @@
 
     <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">complete_dictionary</span><span class="p">(</span>
         <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scan_info&quot;</span><span class="p">,</span> <span class="p">{}),</span>
-        <span class="n">complete_dictionary</span><span class="p">(</span><span class="n">lut_meta</span><span class="p">,</span> <span class="n">scan_info</span><span class="p">),</span>
+        <span class="n">complete_dictionary</span><span class="p">(</span><span class="n">scan_info</span><span class="p">,</span> <span class="n">lut_meta</span><span class="p">),</span>
     <span class="p">)</span>  <span class="c1"># merging dictionaries</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Collecting time stamps...&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Collecting time stamps...&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="s2">&quot;time&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">]:</span>
         <span class="n">time_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="s2">&quot;time&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="s2">&quot;time&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
     <span class="k">elif</span> <span class="s2">&quot;StartTime&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">]:</span>
@@ -996,53 +1012,18 @@
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="n">collect_metadata</span><span class="p">:</span>
-        <span class="c1"># Get metadata from Epics archive if not present already</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_from</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+        <span class="n">metadata_retriever</span> <span class="o">=</span> <span class="n">MetadataRetriever</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
 
-        <span class="c1"># replace metadata names by epics channels</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">replace_dict</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;epics_channels&quot;</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">]):</span>
-                <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">replace_dict</span><span class="p">:</span>
-                    <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="n">replace_dict</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()]]</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
-                    <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-            <span class="n">epics_channels</span> <span class="o">=</span> <span class="n">replace_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="n">epics_channels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_retriever</span><span class="o">.</span><span class="n">fetch_epics_metadata</span><span class="p">(</span>
+            <span class="n">ts_from</span><span class="o">=</span><span class="n">ts_from</span><span class="p">,</span>
+            <span class="n">ts_to</span><span class="o">=</span><span class="n">ts_to</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+        <span class="p">)</span>
 
-        <span class="n">channels_missing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">epics_channels</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="k">if</span> <span class="n">channels_missing</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Collecting data from the EPICS archive...&quot;</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels_missing</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">_</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">get_archiver_data</span><span class="p">(</span>
-                        <span class="n">archiver_url</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;archiver_url&quot;</span><span class="p">),</span>
-                        <span class="n">archiver_channel</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
-                        <span class="n">ts_from</span><span class="o">=</span><span class="n">ts_from</span><span class="p">,</span>
-                        <span class="n">ts_to</span><span class="o">=</span><span class="n">ts_to</span><span class="p">,</span>
-                    <span class="p">)</span>
-                    <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
-
-                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                    <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-                    <span class="nb">print</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Data for channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2"> doesn&#39;t exist for time </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-                    <span class="p">)</span>
-                <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Incorrect URL for the archive channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">. &quot;</span>
-                        <span class="s2">&quot;Make sure that the channel name and file start and end times are &quot;</span>
-                        <span class="s2">&quot;correct.&quot;</span><span class="p">,</span>
-                    <span class="p">)</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error code: &quot;</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
-                <span class="k">except</span> <span class="n">URLError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;Cannot access the archive URL for channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">. &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;Make sure that you are within the FHI network.&quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;Skipping over channels </span><span class="si">{</span><span class="n">channels_missing</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-                    <span class="p">)</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error code: &quot;</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
-                    <span class="k">break</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_retriever</span><span class="o">.</span><span class="n">fetch_elab_metadata</span><span class="p">(</span>
+            <span class="n">scan</span><span class="o">=</span><span class="n">scan</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="s2">&quot;energy_scan_mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy_scan_mode</span>
 
@@ -1054,46 +1035,13 @@
     <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="s2">&quot;slow_axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slow_axes</span>
     <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;scan_info&quot;</span><span class="p">][</span><span class="s2">&quot;fast_axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fast_axes</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done!&quot;</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="n">metadata</span></div>
-
-
-
-<div class="viewcode-block" id="get_archiver_data">
-<a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.get_archiver_data">[docs]</a>
-<span class="k">def</span> <span class="nf">get_archiver_data</span><span class="p">(</span>
-    <span class="n">archiver_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">archiver_channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">ts_from</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="n">ts_to</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract time stamps and corresponding data from and EPICS archiver instance</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        archiver_url (str): URL of the archiver data extraction interface</span>
-<span class="sd">        archiver_channel (str): EPICS channel to extract data for</span>
-<span class="sd">        ts_from (float): starting time stamp of the range of interest</span>
-<span class="sd">        ts_to (float): ending time stamp of the range of interest</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        tuple[List, List]: The extracted time stamps and corresponding data</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">iso_from</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_from</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-    <span class="n">iso_to</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_to</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-    <span class="n">req_str</span> <span class="o">=</span> <span class="n">archiver_url</span> <span class="o">+</span> <span class="n">archiver_channel</span> <span class="o">+</span> <span class="s2">&quot;&amp;from=&quot;</span> <span class="o">+</span> <span class="n">iso_from</span> <span class="o">+</span> <span class="s2">&quot;Z&amp;to=&quot;</span> <span class="o">+</span> <span class="n">iso_to</span> <span class="o">+</span> <span class="s2">&quot;Z&quot;</span>
-    <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req_str</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-        <span class="n">secs</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;secs&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;nanos&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e-9</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]]</span>
-        <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]]</span>
-
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">secs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span></div>
 
 
 
 <div class="viewcode-block" id="find_scan">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.find_scan">[docs]</a>
-<span class="k">def</span> <span class="nf">find_scan</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_scan</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">scan</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Search function to locate the scan folder</span>
 
 <span class="sd">    Args:</span>
@@ -1103,7 +1051,7 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        List[Path]: scan_path: Path object pointing to the scan folder</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scan path not provided, searching directories...&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Scan path not provided, searching directories...&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
@@ -1117,7 +1065,7 @@
                     <span class="n">file</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;*/*/Raw Data/</span><span class="si">{</span><span class="n">scan</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
                 <span class="p">)</span>
                 <span class="k">if</span> <span class="n">scan_path</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scan found at path:&quot;</span><span class="p">,</span> <span class="n">scan_path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scan found at path: </span><span class="si">{</span><span class="n">scan_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                     <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">scan_path</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1127,7 +1075,7 @@
 
 <div class="viewcode-block" id="find_scan_type">
 <a class="viewcode-back" href="../../specsscan/helpers.html#specsscan.helpers.find_scan_type">[docs]</a>
-<span class="k">def</span> <span class="nf">find_scan_type</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_scan_type</span><span class="p">(</span>
     <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
     <span class="n">scan_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">):</span>

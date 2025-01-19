@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>specsanalyzer.convert &#8212; specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</title>
+    <title>specsanalyzer.convert &#8212; specsanalyzer 0.5.2.dev10+g554f714 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=a485e8e6"></script>
+    <script src="../../_static/documentation_options.js?v=c58a65cb"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.2.dev40+g8ed2f0c';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5.2.dev10+g554f714';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.4.2.dev40+g8ed2f0c" />
+  <meta name="docsearch:version" content="0.5.2.dev10+g554f714" />
   </head>
   
   
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">specsanalyzer 0.4.2.dev40+g8ed2f0c documentation</p>
+    <p class="title logo__title">specsanalyzer 0.5.2.dev10+g554f714 documentation</p>
   
 </a></div>
     
@@ -551,15 +551,20 @@
                   
   <h1>Source code for specsanalyzer.convert</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Specsanalyzer image conversion module&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">map_coordinates</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">map_coordinates</span>
+
+<span class="c1"># Configure logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;specsanalyzer.specsscan&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="get_damatrix_from_calib2d">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.get_damatrix_from_calib2d">[docs]</a>
-<span class="k">def</span> <span class="nf">get_damatrix_from_calib2d</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_damatrix_from_calib2d</span><span class="p">(</span>
     <span class="n">lens_mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">kinetic_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">pass_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -594,7 +599,7 @@
     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
             <span class="s2">&quot;The supported modes were not found in the calib2d dictionary&quot;</span><span class="p">,</span>
-        <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="k">if</span> <span class="n">lens_mode</span> <span class="ow">in</span> <span class="n">supported_angle_modes</span><span class="p">:</span>
         <span class="c1"># given the lens mode get all the retardation ratios available</span>
@@ -636,7 +641,7 @@
 
     <span class="k">elif</span> <span class="n">lens_mode</span> <span class="ow">in</span> <span class="n">supported_space_modes</span><span class="p">:</span>
         <span class="c1"># use the mode defaults</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a spatial mode, using default &quot;</span> <span class="o">+</span> <span class="n">lens_mode</span> <span class="o">+</span> <span class="s2">&quot; config&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is a spatial mode, using default &quot;</span> <span class="o">+</span> <span class="n">lens_mode</span> <span class="o">+</span> <span class="s2">&quot; config&quot;</span><span class="p">)</span>
         <span class="n">rr_vec</span><span class="p">,</span> <span class="n">da_matrix_full</span> <span class="o">=</span> <span class="n">get_rr_da</span><span class="p">(</span><span class="n">lens_mode</span><span class="p">,</span> <span class="n">calib2d_dict</span><span class="p">)</span>
         <span class="n">a_inner</span> <span class="o">=</span> <span class="n">da_matrix_full</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">da_matrix</span> <span class="o">=</span> <span class="n">da_matrix_full</span><span class="p">[</span><span class="mi">1</span><span class="p">:][:]</span>
@@ -653,7 +658,7 @@
 
 <div class="viewcode-block" id="bisection">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.bisection">[docs]</a>
-<span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Auxiliary function to find the closest rr index from https://stackoverflow.com/questions/2566412/</span>
 <span class="sd">    find-nearest-value-in-numpy-array</span>
@@ -697,7 +702,7 @@
 
 <div class="viewcode-block" id="second_closest_rr">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.second_closest_rr">[docs]</a>
-<span class="k">def</span> <span class="nf">second_closest_rr</span><span class="p">(</span><span class="n">rrvec</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">closest_rr_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">second_closest_rr</span><span class="p">(</span><span class="n">rrvec</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">closest_rr_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return closest_rr_index+1 unless you are at the edge of the rrvec.</span>
 
 <span class="sd">    Args:</span>
@@ -719,7 +724,7 @@
 
 <div class="viewcode-block" id="get_rr_da">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.get_rr_da">[docs]</a>
-<span class="k">def</span> <span class="nf">get_rr_da</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_rr_da</span><span class="p">(</span>
     <span class="n">lens_mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">calib2d_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
@@ -748,7 +753,7 @@
     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
             <span class="s2">&quot;The supported modes were not found in the calib2d dictionary&quot;</span><span class="p">,</span>
-        <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="k">if</span> <span class="n">lens_mode</span> <span class="ow">in</span> <span class="n">supported_angle_modes</span><span class="p">:</span>
         <span class="n">rr_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">calib2d_dict</span><span class="p">[</span><span class="n">lens_mode</span><span class="p">][</span><span class="s2">&quot;rr&quot;</span><span class="p">]))</span>
@@ -762,7 +767,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;Da values do not exist for the given mode.&quot;</span><span class="p">,</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="n">da_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">dim1</span><span class="p">,</span> <span class="n">dim2</span><span class="p">,</span> <span class="n">dim3</span><span class="p">])</span>
         <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rr_array</span><span class="p">):</span>
@@ -796,7 +801,7 @@
 
 <div class="viewcode-block" id="calculate_polynomial_coef_da">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.calculate_polynomial_coef_da">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_polynomial_coef_da</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_polynomial_coef_da</span><span class="p">(</span>
     <span class="n">da_matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">kinetic_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">pass_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -838,7 +843,7 @@
 
 <div class="viewcode-block" id="zinner">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.zinner">[docs]</a>
-<span class="k">def</span> <span class="nf">zinner</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">zinner</span><span class="p">(</span>
     <span class="n">kinetic_energy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">angle</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">da_poly_matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -869,7 +874,7 @@
 
 <div class="viewcode-block" id="zinner_diff">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.zinner_diff">[docs]</a>
-<span class="k">def</span> <span class="nf">zinner_diff</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">zinner_diff</span><span class="p">(</span>
     <span class="n">kinetic_energy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">angle</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">da_poly_matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -904,7 +909,7 @@
 
 <div class="viewcode-block" id="mcp_position_mm">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.mcp_position_mm">[docs]</a>
-<span class="k">def</span> <span class="nf">mcp_position_mm</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mcp_position_mm</span><span class="p">(</span>
     <span class="n">kinetic_energy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">angle</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">a_inner</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -945,7 +950,7 @@
 
 <div class="viewcode-block" id="calculate_matrix_correction">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.calculate_matrix_correction">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_matrix_correction</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_matrix_correction</span><span class="p">(</span>
     <span class="n">kinetic_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">pass_energy</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">nx_pixels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1039,7 +1044,7 @@
 
 <div class="viewcode-block" id="calculate_jacobian">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.calculate_jacobian">[docs]</a>
-<span class="k">def</span> <span class="nf">calculate_jacobian</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_jacobian</span><span class="p">(</span>
     <span class="n">angular_correction_matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">e_correction</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">ek_axis</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -1067,7 +1072,7 @@
 
 <div class="viewcode-block" id="physical_unit_data">
 <a class="viewcode-back" href="../../specsanalyzer/convert.html#specsanalyzer.convert.physical_unit_data">[docs]</a>
-<span class="k">def</span> <span class="nf">physical_unit_data</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">physical_unit_data</span><span class="p">(</span>
     <span class="n">image</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">angular_correction_matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">e_correction</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
