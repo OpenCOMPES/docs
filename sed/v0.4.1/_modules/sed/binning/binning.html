@@ -1,0 +1,1027 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sed.binning.binning &#8212; SED 0.4.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=ea00750a"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/binning/binning';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.4.1';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
+        </script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">SED 0.4.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../workflows/index.html">
+    Workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../sed/api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../misc/contribution.html">
+    Development
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../workflows/index.html">
+    Workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../sed/api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../misc/contribution.html">
+    Development
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="../../../genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+        <li class="toctree-l1">
+          <a class="reference internal" href="../../../py-modindex.html">Python Module Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sed.binning.binning</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sed.binning.binning</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module contains the binning functions of the sed.binning module</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">cast</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">dask.dataframe</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">psutil</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">threadpoolctl</span> <span class="kn">import</span> <span class="n">threadpool_limits</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">.numba_bin</span> <span class="kn">import</span> <span class="n">numba_histogramdd</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">_arraysum</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">bin_centers_to_bin_edges</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">simplify_binning_arguments</span>
+
+<span class="n">N_CPU</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="bin_partition"><a class="viewcode-back" href="../../../sed/binning.html#sed.binning.bin_partition">[docs]</a><span class="k">def</span> <span class="nf">bin_partition</span><span class="p">(</span>
+    <span class="n">part</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="nb">int</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">,</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hist_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;numba&quot;</span><span class="p">,</span>
+    <span class="n">jitter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_edges</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_test</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the n-dimensional histogram of a single dataframe partition.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        part (Union[dask.dataframe.DataFrame, pd.DataFrame]): dataframe on which</span>
+<span class="sd">            to perform the histogram. Usually a partition of a dask DataFrame.</span>
+<span class="sd">        bins (int, dict, Sequence[int], Sequence[np.ndarray], Sequence[tuple], optional):</span>
+<span class="sd">            Definition of the bins. Can  be any of the following cases:</span>
+
+<span class="sd">                - an integer describing the number of bins for all dimensions. This</span>
+<span class="sd">                  requires &quot;ranges&quot; to be defined as well.</span>
+<span class="sd">                - A sequence containing one entry of the following types for each</span>
+<span class="sd">                  dimension:</span>
+
+<span class="sd">                    - an integer describing the number of bins. This requires &quot;ranges&quot;</span>
+<span class="sd">                      to be defined as well.</span>
+<span class="sd">                    - a np.arrays defining the bin centers</span>
+<span class="sd">                    - a tuple of 3 numbers describing start, end and step of the binning</span>
+<span class="sd">                      range.</span>
+
+<span class="sd">                - a dictionary made of the axes as keys and any of the above as</span>
+<span class="sd">                  values.</span>
+
+<span class="sd">            The last option takes priority over the axes and range arguments.</span>
+<span class="sd">            Defaults to 100.</span>
+<span class="sd">        axes (Sequence[str], optional): Sequence containing the names of</span>
+<span class="sd">            the axes (columns) on which to calculate the histogram. The order will be</span>
+<span class="sd">            the order of the dimensions in the resulting array. Only not required if</span>
+<span class="sd">            bins are provided as dictionary containing the axis names.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        ranges (Sequence[Tuple[float, float]], optional): Sequence of tuples containing</span>
+<span class="sd">            the start and end point of the binning range. Required if bins given as</span>
+<span class="sd">            int or Sequence[int]. Defaults to None.</span>
+<span class="sd">        hist_mode (str, optional): Histogram calculation method.</span>
+
+<span class="sd">                - &quot;numpy&quot;: use ``numpy.histogramdd``,</span>
+<span class="sd">                - &quot;numba&quot; use a numba powered similar method.</span>
+
+<span class="sd">            Defaults to &quot;numba&quot;.</span>
+<span class="sd">        jitter (Union[list, dict], optional): a list of the axes on which to apply</span>
+<span class="sd">            jittering. To specify the jitter amplitude or method (normal or uniform</span>
+<span class="sd">            noise) a dictionary can be passed. This should look like</span>
+<span class="sd">            jitter={&#39;axis&#39;:{&#39;amplitude&#39;:0.5,&#39;mode&#39;:&#39;uniform&#39;}}.</span>
+<span class="sd">            This example also shows the default behavior, in case None is</span>
+<span class="sd">            passed in the dictionary, or jitter is a list of strings.</span>
+<span class="sd">            Warning: this is not the most performing approach. Applying jitter</span>
+<span class="sd">            on the dataframe before calling the binning is much faster.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        return_edges (bool, optional): If True, returns a list of D arrays</span>
+<span class="sd">            describing the bin edges for each dimension, similar to the</span>
+<span class="sd">            behavior of ``np.histogramdd``. Defaults to False.</span>
+<span class="sd">        skip_test (bool, optional): Turns off input check and data transformation.</span>
+<span class="sd">            Defaults to False as it is intended for internal use only.</span>
+<span class="sd">            Warning: setting this True might make error tracking difficult.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: When the method requested is not available.</span>
+<span class="sd">        AttributeError: if bins axes and range are not congruent in dimensionality.</span>
+<span class="sd">        KeyError: when the columns along which to compute the histogram are not</span>
+<span class="sd">            present in the dataframe</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Union[np.ndarray, Tuple[np.ndarray, list]]: 2-element tuple returned only when</span>
+<span class="sd">        returnEdges is True. Otherwise only hist is returned.</span>
+
+<span class="sd">        - **hist**: The result of the n-dimensional binning</span>
+<span class="sd">        - **edges**: A list of D arrays describing the bin edges for each dimension.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_test</span><span class="p">:</span>
+        <span class="n">bins</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">ranges</span> <span class="o">=</span> <span class="n">simplify_binning_arguments</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">ranges</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;bins needs to be of type &#39;List[int] or List[np.ndarray]&#39; if tests are skipped!&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;axes needs to be of type &#39;List[str]&#39; if tests are skipped!&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">axes</span><span class="p">)</span>
+        <span class="n">ranges</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span> <span class="n">ranges</span><span class="p">)</span>
+
+    <span class="c1"># convert bin centers to bin edges:</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">):</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bin_centers</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">):</span>
+            <span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_centers_to_bin_edges</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="c1"># shift ranges by half a bin size to align the bin centers to the given ranges,</span>
+        <span class="c1"># as the histogram functions interpret the ranges as limits for the edges.</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nbins</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bins</span><span class="p">):</span>
+            <span class="n">halfbinsize</span> <span class="o">=</span> <span class="p">(</span><span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">nbins</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">halfbinsize</span><span class="p">,</span>
+                <span class="n">ranges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">halfbinsize</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Locate columns for binning operation</span>
+    <span class="n">col_id</span> <span class="o">=</span> <span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">jitter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sel_part</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="n">axes</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">jitter</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">):</span>
+            <span class="n">jitter</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">jitter</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">jpars</span> <span class="ow">in</span> <span class="n">jitter</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">jpars</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">jpars</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">amp</span> <span class="o">=</span> <span class="n">jpars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;amplitude&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                <span class="n">mode</span> <span class="o">=</span> <span class="n">jpars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;uniform&quot;</span><span class="p">)</span>
+                <span class="n">ax_index</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+                <span class="n">_bin</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="n">ax_index</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_bin</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)):</span>
+                    <span class="n">rng</span> <span class="o">=</span> <span class="n">ranges</span><span class="p">[</span><span class="n">ax_index</span><span class="p">]</span>
+                    <span class="n">binsize</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rng</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rng</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">_bin</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">binsize</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">_bin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">_bin</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span>
+                        <span class="n">binsize</span><span class="p">,</span>
+                        <span class="nb">abs</span><span class="p">(</span><span class="n">_bin</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">_bin</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]),</span>
+                    <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;bins along </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> are not uniform. Cannot apply jitter.&quot;</span>
+                <span class="n">apply_jitter_on_column</span><span class="p">(</span><span class="n">sel_part</span><span class="p">,</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">binsize</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="n">sel_part</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">col_id</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">if</span> <span class="n">vals</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Binning requires all binned dataframe columns to be of numeric type. &quot;</span>
+            <span class="s2">&quot;Encountered data types were &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">str</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="w"> </span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">id</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">col_id</span><span class="p">]</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="s2">&quot;Please make sure all axes data are of numeric type.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">hist_mode</span> <span class="o">==</span> <span class="s2">&quot;numba&quot;</span><span class="p">:</span>
+        <span class="n">hist_partition</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">numba_histogramdd</span><span class="p">(</span>
+            <span class="n">vals</span><span class="p">,</span>
+            <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+            <span class="n">ranges</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">hist_mode</span> <span class="o">==</span> <span class="s2">&quot;numpy&quot;</span><span class="p">:</span>
+        <span class="n">hist_partition</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogramdd</span><span class="p">(</span>
+            <span class="n">vals</span><span class="p">,</span>
+            <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+            <span class="nb">range</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;No binning method </span><span class="si">{</span><span class="n">hist_mode</span><span class="si">}</span><span class="s2"> available. Please choose between &quot;</span> <span class="sa">f</span><span class="s2">&quot;numba and numpy.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_edges</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">hist_partition</span><span class="p">,</span> <span class="n">edges</span>
+
+    <span class="k">return</span> <span class="n">hist_partition</span></div>
+
+
+<div class="viewcode-block" id="bin_dataframe"><a class="viewcode-back" href="../../../sed/binning.html#sed.binning.bin_dataframe">[docs]</a><span class="k">def</span> <span class="nf">bin_dataframe</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">bins</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="nb">int</span><span class="p">,</span>
+        <span class="nb">dict</span><span class="p">,</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">],</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">axes</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ranges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hist_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;numba&quot;</span><span class="p">,</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;fast&quot;</span><span class="p">,</span>
+    <span class="n">jitter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">pbar</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">n_cores</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">N_CPU</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">threads_per_worker</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">threadpool_api</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blas&quot;</span><span class="p">,</span>
+    <span class="n">return_partitions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the n-dimensional histogram on columns of a dataframe,</span>
+<span class="sd">    parallelized.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df (dask.dataframe.DataFrame): a dask.DataFrame on which to perform the</span>
+<span class="sd">            histogram.</span>
+<span class="sd">            bins (int, dict, Sequence[int], Sequence[np.ndarray], Sequence[tuple], optional):</span>
+<span class="sd">            Definition of the bins. Can be any of the following cases:</span>
+
+<span class="sd">                - an integer describing the number of bins for all dimensions. This</span>
+<span class="sd">                  requires &quot;ranges&quot; to be defined as well.</span>
+<span class="sd">                - A sequence containing one entry of the following types for each</span>
+<span class="sd">                  dimension:</span>
+
+<span class="sd">                    - an integer describing the number of bins. This requires &quot;ranges&quot;</span>
+<span class="sd">                      to be defined as well.</span>
+<span class="sd">                    - a np.arrays defining the bin centers</span>
+<span class="sd">                    - a tuple of 3 numbers describing start, end and step of the binning</span>
+<span class="sd">                      range.</span>
+
+<span class="sd">                - a dictionary made of the axes as keys and any of the above as</span>
+<span class="sd">                  values.</span>
+
+<span class="sd">            The last option takes priority over the axes and range arguments.</span>
+<span class="sd">            Defaults to 100.</span>
+<span class="sd">        axes (Sequence[str], optional): Sequence containing the names of</span>
+<span class="sd">            the axes (columns) on which to calculate the histogram. The order will be</span>
+<span class="sd">            the order of the dimensions in the resulting array. Only not required if</span>
+<span class="sd">            bins are provided as dictionary containing the axis names.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        ranges (Sequence[Tuple[float, float]], optional): Sequence of tuples containing</span>
+<span class="sd">            the start and end point of the binning range. Required if bins given as</span>
+<span class="sd">            int or Sequence[int]. Defaults to None.</span>
+<span class="sd">        hist_mode (str, optional): Histogram calculation method.</span>
+
+<span class="sd">                - &quot;numpy&quot;: use ``numpy.histogramdd``,</span>
+<span class="sd">                - &quot;numba&quot; use a numba powered similar method.</span>
+
+<span class="sd">            Defaults to &quot;numba&quot;.</span>
+<span class="sd">        mode (str, optional): Defines how the results from each partition are combined.</span>
+
+<span class="sd">                - &#39;fast&#39;: Uses parallelized recombination of results.</span>
+<span class="sd">                - &#39;lean&#39;: Store all partition results in a list, and recombine at the</span>
+<span class="sd">                  end.</span>
+<span class="sd">                - &#39;legacy&#39;: Single-core recombination of partition results.</span>
+
+<span class="sd">            Defaults to &quot;fast&quot;.</span>
+<span class="sd">        jitter (Union[list, dict], optional): a list of the axes on which to apply</span>
+<span class="sd">            jittering. To specify the jitter amplitude or method (normal or uniform</span>
+<span class="sd">            noise) a dictionary can be passed. This should look like</span>
+<span class="sd">            jitter={&#39;axis&#39;:{&#39;amplitude&#39;:0.5,&#39;mode&#39;:&#39;uniform&#39;}}.</span>
+<span class="sd">            This example also shows the default behavior, in case None is</span>
+<span class="sd">            passed in the dictionary, or jitter is a list of strings.</span>
+<span class="sd">            Warning: this is not the most performing approach. applying jitter</span>
+<span class="sd">            on the dataframe before calling the binning is much faster.</span>
+<span class="sd">            Defaults to None.</span>
+<span class="sd">        pbar (bool, optional): Option to show the tqdm progress bar. Defaults to True.</span>
+<span class="sd">        n_cores (int, optional): Number of CPU cores to use for parallelization.</span>
+<span class="sd">            Defaults to all but one of the available cores. Defaults to N_CPU-1.</span>
+<span class="sd">        threads_per_worker (int, optional): Limit the number of threads that</span>
+<span class="sd">            multiprocessing can spawn. Defaults to 4.</span>
+<span class="sd">        threadpool_api (str, optional): The API to use for multiprocessing.</span>
+<span class="sd">            Defaults to &quot;blas&quot;.</span>
+<span class="sd">        return_partitions (bool, optional): Option to return a hypercube of dimension</span>
+<span class="sd">            n+1, where the last dimension corresponds to the dataframe partitions.</span>
+<span class="sd">            Defaults to False.</span>
+<span class="sd">        **kwds: Keyword arguments passed to ``dask.compute()``</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Warning: Warns if there are unimplemented features the user is trying to use.</span>
+<span class="sd">        ValueError: Raised when there is a mismatch in dimensions between the</span>
+<span class="sd">            binning parameters.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        xr.DataArray: The result of the n-dimensional binning represented in an</span>
+<span class="sd">        xarray object, combining the data with the axes (bin centers).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bins</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">ranges</span> <span class="o">=</span> <span class="n">simplify_binning_arguments</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">ranges</span><span class="p">)</span>
+
+    <span class="c1"># create the coordinate axes for the xarray output</span>
+    <span class="c1"># if provided as array, they are interpreted as bin centers</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">bins</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">ranges</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;bins is not an array and range is none. this shouldn&#39;t happen.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">ax</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="n">full_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="n">full_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">full_shape</span><span class="p">)</span>
+    <span class="n">partition_results</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Partition-level results</span>
+
+    <span class="c1"># limit multithreading in worker threads</span>
+    <span class="k">with</span> <span class="n">threadpool_limits</span><span class="p">(</span><span class="n">limits</span><span class="o">=</span><span class="n">threads_per_worker</span><span class="p">,</span> <span class="n">user_api</span><span class="o">=</span><span class="n">threadpool_api</span><span class="p">):</span>
+        <span class="c1"># Main loop for binning</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">npartitions</span><span class="p">,</span> <span class="n">n_cores</span><span class="p">),</span> <span class="n">disable</span><span class="o">=</span><span class="ow">not</span> <span class="n">pbar</span><span class="p">):</span>
+            <span class="n">core_tasks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Core-level jobs</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_cores</span><span class="p">):</span>
+                <span class="n">partition_index</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
+                <span class="k">if</span> <span class="n">partition_index</span> <span class="o">&gt;=</span> <span class="n">df</span><span class="o">.</span><span class="n">npartitions</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+                <span class="n">df_partition</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">get_partition</span><span class="p">(</span>
+                    <span class="n">partition_index</span><span class="p">,</span>
+                <span class="p">)</span>  <span class="c1"># Obtain dataframe partition</span>
+                <span class="n">core_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">bin_partition</span><span class="p">)(</span>
+                        <span class="n">df_partition</span><span class="p">,</span>
+                        <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+                        <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span>
+                        <span class="n">ranges</span><span class="o">=</span><span class="n">ranges</span><span class="p">,</span>
+                        <span class="n">hist_mode</span><span class="o">=</span><span class="n">hist_mode</span><span class="p">,</span>
+                        <span class="n">jitter</span><span class="o">=</span><span class="n">jitter</span><span class="p">,</span>
+                        <span class="n">skip_test</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">return_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_tasks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">core_results</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">core_tasks</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">return_partitions</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">core_result</span> <span class="ow">in</span> <span class="n">core_results</span><span class="p">:</span>
+                        <span class="n">partition_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">core_result</span><span class="p">)</span>
+                    <span class="k">del</span> <span class="n">core_results</span>
+
+                <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;legacy&quot;</span><span class="p">:</span>
+                    <span class="c1"># Combine all core results for a dataframe partition</span>
+                    <span class="n">partition_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">core_results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">core_result</span> <span class="ow">in</span> <span class="n">core_results</span><span class="p">:</span>
+                        <span class="n">partition_result</span> <span class="o">+=</span> <span class="n">core_result</span>
+
+                    <span class="n">partition_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partition_result</span><span class="p">)</span>
+                    <span class="c1"># del partitionResult</span>
+
+                <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;lean&quot;</span><span class="p">:</span>
+                    <span class="c1"># Combine all core results for a dataframe partition</span>
+                    <span class="n">partition_result</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">_arraysum</span><span class="p">,</span> <span class="n">core_results</span><span class="p">)</span>
+                    <span class="n">full_result</span> <span class="o">+=</span> <span class="n">partition_result</span>
+                    <span class="k">del</span> <span class="n">partition_result</span>
+                    <span class="k">del</span> <span class="n">core_results</span>
+
+                <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;fast&quot;</span><span class="p">:</span>
+                    <span class="n">combine_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_cores</span><span class="p">):</span>
+                        <span class="n">combine_parts</span> <span class="o">=</span> <span class="p">[]</span>
+                        <span class="c1"># split results along the first dimension among worker</span>
+                        <span class="c1"># threads</span>
+                        <span class="k">for</span> <span class="n">core_result</span> <span class="ow">in</span> <span class="n">core_results</span><span class="p">:</span>
+                            <span class="n">combine_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">core_result</span><span class="p">[</span>
+                                    <span class="nb">int</span><span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="n">full_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_cores</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
+                                        <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">full_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_cores</span><span class="p">,</span>
+                                    <span class="p">),</span>
+                                    <span class="o">...</span><span class="p">,</span>
+                                <span class="p">],</span>
+                            <span class="p">)</span>
+                        <span class="n">combine_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">reduce</span><span class="p">)(</span><span class="n">_arraysum</span><span class="p">,</span> <span class="n">combine_parts</span><span class="p">),</span>
+                        <span class="p">)</span>
+                    <span class="n">combine_results</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">combine_tasks</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+                    <span class="c1"># Directly fill into target array. This is much faster than</span>
+                    <span class="c1"># the (not so parallel) reduce/concatenation used before,</span>
+                    <span class="c1"># and uses less memory.</span>
+
+                    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_cores</span><span class="p">):</span>
+                        <span class="n">full_result</span><span class="p">[</span>
+                            <span class="nb">int</span><span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="n">full_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_cores</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span>
+                                <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">full_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_cores</span><span class="p">,</span>
+                            <span class="p">),</span>
+                            <span class="o">...</span><span class="p">,</span>
+                        <span class="p">]</span> <span class="o">+=</span> <span class="n">combine_results</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="k">del</span> <span class="n">combine_parts</span>
+                    <span class="k">del</span> <span class="n">combine_tasks</span>
+                    <span class="k">del</span> <span class="n">combine_results</span>
+                    <span class="k">del</span> <span class="n">core_results</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not interpret mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">del</span> <span class="n">core_tasks</span>
+
+    <span class="k">if</span> <span class="n">return_partitions</span><span class="p">:</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">coords</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;df_part&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">npartitions</span><span class="p">)}}</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+        <span class="n">dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;df_part&quot;</span><span class="p">)</span>
+        <span class="n">data_array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">partition_results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+            <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+            <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;legacy&quot;</span><span class="p">:</span>
+            <span class="c1"># still need to combine all partition results</span>
+            <span class="n">full_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">partition_results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">partition_result</span> <span class="ow">in</span> <span class="n">partition_results</span><span class="p">:</span>
+                <span class="n">full_result</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">partition_result</span><span class="p">)</span>
+
+        <span class="n">data_array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">full_result</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+            <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+            <span class="n">dims</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">axes</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">data_array</span></div>
+
+
+<span class="k">def</span> <span class="nf">normalization_histogram_from_timestamps</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">bin_centers</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">time_stamp_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a normalization histogram from the time stamps column in the dataframe.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df (dask.dataframe.DataFrame): a dask.DataFrame on which to perform the</span>
+<span class="sd">            histogram.</span>
+<span class="sd">        axis (str): The axis (dataframe column) on which to calculate the normalization</span>
+<span class="sd">            histogram.</span>
+<span class="sd">        bin_centers (np.ndarray): Bin centers used for binning of the axis.</span>
+<span class="sd">        time_stamp_column (str): Dataframe column containing the time stamps.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        xr.DataArray: Calculated normalization histogram.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_per_electron</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">time_stamp_column</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+
+    <span class="n">bins</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">(</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">,</span>
+        <span class="n">bins</span><span class="o">=</span><span class="n">bin_centers_to_bin_edges</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">histogram</span> <span class="o">=</span> <span class="n">time_per_electron</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">bins</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">data_array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">histogram</span><span class="p">,</span>
+        <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">bin_centers</span><span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_array</span>
+
+
+<span class="k">def</span> <span class="nf">normalization_histogram_from_timed_dataframe</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">bin_centers</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">time_unit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a normalization histogram from a timed dataframe.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df (dask.dataframe.DataFrame): a dask.DataFrame on which to perform the</span>
+<span class="sd">            histogram. Entries should be based on an equal time unit.</span>
+<span class="sd">        axis (str): The axis (dataframe column) on which to calculate the normalization</span>
+<span class="sd">            histogram.</span>
+<span class="sd">        bin_centers (np.ndarray): Bin centers used for binning of the axis.</span>
+<span class="sd">        time_unit (float): Time unit the data frame entries are based on.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        xr.DataArray: Calculated normalization histogram.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">map_partitions</span><span class="p">(</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">,</span>
+        <span class="n">bins</span><span class="o">=</span><span class="n">bin_centers_to_bin_edges</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">histogram</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">bins</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="n">time_unit</span>
+    <span class="c1"># histogram = bin_dataframe(df, axes=[axis], bins=[bin_centers]) * time_unit</span>
+
+    <span class="n">data_array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">histogram</span><span class="p">,</span>
+        <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="n">bin_centers</span><span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_array</span>
+
+
+<span class="k">def</span> <span class="nf">apply_jitter_on_column</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">dask</span><span class="o">.</span><span class="n">dataframe</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">amp</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add jittering to the column of a dataframe.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df (Union[dask.dataframe.core.DataFrame, pd.DataFrame]): Dataframe to add</span>
+<span class="sd">            noise/jittering to.</span>
+<span class="sd">        amp (float): Amplitude scaling for the jittering noise.</span>
+<span class="sd">        col (str): Name of the column to add jittering to.</span>
+<span class="sd">        mode (str, optional): Choose between &#39;uniform&#39; for uniformly</span>
+<span class="sd">            distributed noise, or &#39;normal&#39; for noise with normal distribution.</span>
+<span class="sd">            For columns with digital values, one should choose &#39;uniform&#39; as</span>
+<span class="sd">            well as amplitude (amp) equal to the step size. Defaults to &quot;uniform&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">colsize</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;uniform&quot;</span><span class="p">:</span>
+        <span class="c1"># Uniform Jitter distribution</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">+=</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">colsize</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;normal&quot;</span><span class="p">:</span>
+        <span class="c1"># Normal Jitter distribution works better for non-linear</span>
+        <span class="c1"># transformations and jitter sizes that don&#39;t match the original bin</span>
+        <span class="c1"># sizes</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">+=</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">colsize</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, OpenCOMPES team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
