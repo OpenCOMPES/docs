@@ -34,6 +34,7 @@ with open(switcher_file, encoding="utf-8") as f:
         for item in data:
             if "latest" in item.get("name", ""):
                 item["version"] = version
+                item["url"] = "https://opencompes.github.io/docs/sed/latest"
                 present = True
                 break
         if not present:
