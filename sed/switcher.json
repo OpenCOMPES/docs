@@ -2,7 +2,7 @@
   {
     "name": "latest",
     "version": "1.0.0a1.dev3+g47b979b",
-    "url": "https://opencompes.github.io/docs/sed/v0.4.1"
+    "url": "https://opencompes.github.io/docs/sed/latest"
   },
   {
     "name": "stable",
@@ -31,7 +31,7 @@
     "url": "https://opencompes.github.io/docs/sed/v0.4.0"
   },
   {
-    "name": "v1.0.0.a0",
+    "name": "v1.0.0a0",
     "version": "1.0.0a0",
     "url": "https://opencompes.github.io/docs/sed/v1.0.0.a0"
   },
