@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data loader &#8212; SED 1.0.0a1.dev18+g8b76c82 documentation</title>
+    <title>Data loader &#8212; SED 1.0.1.dev35+ga968355 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=624706d7"></script>
+    <script src="../_static/documentation_options.js?v=98427e23"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,17 +47,18 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0a1.dev18+g8b76c82';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.1.dev35+ga968355';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Binning" href="binning.html" />
     <link rel="prev" title="Dataframe Operations" href="dfops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.0.0a1.dev18+g8b76c82" />
+  <meta name="docsearch:version" content="1.0.1.dev35+ga968355" />
   </head>
   
   
@@ -118,8 +119,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SED 1.0.1.dev35+ga968355 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.0.1.dev35+ga968355 documentation - Home"/>
   
-    <p class="title logo__title">SED 1.0.0a1.dev18+g8b76c82 documentation</p>
   
 </a></div>
     
@@ -1001,28 +1008,6 @@ are stored. Defaults to “msMarkers”.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="sed.loader.mpes.loader.get_archiver_data">
-<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">get_archiver_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">archiver_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archiver_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_to</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#get_archiver_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.get_archiver_data" title="Link to this definition">#</a></dt>
-<dd><p>Extract time stamps and corresponding data from and EPICS archiver instance</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>archiver_url</strong> (<em>str</em>) – URL of the archiver data extraction interface</p></li>
-<li><p><strong>archiver_channel</strong> (<em>str</em>) – EPICS channel to extract data for</p></li>
-<li><p><strong>ts_from</strong> (<em>float</em>) – starting time stamp of the range of interest</p></li>
-<li><p><strong>ts_to</strong> (<em>float</em>) – ending time stamp of the range of interest</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The extracted time stamps and corresponding data</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[np.ndarray, np.ndarray]</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="sed.loader.mpes.loader.MpesLoader">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">MpesLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#MpesLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.MpesLoader" title="Link to this definition">#</a></dt>
@@ -1149,7 +1134,7 @@ data is located. Defaults to config[“core”][“base_folder”]</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sed.loader.mpes.loader.MpesLoader.gather_metadata">
-<span class="sig-name descname"><span class="pre">gather_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#MpesLoader.gather_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.MpesLoader.gather_metadata" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">gather_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/loader.html#MpesLoader.gather_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.loader.MpesLoader.gather_metadata" title="Link to this definition">#</a></dt>
 <dd><p>Collect meta data from files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1157,6 +1142,7 @@ data is located. Defaults to config[“core”][“base_folder”]</p></li>
 <li><p><strong>files</strong> (<em>Sequence</em><em>[</em><em>str</em><em>]</em>) – List of files loaded</p></li>
 <li><p><strong>metadata</strong> (<em>dict</em><em>, </em><em>optional</em>) – Manual meta data dictionary. Auto-generated
 meta data are added to it. Defaults to None.</p></li>
+<li><p><strong>token</strong> (<em>str</em><em>, </em><em>optional</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1227,6 +1213,87 @@ include. Defaults to list of all file ids.</p></li>
 <dt class="sig sig-object py" id="sed.loader.mpes.loader.LOADER">
 <span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.loader.</span></span><span class="sig-name descname"><span class="pre">LOADER</span></span><a class="headerlink" href="#sed.loader.mpes.loader.LOADER" title="Link to this definition">#</a></dt>
 <dd><p>alias of <a class="reference internal" href="#sed.loader.mpes.loader.MpesLoader" title="sed.loader.mpes.loader.MpesLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">MpesLoader</span></code></a></p>
+</dd></dl>
+
+<p id="module-sed.loader.mpes.metadata">The module provides a MetadataRetriever class for retrieving metadata
+from an EPICS archiver and an elabFTW instance.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sed.loader.mpes.metadata.MetadataRetriever">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.metadata.</span></span><span class="sig-name descname"><span class="pre">MetadataRetriever</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/metadata.html#MetadataRetriever"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.metadata.MetadataRetriever" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for retrieving metadata from an EPICS archiver and an elabFTW instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metadata_config</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>)</p></li>
+<li><p><strong>token</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sed.loader.mpes.metadata.MetadataRetriever.fetch_epics_metadata">
+<span class="sig-name descname"><span class="pre">fetch_epics_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/metadata.html#MetadataRetriever.fetch_epics_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.metadata.MetadataRetriever.fetch_epics_metadata" title="Link to this definition">#</a></dt>
+<dd><p>Fetch metadata from an EPICS archiver instance for times between ts_from and ts_to.
+Channels are defined in the config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts_from</strong> (<em>float</em>) – Start timestamp of the range to collect data from.</p></li>
+<li><p><strong>ts_to</strong> (<em>float</em>) – End timestamp of the range to collect data from.</p></li>
+<li><p><strong>metadata</strong> (<em>dict</em>) – Input metadata dictionary. Will be updated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated metadata dictionary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sed.loader.mpes.metadata.MetadataRetriever.fetch_elab_metadata">
+<span class="sig-name descname"><span class="pre">fetch_elab_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">runs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/metadata.html#MetadataRetriever.fetch_elab_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.metadata.MetadataRetriever.fetch_elab_metadata" title="Link to this definition">#</a></dt>
+<dd><p>Fetch metadata from an elabFTW instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>runs</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of runs for which to fetch metadata</p></li>
+<li><p><strong>metadata</strong> (<em>dict</em>) – Input metadata dictionary. Will be updated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated metadata dictionary</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sed.loader.mpes.metadata.get_archiver_data">
+<span class="sig-prename descclassname"><span class="pre">sed.loader.mpes.metadata.</span></span><span class="sig-name descname"><span class="pre">get_archiver_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">archiver_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archiver_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts_to</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sed/loader/mpes/metadata.html#get_archiver_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sed.loader.mpes.metadata.get_archiver_data" title="Link to this definition">#</a></dt>
+<dd><p>Extract time stamps and corresponding data from and EPICS archiver instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>archiver_url</strong> (<em>str</em>) – URL of the archiver data extraction interface</p></li>
+<li><p><strong>archiver_channel</strong> (<em>str</em>) – EPICS channel to extract data for</p></li>
+<li><p><strong>ts_from</strong> (<em>float</em>) – starting time stamp of the range of interest</p></li>
+<li><p><strong>ts_to</strong> (<em>float</em>) – ending time stamp of the range of interest</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The extracted time stamps and corresponding data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[np.ndarray, np.ndarray]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -2390,7 +2457,6 @@ Defaults to False.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.get_attribute"><code class="docutils literal notranslate"><span class="pre">get_attribute()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.get_count_rate"><code class="docutils literal notranslate"><span class="pre">get_count_rate()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.get_elapsed_time"><code class="docutils literal notranslate"><span class="pre">get_elapsed_time()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.get_archiver_data"><code class="docutils literal notranslate"><span class="pre">get_archiver_data()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.MpesLoader"><code class="docutils literal notranslate"><span class="pre">MpesLoader</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.MpesLoader.supported_file_types"><code class="docutils literal notranslate"><span class="pre">MpesLoader.supported_file_types</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.MpesLoader.verbose"><code class="docutils literal notranslate"><span class="pre">MpesLoader.verbose</span></code></a></li>
@@ -2403,6 +2469,12 @@ Defaults to False.</p></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.loader.LOADER"><code class="docutils literal notranslate"><span class="pre">LOADER</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.metadata.MetadataRetriever"><code class="docutils literal notranslate"><span class="pre">MetadataRetriever</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.metadata.MetadataRetriever.fetch_epics_metadata"><code class="docutils literal notranslate"><span class="pre">MetadataRetriever.fetch_epics_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.metadata.MetadataRetriever.fetch_elab_metadata"><code class="docutils literal notranslate"><span class="pre">MetadataRetriever.fetch_elab_metadata()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sed.loader.mpes.metadata.get_archiver_data"><code class="docutils literal notranslate"><span class="pre">get_archiver_data()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sed.loader.flash.loader">FlashLoader</a><ul class="nav section-nav flex-column">

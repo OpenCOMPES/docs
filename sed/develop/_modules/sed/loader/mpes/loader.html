@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sed.loader.mpes.loader &#8212; SED 1.0.0a1.dev18+g8b76c82 documentation</title>
+    <title>sed.loader.mpes.loader &#8212; SED 1.0.1.dev35+ga968355 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../../_static/documentation_options.js?v=624706d7"></script>
+    <script src="../../../../_static/documentation_options.js?v=98427e23"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -46,15 +46,16 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0a1.dev18+g8b76c82';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.1.dev35+ga968355';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.0.0a1.dev18+g8b76c82" />
+  <meta name="docsearch:version" content="1.0.1.dev35+ga968355" />
   </head>
   
   
@@ -115,8 +116,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="SED 1.0.1.dev35+ga968355 documentation - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.0.1.dev35+ga968355 documentation - Home"/>
   
-    <p class="title logo__title">SED 1.0.0a1.dev18+g8b76c82 documentation</p>
   
 </a></div>
     
@@ -424,13 +431,9 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPError</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">URLError</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">dask</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">dask.array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">da</span>
@@ -443,6 +446,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_verbosity</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_logging</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.base.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.mpes.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetadataRetriever</span>
 
 
 <span class="c1"># Configure logging</span>
@@ -648,7 +652,6 @@
 
     <span class="n">electron_channels</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">column_names</span> <span class="o">=</span> <span class="p">[]</span>
-
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">test_proc</span><span class="p">:</span>
@@ -901,16 +904,13 @@
     <span class="c1"># Delayed array for loading an HDF5 file of reasonable size (e.g. &lt; 1GB)</span>
 
     <span class="n">h5file</span> <span class="o">=</span> <span class="n">load_h5_in_memory</span><span class="p">(</span><span class="n">h5filename</span><span class="p">)</span>
-
     <span class="c1"># Read out groups:</span>
     <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ms_marker</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_key</span><span class="p">])</span>
     <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
-        <span class="n">timed_dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
             <span class="n">g_dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]])</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">):</span>
-                <span class="n">timed_dataset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">g_dataset</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">timed_dataset</span> <span class="o">=</span> <span class="n">g_dataset</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">ms_marker</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Invalid &#39;format&#39;:</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> for channel </span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
@@ -1020,37 +1020,6 @@
     <span class="n">secs</span> <span class="o">=</span> <span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_key</span><span class="p">]</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span>
 
     <span class="k">return</span> <span class="n">secs</span></div>
-
-
-
-<div class="viewcode-block" id="get_archiver_data">
-<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_archiver_data">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_archiver_data</span><span class="p">(</span>
-    <span class="n">archiver_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">archiver_channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">ts_from</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="n">ts_to</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract time stamps and corresponding data from and EPICS archiver instance</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        archiver_url (str): URL of the archiver data extraction interface</span>
-<span class="sd">        archiver_channel (str): EPICS channel to extract data for</span>
-<span class="sd">        ts_from (float): starting time stamp of the range of interest</span>
-<span class="sd">        ts_to (float): ending time stamp of the range of interest</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        tuple[np.ndarray, np.ndarray]: The extracted time stamps and corresponding data</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">iso_from</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_from</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-    <span class="n">iso_to</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_to</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-    <span class="n">req_str</span> <span class="o">=</span> <span class="n">archiver_url</span> <span class="o">+</span> <span class="n">archiver_channel</span> <span class="o">+</span> <span class="s2">&quot;&amp;from=&quot;</span> <span class="o">+</span> <span class="n">iso_from</span> <span class="o">+</span> <span class="s2">&quot;Z&amp;to=&quot;</span> <span class="o">+</span> <span class="n">iso_to</span> <span class="o">+</span> <span class="s2">&quot;Z&quot;</span>
-    <span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req_str</span><span class="p">)</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-        <span class="n">secs</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;secs&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;nanos&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e-9</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]]</span>
-        <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]]</span>
-
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">secs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span></div>
 
 
 
@@ -1179,6 +1148,7 @@
                 <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
             <span class="p">)</span>
 
+        <span class="n">token</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="n">channels</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
             <span class="s2">&quot;channels&quot;</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;channels&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
@@ -1227,6 +1197,7 @@
             <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gather_metadata</span><span class="p">(</span>
                 <span class="n">files</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">,</span>
                 <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+                <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span>
@@ -1274,6 +1245,14 @@
                     <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="p">),</span>
             <span class="p">)</span>
+            <span class="c1"># Compatibility for old scan format</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">run_files</span><span class="p">:</span>
+                <span class="n">run_files</span> <span class="o">=</span> <span class="n">natsorted</span><span class="p">(</span>
+                    <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
+                        <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;/**/Scan&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_*.&quot;</span> <span class="o">+</span> <span class="n">extension</span><span class="p">,</span>
+                        <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
             <span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">run_files</span><span class="p">)</span>
 
         <span class="c1"># Check if any files are found</span>
@@ -1336,6 +1315,7 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">files</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
         <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Collect meta data from files</span>
 
@@ -1343,6 +1323,7 @@
 <span class="sd">            files (Sequence[str]): List of files loaded</span>
 <span class="sd">            metadata (dict, optional): Manual meta data dictionary. Auto-generated</span>
 <span class="sd">                meta data are added to it. Defaults to None.</span>
+<span class="sd">            token (str, optional):: The elabFTW api token to use for fetching metadata</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            dict: The completed metadata dictionary.</span>
@@ -1380,140 +1361,21 @@
             <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
         <span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Collecting data from the EPICS archive...&quot;</span><span class="p">)</span>
-        <span class="c1"># Get metadata from Epics archive if not present already</span>
-        <span class="n">epics_channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;epics_pvs&quot;</span><span class="p">]</span>
+        <span class="n">metadata_retriever</span> <span class="o">=</span> <span class="n">MetadataRetriever</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">],</span> <span class="n">token</span><span class="p">)</span>
 
-        <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_from</span><span class="p">)</span>
-
-        <span class="n">channels_missing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">epics_channels</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span>
-            <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_retriever</span><span class="o">.</span><span class="n">fetch_epics_metadata</span><span class="p">(</span>
+            <span class="n">ts_from</span><span class="o">=</span><span class="n">ts_from</span><span class="p">,</span>
+            <span class="n">ts_to</span><span class="o">=</span><span class="n">ts_to</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels_missing</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">_</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="n">get_archiver_data</span><span class="p">(</span>
-                    <span class="n">archiver_url</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;archiver_url&quot;</span><span class="p">)),</span>
-                    <span class="n">archiver_channel</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span>
-                    <span class="n">ts_from</span><span class="o">=</span><span class="n">ts_from</span><span class="p">,</span>
-                    <span class="n">ts_to</span><span class="o">=</span><span class="n">ts_to</span><span class="p">,</span>
-                <span class="p">)</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
 
-            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Data for channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2"> doesn&#39;t exist for time </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-                <span class="p">)</span>
-            <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Incorrect URL for the archive channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">. &quot;</span>
-                    <span class="s2">&quot;Make sure that the channel name and file start and end times are &quot;</span>
-                    <span class="s2">&quot;correct.&quot;</span><span class="p">,</span>
-                <span class="p">)</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error code: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">except</span> <span class="n">URLError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Cannot access the archive URL for channel </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">. &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;Make sure that you are within the FHI network.&quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;Skipping over channels </span><span class="si">{</span><span class="n">channels_missing</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-                <span class="p">)</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error code: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="k">break</span>
-
-        <span class="c1"># Determine the correct aperture_config</span>
-        <span class="n">stamps</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
-            <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;aperture_config&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span>
-        <span class="p">)</span>
-        <span class="n">current_index</span> <span class="o">=</span> <span class="n">stamps</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">stamps</span><span class="p">[</span><span class="n">current_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># pick last configuration before file date</span>
-
-        <span class="c1"># Aperture metadata</span>
-        <span class="k">if</span> <span class="s2">&quot;instrument&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;analyzer&quot;</span><span class="p">:</span> <span class="p">{}}</span>
-        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;fa_shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;circle&quot;</span>
-        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;ca_shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;circle&quot;</span>
-        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;fa_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;ca_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-        <span class="c1"># get field aperture shape and size</span>
-        <span class="k">if</span> <span class="p">{</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;fa_in_channel&quot;</span><span class="p">],</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;fa_hor_channel&quot;</span><span class="p">],</span>
-        <span class="p">}</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
-            <span class="n">fa_in</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;fa_in_channel&quot;</span><span class="p">]]</span>
-            <span class="n">fa_hor</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;fa_hor_channel&quot;</span><span class="p">]]</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;aperture_config&quot;</span><span class="p">][</span><span class="n">timestamp</span><span class="p">][</span>
-                <span class="s2">&quot;fa_size&quot;</span>
-            <span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">fa_in</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">fa_hor</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="k">try</span><span class="p">:</span>
-                        <span class="n">k_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-                        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;fa_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k_float</span>
-                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c1"># store string if numeric interpretation fails</span>
-                        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;fa_shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
-                    <span class="k">break</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Field aperture size not found.&quot;</span><span class="p">)</span>
-
-        <span class="c1"># get contrast aperture shape and size</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;ca_in_channel&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]:</span>
-            <span class="n">ca_in</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;ca_in_channel&quot;</span><span class="p">]]</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;aperture_config&quot;</span><span class="p">][</span><span class="n">timestamp</span><span class="p">][</span>
-                <span class="s2">&quot;ca_size&quot;</span>
-            <span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ca_in</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="k">try</span><span class="p">:</span>
-                        <span class="n">k_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-                        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;ca_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k_float</span>
-                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c1"># store string if numeric interpretation fails</span>
-                        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;ca_shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
-                    <span class="k">break</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Contrast aperture size not found.&quot;</span><span class="p">)</span>
-
-        <span class="c1"># Storing the lens modes corresponding to lens voltages.</span>
-        <span class="c1"># Use lens voltages present in first lens_mode entry.</span>
-        <span class="n">lens_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode_config&quot;</span><span class="p">][</span>
-            <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode_config&quot;</span><span class="p">]))</span>
-        <span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-
-        <span class="n">lens_volts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KTOF:Lens:</span><span class="si">{</span><span class="n">lens</span><span class="si">}</span><span class="s2">:V&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">lens</span> <span class="ow">in</span> <span class="n">lens_list</span><span class="p">],</span>
-        <span class="p">)</span>
-        <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode_config&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">lens_volts_config</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">value</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">lens_list</span><span class="p">])</span>
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span>
-                <span class="n">lens_volts</span><span class="p">,</span>
-                <span class="n">lens_volts_config</span><span class="p">,</span>
-                <span class="n">rtol</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
-            <span class="p">):</span>  <span class="c1"># Equal upto 0.5% tolerance</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mode</span>
-                <span class="k">break</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">runs</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_retriever</span><span class="o">.</span><span class="n">fetch_elab_metadata</span><span class="p">(</span>
+                <span class="n">runs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">runs</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s2">&quot;Lens mode for given lens voltages not found. &quot;</span>
-                <span class="s2">&quot;Storing lens mode from the user, if provided.&quot;</span><span class="p">,</span>
-            <span class="p">)</span>
-
-        <span class="c1"># Determining projection from the lens mode</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">lens_mode</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;lens_mode&quot;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="s2">&quot;spatial&quot;</span> <span class="ow">in</span> <span class="n">lens_mode</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]:</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;projection&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;real&quot;</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;scheme&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;momentum dispersive&quot;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;projection&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;reciprocal&quot;</span>
-                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">][</span><span class="s2">&quot;analyzer&quot;</span><span class="p">][</span><span class="s2">&quot;scheme&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;spatial dispersive&quot;</span>
-        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s2">&quot;Lens mode must have the form, &#39;6kV_kmodem4.0_20VTOF_v3.sav&#39;. &quot;</span>
-                <span class="s2">&quot;Can&#39;t determine projection. &quot;</span>
-                <span class="s2">&quot;Storing projection from the user, if provided.&quot;</span><span class="p">,</span>
-            <span class="p">)</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s2">&quot;Lens mode not found. Can&#39;t determine projection. &quot;</span>
-                <span class="s2">&quot;Storing projection from the user, if provided.&quot;</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Fetching elabFTW metadata only supported for loading from &quot;runs&quot;&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">metadata</span></div>
 
