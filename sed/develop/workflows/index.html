@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="Workflows showcasing different SED loaders and methods " lang="en" name="description" xml:lang="en" />
 
-    <title>Workflows &#8212; SED 1.1.1.dev13+g453e5a5 documentation</title>
+    <title>Workflows &#8212; SED 1.1.1.dev21+ga8660a3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a1ed4cee"></script>
+    <script src="../_static/documentation_options.js?v=e6088013"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -50,7 +50,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.1.1.dev13+g453e5a5';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.1.1.dev21+ga8660a3';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -61,7 +61,7 @@
     <link rel="prev" title="Tutorial for trXPS for energy calibration using core level side-bands" href="../tutorial/11_hextof_workflow_trXPS_energy_calibration_using_SB.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.1.1.dev13+g453e5a5" />
+  <meta name="docsearch:version" content="1.1.1.dev21+ga8660a3" />
   </head>
   
   
@@ -127,8 +127,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="SED 1.1.1.dev13+g453e5a5 documentation - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.1.1.dev13+g453e5a5 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SED 1.1.1.dev21+ga8660a3 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.1.1.dev21+ga8660a3 documentation - Home"/>
   
   
 </a></div>
@@ -376,6 +376,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/4_hextof_workflow.html">Tutorial for binning data from the HEXTOF instrument at FLASH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/5_sxp_workflow.html">Tutorial for binning data from the SXP instrument at the European XFEL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html">Tutorial for trXPD for the HEXTOF instrument at FLASH with background normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html">Momentum correction and alignment of already binned data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html">Tutorial for DLD sectors alignment using photon peak</a></li>
 </ul>
 </div>
@@ -532,6 +533,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/9_hextof_workflow_trXPD.html#XPD-from-W4f-core-level">XPD from W4f core level</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html">Momentum correction and alignment of already binned data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html#Load-Data">Load Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html#Distortion-correction-and-alignment-for-binned-data">Distortion correction and alignment for binned data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html#1.-step:-load-data-into-the-momentum-corrector-class-instance">1. step: load data into the momentum corrector class instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html#2.-Step:">2. Step:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html#3.-Step:">3. Step:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/12_momentum_correction_of_binned_data.html#4.-Step:-Apply-correction-to-the-binned-dataset-and-visualize-the-results">4. Step: Apply correction to the binned dataset and visualize the results</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html">Tutorial for DLD sectors alignment using photon peak</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#Preparation">Preparation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#Import-necessary-libraries">Import necessary libraries</a></li>
@@ -541,8 +553,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#Data-w/o-correction-of-quadrants-in-time">Data w/o correction of quadrants in time</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#time-of-flight-spectrum">time-of-flight spectrum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#Width-of-the-photon-peak">Width of the photon peak</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#Position-of-the-photon-peak">Position of the photon peak</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#sector-alignment">sector alignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tutorial/13_hextof_dld_sector_alignment_with_photon_peak.html#Width-of-the-photon-peak-after-sector-alignment">Width of the photon peak after sector alignment</a></li>
 </ul>

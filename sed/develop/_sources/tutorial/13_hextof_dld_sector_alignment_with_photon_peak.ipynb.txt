@@ -36,6 +36,7 @@
     "\n",
     "from pathlib import Path\n",
     "import os\n",
+    "import numpy as np\n",
     "\n",
     "from sed import SedProcessor\n",
     "from sed.dataset import dataset\n",
@@ -156,12 +157,6 @@
     "                \"index_key\": \"/uncategorised/FLASH.LASER/FLACPUPGLASER1.PULSEENERGY/PG2_incoupl/PULSEENERGY.MEAN/index\",\n",
     "                \"dataset_key\": \"/uncategorised/FLASH.LASER/FLACPUPGLASER1.PULSEENERGY/PG2_incoupl/PULSEENERGY.MEAN/value\",\n",
     "            },\n",
-    "            # overwrite because it is broken in these files\n",
-    "            \"pulserSignAdc\": {\n",
-    "                \"format\": \"per_train\",\n",
-    "                \"index_key\": \"/uncategorised/FLASH.LASER/FLACPUPGLASER1.PULSEENERGY/PG2_incoupl/PULSEENERGY.MEAN/index\",\n",
-    "                \"dataset_key\": \"/uncategorised/FLASH.LASER/FLACPUPGLASER1.PULSEENERGY/PG2_incoupl/PULSEENERGY.MEAN/value\",\n",
-    "            },\n",
     "        },\n",
     "    },\n",
     "}"
@@ -182,10 +177,6 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "### Probably due to the fact that this data from 2021's beamtime all channels are different\n",
-    "### to what we have now in the 'flash_example_config.yaml' and with this configuration while\n",
-    "### creating new buffer files I'm getting error \"Channels not in file\",\n",
-    "### that is why I tested it with cell below using original beamtime config and already converted files\n",
     "run_number = 40887\n",
     "sp_ph_peak = SedProcessor(runs=[run_number], config=config_override, system_config=config_file, verbose=True)\n",
     "sp_ph_peak.add_jitter()"
@@ -206,7 +197,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "sp_ph_peak.dataframe"
+    "sp_ph_peak.dataframe[[\"dldTimeSteps\", \"dldSectorID\"]].head()"
    ]
   },
   {
@@ -222,7 +213,7 @@
    "id": "69b04657",
    "metadata": {},
    "source": [
-    "First, we take a look at the photon peak and apply separation by single quadrants before any corrections. We plot the data in detector time (dldTimeSteps) as well as in detector position (dldPosX and dvlPosY) coordinates with additional separation by single sectors."
+    "First, we take a look at the photon peak and apply separation by single quadrants before any corrections. We plot the data in detector time (dldTimeSteps) as well as in detector position (dldPosX and dldPosY) coordinates, with additional separation by single sectors."
    ]
   },
   {
@@ -233,55 +224,23 @@
    "outputs": [],
    "source": [
     "axes = ['dldSectorID', 'dldTimeSteps','dldPosX','dldPosY']\n",
-    "ranges = [[0,8], [2360,2760], [435,885], [445,895]]\n",
-    "bins = [8,400,225,225]\n",
-    "res_ph_peak = sp_ph_peak.compute(bins=bins, axes=axes, ranges=ranges)\n",
-    "\n",
-    "res_ph_peak['dldPosX'].attrs['unit'] = 'µm'\n",
-    "res_ph_peak['dldPosY'].attrs['unit'] = 'µm'\n",
-    "\n",
+    "ranges = [[0,8], [2360,2460], [435,885], [445,895]]\n",
+    "bins = [8,700,225,225]\n",
+    "res_ph_peak = sp_ph_peak.compute(bins=bins, axes=axes, ranges=ranges)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e326e279",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "res_ph_peak['dldPosX'].attrs['unit'] = 'pixel'\n",
+    "res_ph_peak['dldPosY'].attrs['unit'] = 'pixel'\n",
     "fig,ax = plt.subplots(1,2,figsize=(6,2.25), layout='tight')\n",
     "res_ph_peak.sum(('dldSectorID','dldPosX','dldPosY')).plot(ax=ax[0])\n",
-    "res_ph_peak.mean(('dldSectorID','dldTimeSteps')).plot(ax=ax[1], robust=True)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "4fe4915e",
-   "metadata": {},
-   "source": [
-    "### time-of-flight spectrum\n",
-    "To see the photon peak on the ns scale we plot the time-of-flight spectrum. This is done here."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "ebdf8f75",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "sp_ph_peak.append_tof_ns_axis()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "55c96a30",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "axes = ['dldSectorID', 'dldTime','dldPosX','dldPosY']\n",
-    "ranges = [[0,8], [390,460], [435,885], [445,895]]\n",
-    "bins = [8,700,225,225]\n",
-    "res_ph_peak_ns = sp_ph_peak.compute(bins=bins, axes=axes, ranges=ranges)\n",
-    "\n",
-    "res_ph_peak_ns['dldPosX'].attrs['unit'] = 'µm'\n",
-    "res_ph_peak_ns['dldPosY'].attrs['unit'] = 'µm'\n",
-    "\n",
-    "fig,ax = plt.subplots(1,2,figsize=(6,2.25), layout='tight')\n",
-    "res_ph_peak_ns.sum(('dldSectorID','dldPosX','dldPosY')).plot(ax=ax[0])\n",
-    "res_ph_peak_ns.mean(('dldSectorID','dldTime')).plot(ax=ax[1], robust=True)"
+    "res_ph_peak.sel(dldTimeSteps=slice(2380,2400)).mean(('dldSectorID','dldTimeSteps')).plot(ax=ax[1], robust=True)"
    ]
   },
   {
@@ -299,9 +258,9 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "ph_peak_ns = res_ph_peak_ns.sel(dldTime=slice(390,397)).sum(('dldPosX','dldPosY'))\n",
+    "ph_peak = res_ph_peak.sel(dldTimeSteps=slice(2380,2400)).sum(('dldPosX','dldPosY'))\n",
     "plt.figure(figsize=(6,4))\n",
-    "ph_peak_ns.sum('dldSectorID').plot()"
+    "ph_peak.sum('dldSectorID').plot()"
    ]
   },
   {
@@ -315,12 +274,23 @@
   {
    "cell_type": "code",
    "execution_count": null,
+   "id": "2fc9f73c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "plt.figure(figsize=(6,4))\n",
+    "ph_peak.plot()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
    "id": "6cabf1a2",
    "metadata": {},
    "outputs": [],
    "source": [
     "plt.figure(figsize=(6,4))\n",
-    "for i, item in enumerate(ph_peak_ns):\n",
+    "for i, item in enumerate(ph_peak):\n",
     "    item.plot(label=f'S{i}')\n",
     "    plt.legend()"
    ]
@@ -330,7 +300,7 @@
    "id": "9a43f35b",
    "metadata": {},
    "source": [
-    "### Width of the photon peak"
+    "### Position of the photon peak"
    ]
   },
   {
@@ -342,20 +312,20 @@
    "source": [
     "Gauss_mod = GaussianModel()\n",
     "\n",
-    "x=ph_peak_ns['dldTime']\n",
-    "y=ph_peak_ns.sum('dldSectorID')\n",
+    "x=ph_peak['dldTimeSteps']\n",
+    "y=ph_peak.sum('dldSectorID')\n",
     "\n",
-    "pars = Gauss_mod.make_params(amplitude=1360.0, center=393.2, sigma=0.19)\n",
+    "pars = Gauss_mod.make_params(amplitude=200, center=2390, sigma=1)\n",
     "# pars = Gauss_mod.guess(y, x=x)\n",
     "out = Gauss_mod.fit(y, pars, x=x)\n",
     "\n",
     "print(out.fit_report())\n",
     "plt.figure(figsize=(6,4))\n",
     "plt.plot(x,y, 'rx')\n",
-    "plt.plot(x,out.best_fit, \"b\", label=\"FWHM = {:.3f} ns\".format(out.values['fwhm']))\n",
+    "plt.plot(x,out.best_fit, \"b\", label=\"FWHM = {:.3f}\".format(out.values['fwhm']))\n",
     "plt.title(f'Run {run_number}, full photon peak')\n",
     "plt.legend(loc=\"best\")\n",
-    "plt.xlabel(\"dldTime [ns]\")"
+    "plt.xlabel(\"dldTimeSteps [step]\")"
    ]
   },
   {
@@ -374,17 +344,30 @@
    "outputs": [],
    "source": [
     "plt.figure(figsize=(6,4))\n",
-    "for i, item in enumerate(ph_peak_ns):\n",
-    "    x=ph_peak_ns['dldTime']\n",
+    "sector_delays = np.zeros(8)\n",
+    "for i, item in enumerate(ph_peak):\n",
+    "    x=ph_peak['dldTimeSteps']\n",
     "    y=item\n",
-    "    pars = Gauss_mod.make_params(amplitude=800.1, center=393.0, sigma=0.3)\n",
+    "    pars = Gauss_mod.make_params(amplitude=200, center=2390, sigma=1)\n",
     "    out = Gauss_mod.fit(y, pars, x=x)\n",
-    "    Center = 393.38961071\n",
+    "    Center = 2388.984276411258\n",
     "    Diff = \"{:.3f}\".format(Center - out.values['center'])\n",
+    "    sector_delays[i] = (out.values['center'])\n",
     "    FWHM = \"{:.3f}\".format(out.values['fwhm'])\n",
-    "    item.plot(label=f'S{i}={Diff}, FWHM = {FWHM} ns')\n",
+    "    item.plot(label=f'S{i}={Diff}, FWHM = {FWHM}')\n",
     "    plt.title(f'Run {run_number}, individual sectors, not aligned')\n",
     "    plt.legend()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a41757a4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sector_delays = sector_delays - np.mean(sector_delays)\n",
+    "sector_delays"
    ]
   },
   {
@@ -403,7 +386,17 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "sp_ph_peak.align_dld_sectors()"
+    "sp_ph_peak.align_dld_sectors(sector_delays=sector_delays)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e1e7ed7a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sp_ph_peak.dataframe[[\"dldTimeSteps\", \"dldSectorID\"]].head()"
    ]
   },
   {
@@ -422,16 +415,16 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "axes = ['dldSectorID', 'dldTime','dldPosX','dldPosY']\n",
-    "ranges = [[0,8], [390,460], [435,885], [445,895]]\n",
+    "axes = ['dldSectorID', 'dldTimeSteps','dldPosX','dldPosY']\n",
+    "ranges = [[0,8], [2360,2460], [435,885], [445,895]]\n",
     "bins = [8,700,225,225]\n",
-    "res_ph_peak_ns_align = sp_ph_peak.compute(bins=bins, axes=axes, ranges=ranges)\n",
+    "res_ph_peak_align = sp_ph_peak.compute(bins=bins, axes=axes, ranges=ranges)\n",
     "\n",
-    "ph_peak_ns_align = res_ph_peak_ns_align.sel(dldTime=slice(390,397)).sum(('dldPosX','dldPosY'))\n",
+    "ph_peak_align = res_ph_peak_align.sel(dldTimeSteps=slice(2380,2400)).sum(('dldPosX','dldPosY'))\n",
     "\n",
     "fig,ax = plt.subplots(1,2,figsize=(6,3.25), layout='tight')\n",
-    "ph_peak_ns_align.sum('dldSectorID').plot(ax=ax[0])\n",
-    "for i, item in enumerate(ph_peak_ns_align):\n",
+    "ph_peak_align.sum('dldSectorID').plot(ax=ax[0])\n",
+    "for i, item in enumerate(ph_peak_align):\n",
     "    item.plot(ax=ax[1], label=f'S{i}')\n",
     "    plt.legend()"
    ]
@@ -445,20 +438,19 @@
    "source": [
     "Gauss_mod = GaussianModel()\n",
     "\n",
-    "x=ph_peak_ns_align['dldTime']\n",
-    "y=ph_peak_ns_align.sum('dldSectorID')\n",
+    "x=ph_peak_align['dldTimeSteps']\n",
+    "y=ph_peak_align.sum('dldSectorID')\n",
     "\n",
-    "pars = Gauss_mod.make_params(amplitude=1360.1, center=393.2, sigma=0.2)\n",
-    "# pars = Gauss_mod.guess(y, x=x)\n",
+    "pars = Gauss_mod.make_params(amplitude=200, center=2390, sigma=1)\n",
     "out = Gauss_mod.fit(y, pars, x=x)\n",
     "\n",
     "print(out.fit_report())\n",
     "plt.figure(figsize=(6,4))\n",
     "plt.plot(x,y, 'rx')\n",
-    "plt.plot(x,out.best_fit, \"b\", label=\"FWHM = {:.3f} ns\".format(out.values['fwhm']))\n",
+    "plt.plot(x,out.best_fit, \"b\", label=\"FWHM = {:.3f}\".format(out.values['fwhm']))\n",
     "plt.title(f'Run {run_number}, full photon peak, sectors aligned')\n",
     "plt.legend(loc=\"best\")\n",
-    "plt.xlabel(\"dldTime [ns]\")\n",
+    "plt.xlabel(\"dldTimeSteps [step]\")\n",
     "plt.show()"
    ]
   },
@@ -467,7 +459,7 @@
    "id": "4a3909b0",
    "metadata": {},
    "source": [
-    "As we can see from the result of the last fit, after sector alignment, we have improved photon peak width by -3 ps"
+    "As we can see from the result of the last fit, after sector alignment, we have improved the photon peak width by 0.058 steps."
    ]
   },
   {
@@ -475,7 +467,7 @@
    "id": "eca0ca1f",
    "metadata": {},
    "source": [
-    "Same check can be done for every single sector in order to see/check that all sectors were properly corrected in time by their difference to 0 sector"
+    "The same check can be done for every single sector to see/check that all sectors were properly corrected in time by their difference from the 0 sector."
    ]
   },
   {
@@ -486,24 +478,96 @@
    "outputs": [],
    "source": [
     "plt.figure(figsize=(6,4))\n",
-    "for i, item in enumerate(ph_peak_ns):\n",
-    "    x=ph_peak_ns_align['dldTime']\n",
+    "for i, item in enumerate(ph_peak_align):\n",
+    "    x=ph_peak_align['dldTimeSteps']\n",
     "    y=item\n",
-    "    pars = Gauss_mod.make_params(amplitude=800.0, center=393.0, sigma=0.3)\n",
+    "    pars = Gauss_mod.make_params(amplitude=800.0, center=2390, sigma=1)\n",
     "    out = Gauss_mod.fit(y, pars, x=x)\n",
-    "    Center = 393.3899565\n",
+    "    Center = 2388.984276411258\n",
     "    Diff = \"{:.3f}\".format(Center - out.values['center'])\n",
     "    FWHM = \"{:.3f}\".format(out.values['fwhm'])\n",
-    "    item.plot(label=f'S{i}={Diff}, FWHM = {FWHM} ns')\n",
+    "    item.plot(label=f'S{i}={Diff}, FWHM = {FWHM} step')\n",
     "    plt.title(f'Run {run_number}, individual sectors, aligned')\n",
     "    plt.legend()\n",
     "plt.show()"
    ]
   },
   {
+   "cell_type": "markdown",
+   "id": "5645932e-7d6d-48ad-9192-7ab0c6e78a3a",
+   "metadata": {},
+   "source": [
+    "Now we can make an ns conversion and do a fitting procedure again to see, e.g. DLD time resolution."
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "id": "df6495a3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sp_ph_peak.append_tof_ns_axis()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c9aaa75a-d8e2-47eb-82eb-f382d1250aa7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sp_ph_peak.dataframe[[\"dldTimeSteps\", \"dldTime\", \"dldSectorID\"]].head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f2b3b358-f873-4e2f-9058-579b97e2cb50",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "axes = ['dldSectorID', 'dldTime']\n",
+    "ranges = [[0,8], [390,397]]\n",
+    "bins = [8,350]\n",
+    "res_ph_peak_ns = sp_ph_peak.compute(bins=bins, axes=axes, ranges=ranges)\n",
+    "\n",
+    "plt.figure()\n",
+    "res_ph_peak_ns.sum(('dldSectorID')).plot()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f4e39abe-f7e4-4c6f-8d6a-c9faa74a159f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Gauss_mod = GaussianModel()\n",
+    "\n",
+    "x=res_ph_peak_ns['dldTime']\n",
+    "y=res_ph_peak_ns.sum('dldSectorID')\n",
+    "\n",
+    "pars = Gauss_mod.make_params(amplitude=340.0, center=393.2, sigma=0.19)\n",
+    "# pars = Gauss_mod.guess(y, x=x)\n",
+    "out = Gauss_mod.fit(y, pars, x=x)\n",
+    "\n",
+    "print(out.fit_report())\n",
+    "plt.figure()\n",
+    "plt.plot(x,y, 'rx')\n",
+    "plt.plot(x,out.best_fit, \"b\", label=\"FWHM = {:.3f} ns\".format(out.values['fwhm']))\n",
+    "#plt.title(f'Run {runs}, full photon peak')\n",
+    "plt.legend(loc=\"best\")\n",
+    "plt.xlabel(\"dldTime [ns]\")\n",
+    "plt.title(f'Run {run_number}, all sectors aligned')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "af9eb679-f418-460f-8fce-e9943ce4d033",
    "metadata": {},
    "outputs": [],
    "source": []
