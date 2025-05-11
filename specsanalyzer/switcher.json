@@ -1,13 +1,13 @@
 [
   {
     "name": "latest",
-    "version": "1.0.1.dev3+g14a99fc",
-    "url": "https://opencompes.github.io/docs/specsanalyzer/v1.0.0"
+    "version": "1.1.0",
+    "url": "https://opencompes.github.io/docs/specsanalyzer/v1.1.0"
   },
   {
     "name": "stable",
-    "version": "1.0.0",
-    "url": "https://opencompes.github.io/docs/specsanalyzer/v1.0.0",
+    "version": "1.1.0",
+    "url": "https://opencompes.github.io/docs/specsanalyzer/v1.1.0",
     "preferred": "true"
   },
   {
@@ -54,5 +54,10 @@
     "name": "v1.0.0",
     "version": "1.0.0",
     "url": "https://opencompes.github.io/docs/specsanalyzer/v1.0.0"
+  },
+  {
+    "name": "v1.1.0",
+    "version": "1.1.0",
+    "url": "https://opencompes.github.io/docs/specsanalyzer/v1.1.0"
   }
 ]
