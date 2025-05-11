@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Configuration &#8212; SED 1.1.1.dev25+g7171ce7 documentation</title>
+    <title>Configuration &#8212; SED 1.1.1.dev33+ge429077 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=a79c1b7f"></script>
+    <script src="../_static/documentation_options.js?v=04cf4c33"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -47,7 +47,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.1.1.dev25+g7171ce7';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.1.1.dev33+ge429077';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="Binning with metadata generation, and storing into a NeXus file" href="../tutorial/3_metadata_collection_and_export_to_NeXus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.1.1.dev25+g7171ce7" />
+  <meta name="docsearch:version" content="1.1.1.dev33+ge429077" />
   </head>
   
   
@@ -124,8 +124,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="SED 1.1.1.dev25+g7171ce7 documentation - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.1.1.dev25+g7171ce7 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="SED 1.1.1.dev33+ge429077 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.1.1.dev33+ge429077 documentation - Home"/>
   
   
 </a></div>
@@ -503,7 +503,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="c1"># Number of bins to use for energy calibration traces</span>
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">  </span><span class="c1"># Bin ranges to use for energy calibration curves (for tof_binning=1)</span>
-<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">100000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">150000</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">276000</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># Option to normalize energy calibration traces</span>
 <span class="w">  </span><span class="nt">normalize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 <span class="w">  </span><span class="c1"># Pixel range for smoothing</span>
@@ -520,7 +520,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="nt">energy_scale</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kinetic&quot;</span>
 <span class="w">  </span><span class="c1"># Approximate position of the high-energy-cutoff in tof_column bins,</span>
 <span class="w">  </span><span class="c1"># used for displaying a graph to choose the energy correction function parameters.</span>
-<span class="w">  </span><span class="nt">tof_fermi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">132250</span>
+<span class="w">  </span><span class="nt">tof_fermi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">264500</span>
 <span class="w">  </span><span class="c1"># TOF range to visualize for the correction tool around tof_fermi</span>
 <span class="w">  </span><span class="nt">tof_width</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-600</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1000</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># x-integration range for the correction tool around the center pixel</span>
@@ -538,7 +538,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="c1"># Bin numbers used for the respective axes</span>
 <span class="w">  </span><span class="nt">bins</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">300</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># bin ranges to use (in unbinned detector coordinates)</span>
-<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">132000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">138000</span><span class="p p-Indicator">]]</span>
+<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1792</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">252000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">280000</span><span class="p p-Indicator">]]</span>
 <span class="w">  </span><span class="c1"># The x/y pixel ranges of the detector</span>
 <span class="w">  </span><span class="nt">detector_ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2048</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2048</span><span class="p p-Indicator">]]</span>
 <span class="w">  </span><span class="c1"># The center pixel of the detector in the binned x/y coordinates</span>
@@ -576,7 +576,7 @@ It will load an (optional) provided config file, or alternatively use a passed p
 <span class="w">  </span><span class="c1"># Axes names starting with &quot;@&quot; refer to keys in the &quot;dataframe&quot; section</span>
 <span class="w">  </span><span class="nt">axes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;@x&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@y&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;@tof&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="c1"># default ranges to use for histogram visualization (in unbinned detector coordinates)</span>
-<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">150000</span><span class="p p-Indicator">]]</span>
+<span class="w">  </span><span class="nt">ranges</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1800</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">300000</span><span class="p p-Indicator">]]</span>
 </pre></div>
 </div>
 </section>
