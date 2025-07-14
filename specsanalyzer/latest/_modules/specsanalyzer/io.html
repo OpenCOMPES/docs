@@ -1,0 +1,1231 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>specsanalyzer.io &#8212; specsanalyzer 1.1.1.dev1+g12c2799 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9af3bf5f"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/specsanalyzer/io';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/specsanalyzer/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.1.1.dev1+g12c2799';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
+        </script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1.dev1+g12c2799" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">specsanalyzer 1.1.1.dev1+g12c2799 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    specsanalyzer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsanalyzer/config.html">
+    Config
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/1_specsanalyzer_conversion_examples.html">
+    Example 1: SpecsAnalyzer conversion
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/2_specsscan_example.html">
+    Example 2: SpecsScan loading
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/3_specsscan_conversion_to_NeXus.html">
+    Example 3: Export to NeXus
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../tutorial/4_specsscan_load_sweep_scan.html">
+    Example 4: Sweep Scan loading
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../specsanalyzer/core.html">
+    Core functions  (specsanalyzer.core)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../specsanalyzer/convert.html">
+    convert functions (specsanalyzer.convert)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../specsanalyzer/img_tools.html">
+    image tool functions (specsanalyzer.img_tools)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../specsanalyzer/io.html">
+    io functions  (specsanalyzer.io)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../specsscan/core.html">
+    Core functions  (specsscan.core)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../specsscan/helpers.html">
+    Helpers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../misc/maintain.html">
+    How to maintain
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/specsanalyzer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started.html">
+    specsanalyzer
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsanalyzer/config.html">
+    Config
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/1_specsanalyzer_conversion_examples.html">
+    Example 1: SpecsAnalyzer conversion
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/2_specsscan_example.html">
+    Example 2: SpecsScan loading
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/3_specsscan_conversion_to_NeXus.html">
+    Example 3: Export to NeXus
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial/4_specsscan_load_sweep_scan.html">
+    Example 4: Sweep Scan loading
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsanalyzer/core.html">
+    Core functions  (specsanalyzer.core)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsanalyzer/convert.html">
+    convert functions (specsanalyzer.convert)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsanalyzer/img_tools.html">
+    image tool functions (specsanalyzer.img_tools)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsanalyzer/io.html">
+    io functions  (specsanalyzer.io)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsscan/core.html">
+    Core functions  (specsscan.core)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../specsscan/helpers.html">
+    Helpers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../misc/maintain.html">
+    How to maintain
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/specsanalyzer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="../../genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+        <li class="toctree-l1">
+          <a class="reference internal" href="../../py-modindex.html">Python Module Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">specsanalyzer.io</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for specsanalyzer.io</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module contains file input/output functions for the specsanalyzer module&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tifffile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pynxtools.dataconverter.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">_IMAGEJ_DIMS_ORDER</span> <span class="o">=</span> <span class="s2">&quot;TZCYXS&quot;</span>
+<span class="n">_IMAGEJ_DIMS_ALIAS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;delayStage&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pumpProbeTime&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;delay&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;T&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Z&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;dldTime&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;t&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;energy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;e&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;E&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;binding_energy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;energies&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;binding_energies&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;dldPosY&quot;</span><span class="p">,</span> <span class="s2">&quot;ky&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;ypos&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;dldPosX&quot;</span><span class="p">,</span> <span class="s2">&quot;kx&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;xpos&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;S&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="recursive_write_metadata">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.recursive_write_metadata">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">recursive_write_metadata</span><span class="p">(</span><span class="n">h5group</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recurses through a python dictionary and writes it into an hdf5 file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5group (h5py.Group): hdf5 group element where to store the current dict node to.</span>
+<span class="sd">        node (dict): dictionary node to store</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Warning: warns if elements have been converted into strings for saving.</span>
+<span class="sd">        ValueError: Rises when elements cannot be saved even as strings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">item</span><span class="p">,</span>
+            <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+                <span class="nb">str</span><span class="p">,</span>
+                <span class="nb">bytes</span><span class="p">,</span>
+                <span class="nb">int</span><span class="p">,</span>
+                <span class="nb">float</span><span class="p">,</span>
+                <span class="nb">list</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">h5group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="n">h5group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> as string.&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">h5group</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">recursive_write_metadata</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">h5group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> as string.&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Unknown error occurred, cannot save </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span></div>
+
+
+
+<div class="viewcode-block" id="recursive_parse_metadata">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.recursive_parse_metadata">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">recursive_parse_metadata</span><span class="p">(</span>
+    <span class="n">node</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span> <span class="o">|</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recurses through an hdf5 file, and parse it into a dictionary.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        node (h5py.Group | h5py.Dataset): hdf5 group or dataset to parse into dictionary.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Dictionary of elements in the hdf5 path contained in node</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">):</span>
+        <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive_parse_metadata</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">dictionary</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">bytearray</span><span class="p">)):</span>
+                <span class="n">dictionary</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">dictionary</span> <span class="o">=</span> <span class="n">entry</span>
+
+    <span class="k">return</span> <span class="n">dictionary</span></div>
+
+
+
+<div class="viewcode-block" id="to_h5">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.to_h5">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_h5</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Save xarray formatted data to hdf5</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (xr.DataArray): input data</span>
+<span class="sd">        faddr (str): complete file name (including path)</span>
+<span class="sd">        mode (str): hdf5 read/write mode</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Warning: subfunction warns if elements have been converted into strings for</span>
+<span class="sd">            saving.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">faddr</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">h5_file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;saving data to </span><span class="si">{</span><span class="n">faddr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Saving data, make a single dataset</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">h5_file</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s2">&quot;binned/BinnedData&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">dataset</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+            <span class="n">dataset</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># Saving axes</span>
+        <span class="n">axes_group</span> <span class="o">=</span> <span class="n">h5_file</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+        <span class="n">axes_number</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">bin_name</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+            <span class="n">axis</span> <span class="o">=</span> <span class="n">axes_group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;ax</span><span class="si">{</span><span class="n">axes_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">bin_name</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_name</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">axis</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">bin_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">axes_number</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="s2">&quot;metadata&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">attrs</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">],</span>
+            <span class="nb">dict</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">meta_group</span> <span class="o">=</span> <span class="n">h5_file</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">)</span>
+
+            <span class="n">recursive_write_metadata</span><span class="p">(</span><span class="n">meta_group</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving complete!&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="load_h5">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.load_h5">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_h5</span><span class="p">(</span><span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read xarray data from formatted hdf5 file</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        faddr (str): complete file name (including path)</span>
+<span class="sd">        mode (str, optional): hdf5 read/write mode. Defaults to &quot;r&quot;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        xr.DataArray: output xarray data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">faddr</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">h5_file</span><span class="p">:</span>
+        <span class="c1"># Reading data array</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;binned&quot;</span><span class="p">][</span><span class="s2">&quot;BinnedData&quot;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Wrong Data Format, the BinnedData were not found. The error was</span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+        <span class="c1"># Reading the axes</span>
+        <span class="n">bin_axes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">bin_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]:</span>
+                <span class="n">bin_axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">][</span><span class="n">axis</span><span class="p">])</span>
+                <span class="n">bin_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">][</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Wrong Data Format, the axes were not found. The error was </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+        <span class="c1"># load metadata</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;metadata&quot;</span> <span class="ow">in</span> <span class="n">h5_file</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="n">recursive_parse_metadata</span><span class="p">(</span><span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">])</span>
+
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bin_names</span><span class="p">,</span> <span class="n">bin_axes</span><span class="p">):</span>
+            <span class="n">coords</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">vals</span>
+
+        <span class="n">xarray</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">bin_names</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_axes</span><span class="p">)):</span>
+                <span class="n">xarray</span><span class="p">[</span><span class="n">bin_names</span><span class="p">[</span><span class="n">axis</span><span class="p">]]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;ax</span><span class="si">{</span><span class="n">axis</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span>
+            <span class="n">xarray</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;binned&quot;</span><span class="p">][</span><span class="s2">&quot;BinnedData&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+            <span class="n">xarray</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h5_file</span><span class="p">[</span><span class="s2">&quot;binned&quot;</span><span class="p">][</span><span class="s2">&quot;BinnedData&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">xarray</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metadata</span>
+
+        <span class="k">return</span> <span class="n">xarray</span></div>
+
+
+
+<div class="viewcode-block" id="to_tiff">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.to_tiff">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_tiff</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Save an array as a .tiff stack compatible with ImageJ</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (xr.DataArray | np.ndarray): data to be saved. If a np.ndarray, the order is retained.</span>
+<span class="sd">            If it is an xarray.DataArray, the order is inferred from axis_dict instead.</span>
+<span class="sd">            ImageJ likes tiff files with axis order as TZCYXS. Therefore, best axis order in input</span>
+<span class="sd">            should be: Time, Energy, posY, posX. The channels &#39;C&#39; and &#39;S&#39; are automatically added</span>
+<span class="sd">            and can be ignored.</span>
+<span class="sd">        faddr (Path | str): full path and name of file to save.</span>
+<span class="sd">        alias_dict (dict, optional): name pairs for correct axis ordering. Keys should be any of</span>
+<span class="sd">            T,Z,C,Y,X,S. The Corresponding value should be a dimension of the xarray or</span>
+<span class="sd">            the dimension number if a numpy array. This is used to sort the data in the</span>
+<span class="sd">            correct order for imagej standards. If None it tries to guess the order</span>
+<span class="sd">            from the name of the axes or assumes T,Z,C,Y,X,S order for numpy arrays.</span>
+<span class="sd">            Defaults to None.</span>
+
+<span class="sd">    Raise:</span>
+<span class="sd">        AttributeError: if more than one axis corresponds to a single dimension</span>
+<span class="sd">        NotImplementedError: if data is not 2,3 or 4 dimensional</span>
+<span class="sd">        TypeError: if data is not a np.ndarray or an xarray.DataArray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">out</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="c1"># TODO: add sorting by dictionary keys</span>
+        <span class="n">dim_expansions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span>
+            <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;energy&quot;</span><span class="p">],</span>
+            <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="s2">&quot;delay&quot;</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dim_expansions</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>  <span class="c1"># pylint: disable=W0707</span>
+                <span class="sa">f</span><span class="s2">&quot;Only 2-3-4D arrays supported when data is a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">dims_order</span> <span class="o">=</span> <span class="n">dims</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">):</span>
+        <span class="n">dims_order</span> <span class="o">=</span> <span class="n">_fill_missing_dims</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dims</span><span class="p">),</span> <span class="n">alias_dict</span><span class="o">=</span><span class="n">alias_dict</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
+            <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims_order</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">dims</span><span class="p">},</span>
+        <span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">*</span><span class="n">dims_order</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot handle data of type </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">faddr</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">faddr</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.tiff&quot;</span><span class="p">)</span>
+
+    <span class="n">tifffile</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">faddr</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">imagej</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully saved </span><span class="si">{</span><span class="n">faddr</span><span class="si">}</span><span class="se">\n</span><span class="s2"> Axes order: </span><span class="si">{</span><span class="n">dims_order</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># return dims_order</span>
+
+
+<div class="viewcode-block" id="_sort_dims_for_imagej">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io._sort_dims_for_imagej">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">_sort_dims_for_imagej</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Guess the order of the dimensions from the alias dictionary</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dims (list): the list of dimensions to sort</span>
+<span class="sd">        alias_dict (dict, optional): name pairs for correct axis ordering. Keys should be any of</span>
+<span class="sd">            T,Z,C,Y,X,S. The Corresponding value should be a dimension of the xarray or</span>
+<span class="sd">            the dimension number if a numpy array. This is used to sort the data in the</span>
+<span class="sd">            correct order for imagej standards. If None it tries to guess the order</span>
+<span class="sd">            from the name of the axes or assumes T,Z,C,Y,X,S order for numpy arrays.</span>
+<span class="sd">            Defaults to None.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: for duplicate entries for a single imagej dimension</span>
+<span class="sd">        NameError: when a dimension cannot be found in the alias dictionary</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: List of sorted dimensions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">_fill_missing_dims</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span> <span class="n">alias_dict</span><span class="o">=</span><span class="n">alias_dict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">order</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="_fill_missing_dims">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io._fill_missing_dims">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">_fill_missing_dims</span><span class="p">(</span><span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">alias_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Guess the order of the dimensions from the alias dictionary</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dims (list): the list of dimensions to sort</span>
+<span class="sd">        alias_dict (dict, optional): name pairs for correct axis ordering. Keys should be any of</span>
+<span class="sd">            T,Z,C,Y,X,S. The Corresponding value should be a dimension of the xarray or</span>
+<span class="sd">            the dimension number if a numpy array. This is used to sort the data in the</span>
+<span class="sd">            correct order for imagej standards. If None it tries to guess the order</span>
+<span class="sd">            from the name of the axes or assumes T,Z,C,Y,X,S order for numpy arrays.</span>
+<span class="sd">            Defaults to None.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: for duplicate entries for a single imagej dimension</span>
+<span class="sd">        NameError: when a dimension cannot be found in the alias dictionary</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: List of extended dimensions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">order</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># overwrite the default values with the provided dict</span>
+    <span class="k">if</span> <span class="n">alias_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">alias_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">alias_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_IMAGEJ_DIMS_ORDER</span><span class="p">,</span> <span class="s2">&quot;keys must all be one of &quot;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_IMAGEJ_DIMS_ALIAS</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+                <span class="n">alias_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+
+    <span class="n">alias_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">_IMAGEJ_DIMS_ALIAS</span><span class="p">,</span> <span class="o">**</span><span class="n">alias_dict</span><span class="p">}</span>
+    <span class="n">added_dims</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">imgj_dim</span> <span class="ow">in</span> <span class="n">_IMAGEJ_DIMS_ORDER</span><span class="p">:</span>
+        <span class="n">found_one</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">alias_dict</span><span class="p">[</span><span class="n">imgj_dim</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">found_one</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Duplicate entries for </span><span class="si">{</span><span class="n">imgj_dim</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+                <span class="n">found_one</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">found_one</span><span class="p">:</span>
+            <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imgj_dim</span><span class="p">)</span>
+            <span class="n">added_dims</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">+</span> <span class="n">added_dims</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Could not interpret dimensions </span><span class="si">{</span><span class="p">[</span><span class="n">d</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">dims</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">order</span></div>
+
+
+
+<div class="viewcode-block" id="load_tiff">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.load_tiff">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_tiff</span><span class="p">(</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">coords</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">dims</span><span class="p">:</span> <span class="n">Sequence</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">attrs</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads a tiff stack to an xarray.</span>
+
+<span class="sd">    The .tiff format does not retain information on the axes, so these need to</span>
+<span class="sd">    be manually added with the axes argument. Otherwise, this returns the data</span>
+<span class="sd">    only as np.ndarray</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        faddr (str | Path): Path to file to load.</span>
+<span class="sd">        coords (dict, optional): The axes describing the data, following the tiff stack order:</span>
+<span class="sd">        dims (Sequence, optional): the order of the coordinates provided, considering the data is</span>
+<span class="sd">            ordered as TZCYXS. If None (default) it infers the order from the order</span>
+<span class="sd">            of the coords dictionary.</span>
+<span class="sd">        attrs (dict, optional): dictionary to add as attributes to the xarray.DataArray</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        xr.DataArray: an xarray representing the data loaded from the .tiff file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">tifffile</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">faddr</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">coords</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">):</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="n">_IMAGEJ_DIMS_ORDER</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span>
+        <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">dims</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">coords</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">assert</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">),</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Data dimension </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2"> must coincide number of coordinates &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span><span class="si">}</span><span class="s2"> and dimensions </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span><span class="si">}</span><span class="s2"> provided,&quot;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="to_nexus">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.to_nexus">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_nexus</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+    <span class="n">faddr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">reader</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">definition</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">input_files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Saves the x-array provided to a NeXus file at faddr, using the provided reader,</span>
+<span class="sd">    NeXus definition and configuration file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (xr.DataArray): The data to save, containing metadata definitions in</span>
+<span class="sd">            data._attrs[&quot;metadata&quot;].</span>
+<span class="sd">        faddr (str): The file path to save to.</span>
+<span class="sd">        reader (str): The name of the NeXus reader to use.</span>
+<span class="sd">        definition (str): The NeXus definition to use.</span>
+<span class="sd">        input_files (str | Sequence[str]): The file path to the configuration file to use.</span>
+<span class="sd">        **kwds: Keyword arguments for ``pynxtools.dataconverter.convert``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">input_files</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">input_files</span><span class="p">)</span>
+
+    <span class="n">convert</span><span class="p">(</span>
+        <span class="n">input_file</span><span class="o">=</span><span class="n">input_files</span><span class="p">,</span>
+        <span class="n">objects</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+        <span class="n">reader</span><span class="o">=</span><span class="n">reader</span><span class="p">,</span>
+        <span class="n">nxdl</span><span class="o">=</span><span class="n">definition</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="n">faddr</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_pair_from_list">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.get_pair_from_list">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pair_from_list</span><span class="p">(</span><span class="n">list_line</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns key value pair for the read function</span>
+<span class="sd">    where a line in the file contains &#39;=&#39; character.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        list_line (list): list of splitted line from the file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: List of a tuple containing key value pair.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">list_line</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">list_line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;#&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">[:</span> <span class="n">v</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c1"># to handle one edge case</span>
+            <span class="k">return</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;m&#39;</span><span class="p">)))]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &quot; &#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)]</span></div>
+
+
+
+<div class="viewcode-block" id="read_calib2d">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.read_calib2d">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_calib2d</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads the calib2d file into a convenient list for the parser</span>
+<span class="sd">    function containing useful and cleaned data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        filepath (str): Path to file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: List containing dictionary, string and float objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="n">listf</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;# !!!!! Place a valid calib2D file from your Specslab Installation here!&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;No valid calib2 file found. Please provide the path to the calib2d file&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">corresponding to your detector in the config, or copy into the config&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">folder of the package! Without valid calib2d file, calibration parameters&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">have to be provided explicitly.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">or</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">line_list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;[]</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">listf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">get_pair_from_list</span><span class="p">(</span><span class="n">line_list</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">line_str</span> <span class="o">=</span> <span class="n">line_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;defaults&quot;</span> <span class="ow">in</span> <span class="n">line_str</span><span class="p">:</span>
+                <span class="n">listf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line_str</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="s2">&quot;@&quot;</span> <span class="ow">in</span> <span class="n">line_str</span><span class="p">:</span>
+                <span class="n">listf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">line_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">listf</span></div>
+
+
+
+<div class="viewcode-block" id="parse_calib2d_to_dict">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.parse_calib2d_to_dict">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_calib2d_to_dict</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parses the given calib2d file into a nested dictionary structure</span>
+<span class="sd">    to provide parameters for image conversion.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        filepath (str): Path to file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Populated nested dictionary parsed from the provided calib2d file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">listf</span> <span class="o">=</span> <span class="n">read_calib2d</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+    <span class="n">calib_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">retardation_ratio</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">listf</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># Initialize mode dict</span>
+            <span class="n">mode</span> <span class="o">=</span> <span class="n">elem</span>
+            <span class="n">calib_dict</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rr&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+            <span class="n">retardation_ratio</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>  <span class="c1"># Initialize rr nested dict</span>
+            <span class="n">retardation_ratio</span> <span class="o">=</span> <span class="n">elem</span>
+            <span class="n">calib_dict</span><span class="p">[</span><span class="n">mode</span><span class="p">][</span><span class="s2">&quot;rr&quot;</span><span class="p">][</span><span class="n">retardation_ratio</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># populate the dict</span>
+            <span class="k">if</span> <span class="n">retardation_ratio</span><span class="p">:</span>
+                <span class="n">calib_dict</span><span class="p">[</span><span class="n">mode</span><span class="p">][</span><span class="s2">&quot;rr&quot;</span><span class="p">][</span><span class="n">retardation_ratio</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">mode</span><span class="p">:</span>
+                <span class="n">calib_dict</span><span class="p">[</span><span class="n">mode</span><span class="p">][</span><span class="s2">&quot;default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">calib_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+
+        <span class="c1"># add the supported lens modes</span>
+        <span class="p">(</span>
+            <span class="n">calib_dict</span><span class="p">[</span><span class="s2">&quot;supported_angle_modes&quot;</span><span class="p">],</span>
+            <span class="n">calib_dict</span><span class="p">[</span><span class="s2">&quot;supported_space_modes&quot;</span><span class="p">],</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">get_modes_from_calib_dict</span><span class="p">(</span><span class="n">calib_dict</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">calib_dict</span></div>
+
+
+
+<div class="viewcode-block" id="get_modes_from_calib_dict">
+<a class="viewcode-back" href="../../specsanalyzer/io.html#specsanalyzer.io.get_modes_from_calib_dict">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_modes_from_calib_dict</span><span class="p">(</span><span class="n">calib_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;create a list of supported modes, divided in spatial and angular modes</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        calib_dict (dict): the calibration dictionary, created with the io</span>
+<span class="sd">        parse_calib2d_to_dict</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple[list, list]: lists of supported angular and spatial lens modes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">key_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">calib_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">supported_angle_modes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">supported_space_modes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">key_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;AngleMode&quot;</span> <span class="ow">in</span> <span class="n">elem</span> <span class="ow">or</span> <span class="s2">&quot;AngularDispersion&quot;</span> <span class="ow">in</span> <span class="n">elem</span><span class="p">:</span>
+            <span class="c1"># this is an angular mode</span>
+            <span class="n">supported_angle_modes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;Area&quot;</span> <span class="ow">in</span> <span class="n">elem</span> <span class="ow">or</span> <span class="s2">&quot;Magnification&quot;</span> <span class="ow">in</span> <span class="n">elem</span><span class="p">:</span>
+            <span class="c1"># this is an spatial mode</span>
+            <span class="n">supported_space_modes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">supported_angle_modes</span><span class="p">,</span> <span class="n">supported_space_modes</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, OpenCOMPES team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
