@@ -1,0 +1,1568 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sed.loader.mpes.loader &#8212; SED 1.2.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=ca842793"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/sed/loader/mpes/loader';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/OpenCOMPES/docs/main/sed/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.2.1';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
+        </script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.2.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="SED 1.2.1 documentation - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="SED 1.2.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../workflows/index.html">
+    Workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../sed/api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../misc/contribution.html">
+    Development
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+          
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../workflows/index.html">
+    Workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../sed/api.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../misc/contribution.html">
+    Development
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenCOMPES/sed" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="../../../../genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+        <li class="toctree-l1">
+          <a class="reference internal" href="../../../../py-modindex.html">Python Module Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">sed.loader.mpes.loader</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for sed.loader.mpes.loader</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">module sed.loader.mpes, code for loading hdf5 files delayed into a dask dataframe.</span>
+<span class="sd">Mostly ported from https://github.com/mpes-kit/mpes.</span>
+<span class="sd">@author: L. Rettig</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.array</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">da</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ddf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">natsort</span><span class="w"> </span><span class="kn">import</span> <span class="n">natsorted</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_verbosity</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.base.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sed.loader.mpes.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetadataRetriever</span>
+
+
+<span class="c1"># Configure logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">setup_logging</span><span class="p">(</span><span class="s2">&quot;mpes_loader&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="load_h5_in_memory">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.load_h5_in_memory">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_h5_in_memory</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load an HDF5 file entirely into memory and open it with h5py.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        file_path (str): Path to the .h5 file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        h5py.File: An h5py File object representing the in-memory HDF5 file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read the entire file into memory</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">file_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># Load the content into a BytesIO object</span>
+    <span class="n">file_buffer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+
+    <span class="c1"># Open the HDF5 file using h5py from the in-memory buffer</span>
+    <span class="n">h5_file</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file_buffer</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">h5_file</span></div>
+
+
+
+<div class="viewcode-block" id="hdf5_to_dataframe">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.hdf5_to_dataframe">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hdf5_to_dataframe</span><span class="p">(</span>
+    <span class="n">files</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">time_stamp_alias</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;timeStamps&quot;</span><span class="p">,</span>
+    <span class="n">ms_markers_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+    <span class="n">first_event_time_stamp_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FirstEventTimeStamp&quot;</span><span class="p">,</span>
+    <span class="n">test_fid</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to read a selection of hdf5-files, and generate a delayed dask</span>
+<span class="sd">    dataframe from provided groups in the files. Optionally, aliases can be defined.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        files (List[str]): A list of the file paths to load.</span>
+<span class="sd">        channels (dict[str, str], optional): hdf5 channels names to load. Each entry in the dict</span>
+<span class="sd">            should contain the keys &quot;format&quot; and &quot;dataset_key&quot;. Defaults to load all groups</span>
+<span class="sd">            containing &quot;Stream&quot;, and to read the attribute &quot;Name&quot; from each group.</span>
+<span class="sd">        time_stamps (bool, optional): Option to calculate time stamps. Defaults to</span>
+<span class="sd">            False.</span>
+<span class="sd">        time_stamp_alias (str): Alias name for the timestamp column.</span>
+<span class="sd">            Defaults to &quot;timeStamps&quot;.</span>
+<span class="sd">        ms_markers_key (str): hdf5 path containing timestamp information.</span>
+<span class="sd">            Defaults to &quot;msMarkers&quot;.</span>
+<span class="sd">        first_event_time_stamp_key (str): h5 attribute containing the start</span>
+<span class="sd">            timestamp of a file. Defaults to &quot;FirstEventTimeStamp&quot;.</span>
+<span class="sd">        test_fid(int, optional): File ID to use for extracting shape information.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ddf.DataFrame: The delayed Dask DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read a file to parse the file structure</span>
+    <span class="n">test_proc</span> <span class="o">=</span> <span class="n">load_h5_in_memory</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">test_fid</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">get_datasets_and_aliases</span><span class="p">(</span>
+            <span class="n">h5file</span><span class="o">=</span><span class="n">test_proc</span><span class="p">,</span>
+            <span class="n">search_pattern</span><span class="o">=</span><span class="s2">&quot;Stream&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">electron_channels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">column_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">test_proc</span><span class="p">:</span>
+                <span class="n">electron_channels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+                <span class="n">column_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Entry </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> for channel </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> not found. &quot;</span>
+                    <span class="s2">&quot;Skipping the channel.&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;per_file&quot;</span><span class="p">:</span>
+            <span class="n">error_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid &#39;format&#39;:</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> for channel </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">electron_channels</span><span class="p">:</span>
+        <span class="n">error_msg</span> <span class="o">=</span> <span class="s2">&quot;No valid &#39;per_electron&#39; channels found.&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">time_stamps</span><span class="p">:</span>
+        <span class="n">column_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_stamp_alias</span><span class="p">)</span>
+
+    <span class="n">test_array</span> <span class="o">=</span> <span class="n">hdf5_to_array</span><span class="p">(</span>
+        <span class="n">h5filename</span><span class="o">=</span><span class="n">files</span><span class="p">[</span><span class="n">test_fid</span><span class="p">],</span>
+        <span class="n">channels</span><span class="o">=</span><span class="n">electron_channels</span><span class="p">,</span>
+        <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+        <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+        <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Delay-read all files</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">da</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span>
+                    <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">hdf5_to_array</span><span class="p">)(</span>
+                        <span class="n">h5filename</span><span class="o">=</span><span class="n">f</span><span class="p">,</span>
+                        <span class="n">channels</span><span class="o">=</span><span class="n">electron_channels</span><span class="p">,</span>
+                        <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+                        <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+                        <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">test_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">test_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Unable to open file </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="si">}</span><span class="s2">. Most likely the file is incomplete.&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">pass</span>
+
+    <span class="n">array_stack</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">from_dask_array</span><span class="p">(</span><span class="n">array_stack</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_file&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">test_proc</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">get_attribute</span><span class="p">(</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">])))</span>
+                    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="n">delayeds</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">add_value</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">partition</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">partitions</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+                <span class="p">]</span>
+                <span class="n">dataframe</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span><span class="n">delayeds</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Entry </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> for channel </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2"> not found. &quot;</span>
+                    <span class="s2">&quot;Skipping the channel.&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="n">test_proc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+
+<div class="viewcode-block" id="hdf5_to_timed_dataframe">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.hdf5_to_timed_dataframe">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hdf5_to_timed_dataframe</span><span class="p">(</span>
+    <span class="n">files</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">channels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">time_stamp_alias</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;timeStamps&quot;</span><span class="p">,</span>
+    <span class="n">ms_markers_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+    <span class="n">first_event_time_stamp_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FirstEventTimeStamp&quot;</span><span class="p">,</span>
+    <span class="n">test_fid</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to read a selection of hdf5-files, and generate a delayed dask</span>
+<span class="sd">    dataframe from provided groups in the files. Optionally, aliases can be defined.</span>
+<span class="sd">    Returns a dataframe for evenly spaced time intervals.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        files (List[str]): A list of the file paths to load.</span>
+<span class="sd">        channels (dict[str, str], optional): hdf5 channels names to load. Each entry in the dict</span>
+<span class="sd">            should contain the keys &quot;format&quot; and &quot;groupName&quot;. Defaults to load all groups</span>
+<span class="sd">            containing &quot;Stream&quot;, and to read the attribute &quot;Name&quot; from each group.</span>
+<span class="sd">        time_stamps (bool, optional): Option to calculate time stamps. Defaults to</span>
+<span class="sd">            False.</span>
+<span class="sd">        time_stamp_alias (str): Alias name for the timestamp column.</span>
+<span class="sd">            Defaults to &quot;timeStamps&quot;.</span>
+<span class="sd">        ms_markers_key (str): hdf5 dataset containing timestamp information.</span>
+<span class="sd">            Defaults to &quot;msMarkers&quot;.</span>
+<span class="sd">        first_event_time_stamp_key (str): h5 attribute containing the start</span>
+<span class="sd">            timestamp of a file. Defaults to &quot;FirstEventTimeStamp&quot;.</span>
+<span class="sd">        test_fid(int, optional): File ID to use for extracting shape information.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ddf.DataFrame: The delayed Dask DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read a file to parse the file structure</span>
+    <span class="n">test_proc</span> <span class="o">=</span> <span class="n">load_h5_in_memory</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">test_fid</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">channels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">get_datasets_and_aliases</span><span class="p">(</span>
+            <span class="n">h5file</span><span class="o">=</span><span class="n">test_proc</span><span class="p">,</span>
+            <span class="n">search_pattern</span><span class="o">=</span><span class="s2">&quot;Stream&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">electron_channels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">column_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">test_proc</span><span class="p">:</span>
+                <span class="n">electron_channels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
+                <span class="n">column_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;per_file&quot;</span><span class="p">:</span>
+            <span class="n">error_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid &#39;format&#39;:</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> for channel </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">electron_channels</span><span class="p">:</span>
+        <span class="n">error_msg</span> <span class="o">=</span> <span class="s2">&quot;No valid &#39;per_electron&#39; channels found.&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">time_stamps</span><span class="p">:</span>
+        <span class="n">column_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_stamp_alias</span><span class="p">)</span>
+
+    <span class="n">test_array</span> <span class="o">=</span> <span class="n">hdf5_to_timed_array</span><span class="p">(</span>
+        <span class="n">h5filename</span><span class="o">=</span><span class="n">files</span><span class="p">[</span><span class="n">test_fid</span><span class="p">],</span>
+        <span class="n">channels</span><span class="o">=</span><span class="n">electron_channels</span><span class="p">,</span>
+        <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+        <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+        <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Delay-read all files</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">da</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span>
+                    <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">hdf5_to_timed_array</span><span class="p">)(</span>
+                        <span class="n">h5filename</span><span class="o">=</span><span class="n">f</span><span class="p">,</span>
+                        <span class="n">channels</span><span class="o">=</span><span class="n">electron_channels</span><span class="p">,</span>
+                        <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+                        <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+                        <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">test_array</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">test_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+    <span class="n">array_stack</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">arrays</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">from_dask_array</span><span class="p">(</span><span class="n">array_stack</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_file&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">test_proc</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">get_attribute</span><span class="p">(</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">])))</span>
+                    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="n">delayeds</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">add_value</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">partition</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">partitions</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+                <span class="p">]</span>
+                <span class="n">dataframe</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">from_delayed</span><span class="p">(</span><span class="n">delayeds</span><span class="p">)</span>
+
+    <span class="n">test_proc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+
+<span class="nd">@dask</span><span class="o">.</span><span class="n">delayed</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_value</span><span class="p">(</span><span class="n">partition</span><span class="p">:</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dask delayed helper function to add a value to each dataframe partition</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        partition (ddf.DataFrame): Dask dataframe partition</span>
+<span class="sd">        name (str): Name of the column to add</span>
+<span class="sd">        value (float): value to add to this partition</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ddf.DataFrame: Dataframe partition with added column</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">partition</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">partition</span>
+
+
+<div class="viewcode-block" id="get_datasets_and_aliases">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_datasets_and_aliases">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_datasets_and_aliases</span><span class="p">(</span>
+    <span class="n">h5file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
+    <span class="n">search_pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">alias_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read datasets and aliases from a provided hdf5 file handle</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5file (h5py.File):</span>
+<span class="sd">            The hdf5 file handle</span>
+<span class="sd">        search_pattern (str, optional):</span>
+<span class="sd">            Search pattern to select groups. Defaults to include all groups.</span>
+<span class="sd">        alias_key (str, optional):</span>
+<span class="sd">            Attribute key where aliases are stored. Defaults to &quot;Name&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, Any]:</span>
+<span class="sd">        A dict of aliases and groupnames parsed from the file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># get group names:</span>
+    <span class="n">dataset_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">h5file</span><span class="p">)</span>
+
+    <span class="c1"># Filter the group names</span>
+    <span class="k">if</span> <span class="n">search_pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">filtered_dataset_names</span> <span class="o">=</span> <span class="n">dataset_names</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filtered_dataset_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dataset_names</span> <span class="k">if</span> <span class="n">search_pattern</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+
+    <span class="n">alias_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">filtered_dataset_names</span><span class="p">:</span>
+        <span class="n">alias_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_attribute</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">alias_key</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">alias_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span> <span class="p">{</span><span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">,</span> <span class="s2">&quot;dataset_key&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">filtered_dataset_names</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="hdf5_to_array">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.hdf5_to_array">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hdf5_to_array</span><span class="p">(</span>
+    <span class="n">h5filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">channels</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">time_stamps</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ms_markers_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+    <span class="n">first_event_time_stamp_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FirstEventTimeStamp&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads the content of the given groups in an hdf5 file, and returns a</span>
+<span class="sd">    2-dimensional array with the corresponding values.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5filename (str): hdf5 file name to read from</span>
+<span class="sd">        channels (Sequence[dict[str, any]]):</span>
+<span class="sd">            channel dicts containing group names and types to read.</span>
+<span class="sd">        time_stamps (bool, optional):</span>
+<span class="sd">            Option to calculate time stamps. Defaults to False.</span>
+<span class="sd">        ms_markers_group (str): hdf5 dataset containing timestamp information.</span>
+<span class="sd">            Defaults to &quot;msMarkers&quot;.</span>
+<span class="sd">        first_event_time_stamp_key (str): h5 attribute containing the start</span>
+<span class="sd">            timestamp of a file. Defaults to &quot;FirstEventTimeStamp&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: The 2-dimensional data array containing the values of the groups.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Delayed array for loading an HDF5 file of reasonable size (e.g. &lt; 1GB)</span>
+
+    <span class="n">h5file</span> <span class="o">=</span> <span class="n">load_h5_in_memory</span><span class="p">(</span><span class="n">h5filename</span><span class="p">)</span>
+    <span class="c1"># Read out groups:</span>
+    <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
+            <span class="n">g_dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Invalid &#39;format&#39;:</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> for channel </span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">g_dataset</span> <span class="o">=</span> <span class="n">g_dataset</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">g_dataset</span> <span class="o">=</span> <span class="n">g_dataset</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g_dataset</span><span class="p">)</span>
+
+    <span class="c1"># calculate time stamps</span>
+    <span class="k">if</span> <span class="n">time_stamps</span><span class="p">:</span>
+        <span class="c1"># create target array for time stamps</span>
+        <span class="n">time_stamp_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="c1"># the ms marker contains a list of events that occurred at full ms intervals.</span>
+        <span class="c1"># It&#39;s monotonically increasing, and can contain duplicates</span>
+        <span class="n">ms_marker</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_key</span><span class="p">])</span>
+
+        <span class="c1"># try to get start timestamp from &quot;FirstEventTimeStamp&quot; attribute</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">start_time_str</span> <span class="o">=</span> <span class="n">get_attribute</span><span class="p">(</span><span class="n">h5file</span><span class="p">,</span> <span class="n">first_event_time_stamp_key</span><span class="p">)</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                <span class="n">start_time_str</span><span class="p">,</span>
+                <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">%z&quot;</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="c1"># get the start time of the file from its modification date if the key</span>
+            <span class="c1"># does not exist (old files)</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">h5filename</span><span class="p">)</span>  <span class="c1"># convert to ms</span>
+            <span class="c1"># the modification time points to the time when the file was finished, so we</span>
+            <span class="c1"># need to correct for the time it took to write the file</span>
+            <span class="n">start_time</span> <span class="o">-=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+
+        <span class="c1"># fill in range before 1st marker</span>
+        <span class="n">time_stamp_data</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="n">ms_marker</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">start_time</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># linear interpolation between ms: Disabled, because it takes a lot of</span>
+            <span class="c1"># time, and external signals are anyway not better synchronized than 1 ms</span>
+            <span class="c1"># time_stamp_data[ms_marker[n] : ms_marker[n + 1]] = np.linspace(</span>
+            <span class="c1">#     start_time + n,</span>
+            <span class="c1">#     start_time + n + 1,</span>
+            <span class="c1">#     ms_marker[n + 1] - ms_marker[n],</span>
+            <span class="c1"># )</span>
+            <span class="n">time_stamp_data</span><span class="p">[</span><span class="n">ms_marker</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span> <span class="n">ms_marker</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">start_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+        <span class="c1"># fill any remaining points</span>
+        <span class="n">time_stamp_data</span><span class="p">[</span><span class="n">ms_marker</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_stamp_data</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">start_time</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+        <span class="p">)</span>
+
+        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_stamp_data</span><span class="p">)</span>
+
+    <span class="n">h5file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="hdf5_to_timed_array">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.hdf5_to_timed_array">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hdf5_to_timed_array</span><span class="p">(</span>
+    <span class="n">h5filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">channels</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">time_stamps</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ms_markers_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+    <span class="n">first_event_time_stamp_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FirstEventTimeStamp&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads the content of the given groups in an hdf5 file, and returns a</span>
+<span class="sd">    timed version of a 2-dimensional array with the corresponding values.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5filename (str): hdf5 file name to read from</span>
+<span class="sd">        channels (Sequence[dict[str, any]]):</span>
+<span class="sd">            channel dicts containing group names and types to read.</span>
+<span class="sd">        time_stamps (bool, optional):</span>
+<span class="sd">            Option to calculate time stamps. Defaults to False.</span>
+<span class="sd">        ms_markers_group (str): hdf5 dataset containing timestamp information.</span>
+<span class="sd">            Defaults to &quot;msMarkers&quot;.</span>
+<span class="sd">        first_event_time_stamp_key (str): h5 attribute containing the start</span>
+<span class="sd">            timestamp of a file. Defaults to &quot;FirstEventTimeStamp&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: the array of the values at evenly spaced timing obtained from</span>
+<span class="sd">        the ms_markers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Delayed array for loading an HDF5 file of reasonable size (e.g. &lt; 1GB)</span>
+
+    <span class="n">h5file</span> <span class="o">=</span> <span class="n">load_h5_in_memory</span><span class="p">(</span><span class="n">h5filename</span><span class="p">)</span>
+    <span class="c1"># Read out groups:</span>
+    <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ms_marker</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_key</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
+            <span class="n">g_dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dataset_key&quot;</span><span class="p">]])</span>
+            <span class="n">timed_dataset</span> <span class="o">=</span> <span class="n">g_dataset</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">ms_marker</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Invalid &#39;format&#39;:</span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> for channel </span><span class="si">{</span><span class="n">channel</span><span class="p">[</span><span class="s1">&#39;dataset_key&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;dtype&quot;</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">timed_dataset</span> <span class="o">=</span> <span class="n">timed_dataset</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">channel</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">timed_dataset</span> <span class="o">=</span> <span class="n">timed_dataset</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+
+        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">timed_dataset</span><span class="p">)</span>
+
+    <span class="c1"># calculate time stamps</span>
+    <span class="k">if</span> <span class="n">time_stamps</span><span class="p">:</span>
+        <span class="c1"># try to get start timestamp from &quot;FirstEventTimeStamp&quot; attribute</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">start_time_str</span> <span class="o">=</span> <span class="n">get_attribute</span><span class="p">(</span><span class="n">h5file</span><span class="p">,</span> <span class="n">first_event_time_stamp_key</span><span class="p">)</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                <span class="n">start_time_str</span><span class="p">,</span>
+                <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">%z&quot;</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="c1"># get the start time of the file from its modification date if the key</span>
+            <span class="c1"># does not exist (old files)</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">h5filename</span><span class="p">)</span>  <span class="c1"># convert to ms</span>
+            <span class="c1"># the modification time points to the time when the file was finished, so we</span>
+            <span class="c1"># need to correct for the time it took to write the file</span>
+            <span class="n">start_time</span> <span class="o">-=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+
+        <span class="n">time_stamp_data</span> <span class="o">=</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ms_marker</span><span class="p">))</span> <span class="o">/</span> <span class="mi">1000</span>
+
+        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_stamp_data</span><span class="p">)</span>
+
+    <span class="n">h5file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_attribute">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_attribute">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_attribute</span><span class="p">(</span><span class="n">h5group</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads, decodes and returns an attribute from an hdf5 group</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5group (h5py.Group):</span>
+<span class="sd">            The hdf5 group to read from</span>
+<span class="sd">        attribute (str):</span>
+<span class="sd">            The name of the attribute</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The parsed attribute data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">h5group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>  <span class="c1"># No need to decode</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">h5group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># No such attribute</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attribute &#39;</span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">&#39; not found!&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+    <span class="k">return</span> <span class="n">content</span></div>
+
+
+
+<div class="viewcode-block" id="get_count_rate">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_count_rate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_count_rate</span><span class="p">(</span>
+    <span class="n">h5file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
+    <span class="n">ms_markers_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create count rate in the file from the msMarker column.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5file (h5py.File): The h5file from which to get the count rate.</span>
+<span class="sd">        ms_markers_key (str, optional): The hdf5 path where the millisecond markers</span>
+<span class="sd">            are stored. Defaults to &quot;msMarkers&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple[np.ndarray, np.ndarray]: The count rate in Hz and the seconds into the</span>
+<span class="sd">        scan.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ms_markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_key</span><span class="p">])</span>
+    <span class="n">secs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ms_markers</span><span class="p">))</span> <span class="o">/</span> <span class="mi">1000</span>
+    <span class="n">msmarker_spline</span> <span class="o">=</span> <span class="n">sint</span><span class="o">.</span><span class="n">InterpolatedUnivariateSpline</span><span class="p">(</span><span class="n">secs</span><span class="p">,</span> <span class="n">ms_markers</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rate_spline</span> <span class="o">=</span> <span class="n">msmarker_spline</span><span class="o">.</span><span class="n">derivative</span><span class="p">()</span>
+    <span class="n">count_rate</span> <span class="o">=</span> <span class="n">rate_spline</span><span class="p">(</span><span class="n">secs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">count_rate</span><span class="p">,</span> <span class="n">secs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_elapsed_time">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.get_elapsed_time">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_elapsed_time</span><span class="p">(</span>
+    <span class="n">h5file</span><span class="p">:</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">,</span>
+    <span class="n">ms_markers_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the elapsed time in the file from the msMarkers wave</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        h5file (h5py.File): The h5file from which to get the count rate.</span>
+<span class="sd">        ms_markers_key (str, optional): The hdf5 path where the millisecond markers</span>
+<span class="sd">            are stored. Defaults to &quot;msMarkers&quot;.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        float: The acquisition time of the file in seconds.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">secs</span> <span class="o">=</span> <span class="n">h5file</span><span class="p">[</span><span class="n">ms_markers_key</span><span class="p">]</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span>
+
+    <span class="k">return</span> <span class="n">secs</span></div>
+
+
+
+<div class="viewcode-block" id="MpesLoader">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MpesLoader</span><span class="p">(</span><span class="n">BaseLoader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mpes implementation of the Loader. Reads from h5 files or folders of the</span>
+<span class="sd">    SPECS Metis 1000 (FHI Berlin)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config (dict, optional): Config dictionary. Defaults to None.</span>
+<span class="sd">        verbose (bool, optional): Option to print out diagnostic information.</span>
+<span class="sd">            Defaults to True.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;mpes&quot;</span>
+
+    <span class="n">supported_file_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;h5&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="n">set_verbosity</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_timestamps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;read_timestamps&quot;</span><span class="p">,</span>
+            <span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Accessor to the verbosity flag.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: Verbosity flag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
+
+    <span class="nd">@verbose</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter for the verbosity.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            verbose (bool): Option to turn on verbose output. Sets loglevel to INFO.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="n">set_verbosity</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MpesLoader.read_dataframe">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.read_dataframe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_dataframe</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">runs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ftype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">collect_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">time_stamps</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ddf</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read stored hdf5 files from a list or from folder and returns a dask</span>
+<span class="sd">        dataframe and corresponding metadata.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            files (str | Sequence[str], optional): File path(s) to process.</span>
+<span class="sd">                Defaults to None.</span>
+<span class="sd">            folders (str | Sequence[str], optional): Path to folder(s) where files</span>
+<span class="sd">                are stored. Path has priority such that if it&#39;s specified, the specified</span>
+<span class="sd">                files will be ignored. Defaults to None.</span>
+<span class="sd">            runs (str | Sequence[str], optional): Run identifier(s). Corresponding</span>
+<span class="sd">                files will be located in the location provided by ``folders``. Takes</span>
+<span class="sd">                precedence over ``files`` and ``folders``. Defaults to None.</span>
+<span class="sd">            ftype (str, optional): File extension to use. If a folder path is given,</span>
+<span class="sd">                all files with the specified extension are read into the dataframe</span>
+<span class="sd">                in the reading order. Defaults to &quot;h5&quot;.</span>
+<span class="sd">            metadata (dict, optional): Manual meta data dictionary. Auto-generated</span>
+<span class="sd">                meta data are added to it. Defaults to None.</span>
+<span class="sd">            collect_metadata (bool): Option to collect metadata from files. Requires</span>
+<span class="sd">                a valid config dict. Defaults to False.</span>
+<span class="sd">            time_stamps (bool, optional): Option to create a time_stamp column in</span>
+<span class="sd">                the dataframe from ms-Markers in the files. Defaults to False.</span>
+<span class="sd">            **kwds: Keyword parameters.</span>
+
+<span class="sd">                - **channels** : Dict of channel informations.</span>
+<span class="sd">                - **time_stamp_alias**: Alias for the timestamp column</span>
+<span class="sd">                - **ms_markers_key**: HDF5 path of the millisecond marker column.</span>
+<span class="sd">                - **first_event_time_stamp_key**: Attribute name containing the start</span>
+<span class="sd">                  timestamp of the file.</span>
+
+<span class="sd">                Additional keywords are passed to ``hdf5_to_dataframe``.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: raised if neither files or folder provided.</span>
+<span class="sd">            FileNotFoundError: Raised if a file or folder is not found.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple[ddf.DataFrame, ddf.DataFrame, dict]: Dask dataframe, timed Dask</span>
+<span class="sd">            dataframe and metadata read from specified files.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># if runs is provided, try to locate the respective files relative to the provided folder.</span>
+        <span class="k">if</span> <span class="n">runs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">runs</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
+                <span class="n">runs</span> <span class="o">=</span> <span class="p">[</span><span class="n">runs</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">runs</span><span class="p">:</span>
+                <span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_files_from_run_id</span><span class="p">(</span><span class="n">run_id</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">folders</span><span class="o">=</span><span class="n">folders</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">ftype</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">runs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">runs</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span>
+                <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span>
+                <span class="n">ftype</span><span class="o">=</span><span class="n">ftype</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span>
+                <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span>
+                <span class="n">folders</span><span class="o">=</span><span class="n">folders</span><span class="p">,</span>
+                <span class="n">runs</span><span class="o">=</span><span class="n">runs</span><span class="p">,</span>
+                <span class="n">ftype</span><span class="o">=</span><span class="n">ftype</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">token</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;channels&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;channels&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">time_stamp_alias</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;time_stamp_alias&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;time_stamp_alias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timeStamps&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">ms_markers_key</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;ms_markers_key&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;ms_markers_key&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">first_event_time_stamp_key</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;first_event_time_stamp_key&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;first_event_time_stamp_key&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FirstEventTimeStamp&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">hdf5_to_dataframe</span><span class="p">(</span>
+            <span class="n">files</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">,</span>
+            <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+            <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+            <span class="n">time_stamp_alias</span><span class="o">=</span><span class="n">time_stamp_alias</span><span class="p">,</span>
+            <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+            <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">timed_df</span> <span class="o">=</span> <span class="n">hdf5_to_timed_dataframe</span><span class="p">(</span>
+            <span class="n">files</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">,</span>
+            <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+            <span class="n">time_stamps</span><span class="o">=</span><span class="n">time_stamps</span><span class="p">,</span>
+            <span class="n">time_stamp_alias</span><span class="o">=</span><span class="n">time_stamp_alias</span><span class="p">,</span>
+            <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+            <span class="n">first_event_time_stamp_key</span><span class="o">=</span><span class="n">first_event_time_stamp_key</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">collect_metadata</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gather_metadata</span><span class="p">(</span>
+                <span class="n">files</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+                <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span>
+
+        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">timed_df</span><span class="p">,</span> <span class="n">metadata</span></div>
+
+
+<div class="viewcode-block" id="MpesLoader.get_files_from_run_id">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.get_files_from_run_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_files_from_run_id</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">folders</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;h5&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Locate the files for a given run identifier.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            run_id (str): The run identifier to locate.</span>
+<span class="sd">            folders (str | Sequence[str], optional): The directory(ies) where the raw</span>
+<span class="sd">                data is located. Defaults to config[&quot;core&quot;][&quot;base_folder&quot;]</span>
+<span class="sd">            extension (str, optional): The file extension. Defaults to &quot;h5&quot;.</span>
+<span class="sd">            kwds: Keyword arguments, not used in this loader.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            list[str]: List of file path strings to the location of run data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;get_files_from_run_id() got unexpected keyword arguments </span><span class="si">{</span><span class="n">kwds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">folders</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">folders</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;core&quot;</span><span class="p">][</span><span class="s2">&quot;paths&quot;</span><span class="p">][</span><span class="s2">&quot;raw&quot;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">folders</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">folders</span> <span class="o">=</span> <span class="p">[</span><span class="n">folders</span><span class="p">]</span>
+
+        <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
+            <span class="n">run_files</span> <span class="o">=</span> <span class="n">natsorted</span><span class="p">(</span>
+                <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
+                    <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;/**/Scan&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_*.&quot;</span> <span class="o">+</span> <span class="n">extension</span><span class="p">,</span>
+                    <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+            <span class="c1"># Compatibility for old scan format</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">run_files</span><span class="p">:</span>
+                <span class="n">run_files</span> <span class="o">=</span> <span class="n">natsorted</span><span class="p">(</span>
+                    <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
+                        <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;/**/Scan&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_*.&quot;</span> <span class="o">+</span> <span class="n">extension</span><span class="p">,</span>
+                        <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">run_files</span><span class="p">)</span>
+
+        <span class="c1"># Check if any files are found</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">files</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;No files found for run </span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2"> in directory </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">folders</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Return the list of found files</span>
+        <span class="k">return</span> <span class="n">files</span></div>
+
+
+<div class="viewcode-block" id="MpesLoader.get_start_and_end_time">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.get_start_and_end_time">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_start_and_end_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract the start and end time stamps from the loaded files</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple[float, float]: A tuple containing the start and end time stamps</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">h5filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;dataframe&quot;</span><span class="p">][</span><span class="s2">&quot;channels&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">channel</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;per_electron&quot;</span><span class="p">:</span>
+                <span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="n">channel</span><span class="p">]</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">channels</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No valid &#39;per_electron&#39; channels found.&quot;</span><span class="p">)</span>
+        <span class="n">timestamps</span> <span class="o">=</span> <span class="n">hdf5_to_array</span><span class="p">(</span>
+            <span class="n">h5filename</span><span class="o">=</span><span class="n">h5filename</span><span class="p">,</span>
+            <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+            <span class="n">time_stamps</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">ts_from</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">h5filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">timestamps</span> <span class="o">=</span> <span class="n">hdf5_to_array</span><span class="p">(</span>
+                <span class="n">h5filename</span><span class="o">=</span><span class="n">h5filename</span><span class="p">,</span>
+                <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+                <span class="n">time_stamps</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">h5filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">timestamps</span> <span class="o">=</span> <span class="n">hdf5_to_array</span><span class="p">(</span>
+                    <span class="n">h5filename</span><span class="o">=</span><span class="n">h5filename</span><span class="p">,</span>
+                    <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+                    <span class="n">time_stamps</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="n">ts_to</span> <span class="o">=</span> <span class="n">ts_from</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Could not read end time, using start time as end time!&quot;</span><span class="p">)</span>
+        <span class="n">ts_to</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">ts_from</span><span class="p">,</span> <span class="n">ts_to</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MpesLoader.gather_metadata">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.gather_metadata">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gather_metadata</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">files</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Collect meta data from files</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            files (Sequence[str]): List of files loaded</span>
+<span class="sd">            metadata (dict, optional): Manual meta data dictionary. Auto-generated</span>
+<span class="sd">                meta data are added to it. Defaults to None.</span>
+<span class="sd">            token (str, optional):: The elabFTW api token to use for fetching metadata</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: The completed metadata dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Gathering metadata from different locations&quot;</span><span class="p">)</span>
+        <span class="c1"># Read events in with ms time stamps</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Collecting time stamps...&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">ts_from</span><span class="p">,</span> <span class="n">ts_to</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_start_and_end_time</span><span class="p">()</span>
+
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;timing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;acquisition_start&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_from</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s2">&quot;acquisition_stop&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ts_to</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s2">&quot;acquisition_duration&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ts_to</span> <span class="o">-</span> <span class="n">ts_from</span><span class="p">),</span>
+            <span class="s2">&quot;collection_time&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">ts_to</span> <span class="o">-</span> <span class="n">ts_from</span><span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="c1"># import meta data from data file</span>
+        <span class="k">if</span> <span class="s2">&quot;file&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">:</span>  <span class="c1"># If already present, the value is assumed to be a dictionary</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Collecting file metadata...&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h5file</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">h5file</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;VSet&quot;</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span><span class="p">)</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;entry_identifier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="p">)</span>
+
+        <span class="n">metadata_retriever</span> <span class="o">=</span> <span class="n">MetadataRetriever</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">],</span> <span class="n">token</span><span class="p">)</span>
+
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_retriever</span><span class="o">.</span><span class="n">fetch_epics_metadata</span><span class="p">(</span>
+            <span class="n">ts_from</span><span class="o">=</span><span class="n">ts_from</span><span class="p">,</span>
+            <span class="n">ts_to</span><span class="o">=</span><span class="n">ts_to</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">runs</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata_retriever</span><span class="o">.</span><span class="n">fetch_elab_metadata</span><span class="p">(</span>
+                <span class="n">runs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">runs</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Fetching elabFTW metadata only supported for loading from &quot;runs&quot;&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">metadata</span></div>
+
+
+<div class="viewcode-block" id="MpesLoader.get_count_rate">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.get_count_rate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_count_rate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">fids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create count rate from the msMarker column for the files specified in</span>
+<span class="sd">        ``fids``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            fids (Sequence[int], optional): fids (Sequence[int]): the file ids to</span>
+<span class="sd">                include. Defaults to list of all file ids.</span>
+<span class="sd">            kwds: Keyword arguments:</span>
+
+<span class="sd">                - **ms_markers_key**: HDF5 path of the ms-markers</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple[np.ndarray, np.ndarray]: Arrays containing countrate and seconds</span>
+<span class="sd">            into the scan.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">fids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">))</span>
+
+        <span class="n">ms_markers_key</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;ms_markers_key&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;ms_markers_key&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;get_count_rate() got unexpected keyword arguments </span><span class="si">{</span><span class="n">kwds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="n">secs_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">count_rate_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">accumulated_time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">fid</span> <span class="ow">in</span> <span class="n">fids</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">count_rate_</span><span class="p">,</span> <span class="n">secs_</span> <span class="o">=</span> <span class="n">get_count_rate</span><span class="p">(</span>
+                    <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fid</span><span class="p">]),</span>
+                    <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">secs_list</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">accumulated_time</span> <span class="o">+</span> <span class="n">secs_</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">count_rate_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count_rate_</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                <span class="n">accumulated_time</span> <span class="o">+=</span> <span class="n">secs_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Unable to open file </span><span class="si">{</span><span class="n">fid</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="si">}</span><span class="s2">. &quot;</span>
+                        <span class="s2">&quot;Most likely the file is incomplete.&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="k">pass</span>
+
+        <span class="n">count_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">count_rate_list</span><span class="p">)</span>
+        <span class="n">secs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">secs_list</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">count_rate</span><span class="p">,</span> <span class="n">secs</span></div>
+
+
+<div class="viewcode-block" id="MpesLoader.get_elapsed_time">
+<a class="viewcode-back" href="../../../../sed/loader.html#sed.loader.mpes.loader.MpesLoader.get_elapsed_time">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_elapsed_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the elapsed time in the files specified in ``fids`` from</span>
+<span class="sd">        the msMarkers column.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            fids (Sequence[int], optional): fids (Sequence[int]): the file ids to</span>
+<span class="sd">                include. Defaults to list of all file ids.</span>
+<span class="sd">            kwds: Keyword arguments:</span>
+
+<span class="sd">                - **ms_markers_key**: HDF5 path of the millisecond marker column.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            float: The elapsed time in the files in seconds.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">fids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">))</span>
+
+        <span class="n">ms_markers_key</span> <span class="o">=</span> <span class="n">kwds</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;ms_markers_key&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dataframe&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;ms_markers_key&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;msMarkers&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;get_elapsed_time() got unexpected keyword arguments </span><span class="si">{</span><span class="n">kwds</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="n">secs</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">fid</span> <span class="ow">in</span> <span class="n">fids</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">secs</span> <span class="o">+=</span> <span class="n">get_elapsed_time</span><span class="p">(</span>
+                    <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">fid</span><span class="p">]),</span>
+                    <span class="n">ms_markers_key</span><span class="o">=</span><span class="n">ms_markers_key</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;Unable to synchronously open file&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Unable to open file </span><span class="si">{</span><span class="n">fid</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="si">}</span><span class="s2">. &quot;</span>
+                        <span class="s2">&quot;Most likely the file is incomplete.&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="n">secs</span></div>
+</div>
+
+
+
+<span class="n">LOADER</span> <span class="o">=</span> <span class="n">MpesLoader</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, OpenCOMPES team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
