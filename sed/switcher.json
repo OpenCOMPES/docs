@@ -1,13 +1,13 @@
 [
   {
     "name": "latest",
-    "version": "1.2.2.dev1+g5d79dd9d6",
-    "url": "https://opencompes.github.io/docs/sed/latest"
+    "version": "1.2.2",
+    "url": "https://opencompes.github.io/docs/sed/v1.2.2"
   },
   {
     "name": "stable",
-    "version": "1.2.1",
-    "url": "https://opencompes.github.io/docs/sed/v1.2.1",
+    "version": "1.2.2",
+    "url": "https://opencompes.github.io/docs/sed/v1.2.2",
     "preferred": "true"
   },
   {
@@ -54,5 +54,10 @@
     "name": "v1.2.1",
     "version": "1.2.1",
     "url": "https://opencompes.github.io/docs/sed/v1.2.1"
+  },
+  {
+    "name": "v1.2.2",
+    "version": "1.2.2",
+    "url": "https://opencompes.github.io/docs/sed/v1.2.2"
   }
 ]
