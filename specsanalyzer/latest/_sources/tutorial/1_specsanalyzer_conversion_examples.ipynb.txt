@@ -1,0 +1,330 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Example 1: SpecsAnalyzer conversion\n",
+    "This is an example showcasing the conversion of Phoibos analyzer data with SpecsAnalyzer\n",
+    "\n",
+    "The image is loaded from a text file, and the conversion into xarrays with calibrated dimensions is demonstrated for different modes of operation "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2\n",
+    "from specsanalyzer import SpecsAnalyzer\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "%matplotlib widget"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Image conversion\n",
+    "create specsanalyzer instance from config file"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "spa = SpecsAnalyzer(config=\"../tests/data/dataEPFL/config/config.yaml\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "convert single image"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lens_mode = \"WideAngleMode\"\n",
+    "kinetic_energy = 35.000000\n",
+    "pass_energy = 35.000000\n",
+    "work_function = 4.3\n",
+    "binning = 4\n",
+    "\n",
+    "raw_image_name = \"../tests/data/dataEPFL/R9132/Data9132_RAWDATA.tsv\"\n",
+    "with open(raw_image_name) as file:\n",
+    "    tsv_data = np.loadtxt(file, delimiter=\"\\t\")\n",
+    "\n",
+    "res_xarray = spa.convert_image(\n",
+    "    tsv_data,\n",
+    "    lens_mode,\n",
+    "    kinetic_energy,\n",
+    "    pass_energy,\n",
+    "    work_function,\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "res_xarray.dims"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "plt.figure()\n",
+    "res_xarray.plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Conversion parameters are stored in the attributes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "res_xarray.attrs[\"conversion_parameters\"]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Adjusting offsets and angle\n",
+    "image rotation angle and center offsets can be adjusted by keyword arguments, or from the config."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "res_xarray = spa.convert_image(\n",
+    "    tsv_data,\n",
+    "    lens_mode,\n",
+    "    kinetic_energy,\n",
+    "    pass_energy,\n",
+    "    work_function,\n",
+    "    rotation_angle=2,\n",
+    "    angle_offset_px=-3,\n",
+    ")\n",
+    "plt.figure()\n",
+    "res_xarray.plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Removal of mesh artefact\n",
+    "The mesh in front of the MCP introduces some visual artifacts. These can be mitigated by applying a Fourier filter approach, with Peaks in the Fourier plane to remove defined in the config file."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "spa = SpecsAnalyzer(config=\"../tests/data/dataEPFL/config/config_filterON.yaml\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "res_xarray = spa.convert_image(\n",
+    "    tsv_data,\n",
+    "    lens_mode,\n",
+    "    kinetic_energy,\n",
+    "    pass_energy,\n",
+    "    work_function,\n",
+    ")\n",
+    "plt.figure()\n",
+    "res_xarray.plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Alternatively, one can use the interactive fft tool to optimize the fft peak positions of the grid."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "spa.fft_tool(tsv_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The peak parameters are stored in the config dict which can be passed as kwds to the convert_image function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fft_filter_peaks = spa.config['fft_filter_peaks']\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "res_xarray = spa.convert_image(\n",
+    "    tsv_data,\n",
+    "    lens_mode,\n",
+    "    kinetic_energy,\n",
+    "    pass_energy,\n",
+    "    work_function,\n",
+    "    apply_fft_filter=True,\n",
+    "    fft_filter_peaks=fft_filter_peaks\n",
+    ")\n",
+    "plt.figure()\n",
+    "res_xarray.plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Conversion into spatially resolved modes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "lens_mode = \"HighMagnification2\"\n",
+    "res_xarray = spa.convert_image(\n",
+    "    tsv_data,\n",
+    "    lens_mode,\n",
+    "    kinetic_energy,\n",
+    "    pass_energy,\n",
+    "    work_function,\n",
+    ")\n",
+    "plt.figure()\n",
+    "res_xarray.plot()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Conversion using conversion_parameters dict\n",
+    "If no valid calib2d file is available, conversion can also be performed by passing the interpolated conversion parameters, as e.g. stored in SPECS .sp2 files:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "spa = SpecsAnalyzer() # Using default config w/o calib2d file\n",
+    "\n",
+    "conversion_parameters = {\n",
+    "    'apply_fft_filter': False,\n",
+    "    'binning': 4,\n",
+    "    'rotation_angle': 0,\n",
+    "    'lens_mode': 'WideAngleMode',\n",
+    "    'kinetic_energy': 35.0,\n",
+    "    'pass_energy': 35.0,\n",
+    "    'work_function': 4.3,\n",
+    "    'a_inner': 15.0,\n",
+    "    'da_matrix': np.array(\n",
+    "        [[ 7.19828571e-01,  7.53542857e-01,  7.59685714e-01],\n",
+    "        [-1.36678571e-03,  5.85771429e-02,  1.34014286e-01],\n",
+    "        [-1.37997143e-02, -5.04428571e-02, -9.16571429e-02],\n",
+    "        [-4.20521429e-04,  9.74571429e-03,  1.95942857e-02]]),\n",
+    "    'retardation_ratio': 0.8771428571428571,\n",
+    "    'source': 'interpolated as 0.2857142857142865*WideAngleMode@0.82 + 0.7142857142857135*WideAngleMode@0.9',\n",
+    "    'dims': ['Angle', 'Ekin'],\n",
+    "    'e_shift': np.array([-0.05,  0.  ,  0.05]),\n",
+    "    'de1': [0.0033],\n",
+    "    'e_range': [-0.066, 0.066],\n",
+    "    'a_range': [-15.0, 15.0],\n",
+    "    'pixel_size': 0.0258,\n",
+    "    'magnification': 4.54,\n",
+    "    'angle_offset_px': -2,\n",
+    "    'energy_offset_px': 0\n",
+    "}\n",
+    "\n",
+    "res_xarray = spa.convert_image(\n",
+    "    tsv_data,\n",
+    "    lens_mode,\n",
+    "    kinetic_energy,\n",
+    "    pass_energy,\n",
+    "    work_function,\n",
+    "    conversion_parameters=conversion_parameters,\n",
+    ")\n",
+    "plt.figure()\n",
+    "res_xarray.plot()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.12"
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "01f3a50f1cec8b32686da9a100309d20236977f5c6d2fb4bd4818f1295405c21"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
